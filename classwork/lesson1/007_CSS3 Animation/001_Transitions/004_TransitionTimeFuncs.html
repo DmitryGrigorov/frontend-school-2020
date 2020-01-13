@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>timing-functions</title>
+    <style type="text/css">
+        div {
+            margin: 3px;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px #000 solid;
+            width: 230px;
+            transition: width 4s;
+        }
+
+            div:hover {
+                width: 600px;
+            }
+
+        #el1 {
+            /* 
+                transition-timing-function позволяет определить скорость изменения на протяжении анимации 
+                linear - линейные изменения без ускорения и замедления.
+            */
+            transition-timing-function: linear;
+        }
+
+        #el2 {
+            /* ease - быстрое начало и замедление в конце */
+            transition-timing-function: ease;
+        }
+
+        #el3 {
+            /* ease-in -  ускорение в начале но без замедления в конце */
+            transition-timing-function: ease-in;
+        }
+
+        #el4 {
+            /* ease-out - тоже самое что и ease но с более медленной анимацией в начале */
+            transition-timing-function: ease-out;
+        }
+
+        #el5 {
+            /* ускорение в начале и замедление в конце */
+            transition-timing-function: ease-in-out;
+        }
+
+        #el6 {
+            transition-timing-function: cubic-bezier(0.7, 0.1, 0.8, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <a href="http://cubic-bezier.com/#.17,.67,.83,.67">cubic-bezier generator</a><br />
+    <img src="easing_functions.png" />
+    <div id="el1">linear</div>
+    <div id="el2">ease</div>
+    <div id="el3">ease-in</div>
+    <div id="el4">ease-out</div>
+    <div id="el5">ease-in-out</div>
+    <div id="el6">cubic-bezier(0.7, 0.1, 0.8, 0.2)</div>
+    <a href="http://www.w3.org/TR/css3-transitions/#transition-timing-function_tag">W3C transition-time-function</a>
+</body>
+</html>
+

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Создание превью</title>
+</head>
+<body>
+    <button title="Создать превью" onclick="generatePreview();">Создать превью</button>
+    
+    <br />
+
+    <video id="origVideo" width="640" height="360" style="border: 1px solid grey">
+        <source src="video/vsvideo.mp4" />
+        <source src="video/vsvideo.ogg" />
+        <source src="video/vsvideo.webm" />
+    </video>
+    
+    <br />
+
+    <canvas id="previewMed" style="border: 1px solid grey"></canvas>
+    <canvas id="previewSm" style="border: 1px solid grey"></canvas>
+
+    <script>
+        function generatePreview() {
+            var video = document.getElementById('origVideo');
+
+            // получение контекста для работы с первым canvas
+            var canvas1 = document.getElementById('previewMed');
+            var context1 = canvas1.getContext('2d');
+
+            // получение контекста для работы со вторым canvas
+            var canvas2 = document.getElementById('previewSm');
+            var context2 = canvas2.getContext('2d');
+
+            // задаем размеры для обеих canvas
+            canvas1.width = 320;
+            canvas1.height = 180;
+            canvas2.width = 160;
+            canvas2.height = 90;
+
+            // добавляем обработчик на событие начала воспроизведения видео
+            video.addEventListener('play', function () {
+                drawVideo(this, context1, context2);
+            }, false);
+
+            // заускаем видео
+            video.play();
+        }
+
+        function drawVideo(video, canvas1, canvas2) {
+
+            // если видео на паузе или завершено - не выполняем данную функцию
+            if (video.paused || video.ended) {
+                return false;
+            }
+
+            // рисуем на пером canvas видео размером 320 * 180
+            canvas1.drawImage(video, 0, 0, 320, 180);
+
+            // рисуем на втором canvas видео размером 160 * 90
+            canvas2.drawImage(video, 0, 0, 160, 90);
+
+            // планируем запуск функции drawVideo через 25 миллисекунд передавая текущие значения параметров функции
+            setTimeout(drawVideo, 25, video, canvas1, canvas2);
+        }
+    </script>
+</body>
+</htm>

@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>border-radius</title>
+    <style>
+        #id1, #id2, #id3, #id4 {
+            float: left;
+            border: 2px #000000 solid;
+            padding: 30px;
+            width: 300px;
+            height: 100px;
+            margin: 20px;
+            background-color: #41dade;
+            color: #FFF;
+            font-weight: bold;
+        }
+
+        #id1 {
+            /* border-radius с двумя значениями через слэш позволяет создать эллиптические углы*/
+            border-radius: 10px/20px;
+        }
+
+        #id2 {
+            /* первое значение скруглённые верхнего левого угла и нижнего правого, второе значение - верхний правый и нижний левый угол*/
+            border-radius: 10px 30px;
+        }
+
+        #id3 {
+            /* первое значение - верхний левый угол, второе значение - правый верхний и нижний левый, третье значение - правый нижний угол*/
+            border-radius: 10px 20px 30px;
+        }
+
+        #id4 {
+            /* значения задаются по часовой стрелке начиная с левого верхнего угла*/
+            border-radius: 10px 20px 30px 40px;
+        }
+    </style>
+</head>
+<body>
+    
+    <p id='id1'>
+        <span>border-radius:5px</span>
+    </p>
+
+    <p id='id2'>
+        <span>border-radius:10px</span>
+    </p>
+
+    <p id='id3'>
+        <span>border-radius:20px</span>
+    </p>
+
+    <p id='id4'>
+        <span>border-radius:80px</span>
+    </p>
+
+    <br />
+
+    <a href="http://htmlbook.ru/css/border-radius">border-radius</a>
+</body>
+</html>
+

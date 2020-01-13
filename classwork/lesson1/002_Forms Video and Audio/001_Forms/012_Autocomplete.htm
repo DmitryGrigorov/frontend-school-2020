@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Атрибут autocomplete</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Авторизация </legend>
+            <p>
+                <label>
+                    Имя пользователя
+                    <input type="text" name="username" autocomplete="off" /></label>
+            </p>
+            <p>
+                <label>
+                    Пароль
+                    <!-- autocomplete="off" - атрибут используется для того, чтобы браузер не сохранял данные введенные в поле ввода, для обеспечения безопасности для критических данных.  -->
+                    <input type="password" name="pwd" autocomplete="off" /></label>
+            </p>
+        </fieldset>
+        <p>
+            <input type="submit" value="Отправить" />
+        </p>
+    </form>
+    <a href="http://www.miketaylr.com/code/input-type-attr.html">Проверка работа атрибутов формы</a>
+    <p>Перейдите по ссылки, после чего нажмите на кнопку "Back". Обратите внимание что браузер не запомнил значение в поле ввода пароля</p>
+</body>
+</html>

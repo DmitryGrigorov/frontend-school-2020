@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Substring selectors</title>
+    <style>
+        /* атрибут href начинаеться со значения http:// */
+        a[href^="http://"] {
+            background: url('external.png') 100% 50% no-repeat;
+            padding-right: 15px;
+        }
+
+        /* атрибут href заканчивается значением pdf */
+        a[href$=".pdf"] {
+            background: url('pdf.png') 100% 50% no-repeat;
+            padding-right: 20px;
+        }
+
+        /* атрибут href содержит значение twitter */
+        a[href*="twitter"] {
+            background: url('twitter.png') 100% 50% no-repeat;
+            padding-right: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="http://google.com">Search</a>
+    <br />
+    <a href="http://twitter.com/profile">Some Twitter User</a>
+    <br />
+    <a href="/resources/test.pdf">Manual</a>
+    <br />
+</body>
+</html>

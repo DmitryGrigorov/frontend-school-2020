@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>background-origin</title>
+    <style>
+        #id1, #id2, #id3 {
+            padding: 40px;
+            border: 40px #b5e1ae solid;
+            height: 150px;
+            width: 200px;
+            margin: 10px;
+            background-repeat: no-repeat;
+            font-weight: bold;
+        }
+
+        #id1 {
+            background-image: url("bg.jpg");
+
+            /* border-box - фон позиционируется относительно границы, при этом рамка элемента может перекрывать фон */
+            -moz-background-origin: border-box;
+            -webkit-background-origin: border-box;
+            background-origin: border-box;
+        }
+
+        #id2 {
+            background-image: url("bg.jpg");
+
+            /* padding-box - фон позиционируется относительно края элемента с учетом толщины border*/
+            -moz-background-origin: padding-box;
+            -webkit-background-origin: padding-box;
+            background-origin: padding-box;
+        }
+
+        #id3 {
+            background-image: url("bg.jpg");
+
+            /* content-box - фон позиционируется относительно содержимого элемента*/
+            -moz-background-origin: content-box;
+            -webkit-background-origin: content-box;
+            background-origin: content-box;
+        }
+    </style>
+</head>
+<body>
+    <div id="id1">border-box</div>
+    <div id="id2">padding-box</div>
+    <div id="id3">content-box</div>
+</body>
+</html>
+

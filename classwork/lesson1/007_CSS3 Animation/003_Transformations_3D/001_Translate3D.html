@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Translate 3D</title>
+
+    <style>
+        td {
+            padding: 20px 50px 20px 50px;
+            border:1px solid gray;
+        }
+
+
+        #img1 {
+            transform: translateX(30px);
+        }
+
+        #img2 {
+            transform: translateY(30px);
+        }
+
+        #img3 {
+            /* perspective(800px) - определяет расстояние между зрителем и поверхностью на которой происходит трансформация */
+            transform: perspective(800px) translateZ(80px);
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>translateX(30)</td>
+            <td>translateY(30)</td>
+            <td>translateZ(80)</td>
+        </tr>
+        <tr>
+            <td>
+                <img id="img1" src="front.jpg" alt="King Of Hearts" />
+            </td>
+            <td>
+                <img id="img2" src="front.jpg" alt="King Of Hearts" />
+            </td>
+            <td>
+                <img id="img3" src="front.jpg" alt="King Of Hearts" />
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+

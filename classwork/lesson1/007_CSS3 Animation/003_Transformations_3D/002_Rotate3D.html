@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Rotate 3D</title>
+
+    <style>
+        td {
+            padding: 20px 50px 20px 50px;
+        }
+
+        #img1 {
+            transform: perspective(800px) rotateX(45deg);
+        }
+
+        #img2 {
+            transform: perspective(800px) rotateY(45deg);
+        }
+
+        #img3 {
+            /* perspective(800px) - определяет расстояние между зрителем и поверхностью на которой происходит трансформация */
+            transform: perspective(800px) rotateZ(45deg);
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>rotateX(45deg)</td>
+            <td>rotateY(45deg)</td>
+            <td>rotateZ(45deg)</td>
+        </tr>
+        <tr>
+            <td>
+                <img id="img1" src="front.jpg" alt="King Of Hearts" />
+            </td>
+            <td>
+                <img id="img2" src="front.jpg" alt="King Of Hearts" />
+            </td>
+            <td>
+                <img id="img3" src="front.jpg" alt="King Of Hearts" />
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+

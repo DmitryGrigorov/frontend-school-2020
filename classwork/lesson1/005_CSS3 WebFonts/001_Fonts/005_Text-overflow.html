@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>text-overflow</title>
+    <style type='text/css'>
+        #id1 {
+            width: 450px;
+            border: 1px #000 solid;
+
+            -ms-text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis; /* Текст обрезается и к концу строки добавляется многоточие. */
+
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        #id2 {
+            width: 450px;
+            border: 1px #000 solid;
+
+            -ms-text-overflow: clip;
+            -o-text-overflow: clip;
+            text-overflow: clip; /* Текст обрезается по размеру области. */
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <p id="id1"><b>text-overflow:ellipsis</b> - Текст выходящий за пределы родительского элемента</p>
+    <p id="id2"><b>text-overflow:clip</b> - Текст выходящий за пределы родительского элемента</p>
+</body>
+</html>

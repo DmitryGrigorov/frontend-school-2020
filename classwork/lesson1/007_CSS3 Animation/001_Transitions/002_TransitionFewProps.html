@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>transition несколько свойств</title>
+    <style>
+        #id1 {
+            border: 1px #000 solid;
+            background-color: #E869AA;
+            color: #000;
+            width: 300px;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 1.5em;
+            transition: color 4s, width 4s, background-color 4s;
+        }
+
+        #id1:hover {
+            color: #FFFFFF;
+            width: 400px;
+            background-color: #880045;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="id1">Наведите курсор мыши.</div>
+</body>
+</html>

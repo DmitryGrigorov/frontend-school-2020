@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>hsla</title>
+    <style>
+
+        body {
+            background-image: url(bg.jpg);
+            background-repeat: no-repeat;
+
+            -moz-background-size: 500px 370px;
+            -o-background-size: 500px 370px;
+            -webkit-background-size: 500px 370px;
+            background-size: 500px 370px;
+        }
+
+        div {
+            width: 200px;
+            height: 120px;
+            margin: 10px;
+            float: left;
+            padding: 10px;
+            font-size: 1.5em;
+            background-color: black;
+            color: orange;
+            z-index: 100;
+        }
+
+        #id1 {
+
+            /* Использование цветовой модели SHL с alpha каналом*/
+            background-color: hsla(0, 100%,0%, 0.1);
+        }
+
+        #id2 {
+            opacity: 0.1;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="id1">Прозрачность задана с помощью SHLA.</div>
+    <div id="id2">Прозрачность задана с помощью opacity.</div>
+</body>
+</html>
+

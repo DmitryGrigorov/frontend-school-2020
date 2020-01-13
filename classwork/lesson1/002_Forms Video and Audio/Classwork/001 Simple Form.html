@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Запись на прием</title>
+</head>
+<body>
+    
+    <!-- 
+        Требования к форме:
+        * Все поля обязательны для заполнение
+        * Переделайте данную форму с использованием элементов и атрибуттов HTML5
+     -->
+
+    <h1>Запись на прием</h1>
+    <form>
+        <fieldset>
+            <legend>Личная информация </legend>
+            <p>
+                <label>
+                    Имя
+                    <input type="text" name="name" /></label>
+            </p>
+            <p>
+                <label>
+                    Телефон
+                    <input type="text" name="phone" /></label>
+            </p>
+            <p>
+                <label>
+                    Адрес электронной почты
+            <input type="text" name="email" /></label>
+            </p>
+            <p>
+                <label>
+                    Дата рождения
+                    <input type="text" name="dob">
+                </label>
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Назначить прием</legend>
+            <p>
+                <!-- используйте detaillist -->
+                <label for="reason">Какова причина вашего визита? </label>
+                <select id="reason" name="reason">
+                    <option>Плановый осмотр</option>
+                    <option>Симптомы простуды или гpиnna</option>
+                    <option>Анализ крови</option>
+                    <option>Послеоперационный осмотр</option>
+                </select>
+            </p>
+            <p>
+                <label>
+                    <!-- используйте range -->
+                    Степень болевых ощущений
+                    <input type="text" name="pain" title="0 - нет боли, 10 - боль нестерпима" /></label>
+            </p>
+            <p>
+                <label>
+                    Предпочтительная дата
+                    <input type="text" name="date" /></label>
+            </p>
+            <p>
+                <label>
+                    Предпочтительное время
+                    <input type="text" name="time" /></label>
+            </p>
+        </fieldset>
+        <p>
+            <input type="submit" value="Отправить" />
+        </p>
+    </form>
+</body>
+</html>

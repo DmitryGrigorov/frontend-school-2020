@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>blockquote sample</title>
+    <style>
+        section {
+            width: 700px;
+            height: 70px;
+            margin: 100px auto 0;
+        }
+
+        p {
+            margin: 10px;
+            padding: 0 40px;
+            text-align: center;
+        }
+
+        blockquote:before {
+            content: " ";
+            position:relative;
+            bottom:-25px;
+
+            background: url(quotationmark.png) -3px -3px #ddd;
+            border-radius: 25px;
+            display: block;
+            height: 25px;
+            width: 25px;
+
+            /* устанавливаем что при смене значения свойства background-color в течении 350 ms должен произойти плавный переход значения от текущего к измененному */
+            -moz-transition: background-color 350ms;
+            -o-transition: background-color 350ms;
+            -webkit-transition: background-color 350ms;
+            transition: background-color 350ms;
+        }
+
+        blockquote:after {
+            content: " ";
+            float:right;
+            position:relative;
+            top:-25px;
+
+            border-radius: 25px;
+            background: url(quotationmark.png) -1px -32px #ddd;
+            display: block;
+            height: 25px;
+            width: 25px;
+
+            /* устанавливаем что при смене значения свойства background-color в течении 350 ms должен произойти плавный переход значения от текущего к измененному */
+            -moz-transition: background-color 350ms;
+            -o-transition: background-color 350ms;
+            -webkit-transition: background-color 350ms;
+            transition: background-color 350ms;
+        }
+
+        blockquote:hover:after, blockquote:hover:before {
+            /* запуск анимации */
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <blockquote>
+            <p>
+                Есть два способа создания дизайна программы. Один из них, это сделать его настолько простым, что в нем, очевидно, не будет недостатков. 
+                Другой способ — сделать его настолько запутанным, что в нем не будет очевидных недостатков.
+                <br />
+                — C.A. R. Hoare
+            </p>
+        </blockquote>
+    </section>
+
+</body>
+</html>

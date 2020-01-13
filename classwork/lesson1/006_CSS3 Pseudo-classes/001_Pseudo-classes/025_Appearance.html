@@ -1,0 +1,51 @@
+﻿<!--Свойство appearance изменяет внешний вид элемента интерфейса, при сохранении его функции-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>appearance</title>
+    <style>
+        input[type="checkbox"] {
+            background: url(switch.png); /* переключатель выключен */
+            height: 26px;
+            width: 32px;
+            cursor: pointer;
+            /* отключаем стандартное отображения элемента input checkbox*/
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+            input[type="checkbox"]:checked {
+                background-position: 0 -26px; /* переключатель включен */
+            }
+
+
+        /* указываем что div должен отображаться как кнопка */
+        div {
+            -moz-appearance: button;
+            -webkit-appearance: button;
+            appearance: button;
+
+            width: 75px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <p>Щелкните по переключателю</p>
+    <p>
+        <input type="checkbox" name="c1" />
+    </p>
+    <p>
+        <input type="checkbox" name="c2" checked="checked" />
+    </p>
+    <p>
+        <input type="checkbox" name="c3" />
+    </p>
+
+    <div>This is DIV</div>
+
+    <a href="http://htmlbook.ru/blog/stilnye-chekboksy-ne-dlya-vsekh">HtmlBook</a>
+</body>
+</html>
+

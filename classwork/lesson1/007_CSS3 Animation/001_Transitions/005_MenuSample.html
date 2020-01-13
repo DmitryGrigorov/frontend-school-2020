@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Css3 Menu</title>
+
+    <style>
+        .menu {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+            font-family: 'Segoe UI';
+            color: white;
+        }
+
+        .menu li {
+            padding: 10px;
+            margin: 4px;
+            width: 200px;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #0094ff;
+            /* тень */
+            box-shadow: 2px 2px 2px #808080;
+            /* определение перехода для ширины и цвета фона */
+            transition: width 500ms ease-in, background-color 1s;
+        }
+
+        /* запуск анимации */
+        .menu li:hover {
+            width: 220px;
+            background-color: #b200ff;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="menu">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+</body>
+</html>
+

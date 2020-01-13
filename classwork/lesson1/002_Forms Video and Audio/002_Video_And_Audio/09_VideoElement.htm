@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Video element</title>
+</head>
+<body>
+    <video id="video" style="border: 2px solid gray;" height="200" width="200">
+        <source src="video/vsvideo.mp4" />
+        <source src="video/vsvideo.ogg" />
+        <source src="video/vsvideo.webm" />
+    </video>
+
+    <br />
+
+    <button id="part1Button">
+        1
+    </button>
+    <button id="part2Button">
+        2
+    </button>
+    <button id="part3Button">
+        3
+    </button>
+
+    <button id="playButton">play</button>
+    <button id="pauseButton">pause</button>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            var v = document.getElementById("video");
+            var part = v.duration / 3;
+
+            document.getElementById("part1Button").onclick = function () {
+                v.currentTime = 0;
+            };
+
+            document.getElementById("part2Button").onclick = function () {
+                v.currentTime = part;
+            };
+
+            document.getElementById("part3Button").onclick = function () {
+                v.currentTime = part * 2;
+            };
+
+            document.getElementById("playButton").onclick = function () {
+                v.play();
+            };
+
+            document.getElementById("pauseButton").onclick = function () {
+                v.pause();
+            };
+        }
+    </script>
+</body>
+</html>

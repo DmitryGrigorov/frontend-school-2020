@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>box-ordinal-group</title>
+    <style>
+        .box {
+            display: -moz-box;
+            display: -webkit-box;
+            display: flexbox;
+            border: 1px solid black;
+        }
+        div{
+            margin: 5px;
+            padding:10px;
+        }
+
+        .class1 {
+            /* Определяет порядок отображения элементов. Элементы с меньшим значением отображаются раньше тех, значения которых больше */
+            -moz-box-ordinal-group: 3;
+            -webkit-box-ordinal-group: 3;
+            box-ordinal-group: 3;
+
+            background-color: red;
+        }
+
+        .class2 {
+            -moz-box-ordinal-group: 2;
+            -webkit-box-ordinal-group: 2;
+            box-ordinal-group: 2;
+
+            background: green;
+        }
+
+        .class3 {
+
+            -moz-box-ordinal-group: 1;
+            -webkit-box-ordinal-group: 1;
+            box-ordinal-group: 1;
+
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <div class="class1">First</div>
+        <div class="class2">Second</div>
+        <div class="class3">Third</div>
+    </div>
+
+</body>
+</html>
+
+

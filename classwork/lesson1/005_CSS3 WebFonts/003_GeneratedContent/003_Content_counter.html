@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>counter</title>
+    <style>
+        body {
+            counter-reset: myIndex; /* начальное значение переменной myIndex*/
+        }
+
+        p {
+            counter-increment: myIndex; /* переменная myIndex будет увеличиваться на 1 каждый раз когда в разметке встречается параграф */
+        }
+
+        p:before {
+            /* перед каждым параграфом будет установлен текст "Урок №.*/
+            content: "Урок " counter(myIndex) ". ";
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Введение</p>
+    <p>Семантическая разметка</p>
+    <p>Элементы video и audio</p>
+    <p>Geolocation API</p>
+    <p>Формы HTML5</p>
+</body>
+</html>

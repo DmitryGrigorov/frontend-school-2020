@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Использование CSS3PIE для работы со старыми браузерами</title>
+    <style type="text/css">
+        div {
+            margin: 10px;
+            height: 200px;
+            width: 600px;
+            border: 1px #000 solid;
+            float: left;
+        }
+
+        p {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            font-family: 'Segoe UI';
+        }
+
+        b {
+            color: red;
+        }
+
+        #id1 {
+            background-image: -webkit-linear-gradient(left, white 0%, green 50%, black 100%);
+            background-image: -moz-linear-gradient(left, white 0%, green 50%, black 100%);
+            background-image: -ms-linear-gradient(left, white 0%, green 50%, black 100%);
+            background-image: linear-gradient(left, white 0%, green 50%, black 100%);
+            /*
+                установка градиента для старых браузеров.
+                Подробнее http://css3pie.com
+            */
+            -pie-background: linear-gradient(left, white 0%, green 50%, black 100%);
+            /*
+                PIE.htc - HTML компонент    
+            */
+            behavior: url(PIE.htc);
+        }
+    </style>
+</head>
+<body>
+    <div id="id1">
+        <p>linear-gradient(left, white <b>0%</b>, green <b>50%</b>, black <b>100%</b>)</p>
+    </div>
+</body>
+</html>
+

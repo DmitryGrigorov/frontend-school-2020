@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Линейный градиент с несколькими градиент стопами</title>
+    <style type="text/css">
+        div {
+            margin: 10px;
+            height: 200px;
+            width: 600px;
+            border: 1px #000 solid;
+            float: left;
+        }
+
+        p {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            font-family: 'Segoe UI';
+        }
+
+        b {
+            color: red;
+        }
+
+        #id1 {
+            /* 
+                При создание градиента с несколькими сточками перехода цвета используется пара значений - цвет позиция
+            
+                background: linear-gradient(left,           - направление
+                                            white 0%,       - в начале градиента белый цвет
+                                            green 50%,      - средина градиента - зеленый
+                                            black 100%);    - конец - черный
+            */
+            background: linear-gradient(left, white 0%, green 50%, black 100%);
+        }
+
+        #id2 {
+            background: linear-gradient(left, #8F04A8 0%, #7CE700 60%, #FFE100 100%);
+        }
+    </style>
+</head>
+<body>
+    <div id="id1">
+        <p>linear-gradient(left, white <b>0%</b>, green <b>50%</b>, black <b>100%</b>)</p>
+    </div>
+    <div id="id2">
+        <p>linear-gradient(left, #8F04A8 <b>0%</b>, #7CE700 <b>60%</b>, #FFE100 <b>100%</b>)</p>
+    </div>
+</body>
+</html>

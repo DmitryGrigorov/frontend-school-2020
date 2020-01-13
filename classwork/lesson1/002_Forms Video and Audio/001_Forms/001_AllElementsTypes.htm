@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Типы элементов формы</title>
+</head>
+<body>
+    <form>
+        <!--Кнопка, основное событие onclick-->
+        <input type="button" name="button1" value="Button1" />
+        <br />
+
+        <!--Флажок, основное событие onclick-->
+        <input type="checkbox" checked="checked" name="checbox1" />
+        Check Box 1
+        <br />
+
+        <!--Поле для ввода файла загружаймого на сервер, основное событие onchange-->
+        <input type="file" name="file1" value="" />
+        <br />
+
+        <!--Данные сохраняемые вместе с формой но невидимые пользователю.-->
+        <input type="hidden" name="hidden1" value="" />
+        <br />
+
+        <!--Поле для ввода пароля-->
+        <input type="password" name="password1" value=" " />
+        <br />
+
+        <!--Переключатель-->
+        Radio 1<input type="radio" checked="checked" name="group1" />
+        Radio 2<input type="radio" name="group1" />
+        <br />
+
+        <!--Кнопка очищающая значения формы.-->
+        <input type="reset" name="reset1" value="Reset" />
+        <br />
+        <br />
+
+        <!--Список в котором может быть выбран один элемент-->
+        <select name="select1">
+            <option value="value1">text 1</option>
+            <option value="value2">text 2</option>
+            <option value="value3">text 3</option>
+        </select>
+        <br />
+        <br />
+
+        <!--Список со множественным выбором-->
+        <select multiple="multiple" name="multipleSelect1">
+            <option value="value">text</option>
+            <option value="value">text</option>
+            <option value="value">text</option>
+        </select>
+        <br />
+        <br />
+
+        <!--Кнопка для передачи данных формы-->
+        <input type="submit" name="submit1" value="Submit" />
+        <br />
+
+        <!--Однострочное поле ввода-->
+        <input type="text" name="text1" value=" " />
+        <br />
+
+        <!--Многострочное поле ввода-->
+        <textarea name="textArea1" rows="4" cols="10"></textarea>
+    </form>
+</body>
+</html>

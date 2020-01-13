@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>:first-of-type and :last-of-type</title>
+    
+    <style>
+
+        /* :first-of-type - получение первого элемента p в списке дочерних элементов */
+        p:first-of-type {
+            background: red;
+        }
+
+        /* :last-of-type - получение последнего элемента p в списке дочерних элементов */
+        p:last-of-type {
+            background: green;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Заголовок</h1>
+    
+    <p>Первый параграф.</p> <!--first-of-type-->
+    <p>Второй параграф.</p>
+    <p>Третий параграф.</p>
+    <p>Четвертый параграф.</p> <!--last-of-type-->
+
+    <div>
+        <p>Первый параграф.</p> <!--first-of-type-->
+        <p>Второй параграф.</p>
+        <p>Третий параграф.</p>
+        <p>Четвертый параграф.</p> <!--last-of-type-->
+    </div>
+</body>
+</html>
+

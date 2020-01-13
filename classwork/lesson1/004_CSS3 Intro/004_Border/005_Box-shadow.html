@@ -1,0 +1,55 @@
+﻿<html>
+<head>
+    <title></title>
+    <style>
+        #id1, #id2, #id3 {
+            margin: 50px;
+            padding: 10px;
+            border: 1px solid;
+            width: 400px;
+            height: 130px;
+        }
+
+        #id1 {
+            /* 
+                box-shadow - добавляет тень к элементу 
+                сдвиг по X | сдвиг по Y | цвет
+            */
+            -webkit-box-shadow: 4px 4px black;
+            box-shadow: 4px 4px black;
+        }
+
+        #id2 {
+            /* 
+                сдвиг по X | сдвиг по Y | радиус размытия | растяжение | цвет
+            */
+            -webkit-box-shadow: 0px 0px 16px 1px black;
+            box-shadow: 0px 0px 16px 1px black;
+        }
+
+        #id3 {
+            /* 
+                сдвиг по X | сдвиг по Y | радиус размытия | растяжение | цвет 
+                inset - тень выводиться внутри элемента
+            */
+            -webkit-box-shadow: 0px 0px 6px 2px black inset;
+            box-shadow: 0px 0px 6px 2px black inset;
+        }
+    </style>
+</head>
+<body>
+    <div id="id1">
+        <span style="text-decoration: underline;">box-shadow:4px 4px black;</span>
+    </div>
+
+    <div id='id2'>
+        2. Также данное свойство может иметь значения указывающие радиус разброса тени (третее значение) и размер тени (четвертое значение).
+        <span style="text-decoration: underline;">box-shadow:0px 0px 16px 12px black;</span>
+    </div>
+    <div id='id3'>
+        3. С помощью значения inset Вы можете указать, что тень должна быть не внешней, а внутренней. Элементы с внутренними тенями кажутся 'вдавленными'.
+        <span style="text-decoration: underline;">box-shadow:0px 0px 6px 2px black inset;</span>
+    </div>
+</body>
+</html>
+
