@@ -1,0 +1,582 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Lato, sans-serif;
+}
+
+/* main_background */
+
+.main {
+    width: 1440px;
+    height: 782px;
+    margin: 0 auto;
+    left: 0px;
+    top: 0px;
+    background-image: url(/images/Rectangle\ 3.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+}
+
+.main::before {
+    position: absolute;
+    content: " ";
+    width: 1440px;
+    height: 782px;
+    left: 0px;
+    top: 0px;
+    background: linear-gradient(90deg, rgba(213, 32, 71, 0.8) 0%, rgba(238, 61, 27, 0.8) 100%);
+}
+
+.container {
+    width: 100%;
+    padding: 60px 166px;
+    height: 665px;
+}
+
+/* header */
+.header {
+    width: 99px;
+    height: 32px;
+    display: block;
+}
+
+.logo {
+
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.logo_text {
+    position: absolute;
+    padding: 0;
+    margin: 3px 30px;
+    box-sizing: border-box;
+}
+
+.menu {
+    position: absolute;
+    width: 445px;
+    height: 22px;
+    left: 498px;
+    top: 58px;
+}
+
+.menu li{
+    display: inline;
+
+    margin-right: 10px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.img_flag  {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 1056px;
+    top: 54px;
+    display: inline;
+    }
+
+.language p {
+    position: absolute;
+    width: 32px;
+    height: 22px;
+    left: 1099px;
+    top: 59px;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;   
+}
+
+.img_arrow {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 1122px;
+    top: 56px;
+}
+
+.bullon_login {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    left: 1172px;
+    top: 50px;
+}
+
+/* main_content */
+
+.content h1 {
+    position: absolute;
+    left: 431px;
+    top: 257px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 86px;
+    align-items: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.content p {
+    position: absolute;
+    width: 540px;
+    height: 124px;
+    left: 450px;
+    top: 382px;
+    
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.button_signup {
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    left: 640px;
+    top: 545px;
+}
+
+/* Video Section */
+
+.videoSection {
+    width: 1440px;
+    height: 500px;
+    background: #FFFFFF;
+    position: relative;
+    margin: 0 auto;
+}
+
+.col-right-text {
+    position: absolute;
+
+}
+
+.col-right-text  h1 {
+    position: absolute;
+    width: 445px;
+    height: 107px;
+    left: 165px;
+    top: 140px;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    color: #000000;
+}
+
+.col-right-text p {
+    position: absolute;
+    width: 445px;
+    height: 115px;
+    left: 165px;
+    top: 271px;
+
+    font-family: Lato;
+    font-size: 14px;
+    line-height: 140%;
+    text-align: justify;
+}
+
+.col-right-text a {
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    left: 165px;
+    top: 370px;
+
+    font-size: 14px;
+    line-height: 140%;
+    text-align: justify;
+    color: #ED4C5C;
+    text-decoration: none;
+}
+
+.col-left-video {
+    position: absolute;
+    background-image: url(../images/Video\ Section.png);
+    width: 445px;
+    height: 311px;
+    left: 702px;
+    top: 94px;
+
+}
+
+/* Features */
+
+.Features {
+    width: 1440px;
+    height: 660px;
+    background: #FAFAFA;
+    position: relative;
+    margin: 0 auto;
+}
+
+.Features h1.heading {
+    position: absolute;
+    width: 1110px;
+    height: 55px;
+    margin: 63px 165px;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    text-align: center;
+    color: #000000;
+ }
+
+.features-1, .features-2, .features-3{
+    position: absolute;
+    width: 350px;
+    height: 355px;
+    top: 181px;
+    left: 165px;
+}
+
+.features-2{
+    left: 545px;
+}
+
+.features-3 { 
+    left: 925px;
+}
+
+.BgFeatures-1, .BgFeatures-2, .BgFeatures-3 {
+    width: 350px;
+    height: 250px;
+    z-index: 1;
+    background-image: url(../images/Bg.png);
+    border-radius: 8px;
+}
+
+.BgFeatures-2 {
+    background-image: url(../images/Bg\ \(1\).png);
+}
+
+.BgFeatures-3 {
+    background-image: url(../images/Bg\ \(2\).png);
+}
+
+.Supports, .Manage, .cloud{
+    width: 293px;
+    height: 198px;
+    top: 157px;
+    left: 29px;
+    position: absolute;
+    z-index: 2;
+    background: #FFFFFF;
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.Features h1 {
+    position: absolute;
+    margin: 33px 32px 20px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #101010;
+}
+
+.Features p{
+    position: absolute;
+    margin: 93px 32px 5px 32px;
+    font-size: 12px;
+    line-height: 150%;
+    color: #101010;
+    text-align: center;
+}
+
+.Features a{
+    position: absolute; 
+    width: 253px;
+    height: 18px;  
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 150%;
+    text-align: center;
+    color: #ED4C5C;
+    text-decoration: none;
+    margin: 155px 20px 25px;
+}
+
+/* Technology */
+
+.technology {
+    width: 1440px;
+    height: 500px;
+    background-color: #FFFFFF;
+    position: relative;
+    margin: 0 auto;
+}
+
+h1.heading {
+    width: 1110px;
+    height: 55px;
+    margin: 63px 165px 52px;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    text-align: center;
+    color: #000000;
+}
+
+.technology01, .technology02, .technology03, .technology04 {
+    position: absolute;
+    width: 255px;
+    height: 226px;
+    left: 165px;
+}
+
+.technology02 {
+    left: 450px;
+}
+
+.technology03 {
+    left: 735px;
+}
+
+.technology04 {
+    left: 1020px;
+}
+
+.impTech01 {
+    width: 117px;
+    height: 110px;
+    position: absolute;
+    margin: 0 69px;
+    padding: 20px 4px 15px 4px;
+
+}
+
+.Frame1 {
+    position: absolute;
+    margin: 59px 88px 87px 87px;
+}
+
+.Frame2 {
+    position: absolute;
+    margin: 60px 94px 98px;
+}
+
+.Frame3 {
+    position: absolute;
+    margin: 61px 93px 95px;
+}
+
+.Frame4 {
+    position: absolute;
+    margin: 71px 100px 101px;
+}
+.technology h3{
+    margin: 139px auto 0 auto;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #101010;
+}
+
+.technology p{
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    margin: 10px auto 0 auto;
+    color: #000000;
+    
+}
+
+/* Video Red */
+
+.videofocuse {
+    width: 1440px;
+    height: 500px;
+    background: #ED4C5C;
+    position: relative;
+    margin: 0 auto;
+}
+
+.videofocuse .col-right-text  h1, .videofocuse p{
+    color: #FFFFFF;
+}
+
+.col-right-text img{
+    left: 163px;
+    top: 352px;
+    position: absolute;
+}
+
+.videofocuse  .col-left-video {
+    position: absolute;
+    background-image: url(../images/Slider.png);
+    width: 533px;
+    height: 311px;
+    left: 691px;
+    top: 94px;
+
+}
+
+/* Contact */
+
+.ContactSection {
+    width: 1440px;
+    height: 545px;
+    position: relative;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    margin: 0 auto;
+}
+
+.col-left-form input{
+    position: absolute;
+    height: 60px;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    padding-left: 31px;
+    font-size: 16px;
+    line-height: 19px;
+    color: rgba(19, 39, 67, 0.5);
+}
+
+.FirstName {
+    width: 255px;
+    height: 60px;
+    left: 735px;
+    top: 117px;
+}
+
+.LastName {
+    width: 255px;
+    height: 60px;
+    left: 1020px;
+    top: 117px;
+}
+
+.PhoneNumber {
+    width: 540px;
+    height: 60px;
+    left: 735px;
+    top: 201px;
+}
+
+.SelectService {
+    width: 540px;
+    height: 60px;
+    left: 735px;
+    top: 285px;
+}
+
+.col-left-form img{
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    left: 735px;
+    top: 372px;
+}
+
+/* Footer  */
+
+.Footer {
+    position: relative;
+    width: 1440px;
+    height: 435px;
+    background: #FAFAFA;
+    margin: 0 auto;
+}
+
+.Footer  h1{
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #101010;
+    margin-bottom: 33px;
+}
+
+.Footer  p{
+    font-size: 12px;
+    line-height: 150%;
+    color: #101010;
+}
+
+.Address{
+    position: absolute;
+    width: 259px;
+    height: 264px;
+    left: 161px;
+    top: 85px;
+}
+
+.Address  p.Copyright{
+    position: absolute;
+    margin-top: 155px;
+}
+
+.Services {
+    position: absolute;
+    width: 254px;
+    height: 164px;
+    left: 450px;
+    top: 85px;
+}
+
+.Services h1{
+    margin-bottom: 28px;
+}
+
+.Services  ul{
+    position: absolute;
+    font-size: 12px;
+    line-height: 160%;
+    text-transform: capitalize;
+    color: #000000;
+    list-style-type: none;
+}
+
+.GetinTouch {
+    position: absolute;
+    width: 122px;
+    height: 128px;
+    left: 734px;
+    top: 85px;
+}
+
+.GetinTouch img{
+    margin-top: 21px;
+}
+
+.GetinTouch p.email{
+    margin-bottom: 11px;
+}
+
+.Support  {
+    position: absolute;
+    width: 96px;
+    height: 22px;
+    left: 1022px;
+    top: 85px;
+}
