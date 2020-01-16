@@ -17,7 +17,10 @@ Body{ font-size: 1.4em }
 
 Body > Header,
 Body > Main,
-Body > Footer{ width: 1440px; max-width: 100% }
+Body > Footer{
+  margin: 0 auto;
+  width: 1440px; max-width: 100%
+}
 
 Body > Header{ position: /*fixed*/ absolute; top: 1.7rem; right: 0; left: 0 }
 
@@ -30,6 +33,25 @@ Body > Main > Article{
   padding-top: 1rem; padding-bottom: 1rem;
   text-align: center
 }
+
+Body > Main H2{
+  font-size: 3.6rem; font-weight: bold;
+  line-height: 4.2rem;
+  margin-bottom: 2rem
+}
+
+Body > Main P{
+  line-height: 1.5;
+  margin-bottom: 2rem
+}
+
+Body > Main A{
+  border-bottom: 1px solid transparent;
+  display: inline-block;
+  color: var(--color-red);
+  padding-bottom: 0.2rem
+}
+Body > Main A:hover{ border-bottom-color: var(--color-red) }
 
 
 Input{

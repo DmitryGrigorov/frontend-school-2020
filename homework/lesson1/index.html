@@ -103,7 +103,6 @@ Body > Main > Section#one H1{
 
 Body > Main > Section#one P{
   font-size: 2.4rem;
-  line-height: 1.5;
   margin-bottom: 4rem;
   max-width: 54rem
 }
@@ -129,26 +128,33 @@ Body > Main > Section#one .button:hover{
 
    <section id='two'>
     <style>
-Body > Main > Section#two{ height: 50rem }
+Body > Main > Section#two{ padding-top: 10rem; padding-bottom: 10rem }
 
-Body > Main > Section#two > Div{ display: flex }
-
-Body > Main > Section#two > Div > Div{ width: 50% }
+Body > Main > Section#two > Div{
+  display: flex; justify-content: space-between;
+  max-width: 90rem
+}
 
 
 Body > Main > Section#two > Div > Div:first-of-type{
   padding: 4rem 4rem 4rem 0;
-  text-align: left
+  text-align: left;
+  width: calc(50% - 3rem)
 }
-
-Body > Main > Section#two H2{ font-size: 3.6rem; font-weight: bold }
-
-Body > Main > Section#two A{ color: var(--color-red) }
 
 
 Body > Main > Section#two > Div > Div:last-of-type{
   background: transparent url(_images/s.two/bg.jpg) no-repeat center center; background-size: cover;
+  border-radius: 2rem;
+  position: relative;
+  width: 50%
 }
+
+Body > Main > Section#two > Div > Div:last-of-type > Img{
+  position: absolute; left: calc(0% - (6.6rem / 2)); top: calc(50% - (6.6rem / 2));
+  transition: var(--transition)
+}
+Body > Main > Section#two > Div > Div:last-of-type:hover > Img{ transform: rotate(360deg) }
     </style>
 
     <div>
@@ -162,12 +168,123 @@ Body > Main > Section#two > Div > Div:last-of-type{
      </div>
     </div>
    </section>
+
+   <section id='three'>
+    <style>
+Body > Main > Section#three{
+  background-color: #FAFAFA;
+  padding-top: 4rem; padding-bottom: 4rem
+}
+
+Body > Main > Section#three Img{ width: inherit }
+
+Body > Main > Section#three H2{ margin-bottom: 8rem }
+
+Body > Main > Section#three H3{
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+  margin-bottom: 2rem
+}
+
+Body > Main > Section#three P{ margin-bottom: 2rem }
+
+
+Body > Main > Section#three > Div > Div{ display: flex }
+
+Body > Main > Section#three > Div > Div > Div{
+  padding-bottom: 20rem;
+  position: relative
+}
+Body > Main > Section#three > Div > Div > Div:not(:last-of-type){ margin-right: 4rem }
+
+Body > Main > Section#three > Div > Div > Div > Div:last-of-type{
+  background-color: rgba(255, 255, 255, 0.96);
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.1);
+  padding: 4rem;
+  width: 88%;
+  position: absolute; top: 30%; left: calc((100% - 88%) / 2); z-index: 1
+}
+    </style>
+
+    <div>
+     <h2>Features</h2>
+     <div>
+       <div>
+         <div>
+          <img alt='Supports All Currencies and Cards' src='_images/s.three/1.jpg'>
+         </div>
+         <div>
+          <h3>Supports All Currencies and Cards</h3>
+          <p>We support all popular currencies and is fully customizable to add</p>
+          <a href='/' target='_blank'>Read More</a>
+         </div>
+       </div>
+       <div>
+        <div>
+         <img alt='Manage your expenses on the go' src='_images/s.three/2.jpg'>
+        </div>
+        <div>
+         <h3>Manage your expenses on the go</h3>
+         <p>You can access your account from anywhere in the world on any device</p>
+         <a href='/' target='_blank'>Read More</a>
+        </div>
+      </div>
+      <div>
+       <div>
+        <img alt='Cloud Budget Management Software' src='_images/s.three/3.jpg'>
+       </div>
+       <div>
+        <h3>Cloud Budget Management Software</h3>
+        <p>Our software is made so you can access and manage your budget</p>
+        <a href='/' target='_blank'>Read More</a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+
+   <section id='four'>
+    <style>
+Body > Main > Section#four{
+
+}
+    </style>
+
+    <div>
+
+    </div>
+   </section>
+
+   <section id='five'>
+    <style>
+Body > Main > Section#five{
+
+}
+    </style>
+
+    <div>
+
+    </div>
+   </section>
+
+   <section id='six'>
+    <style>
+Body > Main > Section#six{
+
+}
+    </style>
+
+    <div>
+
+    </div>
+   </section>
   </main>
 
   <footer>
    <style>
 Body > Footer > Section{
-  
+  display: flex
 }
    </style>
 
