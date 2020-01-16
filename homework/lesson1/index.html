@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang='ru'>
+ <head>
+  <meta content='user-scalable=no, width=420' name='viewport'>
+  <meta charset='utf-8'>
+  <meta name='author' content='dlbxqp@gmail.com'>
+  <meta name='theme-color' content='#404040'>
+  <meta name='publisher-URL' content='//'>
+
+  <base href='/homework/lesson1/'>
+
+  <title>lesson #1 < frontEndSchool < gazpromBank</title>
+
+  <link href='_images/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+
+  <link href='_css/normalize.css' rel='stylesheet'>
+  <link href='_css/main.css' rel='stylesheet'>
+  <link href='_css/project.css' rel='stylesheet'>
+
+<!--[if IE]>
+  <script>
+document.createElement('figcaption');
+document.createElement('article');
+document.createElement('section');
+document.createElement('header');
+document.createElement('figure');
+document.createElement('footer');
+document.createElement('aside');
+document.createElement('menu');
+document.createElement('nav');
+  </script>
+<![endif]-->
+ </head>
+
+ <body>
+  <header>
+   <style>
+Body > Header > Section{
+  color: white;
+  display: flex; justify-content: space-around; align-items: center;
+  height: 10rem;
+  text-transform: uppercase
+}
+
+
+Body > Header > Section > A:first-of-type{
+  display: flex; align-items: center;
+  font-size: 1.8rem
+}
+Body > Header > Section > A:first-of-type > Div{ margin-right: 0.6rem }
+
+
+Body > Header Menu > A{
+  border-bottom: 1px solid transparent;
+  padding: 0.4rem 0.8rem
+}
+Body > Header Menu > A:hover{ border-color: white }
+
+Body > Header .button:hover{
+  background-color: white;
+  color: black
+}
+   </style>
+
+   <section>
+    <a href='/'>
+     <div><img alt='CloudBudget' src='_images/header/cloud.png'></div>
+     <h2>CloudBudget</h2>
+    </a>
+
+    <nav>
+     <menu>
+      <a href='/overview'>Overview</a>
+      <a href='/features'>Features</a>
+      <a href='/technology'>Technology</a>
+      <a href='/contact'>Contact</a>
+      <a href='/signUp'>Sign up</a>
+     </menu>
+    </nav>
+
+    <div>
+     <div></div>
+     <div class='button' onClick='alert("Login")'>Login</div>
+    </div>
+   </section>
+  </header>
+
+  <main>
+   <section id='one'>
+    <style>
+Body > Main > Section#one{
+  background: transparent url(_images/s.one/bg.jpg) no-repeat center center; background-size: cover;
+  color: white;
+  height: 100vh
+}
+
+
+Body > Main > Section#one H1{
+  font-size: 7.2rem;
+  margin-bottom: 4rem;
+  text-transform: uppercase
+}
+
+Body > Main > Section#one P{
+  font-size: 2.4rem;
+  line-height: 1.5;
+  margin-bottom: 4rem;
+  max-width: 54rem
+}
+
+Body > Main > Section#one .button{
+  background-color: white;
+  color: var(--color-red);
+  font-size: 1.7rem;
+  text-transform: uppercase
+}
+Body > Main > Section#one .button:hover{
+  background-color: transparent;
+  color: white
+}
+    </style>
+
+    <div>
+     <h1>CloudBudget</h1>
+     <p>Cloud budget management for everyone. Only €69.95 a Month After a 7 Day Trial of<br> Up to €4.99</p>
+     <div class='button' onClick='alert("Click")'>Sign up</div>
+    </div>
+   </section>
+
+   <section id='two'>
+    <style>
+Body > Main > Section#two{ height: 50rem }
+
+Body > Main > Section#two > Div{ display: flex }
+
+Body > Main > Section#two > Div > Div{ width: 50% }
+
+
+Body > Main > Section#two > Div > Div:first-of-type{
+  padding: 4rem 4rem 4rem 0;
+  text-align: left
+}
+
+Body > Main > Section#two H2{ font-size: 3.6rem; font-weight: bold }
+
+Body > Main > Section#two A{ color: var(--color-red) }
+
+
+Body > Main > Section#two > Div > Div:last-of-type{
+  background: transparent url(_images/s.two/bg.jpg) no-repeat center center; background-size: cover;
+}
+    </style>
+
+    <div>
+     <div>
+      <h2>Easy to Use Cloud Budget Management Software</h2>
+      <p>Our software is made so you can access and manage your budget and expenses online at any time from any device. It provides detailed income and expense reports with graphs so you can easilly see your spending patterns and budget at a glance. Read below to find out more.</p>
+      <a href='/'>Learn More</a>
+     </div>
+     <div>
+      <img alt='youTube' src='_images/s.two/button.png'>
+     </div>
+    </div>
+   </section>
+  </main>
+
+  <footer>
+   <style>
+Body > Footer > Section{
+  
+}
+   </style>
+
+   <section></section>
+  </footer>
+ </body>
+</html>

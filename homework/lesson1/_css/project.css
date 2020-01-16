@@ -1,0 +1,52 @@
+@charset 'utf-8';
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
+
+
+:root{
+  --transition: all 0.4s ease 0s;
+  --color-red: #ED4C5C
+}
+
+HTML{
+  font-family: 'Lato', sans-serif; font-size: 10px;
+  /*hyphens: auto*/
+}
+
+Body{ font-size: 1.4em }
+
+Body > Header,
+Body > Main,
+Body > Footer{ width: 1440px; max-width: 100% }
+
+Body > Header{ position: /*fixed*/ absolute; top: 1.7rem; right: 0; left: 0 }
+
+
+Body > Main{ border: 1px dotted yellow; display: flex; flex-direction: column }
+
+Body > Main > Section,
+Body > Main > Article{
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  padding-top: 1rem; padding-bottom: 1rem;
+  text-align: center
+}
+
+
+Input{
+  border-radius: 0.4rem;
+  padding: 1rem;
+  width: 100%
+}
+
+
+.button{
+  border: 1px solid white; border-radius: 0.8rem;
+  display: inline-block;
+  padding: 1rem 2rem
+}
+
+
+
+@media all and (max-width: 420px){
+
+}
