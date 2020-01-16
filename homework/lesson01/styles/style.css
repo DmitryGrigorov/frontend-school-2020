@@ -1,0 +1,152 @@
+/* reset */
+
+* {
+    margin: 0;
+    padding: 0;
+}/* body */
+body {
+    font-family: "Lato", sans-serif;
+}
+
+/* main container */
+.container {
+    width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* header */
+
+.header {
+    height: 782px;
+    background-image: url("../images/header_bg.png");
+}
+
+.navbar_buttons {
+    width: 216px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar {
+    height: 100px;
+    position: relative;
+    top: 17px;
+    width: 1107px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top_logo {
+    width: 172px;
+    height: 29px;
+}
+
+.main_menu {
+    width: 445px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main_menu a {
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.main_menu a.act{
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.lang_selector {
+    width: 96px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lang_flag {
+    width: 32px;
+    height: 32px;
+}
+
+.lang_text {
+    color: white;
+    font-size: 14px;
+}
+
+.lang_arrow {
+    width: 30px;
+    height: 30px;
+}
+
+.top_login_button {
+    width: 100px;
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.header_banner {
+    width: 578px;
+    height: 338px;
+    position: relative;
+    top: 140px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner_h1 {
+    font-size: 62px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: white;
+    text-align: center;
+    width: 578px;
+    height: 86px;
+}
+
+.banner_text {
+    position: relative;
+    top: 39px;
+    width: 540px;
+    height: 124px;
+    color: white;
+    text-align: center;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 150%;
+}
+
+.banner_button {
+    position: relative;
+    top: 68px;
+    width: 160px;
+    height: 50px;
+}
+
+.top_banner_button {
+    width: 160px;
+    height: 50px;
+    border-radius: 6px;
+    color: #ED4C5C;
+    font-size: 14px;
+    text-transform: uppercase;
+}
