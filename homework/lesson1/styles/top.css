@@ -1,0 +1,83 @@
+.top {
+    background-image: url("./../images/bg-top.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 782px;
+    padding-top: 17px;
+    color: #fff;
+}
+
+ul.top-nav {
+    height: 100px;
+    width: auto;
+    padding: 0 165px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+ul.top-nav a {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.top-logo {
+    padding: 0 0 0 35px;
+    background-image: url("./../images/icon-top-cloud.png");
+    background-position: left;
+    background-repeat: no-repeat;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    margin-right: 10%;
+}
+.top-lang-sel,
+.top-nav-item {
+    font-size: 14px;
+    line-height: 17px;
+    padding: 2px 5px;
+}
+.top-lang-sel {
+    margin-left: 5%;
+    height: 32px;
+}
+.top-lang-sel a {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-lang-sel a img:first-child {
+    margin: 0 5px;
+}
+
+.top-sign-in {
+    padding: 10px 25px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+.top h1 {
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 86px;
+    align-items: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 140px;
+    margin-bottom: 50px;
+}
+
+.top p {
+    width: 540px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    margin: 0 auto;
+}
