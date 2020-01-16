@@ -15,15 +15,15 @@
 // if  (login === "Админ") {
 //     let password = prompt('Введите пароль', '');
     
-//     if (password == 'Я главный') {
+//     if (password === 'Я главный') {
 //         alert('Здравствуйте!');
-//     } else if (password == null || password == '') {
+//     } else if (password === null || password === '') {
 //         alert('Отменено');
 //     } else {
 //         alert('Неверный пароль');
 //     }
 
-// } else if (login == null || login == '') {
+// } else if (login === null || login === '') {
 //     alert('Отменено');
 // } else {
 //     alert('Я вас не знаю');
@@ -60,7 +60,7 @@
 // while (4 < 5) alert( 4 );
 // while (5 < 5) - окончание цикла.
 
-// // Постфиксный вариант i++, цикл выводит: 0, 1, 2, 3, 4.
+// // Постфиксный вариант i++, цикл выводит: 1, 2, 3, 4, 5.
 
 // В постфиксном варианте i++ сначало увеличивает i, возвращая прежнее значение
 // и это значение учавствует в сравнении i++ < 5. 
@@ -139,7 +139,7 @@
 */
 
 // function getBackgroundColor(theme){
-//     (theme === 'light') ? '#FFF' : '#000';
+//     return (theme === 'light') ? '#FFF' : '#000';
 // }
 
 /**
