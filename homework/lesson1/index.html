@@ -62,7 +62,7 @@ Body > Header .button:hover{
 }
    </style>
 
-   <section>
+   <section class='width0'>
     <a href='/'>
      <div><img alt='CloudBudget' src='_images/header/cloud.png'></div>
      <h2>CloudBudget</h2>
@@ -119,7 +119,7 @@ Body > Main > Section#one .button:hover{
 }
     </style>
 
-    <div>
+    <div class='width0'>
      <h1>CloudBudget</h1>
      <p>Cloud budget management for everyone. Only €69.95 a Month After a 7 Day Trial of<br> Up to €4.99</p>
      <div class='button' onClick='alert("Click")'>Sign up</div>
@@ -130,10 +130,7 @@ Body > Main > Section#one .button:hover{
     <style>
 Body > Main > Section#two{ padding-top: 10rem; padding-bottom: 10rem }
 
-Body > Main > Section#two > Div{
-  display: flex; justify-content: space-between;
-  max-width: 90rem
-}
+Body > Main > Section#two > Div{ display: flex; justify-content: space-between }
 
 
 Body > Main > Section#two > Div > Div:first-of-type{
@@ -157,7 +154,7 @@ Body > Main > Section#two > Div > Div:last-of-type > Img{
 Body > Main > Section#two > Div > Div:last-of-type:hover > Img{ transform: rotate(360deg) }
     </style>
 
-    <div>
+    <div class='width0'>
      <div>
       <h2>Easy to Use Cloud Budget Management Software</h2>
       <p>Our software is made so you can access and manage your budget and expenses online at any time from any device. It provides detailed income and expense reports with graphs so you can easilly see your spending patterns and budget at a glance. Read below to find out more.</p>
@@ -180,22 +177,18 @@ Body > Main > Section#three Img{ width: inherit }
 
 Body > Main > Section#three H2{ margin-bottom: 8rem }
 
-Body > Main > Section#three H3{
-  font-size: 1.8rem;
-  line-height: 2.2rem;
-  margin-bottom: 2rem
-}
+Body > Main > Section#three H3{ margin-bottom: 2rem }
 
 Body > Main > Section#three P{ margin-bottom: 2rem }
 
 
-Body > Main > Section#three > Div > Div{ display: flex }
+Body > Main > Section#three > Div > Div{ display: flex; justify-content:space-between }
 
 Body > Main > Section#three > Div > Div > Div{
   padding-bottom: 20rem;
-  position: relative
+  position: relative;
+  max-width: calc((100% / 3) - (2% * 2))
 }
-Body > Main > Section#three > Div > Div > Div:not(:last-of-type){ margin-right: 4rem }
 
 Body > Main > Section#three > Div > Div > Div > Div:last-of-type{
   background-color: rgba(255, 255, 255, 0.96);
@@ -209,26 +202,26 @@ Body > Main > Section#three > Div > Div > Div > Div:last-of-type{
 
     <div>
      <h2>Features</h2>
-     <div>
+     <div class='width0'>
+      <div>
        <div>
-         <div>
-          <img alt='Supports All Currencies and Cards' src='_images/s.three/1.jpg'>
-         </div>
-         <div>
-          <h3>Supports All Currencies and Cards</h3>
-          <p>We support all popular currencies and is fully customizable to add</p>
-          <a href='/' target='_blank'>Read More</a>
-         </div>
+        <img alt='Supports All Currencies and Cards' src='_images/s.three/1.jpg'>
        </div>
        <div>
-        <div>
-         <img alt='Manage your expenses on the go' src='_images/s.three/2.jpg'>
-        </div>
-        <div>
-         <h3>Manage your expenses on the go</h3>
-         <p>You can access your account from anywhere in the world on any device</p>
-         <a href='/' target='_blank'>Read More</a>
-        </div>
+        <h3>Supports All Currencies and Cards</h3>
+        <p>We support all popular currencies and is fully customizable to add</p>
+        <a href='/' target='_blank'>Read More</a>
+       </div>
+      </div>
+      <div>
+       <div>
+        <img alt='Manage your expenses on the go' src='_images/s.three/2.jpg'>
+       </div>
+       <div>
+        <h3>Manage your expenses on the go</h3>
+        <p>You can access your account from anywhere in the world on any device</p>
+        <a href='/' target='_blank'>Read More</a>
+       </div>
       </div>
       <div>
        <div>
@@ -246,36 +239,77 @@ Body > Main > Section#three > Div > Div > Div > Div:last-of-type{
 
    <section id='four'>
     <style>
-Body > Main > Section#four{
+Body > Main > Section#four{ padding-top: 4rem; padding-bottom: 4rem }
 
+Body > Main > Section#four > Div > Div{ display: flex; justify-content: space-between }
+
+Body > Main > Section#four Div > A{
+  color: black;
+  max-width: calc((100% / 4) - (2% * 3))
 }
+
+Body > Main > Section#four H3{ margin-bottom: 2rem }
+
+
+Body > Main > Section#four Div > A > Div{
+  background-repeat: no-repeat; background-position: bottom center;
+  color: rgba(16, 16, 16, 0.08);
+  font-size: 10rem; font-weight: bold;
+  margin-bottom: 2rem
+}
+Body > Main > Section#four Div > A:nth-of-type(1) > Div{ background-image: url(_images/s.four/1.png) }
+Body > Main > Section#four Div > A:nth-of-type(2) > Div{ background-image: url(_images/s.four/2.png) }
+Body > Main > Section#four Div > A:nth-of-type(3) > Div{ background-image: url(_images/s.four/3.png) }
+Body > Main > Section#four Div > A:nth-of-type(4) > Div{ background-image: url(_images/s.four/4.png) }
     </style>
 
     <div>
-
+     <h2>Technology</h2>
+     <div class='width0'>
+      <a href='/'>
+       <div>01</div>
+       <h3>Cloud Storage</h3>
+       <p>Access your account from anywhere in the world on any device</p>
+      </a>
+      <a href='/'>
+       <div>02</div>
+       <h3>Secure</h3>
+       <p>All your information is stored on secure cloud servers</p>
+      </a>
+      <a href='/'>
+       <div>03</div>
+       <h3>PDF Download</h3>
+       <p>Download any of your reports in PDF format</p>
+      </a>
+      <a href='/'>
+       <div>04</div>
+       <h3>CSV Download</h3>
+       <p>All your information is stored on secure cloud servers</p>
+      </a>
+     </div>
     </div>
    </section>
 
    <section id='five'>
     <style>
-Body > Main > Section#five{
+Body > Main > Section#five{ border: 1px dotted red;
 
 }
     </style>
 
-    <div>
+    <div class='width0'>
 
     </div>
    </section>
 
    <section id='six'>
     <style>
-Body > Main > Section#six{
+Body > Main > Section#six{ border: 1px dotted red;
 
 }
     </style>
 
-    <div>
+    <div class='width0'>
 
     </div>
    </section>
@@ -288,7 +322,7 @@ Body > Footer > Section{
 }
    </style>
 
-   <section></section>
+   <section class='width0'></section>
   </footer>
  </body>
 </html>
