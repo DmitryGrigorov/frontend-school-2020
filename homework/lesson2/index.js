@@ -10,6 +10,30 @@
     При отмене – «Отменено»
 */
 
+// Функция запроса пароля
+function getPassword(){
+    let password = prompt("Введите пароль:");
+
+}
+
+// Функция проверки прав
+function checkCredentals(){
+    let login = prompt("Введите логин:");
+    switch(login){
+        case "Админ":
+            let password = 0;
+            break;
+        case "":
+        case "null":
+            alert("Отменено");
+            break;
+        default:
+            alert("Я вас не знаю");
+            break;
+    }
+    alert(login);
+}
+checkCredentals();
 
 /*
     2)
