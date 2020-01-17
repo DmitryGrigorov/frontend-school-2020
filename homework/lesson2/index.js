@@ -132,5 +132,11 @@ function getBackgroundColor(theme) {
 
 /*
    6) Напишите функцию pow(x,n), которая возвращает x в степени n
- */
- 
+*/
+
+function pow(x,y){
+    if(isNaN(x)||isNaN(y))
+        return null;
+    else
+        return x**y;
+}
