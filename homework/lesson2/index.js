@@ -10,10 +10,21 @@
     При отмене – «Отменено»
 */
 
-// Функция запроса пароля
-function getPassword(){
-    let password = prompt("Введите пароль:");
+let accounts = new Map();
+accounts.set("Админ","Я главный");
 
+// Функция запроса пароля
+function checkPassword(login){
+    let password = prompt("Введите пароль:");
+    if(password == "" || password == null){
+        alert("Отменено");
+        return false;
+    }
+    if(accounts.has(login) && accounts.get(login) == password)
+        return true;
+
+    alert("Неверный пароль");
+    return false;
 }
 
 // Функция проверки прав
@@ -21,17 +32,18 @@ function checkCredentals(){
     let login = prompt("Введите логин:");
     switch(login){
         case "Админ":
-            let password = 0;
+            let result = checkPassword("Админ");
+            if(result)
+                alert("Здравствуйте!");
             break;
         case "":
-        case "null":
+        case null:
             alert("Отменено");
             break;
         default:
             alert("Я вас не знаю");
             break;
     }
-    alert(login);
 }
 checkCredentals();
 
