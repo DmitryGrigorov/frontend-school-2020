@@ -25,7 +25,7 @@ Body > Footer{
 Body > Header{ position: /*fixed*/ absolute; top: 1.7rem; right: 0; left: 0 }
 
 
-Body > Main{ border: 1px dotted yellow; display: flex; flex-direction: column }
+Body > Main{ display: flex; flex-direction: column }
 
 Body > Main > Section,
 Body > Main > Article{

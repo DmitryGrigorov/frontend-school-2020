@@ -394,13 +394,67 @@ Body > Main > Section#six > Form > Div:last-of-type > Div{ display: flex; justif
 
   <footer>
    <style>
-Body > Footer > Section{
-  background-color: #fafafa;
-  display: flex
+Body > Footer{ background-color: #fafafa }
+
+Body > Footer H3{ margin-bottom: 3rem }
+
+Body > Footer Ul{ list-style-type: none }
+
+Body > Footer Li,
+Body > Footer P{ line-height: 1.5 }
+
+
+Body > Footer Div.icons{
+  display: flex;
+  margin-top: 2rem
 }
+Body > Footer Div.icons > *:not(:last-child){ margin-right: 1rem }
+
+
+Body > Footer > Section > Div:first-of-type{
+  display: flex; justify-content: space-between;
+  padding-top: 8rem
+}
+
+Body > Footer > Section > Div:first-of-type > Div{ max-width: calc(100% / 4) }
+
+
+Body > Footer > Section > Div:last-of-type{ padding-top: 8rem; padding-bottom: 8rem }
    </style>
 
-   <section class='width0'></section>
+   <section class='width0'>
+    <div>
+     <div>
+      <h3>Address</h3>
+      <p>Pipang Ltd, Griva Digeni, 81-83 Jacovides Tower, 1st Floor 1090 Picosia USA</p>
+     </div>
+     <div>
+      <h3>Services</h3>
+      <ul>
+       <li>Overview</li>
+       <li>Features</li>
+       <li>Technology</li>
+       <li>Terms & Conditions</li>
+       <li>Privecy</li>
+      </ul>
+     </div>
+     <div>
+      <h3>Get in Touch</h3>
+      <p><a href='mailto:info@cloudbudget.com'>info@cloudbudget.com</a></p>
+      <p><a href='tel:+1 844-721-7120'>+1 844-721-7120</a></p>
+      <div class='icons'>
+       <img alt='i' src='_images/footer/1.png'>
+       <img alt='i' src='_images/footer/2.png'>
+       <img alt='i' src='_images/footer/3.png'>
+      </div>
+     </div>
+     <div>
+      <h3>We Support</h3>
+      <img alt='i' src='_images/footer/4.png'>
+     </div>
+    </div>
+    <div>Copyright 2018 CloudBudget</div>
+   </section>
   </footer>
  </body>
 </html>
