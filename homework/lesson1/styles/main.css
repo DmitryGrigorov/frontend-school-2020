@@ -6,16 +6,40 @@
 
 .main {
     width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main > .container  {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+}
+
+.main > .container > div {
+    width: 100%;
+    max-width: 1110px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 @media (min-width: 1440px) {
     body,
     html {
-        background-color: #fff;
+        background-color: #eee;
     }
 
-    .main {
+    .main > .container {
         width: 1440px;
-        margin: 0 auto;
+    }
+
+    .main > .container > div {
+        width: 1110px;
     }
 }

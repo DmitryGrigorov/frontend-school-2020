@@ -3,14 +3,19 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 782px;
-    padding-top: 17px;
     color: #fff;
 }
-
-ul.top-nav {
+.top-nav{
+    margin-top: 17px;
     height: 100px;
     width: auto;
-    padding: 0 165px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.top ul {
+    width: auto;
     list-style-type: none;
     display: flex;
     flex-direction: row;
@@ -18,7 +23,7 @@ ul.top-nav {
     align-items: center;
 }
 
-ul.top-nav a {
+.top .top-nav a {
     color: #fff;
     text-transform: uppercase;
     text-decoration: none;
@@ -32,7 +37,6 @@ ul.top-nav a {
     font-weight: bold;
     font-size: 18px;
     line-height: 22px;
-    margin-right: 10%;
 }
 .top-lang-sel,
 .top-nav-item {
