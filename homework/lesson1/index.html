@@ -128,8 +128,6 @@ Body > Main > Section#one .button:hover{
 
    <section id='two'>
     <style>
-Body > Main > Section#two{ padding-top: 10rem; padding-bottom: 10rem }
-
 Body > Main > Section#two > Div{ display: flex; justify-content: space-between }
 
 
@@ -168,10 +166,7 @@ Body > Main > Section#two > Div > Div:last-of-type:hover > Img{ transform: rotat
 
    <section id='three'>
     <style>
-Body > Main > Section#three{
-  background-color: #FAFAFA;
-  padding-top: 4rem; padding-bottom: 4rem
-}
+Body > Main > Section#three{ background-color: #FAFAFA }
 
 Body > Main > Section#three Img{ width: inherit }
 
@@ -239,8 +234,6 @@ Body > Main > Section#three > Div > Div > Div > Div:last-of-type{
 
    <section id='four'>
     <style>
-Body > Main > Section#four{ padding-top: 4rem; padding-bottom: 4rem }
-
 Body > Main > Section#four > Div > Div{ display: flex; justify-content: space-between }
 
 Body > Main > Section#four Div > A{
@@ -292,32 +285,117 @@ Body > Main > Section#four Div > A:nth-of-type(4) > Div{ background-image: url(_
 
    <section id='five'>
     <style>
-Body > Main > Section#five{ border: 1px dotted red;
+Body > Main > Section#five{ background: linear-gradient(125deg, var(--color-red), #800000) }
 
+
+Body > Main > Section#five > Div{ display: flex; justify-content: space-between; align-items: center }
+
+
+Body > Main > Section#five > Div > Div:first-of-type{
+  color: white;
+  text-align: left;
+  width: calc(50% - 8rem)
 }
+
+Body > Main > Section#five > Div > Div:first-of-type Img:not(:last-of-type){ margin-right: 2rem }
+
+
+Body > Main > Section#five > Div > Div:last-of-type{ position: relative }
+
+Body > Main > Section#five > Div > Div:last-of-type > Img{ border-radius: 1.5rem }
+Body > Main > Section#five > Div > Div:last-of-type > Img:nth-of-type(1){ position: relative; z-index: 1 }
+Body > Main > Section#five > Div > Div:last-of-type > Img:not(:nth-of-type(1)){ position: absolute; top: 2rem }
+Body > Main > Section#five > Div > Div:last-of-type > Img:nth-of-type(2){ left: -4rem }
+Body > Main > Section#five > Div > Div:last-of-type > Img:nth-of-type(3){ right: -4rem }
     </style>
 
     <div class='width0'>
-
+     <div>
+      <h2>Stay focused on saving money</h2>
+      <p>It is important to stay focused on saving money in any way you can. We help you monitor your spending habits so you can easily spot and cut any unnecessary expenses. Simply join today to get started!</p>
+      <div>
+       <img alt='i' src='_images/s.five/1.png'>
+       <img alt='i' src='_images/s.five/2.png'>
+       <img alt='i' src='_images/s.five/3.png'>
+      </div>
+     </div>
+     <div>
+      <img alt='i' src='_images/s.five/1.jpg'>
+      <img alt='i' src='_images/s.five/2.jpg'>
+      <img alt='i' src='_images/s.five/3.jpg'>
+     </div>
     </div>
    </section>
 
    <section id='six'>
     <style>
-Body > Main > Section#six{ border: 1px dotted red;
+Body > Main > Section#six Input{ width: calc(50% - 1rem) }
 
+Body > Main > Section#six Input,
+Body > Main > Section#six Select{
+  border: 1px solid #444; border-radius: 0.6rem;
+  padding: 2rem 3rem
 }
+Body > Main > Section#six Input:focus,
+Body > Main > Section#six Select:focus{ border-color: var(--color-red) }
+
+Body > Main > Section#six Input:not([type='text']),
+Body > Main > Section#six Select{ width: 100% }
+Body > Main > Section#six Button{
+  background-color: var(--color-red);
+  border: 1px solid var(--color-red);
+  color: white !important;
+  padding: 2rem 3rem;
+  text-transform: uppercase;
+  transition: var(--transition)
+}
+Body > Main > Section#six Button:hover{
+  background-color: transparent;
+  color: var(--color-red) !important
+}
+
+
+Body > Main > Section#six > Form{ display: flex; justify-content: space-between }
+
+Body > Main > Section#six > Form > Div{ width: calc(50% - 8rem) }
+
+
+Body > Main > Section#six > Form > Div:first-of-type{ text-align: left }
+
+
+Body > Main > Section#six > Form > Div:last-of-type *{ color: grey }
+
+Body > Main > Section#six > Form > Div:last-of-type > *:not(:last-child){ margin-bottom: 2rem }
+
+Body > Main > Section#six > Form > Div:last-of-type > Div{ display: flex; justify-content: space-between }
     </style>
 
-    <div class='width0'>
-
-    </div>
+    <form class='width0'>
+     <div>
+      <h2>Contact</h2>
+      <p>Questions or concerns? Just fill out the form below and our support team will get back to you within 24 hours</p>
+     </div>
+     <div>
+      <div>
+       <input type='text' placeholder='First Name'>
+       <input type='text' placeholder='Last Name'>
+      </div>
+      <input type='phon' placeholder='Phone Number'>
+      <select>
+       <option selected disabled>Select Service</option> 
+      </select>
+      <div>
+       <button class='button'>Submit Now</button>
+      </div>
+     </div>
+    </form>
    </section>
   </main>
 
   <footer>
    <style>
 Body > Footer > Section{
+  background-color: #fafafa;
   display: flex
 }
    </style>

@@ -30,7 +30,7 @@ Body > Main{ border: 1px dotted yellow; display: flex; flex-direction: column }
 Body > Main > Section,
 Body > Main > Article{
   display: flex; flex-direction: column; justify-content: center; align-items: center;
-  padding-top: 1rem; padding-bottom: 1rem;
+  padding-top: 8rem; padding-bottom: 8rem;
   text-align: center
 }
 
