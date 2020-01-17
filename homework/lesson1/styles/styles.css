@@ -112,12 +112,20 @@
     top: 56px;
 }
 
-.bullon_login {
+.button_login {
     position: absolute;
     width: 100px;
     height: 40px;
     left: 1172px;
     top: 50px;
+    border: 1px solid #FFFFFF;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    padding-top: 11px;
+    padding-left: 28px;
 }
 
 /* main_content */
@@ -126,7 +134,6 @@
     position: absolute;
     left: 431px;
     top: 257px;
-
     font-family: Lato;
     font-style: normal;
     font-weight: bold;
@@ -161,6 +168,15 @@
     height: 50px;
     left: 640px;
     top: 545px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #ED4C5C;
+    padding-top: 17px;
+    padding-left: 52px;
 }
 
 /* Video Section */
@@ -421,11 +437,11 @@ h1.heading {
     margin: 0 auto;
 }
 
-.videofocuse .col-right-text  h1, .videofocuse p{
+.videofocuse .col-right-text  h1, .videofocuse p {
     color: #FFFFFF;
 }
 
-.col-right-text img{
+.col-right-text img {
     left: 163px;
     top: 352px;
     position: absolute;
@@ -491,12 +507,22 @@ h1.heading {
     top: 285px;
 }
 
-.col-left-form img{
+.button_SubmitNow {
     position: absolute;
     width: 160px;
     height: 50px;
     left: 735px;
     top: 372px;
+    background: #ED4C5C;
+    border: 1.5px solid #ED4C5C;
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    padding-top: 17px;
+    padding-left: 34px;
 }
 
 /* Footer  */
@@ -509,7 +535,7 @@ h1.heading {
     margin: 0 auto;
 }
 
-.Footer  h1{
+.Footer  h1 {
     font-weight: bold;
     font-size: 18px;
     line-height: 22px;
@@ -517,13 +543,13 @@ h1.heading {
     margin-bottom: 33px;
 }
 
-.Footer  p{
+.Footer  p {
     font-size: 12px;
     line-height: 150%;
     color: #101010;
 }
 
-.Address{
+.Address {
     position: absolute;
     width: 259px;
     height: 264px;
@@ -531,7 +557,7 @@ h1.heading {
     top: 85px;
 }
 
-.Address  p.Copyright{
+.Address  p.Copyright {
     position: absolute;
     margin-top: 155px;
 }
