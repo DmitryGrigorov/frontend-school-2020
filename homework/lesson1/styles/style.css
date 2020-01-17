@@ -5,6 +5,7 @@
     font-family: 'Lato', sans-serif;
 }
 
+/* main */
 .main {
 
 }
@@ -15,7 +16,7 @@
 }
 
 .container {
-    width: 100%;
+    width: 1440px;
     height: 782px;
     background-image: url(../images/Bg.png);
     background-size: contain;
@@ -25,7 +26,7 @@
 
 .header {
     position: absolute;
-    width: 100%;
+    width: 1440px;
     height: 100px;
     left: 0px;
     top: 17px;
@@ -140,4 +141,133 @@ a {
     align-items: center;
     text-transform: uppercase;
     color: #ED4C5C;
+}
+
+/* banner */
+.banner {
+    position: relative;
+    width: 1440px;
+    height: 500px;
+    left: 0px;
+    
+    background: #FFFFFF;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.left-col {
+    height: 500px;
+    flex-grow: 5;
+}
+
+.right-col {
+    height: 500px;
+    flex-grow: 5;
+}
+
+.banner-desc {
+    position: relative;
+    width: 445px;
+    height: 107px;
+    left: 165px;
+    top: 140px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    color: #000000;
+}
+
+.banner-text {    
+    position: absolute;
+    width: 445px;
+    height: 115px;
+    left: 165px;
+    top: 271px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    text-align: justify;
+    color: #000000;    
+}
+
+.video {
+    position: absolute;
+    width: 445px;
+    height: 311px;
+    left: 735px;
+    top: 94px;
+    border-radius: 15px;
+}
+
+.play {
+    position: absolute;
+    width: 66px;
+    height: 66px;
+    left: 702px;
+    top: 217px;
+    z-index: 1;
+    background-image: url(../images/Ellipse.png);
+}
+
+/* features */
+.features {
+    position: relative;
+    width: 1440px;
+    height: 660px;
+    left: 0px;
+    background: #FAFAFA;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.first-col-feat {
+    height: 660px;
+    flex-grow: 3;
+}
+
+.second-col-feat {
+    height: 660px;
+    flex-grow: 3;
+}
+
+.third-col-feat {
+    height: 660px;
+    flex-grow: 3;
+}
+
+.first-img {
+    position: relative;
+    width: 350px;
+    height: 250px;
+    left: 165px;
+    top: 181px;;
+    border-radius: 8px;
+}
+
+.first-card {
+    position: absolute;
+    width: 293px;
+    height: 198px;
+    left: 194px;
+    top: 338px;
+    background: #FFFFFF;
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.title-card1 {
+    position: absolute;
+    width: 229px;
+    height: 40px;
+    left: 32px;
+    top: 33px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #101010;
 }
