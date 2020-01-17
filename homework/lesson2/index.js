@@ -126,8 +126,11 @@ switch(number){
     }
 */
 
-/**
- * 6) Напишите функцию pow(x,n), которая возвращает x в степени n
- */
+function getBackgroundColor(theme) {
+    return theme === 'light' ? '#FFF' : '#000';
+}
 
+/*
+   6) Напишите функцию pow(x,n), которая возвращает x в степени n
+ */
  
