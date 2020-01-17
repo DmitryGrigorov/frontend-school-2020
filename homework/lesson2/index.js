@@ -62,6 +62,10 @@ checkCredentals();
     let i = 0;
     while (i++ < 5) alert( i );
 */
+document.writeln("Цикл ++i выведет числа 1 2 3 4");
+document.writeln("<br>");
+document.writeln("Цикл i++ выведет числа 1 2 3 4 5");
+
 
 /*
     3)
