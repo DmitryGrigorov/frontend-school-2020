@@ -1,0 +1,6 @@
+.footer-title {
+  @include font(18px, 22px, bold);
+  @include zero;
+
+  margin-bottom: 33px;
+}

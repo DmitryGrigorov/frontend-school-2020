@@ -1,0 +1,13 @@
+.site-list {
+  @include list;
+
+  display: flex;
+}
+
+.site-list__link {
+  color: #ffffff;
+}
+
+.site-list__item:not(:last-child) {
+  margin-right: 20px;
+}

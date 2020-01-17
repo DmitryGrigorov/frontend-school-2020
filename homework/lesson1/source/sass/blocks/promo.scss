@@ -1,0 +1,29 @@
+.promo {
+  display: flex;
+  padding: 94px 0 77px;
+
+  color: #ffffff;
+  background-color: #ed4c5c;
+}
+
+.promo__left {
+  width: 445px;
+  padding: 29px 0;
+}
+
+.promo__text {
+  @include zero;
+  @include font(14px, 20px);
+
+  margin-bottom: 44px;
+  padding-right: 7px;
+}
+
+.promo__title {
+  margin-bottom: 44px;
+}
+
+.promo__right {
+  width: 533px;
+  height: 311px;
+}

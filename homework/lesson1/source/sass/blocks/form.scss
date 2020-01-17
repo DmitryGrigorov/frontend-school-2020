@@ -1,0 +1,95 @@
+.form__first-name,
+.form__last-name {
+  width: 255px;
+  margin-bottom: 25px;
+  padding: 21px 10px 20px 31px;
+
+  border: 1px solid #333333;
+  border-radius: 6px;
+}
+
+.form__input,
+.form__select {
+  margin-bottom: 25px;
+  padding: 21px 10px 20px 31px;
+
+  border: 1px solid #333333;
+  border-radius: 6px;
+}
+
+.form__tel,
+.form__select {
+  width: 540px;
+}
+
+.form__first-name {
+  margin-right: 25px;
+}
+
+.form__button {
+  width: 160px;
+  padding: 16px 10px;
+
+  color: #ffffff;
+  background-color: #ed4c5c;
+  border: 1.5px solid #ed4c5c;
+}
+
+.form__select {
+  @include font(16px, 19px);
+
+  position: relative;
+
+  color: rgba(19, 39, 67, 0.5);
+  background-color: #ffffff;
+  appearance: none;
+}
+
+.form__select::-ms-expand {
+  display: none;
+}
+
+.form__select-wrapper {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 25px;
+    right: 26px;
+    z-index: 3;
+
+    width: 14px;
+    height: 14px;
+
+    background-image: url("../img/arrow-down.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+  }
+}
+
+.form__input {
+  &::-webkit-input-placeholder {
+    @include font(16px, 19px);
+
+    color: rgba(19, 39, 67, 0.5);
+  }
+
+  &::-moz-placeholder {
+    @include font(16px, 19px);
+
+    color: rgba(19, 39, 67, 0.5);
+  }
+
+  &:-moz-placeholder {
+    @include font(16px, 19px);
+
+    color: rgba(19, 39, 67, 0.5);
+  }
+
+  &:-ms-input-placeholder {
+    @include font(16px, 19px);
+
+    color: rgba(19, 39, 67, 0.5);
+  }
+}

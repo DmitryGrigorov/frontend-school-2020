@@ -1,0 +1,11 @@
+.services {
+  width: 254px;
+}
+
+.services__list {
+  @include list;
+}
+
+.services__item-link {
+  color: #000000;
+}

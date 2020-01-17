@@ -1,0 +1,30 @@
+body {
+  width: 1440px;
+  margin: 0 auto;
+
+  font-family: "Lato", "Arial", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+
+  color: #000000;
+  background-color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}

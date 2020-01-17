@@ -1,0 +1,22 @@
+.contact {
+  display: flex;
+  padding: 117px 0 120px 10px;
+}
+
+.contact__title {
+  margin-bottom: 53px;
+}
+
+.contact__text {
+  @include zero;
+  @include font(14px, 20px);
+}
+
+.contact__left {
+  width: 434px;
+  margin-right: 130px;
+}
+
+.contact__right {
+  width: 540px;
+}

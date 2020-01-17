@@ -1,0 +1,118 @@
+.features {
+  padding: 62px 0;
+
+  background-color: #fafafa;
+}
+
+.features__title {
+  margin-bottom: 75px;
+
+  text-align: center;
+}
+
+.features__list {
+  @include list;
+
+  display: flex;
+}
+
+.features__item {
+  position: relative;
+
+  width: 350px;
+  padding: 157px 30px 60px;
+
+  text-align: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+
+    width: 350px;
+    height: 250px;
+
+    border-radius: 8px;
+  }
+}
+
+.features__item--1 {
+  &::before {
+    background-image: url("../img/features-img-1@1x.jpg");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    border: 1px solid #000000;
+
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+      background-image: url("../img/features-img-1@2x.jpg");
+      background-size: 350px auto;
+    }
+  }
+}
+
+.features__item--2 {
+  &::before {
+    background-image: url("../img/features-img-2@1x.jpg");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    border: 1px solid #ffffff;
+
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+      background-image: url("../img/features-img-2@2x.jpg");
+      background-size: 350px auto;
+    }
+  }
+}
+
+.features__item--3 {
+  &::before {
+    background-image: url("../img/features-img-3@1x.jpg");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    border: 1px solid #000000;
+
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+      background-image: url("../img/features-img-3@2x.jpg");
+      background-size: 350px auto;
+    }
+  }
+}
+
+.features__item:not(:last-child) {
+  margin-right: 30px;
+}
+
+.features__item-title {
+  @include zero;
+  @include font(18px, 22px, bold);
+
+  margin-bottom: 17px;
+}
+
+.features__item-text {
+  @include zero;
+  @include font(12px, 18px);
+
+  margin-bottom: 26px;
+}
+
+.features__item-link {
+  @include font(12px, 18px, bold);
+
+  color: #ed4c5c;
+}
+
+.features__item-block {
+  position: relative;
+  z-index: 2;
+
+  width: 293px;
+  padding: 32px 32px 24px;
+
+  background: #ffffff;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+}

@@ -1,0 +1,20 @@
+.page-footer {
+  @include font(12px, 18px);
+
+  background-color: #fafafa;
+}
+
+.page-footer__top-block {
+  display: flex;
+  padding: 88px 0;
+}
+
+.page-footer__address,
+.page-footer__services,
+.page-footer__contacts {
+  margin-right: 30px;
+}
+
+.page-footer__wrapper {
+  padding-bottom: 82px;
+}

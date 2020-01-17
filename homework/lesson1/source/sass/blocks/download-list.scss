@@ -1,0 +1,13 @@
+.download-list {
+  @include list;
+
+  display: flex;
+}
+
+.download-list__item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.download-list__item:last-child {
+  padding: 5px;
+}
