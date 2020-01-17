@@ -1,9 +1,143 @@
-.main {
-    
+/* reset */
+*   {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
 }
+
+.main {
+
+}
+
+.vector {
+    width: 25px;
+    height: 18px;
+}
+
 .container {
-    width: 1440px;
+    width: 100%;
     height: 782px;
+    background-image: url(../images/Bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:  center;
+}
+
+.header {
+    position: absolute;
+    width: 100%;
+    height: 100px;
     left: 0px;
-    top: 0px;
+    top: 17px;
+    background:  linear-gradient(90deg, rgba(213, 32, 71, 0.8) 0%, rgba(238, 61, 27, 0.8) 100%);
+    display: inline;
+}
+
+.logo {
+    width: 25px;
+    height: 18px;
+    position: absolute;
+    left: 5%;
+    right: 10%;
+    top: 20%;
+    bottom: 20%;
+    background-color: white;
+}
+
+.cloud  {
+    position: absolute;
+    width: 136px;
+    height: 22px;
+    left: 30px;
+    top: 0;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.navbar {
+    position: absolute;
+    width: 445px;
+    height: 22px;
+    left: 498px;
+    top: 58px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;    
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.clbudget {
+    position: absolute;
+    width: 578px;
+    height: 86px;
+    left: 431px;
+    top: 257px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 86px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.desc {
+    position: absolute;
+    width: 540px;
+    height: 124px;
+    left: 450px;
+    top: 382px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.button-signUp {
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    left: 640px;
+    top: 545px;
+    background: #FFFFFF;
+    border-radius: 6px;
+}
+
+.signUp {
+    position: absolute;
+    left: 55px;
+    top: 17px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #ED4C5C;
 }
