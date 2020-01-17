@@ -54,8 +54,7 @@ if(one == 'Админ'){
     }
 
 Решение:
-1) 0, 1, 2
-*/
+* /
 let i = 0 ; while(i < 3){
  alert(`number ${i}!`);
 i++ }
@@ -67,7 +66,7 @@ i++ }
     const number = +prompt('Введите число между 0 и 3', '');
 
     if (number === 0) {
-        alert('Вы ввели число 0');
+        
     }
 
     if (number === 1) {
@@ -79,7 +78,22 @@ i++ }
     }
 
 Решение:
-*/
+* /
+const number = +prompt('Введите число между 0 и 3', '');
+switch(number){
+ case 0:
+  alert('Вы ввели число 0');
+  break
+ case 1:
+  alert('Вы ввели число 1');
+  break
+ case 2:
+ case 3:
+  alert('Вы ввели число 2, а может и 3')
+  break
+ default:
+  document.location.href = '//learn.javascript.ru/switch'
+}
 //*/
 
 /*
@@ -95,7 +109,8 @@ i++ }
     }
 
 Решение:
-*/
+* /
+function getBackgroundColor(theme){ return (theme === 'light') ? '#FFF' : '#000' }
 //*/
 
 /**
@@ -103,4 +118,6 @@ i++ }
  * 
 Решение:
 */
+const pow = (x, n) => document.write(x**n)
+pow(prompt('x = ?'), prompt('в степени ?'))
 //*/ 
