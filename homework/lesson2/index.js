@@ -10,6 +10,25 @@
     При отмене – «Отменено»
 */
 
+const login = prompt("Введите логин");
+let password = "";
+
+if(login === "Админ"){
+    password = prompt("Введите пароль");
+}else if(login !== null){
+    document.write("Я вас не знаю");
+}else{
+    document.write("Отменено");
+}
+
+if(password === "Я главный"){
+    document.write("Здравствуйте");
+}else if(password != null && password !== ""){
+    document.write("Неверный пароль");
+}else if(password === null){
+    document.write("Отменено");
+}
+
 
 /*
     2)
@@ -22,17 +41,26 @@
     let i = 0;
     while (++i < 5) alert( i );
 
+    выведет 1, 2, 3, 4
+
     постфиксный вариант i++
     let i = 0;
     while (i++ < 5) alert( i );
+
+    выведет 1, 2, 3, 4, 5
+
+    второй цикл выводит 5, поскольку постфиксный инкремент применяется после проверик условия "<",
+    в первом цикле инкремент применятся до проверки услови "<".
 */
 
 /*
     3)
     Перепишите код, заменив цикл for на while, без изменения поведения цикла.
 
-    for (let i = 0; i < 3; i++) {
+    let i = 0;
+    while (i < 3) {
         alert( `number ${i}!` );
+        i++;
     }
 */
 
@@ -41,16 +69,17 @@
 
     const number = +prompt('Введите число между 0 и 3', '');
 
-    if (number === 0) {
-        alert('Вы ввели число 0');
-    }
-
-    if (number === 1) {
-        alert('Вы ввели число 1');
-    }
-
-    if (number === 2 || number === 3) {
-        alert('Вы ввели число 2, а может и 3');
+    switch (number) {
+        case 0:
+            alert('Вы ввели число 0');    
+            break;
+        case 1:
+            alert('Вы ввели число 1');
+            break;
+        case 2:
+        case 3:
+            alert('Вы ввели число 2, а может и 3');
+            break;
     }
 */
 
@@ -59,16 +88,15 @@
     Перепишите функцию, чтобы она делала то же самое, но без if, в одну строку.
 
     function getBackgroundColor(theme) {
-        if (theme === 'light') {
-            return '#FFF';
-        } else {
-            return '#000';
-        }
+        return theme === 'light' ? '#FFF' : "#000";        
     }
 */
 
 /**
  * 6) Напишите функцию pow(x,n), которая возвращает x в степени n
+ * 
  */
 
- 
+function pow (x, n){
+    return x**n;
+}
