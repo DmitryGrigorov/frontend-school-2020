@@ -9,6 +9,20 @@
     Иначе – «Неверный пароль»
     При отмене – «Отменено»
 */
+    const singUp = () => {
+
+    let login = prompt('Логин?', '');
+    let password = '';
+    if (login === 'Админ') {
+        password = prompt('Пароль', '');
+        if (password === null) {
+            alert("Отменено");
+        } else password === 'Я тут главный' ? alert('Здравствуйте!') : alert('Неверный пароль');
+    } else if (login === null || login === '') {
+        alert("Отменено");
+    } else alert('Я вас не знаю');
+
+}
 
 
 /*
@@ -26,7 +40,13 @@
     let i = 0;
     while (i++ < 5) alert( i );
 */
+let i = 0;
+while (++i < 5) alert( i );
+1,2,3,4
 
+let i = 0;
+while (i++ < 5) alert( i );
+1,2,3,4,5
 /*
     3)
     Перепишите код, заменив цикл for на while, без изменения поведения цикла.
