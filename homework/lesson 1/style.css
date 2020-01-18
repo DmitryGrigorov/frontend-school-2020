@@ -14,7 +14,7 @@
   position: relative;
   width: 1440px;
   height: 782px;
-  background-image: url('./images/bg-1.jpg');
+  background-image: url('images/bg-1.jpg');
   background-repeat: no-repeat;
   background-size: auto;
 }
@@ -183,7 +183,7 @@
   padding: 94px 260px 0 0;
   width: 445px;
   border-radius: 15px;
-  background-image: url('./images/Video_bg.jpg');
+  background-image: url('images/Video_bg.jpg');
   background-repeat: no-repeat;
   background-size: auto;
   background-position: center;
