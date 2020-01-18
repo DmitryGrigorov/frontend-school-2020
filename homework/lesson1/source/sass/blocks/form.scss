@@ -41,12 +41,7 @@
   position: relative;
 
   color: rgba(19, 39, 67, 0.5);
-  background-color: #ffffff;
-  appearance: none;
-}
-
-.form__select::-ms-expand {
-  display: none;
+  background-color: transparent;
 }
 
 .form__select-wrapper {
@@ -57,7 +52,7 @@
     position: absolute;
     top: 25px;
     right: 26px;
-    z-index: 3;
+    z-index: -1;
 
     width: 14px;
     height: 14px;

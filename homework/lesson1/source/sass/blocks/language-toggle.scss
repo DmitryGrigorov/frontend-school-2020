@@ -1,7 +1,7 @@
 .language-toggle {
   position: relative;
 
-  padding: 11px 40px;
+  padding: 9px 10px 11px 39px;
 
   &::before {
     content: "";
@@ -30,4 +30,21 @@
     border-right: 7px solid transparent;
     border-top: 8px solid #ffffff;
   }
+}
+
+.language-toggle__select {
+  position: relative;
+  z-index: 2;
+
+  padding-right: 23px;
+  
+  text-transform: uppercase;
+
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+}
+
+.language-toggle__select-option {
+  color: #000000;
 }

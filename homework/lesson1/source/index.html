@@ -37,7 +37,11 @@
           </ul>
         </nav>
         <div class="page-header__language language-toggle">
-          <span class="language-toggle__text">en</span>
+          <select class="language-toggle__select select" name="language" id="language">
+            <option class="language-toggle__select-option" selected>en</option>
+            <option class="language-toggle__select-option">rus</option>
+            <option class="language-toggle__select-option">de</option>
+          </select>
         </div>
         <button class="page-header__button page-header__button--1 login-button button">Login</button>
       </div>
@@ -158,7 +162,7 @@
             <input class="form__input form__tel" id="form-tel" type="tel" name="form-tel" placeholder="Phone Number">
             <label class="form__select-label visually-hidden" for="form-select">Select Service:</label>
             <div class="form__select-wrapper">
-              <select class="form__select" name="service" id="form-select">
+              <select class="form__select select" name="service" id="form-select">
                 <option class="form__select-option" disabled selected style="display:none;">Select Service</option>
                 <option>Service-1</option>
                 <option>Service-2</option>
