@@ -1,0 +1,78 @@
+.features {
+    background: #fafafa;
+    height: 660px;
+}
+
+.features > div > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 80px;
+}
+
+.features h1.features-header {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    text-align: center;
+    margin-top: 63px;
+}
+
+.features-block {
+    width: 350px;
+    height: 355px;
+    background-position: top;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.features .block1 {
+    background-image: url("./../images/features-bg1.png");
+}
+
+.features .block2 {
+    background-image: url("./../images/features-bg2.png");
+}
+
+.features .block3 {
+    background-image: url("./../images/features-bg3.png");
+}
+
+.features-block-text {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    height: 198px;
+    width: 293px;
+}
+.features-block-text > div {
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height:100%;
+}
+.features-block-text h1 {
+    margin-top: 32px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #101010;
+}
+.features-block-text p {
+    font-size: 12px;
+    line-height: 150%;
+    text-align: center;
+    color: #101010;
+}
+.features-block-text a{
+    margin-bottom: 25px;
+    text-align: center;
+}

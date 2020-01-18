@@ -28,6 +28,7 @@
 }
 .main a{
     color: #ED4C5C;
+    text-decoration: none;
 }
 
 @media (min-width: 1440px) {
