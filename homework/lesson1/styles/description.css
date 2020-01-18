@@ -1,4 +1,37 @@
-.description{
-     background: #fff;
-     height: 500px;
+.description {
+    background: #fff;
+    color: #000;
+}
+.description > div {
+    align-items: flex-start;
+}
+
+.description > div > div {
+    height: 500px;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.desc-text {
+    max-width: 430px;
+    margin-right: 80px;
+}
+.desc-text h1 {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    margin-bottom: 50px;
+}
+.desc-text p {
+    font-size: 14px;
+    line-height: 140%;
+    text-align: justify;
+    color: #000;
+}
+.desc-text a{
+    display: block;
+    font-size: 14px;
+    margin-top: 20px;
 }
