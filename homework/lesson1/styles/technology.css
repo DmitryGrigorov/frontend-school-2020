@@ -1,0 +1,74 @@
+.technology {
+    background: #fff;
+    height: 500px;
+}
+.technology h1.technology-header {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    text-align: center;
+    margin-top: 63px;
+}
+.technology > div > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 80px;
+}
+.technology-block {
+    width: 255px;
+    height: 226px;
+    position: relative;
+}
+
+.technology .block-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 255px;
+    height: 226px;
+    font-weight: bold;
+    font-size: 100px;
+    line-height: 120px;
+    text-align: center;
+    color: rgba(16, 16, 16, 0.08);
+}
+
+.technology-block > * {
+    text-align: center;
+    display: block;
+}
+.technology-block a {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    align-items: center;
+    padding-top: 72px;
+}
+.technology-block h1 {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #101010;
+}
+.technology-block p {
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 12px;
+    line-height: 14px;
+    color: #000000;
+}
+.tech-link1{
+    background: url('./../images/tech-cloud.png') top center no-repeat;
+}
+.tech-link2{
+    background: url('./../images/tech-shield.png') top center no-repeat;
+}
+.tech-link3{
+    background: url('./../images/tech-pdf.png') top center no-repeat;
+}
+.tech-link4{
+    background: url('./../images/tech-csv.png') top center no-repeat;
+}
