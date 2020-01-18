@@ -57,6 +57,12 @@ while (i++ < 5) alert( i );
     }
 */
 
+let i = 0;
+while(i < 3) {
+    alert( `number ${i}!`);
+    i++;
+}
+
 /*
     4) Перепишите код с использованием одной конструкции switch:
 
@@ -75,6 +81,26 @@ while (i++ < 5) alert( i );
     }
 */
 
+const valueSelection = () => {
+
+    let number = +prompt('Введите число между 0 и 3', '');
+
+    switch(number) {
+        case 0:
+            alert('Вы ввели число 0');
+            break;
+        case 1:
+            alert('Вы ввели число 1');
+            break;
+        case 2:
+        case 3:
+            alert('Вы ввели число 2, а может и 3');
+            break;
+        default:
+            alert('Поздравляю! Вы гений');
+    }
+
+}
 /*
     5)
     Перепишите функцию, чтобы она делала то же самое, но без if, в одну строку.
@@ -88,8 +114,24 @@ while (i++ < 5) alert( i );
     }
 */
 
+const getBackgroundColor = (theme) => {
+   return theme === 'light' ? '#FFF' : '#000';
+}
+
 /**
  * 6) Напишите функцию pow(x,n), которая возвращает x в степени n
  */
 
- 
+ //1
+ const pow = (x, n) => {
+    let val = 1;
+ for (i = n; i > 0; i--) {
+    val *= x;
+ }
+ return val;
+} 
+
+ //2
+    const pow = (x, n) => {
+        return x ** n;
+}
