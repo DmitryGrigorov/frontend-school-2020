@@ -1,0 +1,40 @@
+.sliderblock {
+    background: #ED4C5C;
+    color: #fff;
+}
+.sliderblock > div {
+    align-items: flex-start;
+}
+.sliderblock > div > div {
+    height: 500px;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.sliderblock-text {
+    max-width: 430px;
+    margin-right: 80px;
+}
+.sliderblock-text h1 {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    margin-bottom: 50px;
+}
+.sliderblock-text p {
+    font-size: 14px;
+    line-height: 140%;
+    text-align: justify;
+}
+.sliderblock-icons{
+    margin-top:50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.sliderblock-icons a{
+    margin-right: 30px;
+}
