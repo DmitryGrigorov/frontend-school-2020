@@ -361,9 +361,88 @@ html, body {
     text-align: center;
 }
 
+.download-container {
+    display: flex;
+    align-items: center;
+    
+    height: 500px;
+    background: #ED4C5C;
+}
 
+.download-text {
+    margin-left: 163px;
+    width: 447px;
+    height: 267px;
 
+    color: #FFFFFF;
+}
 
+.download-text p {
+    font-style: normal;
+    font-size: 14px;
+    line-height: 20px;
+
+    margin-top: 57px;
+    margin-bottom: 45px;
+}
+
+.download-buttons button {
+    border: 0px;
+    background-color: transparent;
+
+    padding: 0px;
+    margin-right: 23px;
+
+    cursor: pointer;
+
+}
+.download-buttons button img{
+    width: 32px;
+    height: 32px;
+}
+.download-content {
+    margin-left: 81px;
+
+    width: 533px;
+    height: 311px;
+}
+
+.download-content img {
+    width: 383px;
+    height: 267px;
+
+    opacity: 0.5;
+    border-radius: 15px;
+
+}
+
+.download-content img.next {
+    position: relative;
+    top: -556px;
+
+    float: right;
+    cursor: pointer;
+}
+
+.download-content img.previous {
+    position: relative;
+    top: 22px;
+
+    float: left;
+    cursor: pointer;
+}
+
+.download-content img.active {
+    position: relative;
+    left: 44px;
+    top: -267px;
+
+    width: 445px;
+    height: 311px;
+
+    opacity: 1.0;
+    z-index: 1;
+}
 /* General styles */
 
 h3 {
