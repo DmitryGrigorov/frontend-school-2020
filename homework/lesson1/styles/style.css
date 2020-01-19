@@ -227,6 +227,21 @@ a {
     flex-flow: row nowrap;
 }
 
+#feat {
+    position: absolute;
+    width: 1110px;
+    height: 55px;
+    left: 165px;
+    top: 63px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    text-align: center;
+    
+    color: #000000;
+}
+
 .first-col-feat {
     height: 660px;
     flex-grow: 3;
@@ -270,6 +285,9 @@ div.card {
     height: 40px;
     left: 32px;
     top: 33px;
+}
+
+.font {
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
@@ -368,13 +386,160 @@ div.card {
 }
 
 .mainblock {
-    position: relative;
+    position: absolute;
     width: 1110px;
     height: 226px;
     left: 165px;
     top: 170px;
+    display: inline-flex;
 }
 
 .block {
-    
+    width: 255px;
+    height: 226px;
+    position: relative;
+    margin-right: 30px;
+}
+
+.block4{
+    width: 255px;
+    height: 226px;
+    position: relative;
+}
+
+.tecnology-item1 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 100px;
+    line-height: 120px;
+    text-align: center;
+    color: rgba(16, 16, 16, 0.08);
+}
+
+
+.technology-icon1 {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: 87px;
+    top: 59px;
+    text-align: center;
+    z-index: 1;  
+}
+
+.technology-icon2 {
+    position: absolute;
+    width: 66px;
+    height: 66px;
+    left: 94px;
+    top: 65px;
+    text-align: center;
+    z-index: 1;  
+}
+
+.technology-icon3 {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    left: 104.09px;
+    top: 69px;
+    z-index: 1;  
+}
+
+.technology-icon4 {
+    position: absolute;
+    width: 47px;
+    height: 54px;
+    left: 104px;
+    top: 71px;
+    text-align: center;
+    z-index: 1;  
+}
+
+.technology-item3 {
+    position: absolute;
+    height: 22px;
+    top: 139px;
+    text-align: center;
+}
+
+.technology-item4 {
+    position: absolute;
+    width: 191px;
+    height: 51px;
+    left: 34px;
+    top: 171px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: #000000;
+}
+
+.App {
+    background-image: url(../images/bg4slide.png);
+    position: absolute;
+    width: 1440px;
+    height: 500px;
+}
+
+.App-item1 {
+    position: absolute;
+    width: 445px;
+    height: 107px;
+    left: 165px;
+    top: 122px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    color: #FFFFFF;
+}
+
+.App-item2  {
+    position: absolute;
+    width: 445px;
+    height: 64px;
+    left: 165px;
+    top: 253px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    text-align: justify;
+    color: #FFFFFF;
+}
+
+.video1 {
+    position: absolute;
+    width: 383px;
+    height: 267px;
+    left: 691px;
+    top: 116px;
+    background: url(../images/video_bg3.png), #C4C4C4;
+    opacity: 0.5;
+    border-radius: 15px;
+}
+
+.video2 {
+    position: absolute;
+    width: 383px;
+    height: 267px;
+    left: 841px;
+    top: 116px;
+    background: url(../images/video_bg2.png), #C4C4C4;
+    opacity: 0.5;
+    border-radius: 15px;
+}
+
+.video3 {
+    position: absolute;
+    width: 445px;
+    height: 311px;
+    left: 735px;
+    top: 94px;
+    background: url(../images/video_bg1.png), #C4C4C4;
+    border-radius: 15px;
+    z-index: 1;
 }
