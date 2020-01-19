@@ -3,7 +3,9 @@
 * {
     margin: 0;
     padding: 0;
-}/* body */
+}
+
+/* body */
 body {
     font-family: "Lato", sans-serif;
 }
@@ -350,6 +352,62 @@ body {
 
 .tech_item_4 {
     background: url("../images/tech_04.png") top center no-repeat;
+}
+
+/* application */
+
+.app_block {
+    height: 500px;
+    background: #ED4C5C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.application {
+    display: flex;
+    justify-content: space-between;
+    width: 1059px;
+    height: 311px;
+}
+
+.app_text {
+    width: 447px;
+    height: 267px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.app_text h1 {
+    color: white;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    font-style: normal;
+}
+
+.app_text p {
+    color: white;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: justify;
+}
+
+.store_links {
+    width: 134px;
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app_slider {
+    width: 533px;
+    height: 311px;
+    background: url("../images/app_slider.png");
 }
 
 /* footer */
