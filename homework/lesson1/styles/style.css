@@ -5,31 +5,50 @@
     font-family: 'Lato', sans-serif;
 }
 
-.main {
+.stage1 {
+    position: absolute;
     width: 1440px;
     height: 782px;
     left: 0px;
     top: 0px;
 
-    background: linear-gradient(90deg, rgba(213, 32, 71, 0.8) 0%, rgba(238, 61, 27, 0.8) 100%);
-    width: 100%;
-
-    background-image: url("../images/Hero_background.png");
-    background-color: #C4C4C4;
-    background-position: top;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.header {
-    height: 32px;
+    background-image: url("../images/stage1/bg.png");
 }
 
 .container {
     width: 1440px;
     height: 665px;
-    padding: 61px 163px;
+    padding: 55px 165px;
 }
+
+.logo-text {
+    position: absolute;
+    width: 136px;
+    height: 22px;
+    left: 201px;
+    top: 54px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
+
+
+.header {
+    height: 32px;
+}
+
+
 
 
 /* main body */
@@ -64,6 +83,7 @@
 
 .banner {
     position: relative;
+    top: 1000px;
     height: 592px;
     background-image: url(../images/players.png);
     background-repeat: no-repeat;
