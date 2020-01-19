@@ -98,6 +98,10 @@ html, body {
     color: #FFFFFF;
 }
 
+.main-navigation-lang select:hover {
+    cursor: pointer;
+}
+
 .main-navigation-lang button{
     width: 100px;
     height: 40px;
@@ -136,7 +140,7 @@ html, body {
 
 .main-text p{
     font-family: Lato;
-    font-weight: 600;
+    font-weight: normal;
     font-size: 24px;
     line-height: 36px;
     text-align: center;
@@ -179,10 +183,6 @@ html, body {
 }
 
 .video-text h3 {
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 43px;
-
     width: 445px;
     margin-top: 0;
     margin-bottom: 54px;
@@ -198,7 +198,7 @@ html, body {
     margin-bottom: 24px;
 }
 
-.video-text button {
+/* .video-text button {
     background-color: transparent;
     border: 0px;
 
@@ -207,7 +207,7 @@ html, body {
 
     padding: 0;
     cursor: pointer;
-}
+} */
 
 .video-content {
     margin: auto;
@@ -237,4 +237,105 @@ html, body {
     height: 66px;
 
     z-index: 1;
+}
+
+.features-container {
+    background: #FAFAFA;
+    height: 660px;
+}
+
+.features-container h3 {
+    text-align: center;
+    padding-top: 63px;
+    margin-bottom: 63px;
+}
+
+.features-list {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+
+    width: 1110px;
+    margin: 0 auto;
+}
+
+.features-list-item img {
+    width: 350px;
+    height: 250px;
+
+    border-radius: 8px;
+}
+
+.features-list-item-card {
+    position: relative;
+    top: -93px;
+    left: 29px;
+    z-index: 1;
+
+    /* width: 293px; */
+    /* height: 198px; */
+    width: 253px;
+    height: 140px;
+
+    background-color: #FFFFFF;
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+
+    padding: 33px 20px 25px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+.features-list-item-card h6 {
+    width: 229px;
+}
+
+.features-list-item-card p{
+    font-size: 12px;
+    line-height: 18px;
+    color: #101010;
+
+    margin-top: 20px;
+    margin-bottom: 22px;
+}
+
+.features-list-item-card button {
+    font-size: 12px;
+}
+
+
+/* General styles */
+
+h3 {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+
+    margin: 0px;
+}
+
+h6 {
+    font-family: Lato;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+
+    margin: 0px;
+}
+
+.text-button {
+    background-color: transparent;
+    border: 0px;
+
+    color: #ED4C5C;
+    font-size: 14px;
+
+    padding: 0;
+    cursor: pointer;
 }
