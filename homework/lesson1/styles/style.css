@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style-type: none;
+    display: inline;
+    /* Убираем маркеры */
+}
+
+ul {
+    margin-left: 0;
+    /* Отступ слева в браузере IE и Opera */
+    padding-left: 0;
+    /* Отступ слева в браузере Firefox, Safari, Chrome */
+}
+
+.main {
+    width: 1440px;
+}
+
+.mainBackground {
+    position: absolute;
+    width: 1440px;
+    height: 782px;
+    left: 0px;
+    top: 0px;
+}
+
+.shadowBackground {
+    position: absolute;
+    width: 1440px;
+    height: 782px;
+    left: 0px;
+    top: 0px;
+}
+
+.first-block {
+    position: absolute;
+    height: 782px;
+    left: 0px;
+    top: 0px;
+    display: block;
+}
+
+.logoImage {
+    /* dashicons-cloud */
+    position: absolute;
+    width: 29px;
+    height: 29px;
+    left: 165px;
+    top: 55px;
+}
+
+.logoText {
+    /* Логотип */
+    position: absolute;
+    width: 136px;
+    height: 22px;
+    left: 201px;
+    top: 59px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.menu {
+    /* Navbar */
+    position: absolute;
+    width: 445px;
+    height: 22px;
+    left: 498px;
+    top: 58px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.buttonLoginBoarder {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    left: 1172px;
+    top: 50px;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.buttonLoginText {
+    position: absolute;
+    width: 43px;
+    height: 17px;
+    left: 1201px;
+    top: 61px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.languageSelection {
+    position: absolute;
+    width: 96px;
+    height: 32px;
+    left: 1056px;
+    top: 54px;
+}
+
+.title {
+    position: absolute;
+    width: 578px;
+    height: 86px;
+    left: 431px;
+    top: 257px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 86px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.subtitle {
+    position: absolute;
+    width: 540px;
+    height: 124px;
+    left: 450px;
+    top: 382px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    /* or 36px */
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.buttonFrame_2 {
+    /* Rectangle 6 */
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    left: 640px;
+    top: 545px;
+    background: #FFFFFF;
+    border-radius: 6px;
+}
+
+.buttonText_2 {
+    position: absolute;
+    width: 55px;
+    height: 17px;
+    left: 692px;
+    top: 562px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #ED4C5C;
+}
+
+.second-block {
+    /* Video Section */
+    position: absolute;
+    width: 1440px;
+    height: 500px;
+    left: 0px;
+    top: 782px;
+}
+
+.second-block.background {
+    /* Bg */
+    position: absolute;
+    width: 1440px;
+    height: 500px;
+    left: 0px;
+    top: 782px;
+    background: #FFFFFF;
+}
+
+.third-block {
+    /* Overview */
+    position: absolute;
+    width: 1440px;
+    height: 660px;
+    left: 0px;
+    top: 1282px;
+}
+
+.fourth-block {
+    position: absolute;
+    width: 1440px;
+    height: 500px;
+    left: 0px;
+    top: 1942px;
+}
+
+.fifth-block {
+    position: absolute;
+    width: 1440px;
+    height: 500px;
+    left: 0px;
+    top: 2442px;
+}
+
+.sixth-block {
+    /* Contact Us */
+    position: absolute;
+    width: 1440px;
+    height: 500px;
+    left: 0px;
+    top: 2942px;
+}
+
+.menu {
+    width: 445px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu a {
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.seventeen-block {
+    /* Footer */
+    position: absolute;
+    width: 1440px;
+    height: 435px;
+    left: 0px;
+    top: 3487px;
+}
