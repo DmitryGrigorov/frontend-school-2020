@@ -1,0 +1,11 @@
+header {
+	background-image: linear-gradient(#D52047, #EE3D1B), url("../images/header_background.png");
+}
+
+footer, #features {
+	background-color: #FAFAFA;
+}
+
+#saving {
+	background-color: #ED4C5C;
+}
