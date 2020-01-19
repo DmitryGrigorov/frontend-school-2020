@@ -1,0 +1,1082 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+.Storey1 {
+    background-image: url(../images/BgStorey1.png);
+    position: absolute;
+    width: 1440px;
+    height: 782px;
+    left: 0px;
+    top: 0px;
+    /*
+    width: 100%;
+    background: #F4F6F9;
+    background-position: right center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    */
+}
+
+.Storey1-CloudLittle {
+    background-image: url(../images/CloudLittle.png);
+    position: absolute;
+    width: 29px;
+    height: 29px;
+    left: 165px;
+    top: 55px;
+}
+
+.Storey1-CloudBudget {
+    position: absolute;
+    width: 136px;
+    height: 22px;
+    left: 201px;
+    top: 59px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.Storey1-NavBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    position: absolute;
+    width: 445px;
+    height: 22px;
+    left: 498px;
+    top: 58px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.Storey1-NavBar A { color: white; }
+.Storey1-NavBar A:link{ text-decoration: none; /* Убирает подчеркивание для ссылок */ }
+.Storey1-NavBar A:visited { text-decoration: none; }
+.Storey1-NavBar A:active { text-decoration: none; }
+.Storey1-NavBar A:hover {
+    text-decoration: underline; /* Делает ссылку подчеркнутой при наведении на нее курсора */
+    color: wheat; /* Цвет ссылки */
+}
+
+.Storey1-LanguageLogo{
+    background-image: url(../images/Language.png);
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 1056px;
+    top: 54px;
+}
+
+.Storey1-Language{
+    position: absolute;
+    width: 32px;
+    height: 22px;
+    left: 1099px;
+    top: 59px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
+.Storey1-LanguageTriangle{
+    background-image: url(../images/Triangle.png);
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 1122px;
+    top: 56px;
+}
+
+.Storey1-Login{
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    left: 1172px;
+    top: 50px;
+
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 6px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.Storey1-LoginTxt{
+    position: absolute;
+    width: 43px;
+    height: 17px;
+    left: 1201px;
+    top: 61px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
+.Storey1-MainString{
+    position: absolute;
+    width: 578px;
+    height: 86px;
+    left: 431px;
+    top: 257px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 86px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
+.Storey1-MiddleString{
+    position: absolute;
+    width: 540px;
+    height: 124px;
+    left: 450px;
+    top: 382px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.Storey1-SignUp{
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    left: 640px;
+    top: 545px;
+
+    background: #FFFFFF;
+    border-radius: 6px;
+}
+
+.Storey1-SignUpTxt{
+    position: absolute;
+    width: 55px;
+    height: 17px;
+    left: 692px;
+    top: 562px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+
+    color: #ED4C5C;
+}
+
+.Storey2{
+    position: absolute;
+    width: 1440px;
+    height: 500px;
+    left: 0px;
+    top: 782px;
+
+    background: #FFFFFF;
+}
+
+.Storey2Picture{
+    background-image: url(../images/Storey2Picture.png);
+    position: absolute;
+    width: 478px;
+    height: 311px;
+    left: 702px;
+    top: 876px;
+}
+
+.Storey2-H1{
+    position: absolute;
+    width: 445px;
+    height: 107px;
+    left: 165px;
+    top: 922px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+
+    color: #000000;
+}
+
+.Storey2-H2{
+    position: absolute;
+    width: 445px;
+    height: 115px;
+    left: 165px;
+    top: 1053px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    /* or 20px */
+
+    text-align: justify;
+
+    color: #000000;
+}
+
+.Storey2-H3{
+    position: absolute;
+    width: 90px;
+    height: 20px;
+    left: 165px;
+    top: 1152px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    /* identical to box height, or 20px */
+
+    text-align: justify;
+
+    color: #ED4C5C;
+}
+
+.Storey3{
+    position: absolute;
+    width: 1440px;
+    height: 660px;
+    left: 0px;
+    top: 1282px;
+
+    background: #FAFAFA;
+}
+
+.Storey3-Features{
+    position: absolute;
+    width: 1110px;
+    height: 55px;
+    left: 165px;
+    top: 1345px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    text-align: center;
+
+    color: #000000;
+}
+
+.Storey3-Coloumn1Img{
+    position: absolute;
+    width: 350px;
+    height: 250px;
+    left: 165px;
+    top: 1463px;
+
+    background: url(../images/Storey3-1.png), #FFFFFF;
+    border-radius: 8px;
+}
+
+.Storey3-Coloumn1Frame{
+    position: absolute;
+    width: 293px;
+    height: 198px;
+    left: 194px;
+    top: 1620px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.Storey3-Coloumn1H1 {
+    position: absolute;
+    width: 229px;
+    height: 40px;
+    left: 226px;
+    top: 1653px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+
+    color: #101010;
+}
+
+.Storey3-Coloumn1H2{
+    position: absolute;
+    width: 229px;
+    height: 57px;
+    left: 226px;
+    top: 1713px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 150%;
+    /* or 18px */
+
+    text-align: center;
+
+    color: #101010;
+}
+
+.Storey3-Coloumn1H3{
+    position: absolute;
+    width: 253px;
+    height: 18px;
+    left: 214px;
+    top: 1775px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 150%;
+    /* identical to box height, or 18px */
+
+    text-align: center;
+
+    color: #ED4C5C;
+}
+
+.Storey3-Coloumn2Img{
+    position: absolute;
+    width: 350px;
+    height: 250px;
+    left: 545px;
+    top: 1463px;
+
+    background: url(../images/Storey3-2.png), #FFFFFF;
+    border-radius: 8px;
+}
+
+.Storey3-Coloumn2Frame{
+    position: absolute;
+    width: 293px;
+    height: 198px;
+    left: 574px;
+    top: 1620px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.Storey3-Coloumn2H1 {
+    position: absolute;
+    width: 229px;
+    height: 40px;
+    left: 606px;
+    top: 1653px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+
+    color: #101010;
+}
+
+.Storey3-Coloumn2H2{
+    position: absolute;
+    width: 229px;
+    height: 57px;
+    left: 606px;
+    top: 1713px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 150%;
+    /* or 18px */
+
+    text-align: center;
+
+    color: #101010;
+}
+
+.Storey3-Coloumn2H3{
+    position: absolute;
+    width: 253px;
+    height: 18px;
+    left: 594px;
+    top: 1775px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 150%;
+    /* identical to box height, or 18px */
+
+    text-align: center;
+
+    color: #ED4C5C;
+}
+
+.Storey3-Coloumn3Img{
+    position: absolute;
+    width: 350px;
+    height: 250px;
+    left: 925px;
+    top: 1463px;
+
+    background: url(../images/Storey3-3.png), #FFFFFF;
+    border-radius: 8px;
+}
+
+.Storey3-Coloumn3Frame{
+    position: absolute;
+    width: 293px;
+    height: 198px;
+    left: 954px;
+    top: 1620px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.Storey3-Coloumn3H1 {
+    position: absolute;
+    width: 229px;
+    height: 40px;
+    left: 986px;
+    top: 1653px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+
+    color: #101010;
+}
+
+.Storey3-Coloumn3H2{
+    position: absolute;
+    width: 229px;
+    height: 57px;
+    left: 986px;
+    top: 1713px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 150%;
+    /* or 18px */
+
+    text-align: center;
+
+    color: #101010;
+}
+
+.Storey3-Coloumn3H3{
+    position: absolute;
+    width: 253px;
+    height: 18px;
+    left: 974px;
+    top: 1775px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 150%;
+    /* identical to box height, or 18px */
+
+    text-align: center;
+
+    color: #ED4C5C;
+}
+
+.Storey4{
+    position: absolute;
+    width: 1440px;
+    height: 500px;
+    left: 0px;
+    top: 1942px;
+
+    background: #FFFFFF;
+}
+
+.Storey4-H1{
+    position: absolute;
+    width: 1110px;
+    height: 55px;
+    left: 165px;
+    top: 2005px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    text-align: center;
+
+    color: #000000;
+}
+
+.Storey4-Column1Img{
+    background-image: url(../images/Storey4-1.png);
+    position: absolute;
+    width: 255px;
+    height: 226px;
+    left: 165px;
+    top: 2112px;
+}
+
+.Storey4-Column2Img{
+    background-image: url(../images/Storey4-2.png);
+    position: absolute;
+    width: 255px;
+    height: 226px;
+    left: 450px;
+    top: 2112px;
+}
+
+.Storey4-Column3Img{
+    background-image: url(../images/Storey4-3.png);
+    position: absolute;
+    width: 255px;
+    height: 226px;
+    left: 735px;
+    top: 2112px;
+}
+
+.Storey4-Column4Img{
+    background-image: url(../images/Storey4-4.png);
+    position: absolute;
+    width: 255px;
+    height: 226px;
+    left: 1020px;
+    top: 2112px;
+}
+
+.Storey5{
+     position: absolute;
+     width: 1440px;
+     height: 500px;
+     left: 0px;
+     top: 2442px;
+
+     background: #ED4C5C;
+ }
+
+.Storey5-Img{
+    background-image: url(../images/FastFood.png);
+    position: absolute;
+    width: 533px;
+    height: 311px;
+    left: 691px;
+    top: 2536px;
+}
+
+.Storey5-H1{
+    position: absolute;
+    width: 445px;
+    height: 107px;
+    left: 165px;
+    top: 2564px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+
+    color: #FFFFFF;
+}
+
+.Storey5-H2{
+    position: absolute;
+    width: 430px;
+    height: 64px;
+    left: 165px;
+    top: 2695px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    /* or 20px */
+
+    text-align: justify;
+
+    color: #FFFFFF;
+}
+
+.Storey5-Download{
+    background-image: url(../images/Storey5-Download.png);
+    position: absolute;
+    width: 134px;
+    height: 32px;
+    left: 163px;
+    top: 2799px;
+}
+
+.Storey6{
+    position: absolute;
+    width: 1440px;
+    height: 500px;
+    left: 0px;
+    top: 2942px;
+
+    background: #FFFFFF;
+}
+
+.Storey6-H1{
+    position: absolute;
+    width: 445px;
+    height: 107px;
+    left: 176px;
+    top: 3059px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+
+    color: #000000;
+}
+
+.Storey6-H2{
+    position: absolute;
+    width: 434px;
+    height: 64px;
+    left: 176px;
+    top: 3155px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    /* or 20px */
+
+    text-align: justify;
+
+    color: #000000;
+}
+
+.Storey6-FirstName{
+    position: absolute;
+    width: 255px;
+    height: 60px;
+    left: 735px;
+    top: 3059px;
+
+    border: 1px solid #333333;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.Storey6-FirstNameTxt{
+    position: absolute;
+    width: 78px;
+    height: 19px;
+    left: 766px;
+    top: 3080px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: rgba(19, 39, 67, 0.5);
+
+    border-radius: 6px;
+}
+
+.Storey6-LastName{
+    position: absolute;
+    width: 255px;
+    height: 60px;
+    left: 1020px;
+    top: 3059px;
+
+    /* Gray 1 */
+
+    border: 1px solid #333333;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.Storey6-LastNameTxt{
+    position: absolute;
+    width: 75px;
+    height: 19px;
+    left: 1051px;
+    top: 3080px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: rgba(19, 39, 67, 0.5);
+}
+
+.Storey6-Phone{
+    position: absolute;
+    width: 540px;
+    height: 60px;
+    left: 735px;
+    top: 3143px;
+
+    /* Gray 1 */
+
+    border: 1px solid #333333;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.Storey6-PhoneTxt{
+    position: absolute;
+    width: 106px;
+    height: 19px;
+    left: 766px;
+    top: 3164px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: rgba(19, 39, 67, 0.5);
+}
+
+.Storey6-Service{
+    position: absolute;
+    width: 540px;
+    height: 60px;
+    left: 735px;
+    top: 3227px;
+
+    /* Gray 1 */
+
+    border: 1px solid #333333;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.Storey6-ServiceTxt{
+    position: absolute;
+    width: 98px;
+    height: 19px;
+    left: 766px;
+    top: 3248px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: rgba(19, 39, 67, 0.5);
+}
+
+.Storey6-ServiceImg{
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    left: 1235px;
+    top: 3250px;
+
+    font-family: Segoe MDL2 Assets;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height */
+
+
+    color: rgba(19, 39, 67, 0.5);
+}
+
+.Storey6-Submit{
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    left: 735px;
+    top: 3314px;
+
+    background: #ED4C5C;
+    border: 1.5px solid #ED4C5C;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.Storey6-SubmitTxt{
+    position: absolute;
+    width: 92px;
+    height: 17px;
+    left: 769px;
+    top: 3331px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
+.Storey7{
+    position: absolute;
+    width: 1440px;
+    height: 435px;
+    left: 0px;
+    top: 3487px;
+
+    background: #FAFAFA;
+}
+
+.Storey7-Column1H1{
+    position: absolute;
+    width: 65px;
+    height: 22px;
+    left: 166px;
+    top: 3572px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #101010;
+}
+
+.Storey7-Column1H2{
+    position: absolute;
+    width: 254px;
+    height: 54px;
+    left: 166px;
+    top: 3627px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 150%;
+    /* or 18px */
+
+
+    color: #101010;
+}
+
+.Storey7-Column1H3{
+    position: absolute;
+    width: 155px;
+    height: 14px;
+    left: 161px;
+    top: 3822px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+
+    color: #101010;
+}
+
+.Storey7-Column2H1{
+    position: absolute;
+    width: 67px;
+    height: 22px;
+    left: 450px;
+    top: 3572px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+
+    color: #101010;
+}
+
+.Storey7-Column2H2{
+    position: absolute;
+    width: 254px;
+    height: 114px;
+    left: 450px;
+    top: 3622px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 160%;
+    /* or 19px */
+
+    text-transform: capitalize;
+
+    color: #000000;
+}
+
+.Storey7-Column3H1{
+    position: absolute;
+    width: 101px;
+    height: 22px;
+    left: 734px;
+    top: 3572px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #101010;
+}
+
+.Storey7-Column3H2{
+    position: absolute;
+    width: 122px;
+    height: 14px;
+    left: 734px;
+    top: 3627px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+
+    color: #101010;
+}
+
+.Storey7-Column3H3{
+    position: absolute;
+    width: 96px;
+    height: 14px;
+    left: 734px;
+    top: 3652px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+
+    color: #121212;
+}
+
+.Storey7-Column3H4{
+    background-image: url(../images/Social.png);
+}
+
+.Storey7-Column4H1{
+    position: absolute;
+    width: 96px;
+    height: 22px;
+    left: 1022px;
+    top: 3572px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+
+    color: #101010;
+}
+
+.Storey7-Column4H2{
+    position: absolute;
+    width: 216px;
+    height: 31px;
+    left: 1028px;
+    top: 3627px;
+
+    background: url(../images/PayCards.png);
+}
