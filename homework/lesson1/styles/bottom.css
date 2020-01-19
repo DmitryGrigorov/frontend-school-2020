@@ -1,0 +1,47 @@
+.bottom {
+    background: #fafafa;
+    color: #101010;
+    height: 435px;
+}
+.bottom > div > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 85px;
+}
+.bottom-block {
+    width: 254px;
+    height: 180px;;
+}
+.bottom-block h1 {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: left;
+    margin-bottom: 35px;
+}
+.bottom p {
+    font-size: 12px;
+    line-height: 150%;
+}
+.bottom-block ul li {
+    list-style-type: none;
+    font-size: 12px;
+    line-height: 160%;
+    text-transform: capitalize;
+}
+.bottom-block a {
+    color: #000;
+}
+.bottom-contacts p {
+    margin: 10px 0;
+}
+.bottom-contacts .social {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+.bottom-contacts .social a {
+    margin-right: 15px;
+}
