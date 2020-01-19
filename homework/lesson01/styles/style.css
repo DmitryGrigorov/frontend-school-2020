@@ -410,6 +410,116 @@ body {
     background: url("../images/app_slider.png");
 }
 
+/* contacts */
+
+.contacts_block {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contacts {
+    width: 1099px;
+    height: 305px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact_text {
+    width: 445px;
+    height: 160px;
+}
+
+.contact_text h1 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    margin-bottom: 60px;
+}
+
+.contact_text p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: justify;
+}
+
+.contact_form {
+    width: 540px;
+    height: 305px;
+}
+
+.name {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.first_name, .last_name {
+    width: 255px;
+    height: 60px;
+    border: 1px solid #333333;
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-size: 16px;
+    line-height: 19px;
+    color: rgba(19, 39, 67, 0.5);
+    padding-left: 31px;
+    padding-right: 31px;
+}
+
+.phone {
+    margin-bottom: 24px;
+}
+
+.service_select {
+    width: 540px;
+    height: 60px;
+    border: 1px solid #333333;
+    box-sizing: border-box;
+    border-radius: 6px;
+    appearance: none;
+    -webkit-appearance: none;
+    background: url("../images/select_arrow.png") no-repeat right .7em top 50%, 0 0;
+    font-size: 16px;
+    line-height: 19px;
+    color: rgba(19, 39, 67, 0.5);
+    padding-left: 31px;
+    padding-right: 31px;
+    margin-bottom: 24px;
+}
+
+.phone_field {
+    width: 540px;
+    height: 60px;
+    border: 1px solid #333333;
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-size: 16px;
+    line-height: 19px;
+    color: rgba(19, 39, 67, 0.5);
+    padding-left: 31px;
+    padding-right: 31px;
+}
+
+.form_submit {
+    width: 160px;
+    height: 50px;
+    background: #ED4C5C;
+    border: 1px solid #ED4C5C;
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
 /* footer */
 
 .main_footer {
