@@ -1,0 +1,783 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+.main{
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(90deg, rgba(213, 32, 71, 0.8) 0%, rgba(238, 61, 27, 0.8) 100%), url(../images/main/background.svg);
+  background-size: cover;
+  padding: 0 4vw;
+}
+
+.main *{
+  color: white;
+}
+
+.navigation-bar{
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo{
+  text-align: center;
+  max-width: 498px;
+  width: 193px;
+}
+
+.item{
+  text-align: center;
+}
+
+.elementMenu {
+  text-decoration: none;
+  font-size: 14px;
+  flex-grow: 1;
+  text-align: center;
+  padding-right: 20px;
+  text-transform: uppercase;
+}
+
+.language {
+  display: flex;
+  align-items: center;
+}
+
+.language select{
+  outline: none;
+}
+
+.flag{
+  margin-right: 2px;
+}
+
+.registration{
+  background: none;
+  font-size: 14px;
+  border-radius: 6px;
+  padding: 8px 15px;
+  border: 1px solid white;
+  outline: none;
+  text-transform: uppercase;
+}
+
+.language select{
+  background: none;
+  border: none;
+  margin-right: 15px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.main h1{
+  text-transform: uppercase;
+  font-size: 72px;
+  text-align: center;
+  margin-top: 120px;
+  font-weight: bold;
+  letter-spacing: 5px;
+}
+
+.main p{
+  text-align: center;
+  margin-top: 30px;
+  margin-left: 400px;
+  margin-right: 400px;
+  line-height: 1.5em;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.buttonSignUp{
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+.signUp{
+  text-transform: uppercase;
+  background-color: white;
+  font-size: 14px;
+  border-radius: 6px;
+  padding: 12px 40px;
+  border: none;
+  outline: none;
+
+}
+
+.signUp span{
+  color: rgba(238, 61, 27, 0.8);
+}
+
+.videoSection{
+  width: 100%;
+  height: 500px;
+  background: white;
+  padding: 0 4vw;
+  display: flex;
+  align-items: center;
+}
+
+.leftSection{
+  margin-left: 90px;
+  margin-right: 80px;
+}
+
+.videoSection h2{
+  font-size: 36px;
+}
+
+.videoSection p{
+  font-size: 14px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  line-height: 1.5em;
+}
+
+.videoSection a{
+  text-decoration: none;
+  color: crimson;
+}
+
+.rightSection{
+  margin-right: 120px;
+  position: relative;
+}
+
+.centerElement {
+  width: 66px;
+  height: 66px;
+  background-color: #ED4C5C;
+  border-radius: 50%;
+  z-index: 1;
+  position: absolute;
+  top: 123px;
+  left: -33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color:white;
+  padding-left: 5px;
+}
+
+.featuresSection{
+  background: #FAFAFA;
+  padding: 0 4vw;
+  width: 100%;
+  height: 660px;
+  display: flex;
+  flex-direction: column;
+}
+
+.featuresSection h2{
+  font-size: 36px;
+  margin-top: 65px;
+  align-self: center;
+}
+
+.cardsFeatures{
+  display: flex;
+  margin-top: 70px;
+  justify-content: center;
+  position: relative;
+}
+
+.pictureCardFirst{
+  height: 225px;
+}
+
+.overTextFirst{
+  width: 260px;
+  height: 170px;
+  background-color: white;
+  border-radius: 5px;
+  z-index: 1;
+  position: absolute;
+  top: 160px;
+  left: 123px;
+  box-shadow: 0 15px 20px 0.5px lightgray;
+  padding-left: 24px;
+  padding-right: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overTextFirst h3{
+  font-size: 16px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overTextFirst p{
+  font-size: 11px;
+  text-align: center;
+  margin-top: 15px;
+  line-height: 1.5em;
+}
+
+.overTextFirst a{
+  font-size: 11px;
+  text-align: center;
+  margin-top: 25px;
+  text-decoration: none;
+  color: #ED4C5C;
+}
+
+.pictureCardSecond{
+  height: 225px;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.overTextSecond{
+  padding-left: 30px;
+  width: 260px;
+  height: 170px;
+  background-color: white;
+  border-radius: 5px;
+  z-index: 1;
+  position: absolute;
+  top: 160px;
+  left: 458px;
+  box-shadow: 0 15px 20px 0.5px lightgray;
+  padding-left: 28px;
+  padding-right: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overTextSecond h3{
+  font-size: 16px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overTextSecond p{
+  font-size: 11px;
+  text-align: center;
+  margin-top: 15px;
+  line-height: 1.5em;
+}
+
+.overTextSecond a{
+  font-size: 11px;
+  text-align: center;
+  margin-top: 25px;
+  text-decoration: none;
+  color: #ED4C5C;
+}
+
+.pictureCardThird{
+  height: 225px;
+}
+
+.overTextThird{
+  padding-left: 30px;
+  width: 260px;
+  height: 170px;
+  background-color: white;
+  border-radius: 5px;
+  z-index: 1;
+  position: absolute;
+  top: 160px;
+  left: 805px;
+  box-shadow: 0 15px 20px 0.5px lightgray;
+  padding-left: 28px;
+  padding-right: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overTextThird h3{
+  font-size: 16px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overTextThird p{
+  font-size: 11px;
+  text-align: center;
+  margin-top: 15px;
+  line-height: 1.5em;
+}
+
+.overTextThird a{
+  font-size: 11px;
+  text-align: center;
+  margin-top: 25px;
+  text-decoration: none;
+  color: #ED4C5C;
+}
+
+.technology{
+  background: white;
+  padding: 0 4vw;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.technology h2{
+  font-size: 36px;
+  margin-top: 60px;
+  align-self: center;
+}
+
+.elementsOfTechnology{
+  display: flex;
+  margin-top: 55px;
+  justify-content: center;
+  position: relative;
+}
+
+.cloudStorage{
+  max-width: 255px;
+  display: flex;
+  position: relative;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.numberElements p{
+  font-size: 100px;
+  color: rgba(16, 16, 16, 0.08);
+  font-weight: bold;
+}
+
+.cloudStorageInfo{
+  z-index: 1;
+  position: absolute;
+  top: 56px;
+  left: -70px;
+  display: flex;
+  flex-direction: column;
+  width: 255px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.iconCloud{
+  max-width: 78px;
+  max-height: 78px;
+  align-self: center;
+}
+
+.cloudStorageInfo h3{
+  align-self: center;
+  font-size: 18px;
+  margin-top: 4px;
+}
+
+.cloudStorageInfo p{
+  font-size: 12px;
+  color: black;
+  align-self: center;
+  line-height: 1.5em;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.secure{
+  max-width: 255px;
+  display: flex;
+  position: relative;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.secureInfo{
+  z-index: 1;
+  position: absolute;
+  top: 63px;
+  left: -70px;
+  display: flex;
+  flex-direction: column;
+  width: 255px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.iconSecure{
+  max-width: 66px;
+  max-height: 66px;
+  align-self: center;
+}
+
+.secureInfo h3{
+  align-self: center;
+  font-size: 18px;
+  margin-top: 9px;
+}
+
+.secureInfo p{
+  font-size: 12px;
+  color: black;
+  align-self: center;
+  line-height: 1.5em;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.pdfDownload{
+  max-width: 255px;
+  display: flex;
+  position: relative;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.pdfDownloadInfo{
+  z-index: 1;
+  position: absolute;
+  top: 60px;
+  left: -67px;
+  display: flex;
+  flex-direction: column;
+  width: 255px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.iconPdf{
+  max-width: 70px;
+  max-height: 70px;
+  align-self: center;
+}
+
+.pdfDownloadInfo h3{
+  align-self: center;
+  font-size: 18px;
+  margin-top: 9px;
+}
+
+.pdfDownloadInfo p{
+  font-size: 12px;
+  color: black;
+  align-self: center;
+  line-height: 1.5em;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.csvDownload{
+  max-width: 255px;
+  display: flex;
+  position: relative;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.csvDownloadInfo{
+  z-index: 1;
+  position: absolute;
+  top: 70px;
+  left: -67px;
+  display: flex;
+  flex-direction: column;
+  width: 255px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.iconCsv{
+  max-width: 47px;
+  max-height: 54px;
+  align-self: center;
+}
+
+.csvDownloadInfo h3{
+  align-self: center;
+  font-size: 18px;
+  margin-top: 14px;
+}
+
+.csvDownloadInfo p{
+  font-size: 12px;
+  color: black;
+  align-self: center;
+  line-height: 1.5em;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.appDownloadSection{
+  background: #ED4C5C;
+  padding: 0 4vw;
+  width: 100%;
+  height: 500px;
+  display: flex;
+}
+
+.textSection{
+  padding-left: 55px;
+}
+
+.textSection h3{
+  font-size: 36px;
+  margin-top: 110px;
+  color: white;
+}
+
+.textSection p{
+  font-size: 14px;
+  line-height: 2em;
+  margin-top: 40px;
+  color: white;
+}
+
+.icon{
+  display: flex;
+  margin-top: 30px;
+}
+
+.firstIcon{
+  max-width: 32px;
+  max-height: 32px;
+}
+
+.secondIcon{
+  margin-right: 20px;
+  margin-left: 20px;
+  max-width: 32px;
+  max-height: 32px;
+}
+
+.thirdIcon{
+  max-width: 24px;
+  max-height: 24px;
+  margin-top: 5px;
+}
+
+.slideSection{
+  display: flex;
+  max-width: 590px;
+  align-items: center;
+  margin-right: 105px;
+}
+
+.centerSlide{
+  max-height: 280px;
+  z-index: 3;
+  position: relative;
+  left: -490px;
+}
+
+.leftSlide{
+  max-height: 240px;
+  opacity: 50%;
+  z-index: 1;
+  position: relative;
+  left: 150px;
+}
+
+.rightSlide{
+  max-height: 240px;
+  opacity: 50%;
+  left: -40px;
+  z-index: 2;
+  position: relative;
+}
+
+.contactSection{
+  background:white;
+  padding: 0 4vw;
+  width: 100%;
+  height: 500px;
+  display: flex;
+}
+
+.textSectionContact h3{
+  color: black;
+  font-size: 36px;
+  margin-top: 120px;
+  padding-left: 60px;
+}
+
+.textSectionContact p{
+  color: black;
+  font-size: 16px;
+  line-height: 2em;
+  padding-left: 60px;
+  margin-top: 55px;
+}
+
+.formSection{
+  display: flex;
+  flex-direction: column;
+  padding-right: 80px;
+  padding-left: 100px;
+}
+
+.fullName{
+  display: flex;
+}
+
+.inputFirstname{
+  width: 220px;
+  height: 50px;
+  margin-top: 120px;
+  margin-right: 10px;
+  border-radius: 6px;
+  border: 1px solid #132743;
+  outline: none;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.inputLastname{
+  width: 220px;
+  height: 50px;
+  margin-top: 120px;
+  border-radius: 6px;
+  border: 1px solid #132743;
+  outline: none;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.inputNumber{
+  width: 450px;
+  height: 50px;
+  margin-top: 25px;
+  border-radius: 6px;
+  border: 1px solid #132743;
+  outline: none;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.formSection select{
+  width: 450px;
+  height: 50px;
+  margin-top: 25px;
+  border-radius: 6px;
+  border: 1px solid #132743;
+  outline: none;
+  padding: 20px;
+  font-size: 16px;
+  color:rgba(0, 0, 0, 0.55);
+}
+.chooseServices{
+  padding-left: 40px;
+}
+.formSection button{
+  max-width: 160px;
+  max-height: 50px;
+  margin-top: 25px;
+  text-transform: uppercase;
+  background-color: #ED4C5C;
+  color: white;
+  font-size: 14px;
+  border-radius: 6px;
+  padding-top:15px;
+  padding-bottom: 15px;
+  border: none;
+  outline: none;
+}
+
+.footer{
+  width: 100%;
+  height: 435px;
+  background: #FAFAFA;
+  background-size: cover;
+  padding: 0 4vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.addres h3{
+  font-size: 18px;
+  padding-left: 60px;
+  margin-top: 85px;
+}
+
+.addres p{
+  font-size: 12px;
+  padding-left: 60px;
+  margin-top: 35px;
+  margin-bottom: 130px;
+  line-height: 1.5em;
+}
+
+.addres span{
+  font-size: 12px;
+  padding-left: 60px;
+}
+
+.services{
+  display: flex;
+  flex-direction: column;
+}
+
+.iconSocialSites{
+  display: flex;
+}
+
+.services h3{
+  font-size: 18px;
+  margin-top: 85px;
+  margin-bottom: 35px;
+}
+
+.services a{
+  font-size: 12px;
+  line-height: 1.5em;
+  text-decoration: none;
+  color: black;
+}
+
+.getInTouch h3{
+  font-size: 18px;
+  margin-top: 85px;
+  margin-bottom: 35px;
+}
+
+.getInTouch p{
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.iconFacebook{
+  max-width: 14px;
+  max-height: 14px;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+.iconLinkedin{
+  max-width: 14px;
+  max-height: 14px;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+.iconTwitter{
+  max-width: 14px;
+  max-height: 14px;
+  margin-top: 15px;
+}
+
+.support{
+  padding-right: 60px;
+}
+
+.support h3{
+  font-size: 18px;
+  margin-top: 85px;
+  margin-bottom: 35px;
+}
+
+.support img{
+  max-width: 216px;
+  max-height: 31px;
+}
+
