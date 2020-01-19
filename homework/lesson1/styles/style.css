@@ -396,10 +396,12 @@ html, body {
     cursor: pointer;
 
 }
+
 .download-buttons button img{
     width: 32px;
     height: 32px;
 }
+
 .download-content {
     margin-left: 81px;
 
@@ -443,6 +445,80 @@ html, body {
     opacity: 1.0;
     z-index: 1;
 }
+
+.contact-container {
+    height: 545px;
+
+    display: flex;
+    align-items: center;
+}
+
+.contact-text {
+    margin-left: 176px;
+    width: 435px;
+    
+}
+
+.contact-text p{
+    margin-top: 61px;
+    margin-bottom: 160px;
+
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.contact-form {
+    width: 540px;
+    height: 305px;
+    margin-left: 114px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-form button {
+    width: 157px;
+    height: 47px;
+
+    background: #ED4C5C;
+    border: 1.5px solid #ED4C5C;
+    box-sizing: border-box;
+    border-radius: 6px;
+
+    color: #FFFFFF;
+    font-size: 14px;
+    line-height: 17px;  
+
+    cursor: pointer;
+}
+
+.contact-form-input {
+    width: 536px;
+    height: 56px;
+
+    border: 1px solid #333333;
+    border-radius: 6px;
+}
+
+.contact-form-input::placeholder {
+    padding-left: 31px;
+
+    font-family: Lato;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: rgba(19, 39, 67, 0.5);
+}
+
+.contact-form-name input {
+    width: 255px;
+    float: left;
+}
+
+.contact-form-name input:last-of-type {
+    float: right;
+} 
 /* General styles */
 
 h3 {
