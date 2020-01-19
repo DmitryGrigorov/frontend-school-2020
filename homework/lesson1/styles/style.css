@@ -12,6 +12,39 @@ html, body {
     font-family: Lato;
 }
 
+/* General styles */
+
+h3 {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+
+    margin: 0px;
+}
+
+h6 {
+    font-family: Lato;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+
+    margin: 0px;
+}
+
+.text-button {
+    background-color: transparent;
+    border: 0px;
+
+    color: #ED4C5C;
+    font-size: 14px;
+
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Detail styles */
+
 .main-container {
     
     height: 782px;
@@ -519,33 +552,79 @@ html, body {
 .contact-form-name input:last-of-type {
     float: right;
 } 
-/* General styles */
 
-h3 {
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 43px;
-
-    margin: 0px;
+.footer {
+    height: 435px;
+    background: #FAFAFA;
 }
 
-h6 {
+.footer-list {
+    margin-left: 161px;
+    display: flex;
+    align-items: baseline;
+}
+
+.footer-list-item {
+    margin-top: 85px;
+}
+
+.footer-list-item.services{
+    margin-left: 108px;
+}
+
+.footer-list-item.contacts{
+    margin-left: 113px;
+}
+
+.footer-list-item.support{
+    margin-left: 166px;
+}
+
+.footer-list-item h6{
+    text-align: left;
+    margin-bottom: 33px;
+}
+
+.footer-list-item p{
+    text-align: left;
+    margin: 0;
+    width: 171px;
+
+    font-size: 12px;
+    line-height: 18px;
+}
+
+
+.footer-list-item.support p{
+    margin-bottom: 11px;
+}
+
+.footer-list-item img {
+    width: 216px;
+    height: 31px;
+}
+
+.footer-contacts {
+    margin-top: 20px;
+}
+
+.footer-contacts a{
+    text-decoration: none;
+}
+.footer-contacts a img {
+    width: 14px;
+    height: 14px;
+
+    margin-right: 12px;
+}
+
+.footer-copyright {
+    margin-top: 105px;
+    margin-left: 166px;
+
     font-family: Lato;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 22px;
-    text-align: center;
+    font-size: 12px;
+    line-height: 14px;
 
-    margin: 0px;
-}
-
-.text-button {
-    background-color: transparent;
-    border: 0px;
-
-    color: #ED4C5C;
-    font-size: 14px;
-
-    padding: 0;
-    cursor: pointer;
+    color: #101010;
 }
