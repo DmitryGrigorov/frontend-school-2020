@@ -194,9 +194,7 @@ body {
 .video_frame {
     width: 478px;
     height: 311px;
-    background: url("../images/video_bg.png");
-    background-position: center right;
-    background-repeat: no-repeat;
+    background: url("../images/video_bg.png") center right no-repeat;
     display: flex;
     align-items: center;
 }
@@ -232,28 +230,22 @@ body {
 }
 
 .features_item_1 {
-    background: url("../images/feature_card_1.png");
-    background-repeat: no-repeat;
-    background-position: top;
+    background: url("../images/feature_card_1.png") top no-repeat;
 }
 
 .features_item_2 {
-    background: url("../images/feature_card_2.png");
-    background-repeat: no-repeat;
-    background-position: top;
+    background: url("../images/feature_card_2.png") top no-repeat;
 }
 
 .features_item_3 {
-    background: url("../images/feature_card_3.png");
-    background-repeat: no-repeat;
-    background-position: top;
+    background: url("../images/feature_card_3.png") top no-repeat;
 }
 
 .item_card {
     width: 293px;
     height: 198px;
     background: #FFFFFF;
-    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     position: relative;
     top: 157px;
@@ -345,23 +337,19 @@ body {
 
 
 .tech_item_1 {
-    background: url("../images/tech_01.png") no-repeat;
-    background-position: top center;
+    background: url("../images/tech_01.png") top center no-repeat;
 }
 
 .tech_item_2 {
-    background: url("../images/tech_02.png") no-repeat;
-    background-position: top center;
+    background: url("../images/tech_02.png") top center no-repeat;
 }
 
 .tech_item_3 {
-    background: url("../images/tech_03.png") no-repeat;
-    background-position: top center;
+    background: url("../images/tech_03.png") top center no-repeat;
 }
 
 .tech_item_4 {
-    background: url("../images/tech_04.png") no-repeat;
-    background-position: top center;
+    background: url("../images/tech_04.png") top center no-repeat;
 }
 
 /* footer */
