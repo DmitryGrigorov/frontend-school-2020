@@ -1,11 +1,11 @@
-/* reset */
+/* Reset */
 *   {
     padding: 0;
     margin: 0;
     font-family: 'Lato', sans-serif;
 }
 
-/* main */
+/* Main */
 .main {
 
 }
@@ -16,6 +16,7 @@
 }
 
 .container {
+    position: relative;
     width: 1440px;
     height: 782px;
     background-image: url(../images/Bg.png);
@@ -46,7 +47,6 @@
 }
 
 .cloud  {
-    position: absolute;
     width: 136px;
     height: 22px;
     left: 30px;
@@ -67,12 +67,10 @@
     height: 22px;
     left: 498px;
     top: 58px;
-    font-family: Lato;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
     line-height: 17px;
-    display: flex;
     align-items: center;
     text-transform: uppercase;    
 }
@@ -143,13 +141,12 @@ a {
     color: #ED4C5C;
 }
 
-/* banner */
+/* Banner */
 .banner {
     position: relative;
     width: 1440px;
     height: 500px;
     left: 0px;
-    
     background: #FFFFFF;
     display: flex;
     flex-flow: row nowrap;
@@ -166,7 +163,7 @@ a {
 }
 
 .banner-desc {
-    position: relative;
+    position: absolute;
     width: 445px;
     height: 107px;
     left: 165px;
@@ -192,6 +189,14 @@ a {
     color: #000000;    
 }
 
+.learnmore {
+    position: absolute;
+    width: 71px;
+    height: 20px;
+    left: 165px;
+    top: 370px;
+}
+
 .video {
     position: absolute;
     width: 445px;
@@ -211,7 +216,7 @@ a {
     background-image: url(../images/Ellipse.png);
 }
 
-/* features */
+/* Features */
 .features {
     position: relative;
     width: 1440px;
@@ -237,20 +242,20 @@ a {
     flex-grow: 3;
 }
 
-.first-img {
-    position: relative;
+/* General settings for img */
+div.image {
+    position: absolute;
     width: 350px;
     height: 250px;
-    left: 165px;
     top: 181px;;
     border-radius: 8px;
 }
 
-.first-card {
+/* General settings for cards */
+div.card {
     position: absolute;
     width: 293px;
     height: 198px;
-    left: 194px;
     top: 338px;
     background: #FFFFFF;
     box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
@@ -258,7 +263,8 @@ a {
     z-index: 1;
 }
 
-.title-card1 {
+/* General settings for titles cards */
+.titlecard {
     position: absolute;
     width: 229px;
     height: 40px;
@@ -270,4 +276,105 @@ a {
     line-height: 22px;
     text-align: center;
     color: #101010;
+}
+
+/* General settings for text cards */
+.textcard {
+    position: absolute;
+    width: 229px;
+    height: 57px;
+    left: 32px;
+    top: 93px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 150%;
+    text-align: center;
+    color: #101010;
+}
+
+.readmore {
+    position: absolute;
+    width: 253px;
+    height: 18px;
+    left: 20px;
+    top: 155px;
+    text-align: center;
+    background-image: url(../images/Read\ More.png);
+    background-repeat: no-repeat;
+    background-position:  center;
+}
+
+/* 1st col os Features */
+.first-img {
+    left: 165px;
+    background: url(../images/bg_feat_1.png), #FFFFFF;
+    background-repeat: no-repeat;
+    background-position:  center;
+}
+
+.first-card {
+    left: 194px;
+}
+
+
+/* 2nd col of Features */
+.second-img {
+    left: 545px;
+    background: url(../images/bg_feat_2.png), #FFFFFF;
+    background-repeat: no-repeat;
+    background-position:  center;
+}
+
+.second-card{
+    left: 574px;
+}
+
+/* 3rd col of Features */
+.third-img {
+    left: 925px;
+    background: url(../images/bg_feat_3.png) #FFFFFF;
+    background-repeat: no-repeat;
+    background-position:  center;
+}
+
+.third-card{
+    left: 954px;
+}
+
+/* Technology */
+.technology {
+    position: relative;
+    width: 1440px;
+    height: 500px;
+    left: 0px;
+    background: #FFFFFF;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+#h1Tech {
+    position: absolute;
+    width: 1110px;
+    height: 55px;
+    left: 165px;
+    top: 63px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    color: #000000;
+}
+
+.mainblock {
+    position: relative;
+    width: 1110px;
+    height: 226px;
+    left: 165px;
+    top: 170px;
+}
+
+.block {
+    
 }
