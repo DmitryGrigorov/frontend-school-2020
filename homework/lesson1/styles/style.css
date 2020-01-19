@@ -161,3 +161,80 @@ html, body {
 
     cursor: pointer;
 }
+
+
+.video-container {
+    height: 500px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+}
+
+.video-text {
+    margin: auto;
+    margin-left: 165px;
+    margin-right: 0;
+    color: #000000;
+}
+
+.video-text h3 {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+
+    width: 445px;
+    margin-top: 0;
+    margin-bottom: 54px;
+}
+
+.video-text p {
+    font-size: 14px;
+    line-height: 20px;
+
+    text-align: justify;
+    width: 445px;
+
+    margin-bottom: 24px;
+}
+
+.video-text button {
+    background-color: transparent;
+    border: 0px;
+
+    color: #ED4C5C;
+    font-size: 14px;
+
+    padding: 0;
+    cursor: pointer;
+}
+
+.video-content {
+    margin: auto;
+    margin-left: 123px;
+}
+
+.video-content img {
+    border-radius: 15px;
+    
+    width: 445px;
+    height: 311px;
+}
+
+.video-content button {
+    cursor: pointer;
+    position: absolute;
+    left: 702px;
+    top: 1010px;
+
+    border-radius: 50%;
+    background-color: #ED4C5C;
+    background: url('../images/video/video_button.png') no-repeat top left;
+    background-size: 66px;
+    border: 0px;
+
+    width: 66px;
+    height: 66px;
+
+    z-index: 1;
+}
