@@ -42,14 +42,78 @@
     color: #FFFFFF;
 }
 
-
-
 .header {
     height: 32px;
 }
 
+.stage1 nav{
+    position: absolute;
+    width: 500px;
+    height: 22px;
+    left: 498px;
+    top: 55px;
 
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
 
+.stage1 nav a {
+    text-decoration: none;
+    color: #FFFFFF;
+    margin-left: 20px;
+}
+
+.language {
+    position: absolute;
+    width: 96px;
+    height: 32px;
+    left: 1056px;
+    top: 54px;
+
+    padding-left: 10px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.language img {
+    margin-right: 10px;
+}
+
+.login-button {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    left: 1172px;
+    top: 50px;
+    padding-left: 27px;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
 
 /* main body */
 
