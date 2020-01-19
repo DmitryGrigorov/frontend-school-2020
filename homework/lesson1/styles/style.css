@@ -5,6 +5,10 @@
     font-family: 'Lato', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 .stage1 {
     position: absolute;
     width: 1440px;
@@ -173,7 +177,7 @@
 .stage2{
     position: absolute;
     width: 1440px;
-    height: 500px;
+    height: 0px;
     left: 0px;
 }
 
@@ -227,4 +231,138 @@
     line-height: 140%;
     text-align: justify;
     color: #ED4C5C;
+}
+
+.stage3 {
+    position: absolute;
+    width: 1440px;
+    height: 660px;
+    left: 0px;
+    top: 1282px;
+    background: #FAFAFA;
+}
+
+.stage3 h2{
+    position: absolute;
+    width: 1110px;
+    height: 55px;
+    top: 63px;
+    left: 165px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    text-align: center;
+    color: #000000;
+}
+
+.stage3 .col1{
+    position: absolute;
+    width: 350px;
+    height: 355px;
+    left: 165px;
+    top: 181px;
+    background: url("../images/stage3/col1.png") no-repeat;
+    border-radius: 8px;
+}
+
+.stage3 .text{
+    position: relative;
+    width: 293px;
+    height: 198px;
+    left: 29px;
+    top: 157px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.stage3 .col2{
+    position: absolute;
+    width: 350px;
+    height: 355px;
+    left: 545px;
+    top: 181px;
+    background: url("../images/stage3/col2.png") no-repeat;
+    border-radius: 8px;
+}
+
+.stage3 .col3{
+    position: absolute;
+    width: 350px;
+    height: 355px;
+    left: 925px;
+    top: 181px;
+    background: url("../images/stage3/col3.png") no-repeat;
+    border-radius: 8px;
+}
+
+.stage3 .text h3{
+    position: relative;
+    width: 229px;
+    height: 40px;
+    left: 32px;
+    top: 33px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #101010;
+    font-family: Lato;
+}
+
+.stage3 .text p{
+    position: relative;
+    width: 229px;
+    height: 57px;
+    left: 32px;
+    top: 60px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 150%;
+    text-align: center;
+    color: #101010;
+    font-family: Lato;
+}
+
+.stage3 .text a{
+    position: relative;
+    width: 253px;
+    height: 18px;
+    left: 113px;
+    top: 56px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 150%;
+    color: #ED4C5C;
+    font-family: Lato;
+}
+
+.stage4{
+    position: absolute;
+    width: 1440px;
+    height: 500px;
+    left: 0px;
+    top: 1946px;
+    background: #ED4C5C;
+}
+
+.stage4 h2{
+    position: relative;
+    width: 445px;
+    font-family: Lato;
+    height: 107px;
+    left: 163px;
+    top: 20px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    color: #FFFFFF;
 }
