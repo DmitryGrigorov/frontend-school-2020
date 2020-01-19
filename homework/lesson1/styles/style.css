@@ -11,14 +11,15 @@
     height: 782px;
     left: 0px;
     top: 0px;
-
     background-image: url("../images/stage1/bg.png");
 }
 
-.container {
-    width: 1440px;
-    height: 665px;
-    padding: 55px 165px;
+.stage1 .logo img {
+    position: absolute;
+    width: 29px;
+    height: 29px;
+    left: 165px;
+    top: 50px;
 }
 
 .logo-text {
@@ -40,10 +41,6 @@
     text-transform: uppercase;
 
     color: #FFFFFF;
-}
-
-.header {
-    height: 32px;
 }
 
 .stage1 nav{
@@ -172,6 +169,42 @@
     text-decoration: none;
     color: #ED4C5C;
 }
+/******************************* STAGE 2 **********************************/
+.stage2{
+    position: absolute;
+    width: 1440px;
+    height: 500px;
+    left: 0px;
+}
+
+.stage2 article h2{
+    position: absolute;
+    width: 445px;
+    height: 107px;
+    left: 165px;
+    top: 922px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    color: #000000;
+}
+
+.stage2 article p{
+    position: absolute;
+    width: 445px;
+    height: 115px;
+    left: 165px;
+    top: 1053px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    text-align: justify;
+    color: #000000;
+}
 
 .stage2 img {
     position: absolute;
@@ -181,138 +214,17 @@
     top: 876px;
 }
 
-.main-body-title {
-    margin-top: 140px;
-    font-weight: bold;
-    font-size: 36px;
-    width: 546px;
-}
-
-.main-body-button {
-    display: inline-block;
-    margin-right: 36px;
-}
-
-
-/* banner part */
-
-.banner {
-    position: relative;
-    top: 1000px;
-    height: 592px;
-    background-image: url(../images/players.png);
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: contain;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-}
-
-.banner-left-col {
-    width: 805px;
-    padding-top: 109px;
-}
-
-.banner-right-col {
-    width: 407px;
-}
-
-.banner::before {
+.stage2 article a{
     position: absolute;
-    content: ' ';
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 805px;
-    background: linear-gradient(270deg, #FFFFFF 5.16%, rgba(255, 255, 255, 0) 67.14%), rgba(255, 255, 255, 0.5);
-}
-
-.container-banner {
-    padding-left: 163px;
-    width: 1440px;
-    height: 665px;
-}
-
-
-.banner-blocks {
-    width: 466px;
-    height: 405px;
-    position: relative;   
-}
-
-.banner-first-block {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    position: absolute;
-    width: 360px;
-    height: 218px;
-    background: #FFFFFF;
-    box-shadow: -22.0416px 23.8785px 48.9814px rgba(0, 0, 0, 0.5);
-    border-radius: 4px;
-    
-    z-index: 1;
-}
-
-.banner-second-block {
-    width: 360px;
-    height: 218px;
-    background-image: url('../images/video.png');
-    background-size: contain;
-    background-position: center center;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-.banner-first-block-time {
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 22px;
-    margin-bottom: 12px;
-}
-
-.banner-first-block-title {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    width: 76px;
-    margin-bottom: 13px;
-}
-
-.banner-first-block-name {
-    font-size: 16px;
-    line-height: 21px;
-}
-
-.banner-body{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.banner-body-text {
-    padding: 27px 15px;
-}
-
-.banner-first-block-footer {
-    width: 100%;
-    height: 60px;
-    background-color: #EEEEEE;
-    display: flex;
-    align-items: baseline;
-}
-
-.banner-footer-txt {
-    padding: 13px 15px;
-}
-
-.banner-body-logo {
-    margin: 46px 14px;
-}
-
-
-.banner-body-logo img:last-child{
-    margin-left: -14px;
+    width: 80px;
+    height: 20px;
+    left: 165px;
+    top: 1152px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    text-align: justify;
+    color: #ED4C5C;
 }
