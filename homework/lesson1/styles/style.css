@@ -115,19 +115,70 @@
     color: #FFFFFF;
 }
 
-/* main body */
-
-.main-body {
-    
+.stage1 h1{
+    position: absolute;
+    width: 578px;
+    height: 86px;
+    left: 431px;
+    top: 257px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 86px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #FFFFFF;
 }
 
-.main-body-desc {
-    width: 453px;
+.stage1 h2{
+    position: absolute;
+    width: 540px;
+    height: 124px;
+    left: 450px;
+    top: 382px;
+
     font-family: Lato;
-    font-size: 18px;
-    line-height: 26px;
-    margin-top: 30px;
-    margin-bottom: 50px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    text-align: center;
+    color: #FFFFFF;
+
+}
+
+.stage1 .signUpButton{
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    left: 640px;
+    top: 545px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    padding-left: 50px;
+    align-items: center;
+}
+
+.stage1 article a{
+    text-decoration: none;
+    color: #ED4C5C;
+}
+
+.stage2 img {
+    position: absolute;
+    width: 478px;
+    height: 311px;
+    left: 702px;
+    top: 876px;
 }
 
 .main-body-title {
