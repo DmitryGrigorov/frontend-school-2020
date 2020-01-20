@@ -453,10 +453,43 @@ a {
     font-family: Lato;
     height: 107px;
     left: 163px;
-    top: 20px;
+    top: 122px;
     font-style: normal;
     font-weight: 600;
     font-size: 36px;
     line-height: 43px;
     color: #FFFFFF;
+}
+
+.stage5 p{
+    position: relative;
+    width: 445px;
+    height: 64px;
+    left: 165px;
+    top: 155px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    text-align: justify;
+    color: #FFFFFF;
+}
+
+.stage5 .stores{
+    position: relative;
+    height: 32px;
+    left: 163px;
+    top: 197px;
+}
+.stage5 .stores img{
+    margin-right: 15px;
+}
+
+.stage5 .slider{
+    position: relative;
+    width: 533px;
+    height: 311px;
+    left: 691px;
+    top: -80px;
 }
