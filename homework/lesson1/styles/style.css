@@ -493,3 +493,122 @@ a {
     left: 691px;
     top: -80px;
 }
+
+.stage6{
+    position: absolute;
+    width: 1440px;
+    height: 500px;
+    left: 0px;
+    top: 2942px;
+}
+
+.stage6 h2{
+    position: absolute;
+    width: 445px;
+    height: 107px;
+    left: 176px;
+    top: 117px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    color: #000000;
+}
+
+.stage6 p{
+    position: absolute;
+    width: 434px;
+    height: 64px;
+    left: 176px;
+    top: 213px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    text-align: justify;
+    color: #000000;
+}
+
+.stage6 .right-field{
+    position: absolute;
+    width: 540px;
+    height: 305px;
+    left: 735px;
+    top: 117px;
+}
+
+.stage6 .first-name{
+    position: absolute;
+    width: 255px;
+    height: 60px;
+    left: 0px;
+    top: 0px;
+    border: 1px solid #333333;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.stage6 .last-name{
+    position: absolute;
+    width: 255px;
+    height: 60px;
+    left: 280px;
+    top: 0px;
+    border: 1px solid #333333;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.stage6 .phone-number{
+    position: absolute;
+    width: 540px;
+    height: 60px;
+    left: 0px;
+    top: 80px;
+    border: 1px solid #333333;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.stage6 .service-selector{
+    position: absolute;
+    width: 540px;
+    height: 60px;
+    left: 0px;
+    top: 160px;
+    border: 1px solid #333333;
+    box-sizing: border-box;
+    border-radius: 6px;
+    background-image: url("../images/stage6/ChevronDown.svg");
+    background-repeat: no-repeat;
+    background-position: 96% 50%;
+}
+
+.stage6 .service-submit{
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    left: 0px;
+    top: 240px;
+    background: #ED4C5C;
+    border: 1.5px solid #ED4C5C;
+    box-sizing: border-box;
+    border-radius: 6px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stage6 .right-field a{
+    color: #FFFFFF;
+}
