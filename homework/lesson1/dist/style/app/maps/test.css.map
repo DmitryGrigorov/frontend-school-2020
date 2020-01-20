@@ -1,1 +1,0 @@
-{"version":3,"sources":["test.scss"],"names":[],"mappings":"AAAA,MACI,qBAAqB,AACrB,eAAgB,CACf","file":"../../test.css","sourcesContent":[".main {\r\n    background-color: red;\r\n    font-color: blue;\r\n    }"]}
