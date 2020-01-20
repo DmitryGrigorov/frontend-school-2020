@@ -571,3 +571,133 @@
     color: #FFFFFF;
     margin-top: 24px;
 }
+
+.section-7-footer {
+    display:flex;
+    width: 1440px;
+    height: 435px;
+    padding: 85px 196px 86px 161px;
+    font-family: 'Lato';
+    color: #101010;
+    background: #FAFAFA;
+}
+
+.section-7-footer-block-1 {
+    width: 259px;
+    height: 264px;
+}
+
+.section-7-footer-block-1-header {
+    width: 65px;
+    height: 22px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+}
+
+.section-7-footer-block-1-content {
+    width: 254px;
+    height: 54px;
+    font-size: 12px;
+    line-height: 18px;
+    margin-top: 33px;
+}
+
+.section-7-footer-block-1-copyright {
+    width: 155px;
+    height: 14px;
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: 141px;
+}
+
+.section-7-footer-block-2 {
+    float: right;
+    width: 254px;
+    height: 164px;
+    margin-left: 30px;
+}
+
+.section-7-footer-block-2-header {
+    width: 67px;
+    height: 22px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.section-7-footer-block-2-content {
+    width: 254px;
+    height: 114px;
+    font-size: 12px;
+    line-height: 19px;
+    text-transform: capitalize;
+    margin-top: 28px;
+}
+
+.section-7-footer-block-2-content-ul {
+    list-style-type: none;
+}
+
+.section-7-footer-block-3 {
+    width: 122px;
+    height: 128px;
+    float: right;
+    margin-left: 30px;
+}
+
+.section-7-footer-block-3-header {
+    width: 101px;
+    height: 22px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+}
+
+.section-7-footer-block-3-email {
+    width: 122px;
+    height: 14px;
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: 33px;
+}
+
+.section-7-footer-block-3-number {
+    width: 96px;
+    height: 14px;
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: 11px;
+}
+
+.section-7-footer-block-3-icon{
+    width: 66px;
+    height: 14px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section-7-footer-block-4 {
+    width: 216px;
+    height: 86px;
+    margin-left: 166px;
+}
+
+.section-7-footer-block-4-header {
+    width: 96px;
+    height: 22px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+
+}
+
+.section-7-footer-block-4-card {
+    width: 216px;
+    height: 31px;
+    margin-top: 33px;
+}
