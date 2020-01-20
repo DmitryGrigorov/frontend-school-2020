@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='ru'>
  <head>
-  <meta content='user-scalable=no, width=420' name='viewport'>
+  <meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
   <meta charset='utf-8'>
   <meta name='author' content='dlbxqp@gmail.com'>
   <meta name='theme-color' content='#404040'>
@@ -60,6 +60,15 @@ Body > Header .button:hover{
   background-color: white;
   color: black
 }
+
+
+Body > Header Nav + Div{ display: flex }
+
+Body > Header Nav + Div > Div:first-of-type{
+  display: flex; align-items: center;
+  margin-right: 2rem
+}
+Body > Header Nav + Div > Div:first-of-type > *:not(:last-child){ margin-right: 1rem }
    </style>
 
    <section class='width0'>
@@ -79,7 +88,11 @@ Body > Header .button:hover{
     </nav>
 
     <div>
-     <div></div>
+     <div>
+      <img alt='flag of usa' src='_images/header/flag.usa.png'>
+      <span>EN</span>
+      <img alt='arrow' src='_images/header/arrow.png'>
+     </div>
      <div class='button' onClick='alert("Login")'>Login</div>
     </div>
    </section>
