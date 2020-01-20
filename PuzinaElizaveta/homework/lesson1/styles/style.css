@@ -199,7 +199,7 @@
   z-index: 1;
   position: absolute;
   top: 160px;
-  left: 123px;
+  left: 115px;
   box-shadow: 0 15px 20px 0.5px lightgray;
   padding-left: 24px;
   padding-right: 24px;
@@ -236,7 +236,6 @@
 }
 
 .overTextSecond{
-  padding-left: 30px;
   width: 260px;
   height: 170px;
   background-color: white;
@@ -279,7 +278,6 @@
 }
 
 .overTextThird{
-  padding-left: 30px;
   width: 260px;
   height: 170px;
   background-color: white;
