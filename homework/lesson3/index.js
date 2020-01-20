@@ -22,6 +22,11 @@ function lwTail(str){
     palindrome('John') === false
 */
 
+function palindrome(text) {
+    return text.toLowerCase() == text.toLowerCase().split("").reverse().join("");
+}
+alert(palindrome('John'));
+
 /*
     3)
     Что выведет следующий код?
