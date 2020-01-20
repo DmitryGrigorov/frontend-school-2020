@@ -5,6 +5,11 @@
     lwTail("ВАСЯ") == "Вася";
 */
 
+function lwTail(str){
+    return str[0]+str.substr(1).toLowerCase();
+}
+//alert(lwTail("ПРИВЕТ"));
+
 /*
     2)
     Дана строка; нужно написать функцию, которая позволяет вернуть значение true,
