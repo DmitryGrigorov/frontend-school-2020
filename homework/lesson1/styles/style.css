@@ -98,6 +98,7 @@ h6 {
     color: #FFFFFF;
     
     margin-right: 22px;
+    cursor: pointer;
 }
 
 .main-navigation-options span:last-of-type {
@@ -512,7 +513,7 @@ h6 {
 
 .contact-form button {
     width: 157px;
-    height: 47px;
+    height: 50px;
 
     background: #ED4C5C;
     border: 1.5px solid #ED4C5C;
@@ -527,16 +528,25 @@ h6 {
 }
 
 .contact-form-input {
-    width: 536px;
+    width: 505px;
     height: 56px;
+
+    padding-left: 31px;
 
     border: 1px solid #333333;
     border-radius: 6px;
+
+    font-family: Lato;
+    font-size: 16px;
+    line-height: 19px;
+}
+.contact-form-input:focus {
+    font-family: Lato;
+    font-size: 16px;
+    line-height: 19px;
 }
 
 .contact-form-input::placeholder {
-    padding-left: 31px;
-
     font-family: Lato;
     font-size: 16px;
     line-height: 19px;
@@ -545,7 +555,7 @@ h6 {
 }
 
 .contact-form-name input {
-    width: 255px;
+    width: 224px;
     float: left;
 }
 
