@@ -698,17 +698,17 @@
   font-size: 18px;
   padding-left: 60px;
   margin-top: 85px;
+  margin-bottom: 35px;
 }
 
 .addres p{
   font-size: 12px;
   padding-left: 60px;
-  margin-top: 35px;
-  margin-bottom: 130px;
   line-height: 1.5em;
 }
 
 .addres span{
+  margin-top: 130px;
   font-size: 12px;
   padding-left: 60px;
 }
