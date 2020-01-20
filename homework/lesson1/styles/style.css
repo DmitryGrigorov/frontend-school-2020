@@ -349,11 +349,105 @@ a {
     width: 1440px;
     height: 500px;
     left: 0px;
-    top: 1946px;
-    background: #ED4C5C;
+    top: 1944px;
+    background: #FFFFFF;
 }
 
 .stage4 h2{
+    position: absolute;
+    width: 1110px;
+    height: 55px;
+    left: 165px;
+    top: 63px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    text-align: center;
+    color: #000000;
+}
+
+.stage4 .technology-list{
+    position: relative;
+    width: 1110px;
+    height: 226px;
+    left: 165px;
+    top: 160px;
+}
+
+.tech01{
+    position: absolute;
+    width: 255px;
+    left: 0px;
+    height: 226px;
+    background: #FFFFFF url("../images/stage4/01.svg") no-repeat top center;
+}
+
+.tech02{
+    position: absolute;
+    width: 255px;
+    height: 226px;
+    left: 285px;
+    background: #FFFFFF url("../images/stage4/02.svg") no-repeat top center;
+}
+
+.tech03{
+    position: absolute;
+    width: 255px;
+    height: 226px;
+    left: 570px;
+    background: #FFFFFF url("../images/stage4/03.svg") no-repeat top center;
+}
+
+.tech04{
+    position: absolute;
+    width: 255px;
+    height: 226px;
+    left: 855px;
+    background: #FFFFFF url("../images/stage4/04.svg") no-repeat top center;
+}
+
+.stage4 h3{
+    position: relative;
+    width: 113px;
+    height: 22px;
+    left: 71px;
+    top: 139px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #101010;
+}
+
+.stage4 p{
+    position: relative;
+    width: 191px;
+    height: 51px;
+    left: 34px;
+    top: 171px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: #000000;
+}
+
+.stage5{
+    position: absolute;
+    width: 1440px;
+    height: 500px;
+    left: 0px;
+    top: 2442px;
+    background: #ED4C5C;
+}
+
+.stage5 h2{
     position: relative;
     width: 445px;
     font-family: Lato;
