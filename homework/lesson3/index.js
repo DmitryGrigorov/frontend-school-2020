@@ -89,3 +89,8 @@ console.log("3) На экран будет выведена длина масс�
     sum(1, 2, 3, 4, 5) // 6
     sum(3, 8, 1, 40, 6) // 54
 */
+
+function sum(arr){
+    return arr.reduce( (sum, current) => current%2==0 ? sum+current : sum , 0);
+}
+//alert(sum([1,2,3,4,5]));
