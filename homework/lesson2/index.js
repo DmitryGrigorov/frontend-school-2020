@@ -10,7 +10,9 @@
     При отмене – «Отменено»
 
 */
-/*
+
+/* 
+// РЕШЕНИЕ задания 1
 if (prompt("введи логин", "login") == "Админ") {
   if (prompt("введите пароль", "password") == "Я главный") {
     alert("Здравствуйте!");
@@ -38,6 +40,7 @@ if (prompt("введи логин", "login") == "Админ") {
     while (i++ < 5) alert( i );
 */
 /*
+// // РЕШЕНИЕ задания 2
 // Здесь , при ++i  : 1,2,3,4
 // document.write(" ++i <br>");
 let i = 0;
@@ -46,7 +49,6 @@ while (++i < 5) {
 }
 
 //document.write(" i++ <br>");
-
 // Здесь , при i++  : 1,2,3,4,5
 i = 0;
 while (i++ < 5) {
@@ -64,6 +66,7 @@ while (i++ < 5) {
 */
 
 /*
+// РЕШЕНИЕ задания 3
 let i = 0;
 while (i < 3) {
   alert( `number ${i}!` );
@@ -90,6 +93,7 @@ while (i < 3) {
     }
 */
 /*
+// РЕШЕНИЕ задания 4
 const number = +prompt("Введите число между 0 и 3", "");
 switch (number) {
   case 0:
@@ -109,6 +113,7 @@ switch (number) {
 */
 
 /*
+
     5)
     Перепишите функцию, чтобы она делала то же самое, но без if, в одну строку.
 
@@ -124,9 +129,27 @@ switch (number) {
 getBackgroundColor = (theme => {(theme === "ligth") ? console.log("#FFF") : console.log("#000")});
 getBackgroundColor ("ligth");
 */
+
+// РЕШЕНИЕ задания 5
 getBackgroundColor = theme => {
   theme === "ligth" ? "#FFF" : "#000";
 };
+
 /**
  * 6) Напишите функцию pow(x,n), которая возвращает x в степени n
+   
  */
+// РЕШЕНИЕ задания 6
+/*
+function exp(x, n) {
+  let res = x;
+  if (n != 0) {
+    for (let i = 0; i < n - 1; i++) {
+      res = res * x;
+    }
+  } else {
+    res = 1;
+  }
+  return res;
+}
+*/
