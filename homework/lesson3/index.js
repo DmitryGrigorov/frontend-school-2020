@@ -25,7 +25,7 @@ function lwTail(str){
 function palindrome(text) {
     return text.toLowerCase() == text.toLowerCase().split("").reverse().join("");
 }
-alert(palindrome('John'));
+//alert(palindrome('John'));
 
 /*
     3)
@@ -47,6 +47,8 @@ alert(palindrome('John'));
     console.log( fruits.length ); // ?
 */
 
+console.log("3) fruits и shoppingCart ссылаются на один и тот же массив. Поэтому добавляя в любой из них элементы или удаляя - меняется один источник.");
+console.log("3) На экран будет выведена длина массива fruits/shoppingCart [\"Яблоки\", \"Груша\", \"Апельсин\"], \"Банан\"] , равная числу 4");
 
 /*
     4)
