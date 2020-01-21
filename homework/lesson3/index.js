@@ -5,6 +5,10 @@
     lwTail("ВАСЯ") == "Вася";
 */
 
+const lwTail = str => 
+    str.trim()[0].toUpperCase() +
+    str.trim().slice(1).toLowerCase();
+
 /*
     2)
     Дана строка; нужно написать функцию, которая позволяет вернуть значение true,
@@ -16,6 +20,9 @@
     palindrome('table') === false
     palindrome('John') === false
 */
+
+const isPalindrome = str =>
+  str.toLowerCase() === str.toLowerCase().split("").reverse().join("");
 
 /*
     3)
@@ -35,6 +42,11 @@
 
     // что в fruits?
     console.log( fruits.length ); // ?
+
+    В shoppingCart будет находится массив ["Яблоки", "Груша", "Апельсин", "Банан"]
+    В fruits будет находится массив ["Яблоки", "Груша", "Апельсин", "Банан"]
+    При добавлении или удалении из одного массива данные изменяются в обоих
+    fruits.length = 4
 */
 
 
@@ -53,6 +65,13 @@
     потом переделайте всё как нужно и методом join соедините обратно.
 */
 
+const camelize = str =>
+  str
+    .split("-")
+    .map((value, index) =>
+      index === 0 ? value : value[0].toUpperCase() + value.slice(1)
+    )
+    .join("");
 
 /*
     5)
@@ -68,6 +87,12 @@
     alert( arr ); // HTML, JavaScript, CSS (без изменений)
 */
 
+const copySorted = (arr = ["HTML", "JavaScript", "CSS"]) => {
+  const sorted = [...arr].sort();
+  alert("Отсортированный массив: " + sorted);
+  alert("Первоначальный массив: " + arr);
+};
+
 /*
     6)
     Написать функцию, которая считает сумму элементов массива кратных числу 2.
@@ -77,3 +102,9 @@
     sum(1, 2, 3, 4, 5) // 6
     sum(3, 8, 1, 40, 6) // 54
 */
+
+function sum() {
+  return [...arguments].flat().reduce((previous, current) => {
+    return current % 2 === 0 ? previous + current : previous;
+  }, 0);
+}
