@@ -10,6 +10,7 @@
     При отмене – «Отменено»
 
 */
+/*
 if (prompt("введи логин", "login") == "Админ") {
   if (prompt("введите пароль", "password") == "Я главный") {
     alert("Здравствуйте!");
@@ -19,6 +20,7 @@ if (prompt("введи логин", "login") == "Админ") {
 } else {
   alert("Я Вас не знаю");
 }
+*/
 
 /*
     2)
@@ -35,15 +37,22 @@ if (prompt("введи логин", "login") == "Админ") {
     let i = 0;
     while (i++ < 5) alert( i );
 */
+/*
+// Здесь , при ++i  : 1,2,3,4
+// document.write(" ++i <br>");
 let i = 0;
 while (++i < 5) {
   alert("++i :" + i);
 }
 
+//document.write(" i++ <br>");
+
+// Здесь , при i++  : 1,2,3,4,5
 i = 0;
 while (i++ < 5) {
   alert("i++ :" + i);
 }
+*/
 
 /*
     3)
@@ -52,6 +61,15 @@ while (i++ < 5) {
     for (let i = 0; i < 3; i++) {
         alert( `number ${i}!` );
     }
+*/
+
+/*
+let i = 0;
+while (i < 3) {
+  alert( `number ${i}!` );
+  i++;
+  }
+
 */
 
 /*
