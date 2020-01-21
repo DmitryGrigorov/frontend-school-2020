@@ -35,6 +35,15 @@ if (prompt("введи логин", "login") == "Админ") {
     let i = 0;
     while (i++ < 5) alert( i );
 */
+let i = 0;
+while (++i < 5) {
+  alert("++i :" + i);
+}
+
+i = 0;
+while (i++ < 5) {
+  alert("i++ :" + i);
+}
 
 /*
     3)
