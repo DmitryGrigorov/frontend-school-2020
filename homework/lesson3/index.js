@@ -87,6 +87,13 @@ console.log("4) camelize(\"background-color\") = " + camelize("background-color"
     alert( arr ); // HTML, JavaScript, CSS (без изменений)
 */
 
+function copySorted(arr) {
+    return arr.slice().sort();
+}
+let arr = ["HTML", "JavaScript", "CSS"];
+console.log("5) sorted = " + copySorted(arr) );
+console.log(" orig arr = " + arr);
+
 /*
     6)
     Написать функцию, которая считает сумму элементов массива кратных числу 2.
