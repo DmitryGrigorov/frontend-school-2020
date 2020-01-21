@@ -16,18 +16,16 @@ if (login === "Админ") {
     let password = prompt("Введите пароль: ", "");
     if (password === "Я главный") {
         alert("Здравствуйте!");
-    }
-    else if (password == null || password === "") {
-            alert("Отменено");
-        } else {
-                alert("Неверный пароль");
-            }
-       
-} else if (login === '' || login == null) {
+    } else if (password == null || password === "") {
         alert("Отменено");
     } else {
-        alert("Я вас не знаю");
-    }
+        alert("Неверный пароль");
+    }      
+} else if (login === '' || login == null) {
+    alert("Отменено");
+} else {
+    alert("Я вас не знаю");
+}
 
 
 /*
@@ -127,8 +125,9 @@ getBackgroundColor('light');
  * 6) Напишите функцию pow(x,n), которая возвращает x в степени n
  */
 
-function pow (x,n) {
+function pow(x, n) {
     return x**n;
 }
 
-pow(5,2);
+
+console.log( pow(5, 2) );
