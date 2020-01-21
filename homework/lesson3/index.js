@@ -3,7 +3,12 @@
     Напишите функцию lwTail(str), возвращающую строку str в нижнем регистры все буквы кроме первой. Например:
 
     lwTail("ВАСЯ") == "Вася";
-*/
+
+Решение: 
+* /
+const lwTail = (str) => { return str.substr(0, 1).toLocaleUpperCase() + str.slice(1).toLocaleLowerCase() }
+document.write(lwTail('вАСЯ'))
+//*/
 
 /*
     2)
@@ -15,7 +20,20 @@
     palindrome('Anna') === true
     palindrome('table') === false
     palindrome('John') === false
-*/
+
+Решение: 
+* /
+const aA = Array('racecar', 'Anna', 'table', 'John');
+const palindrome = (str) => {
+ const rtl_str = str.toLocaleLowerCase().split('').reverse().join('')
+
+ if(str.toLocaleLowerCase() === rtl_str){ return true }
+ return false
+}
+aA.forEach(function(v, i, aA){
+ document.write(palindrome(v) + '<br>')
+})
+//*/
 
 /*
     3)
@@ -35,8 +53,9 @@
 
     // что в fruits?
     console.log( fruits.length ); // ?
-*/
 
+Решение: 4
+*/
 
 /*
     4)
@@ -51,7 +70,23 @@
 
     P.S. Подсказка: используйте split, чтобы разбить строку на массив символов,
     потом переделайте всё как нужно и методом join соедините обратно.
-*/
+
+Решение: 
+* /
+const aA = Array('background-color', 'list-style-image', '-webkit-transition');
+let camelize = (str) => {
+ let a_str = str.split('-')
+ a_str = a_str.filter(v => v !== '')
+ a_str.forEach(function(v, i, a_str){
+  if(i > 0){
+   a_str[i] = v.substr(0, 1).toLocaleUpperCase() + v.slice(1).toLocaleLowerCase()
+  }
+ })
+
+ return a_str.join('')
+}
+aA.forEach(function(v, i, aA){ document.write(camelize(v) + '<br>') })
+//*/
 
 
 /*
@@ -66,7 +101,20 @@
 
     alert( sorted ); // CSS, HTML, JavaScript
     alert( arr ); // HTML, JavaScript, CSS (без изменений)
-*/
+
+Решение: 
+* /
+const copySorted = (aA) => {
+ return [...aA].sort()
+}
+
+let arr = ['HTML', 'JavaScript', 'CSS'];
+
+let sorted = copySorted(arr);
+
+alert( sorted ); // CSS, HTML, JavaScript
+alert( arr ); // HTML, JavaScript, CSS (без изменений)
+//*/
 
 /*
     6)
@@ -76,4 +124,17 @@
 
     sum(1, 2, 3, 4, 5) // 6
     sum(3, 8, 1, 40, 6) // 54
-*/
+
+Решение: 
+* /
+const sum = (...aA) => {
+ let A = 0
+ aA.forEach(function(v, i, aA){
+  if(v % 2 === 0){ A += v }
+ })
+
+ return A + '<br>'
+}
+document.write(sum(1, 2, 3, 4, 5) + '<br>')
+document.write(sum(3, 8, 1, 40, 6))
+//*/
