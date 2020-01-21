@@ -121,6 +121,22 @@ switch (number) {
     }
 */
 
+/*
+let quest = "0";
+getBackgroundColor(quest);
+
+function getBackgroundColor(theme) {
+  return theme === "ligth" ? "#FFF" : "#000";
+}
+console.log(getBackgroundColor(quest));
+*/
+
+let theme = "";
+console.log(theme === "ligth" ? "#FFF" : "#000");
+
+//let quest = (theme === "ligth") ? "#FFF" : "#000";
+// console.log(quest);
+
 /**
  * 6) Напишите функцию pow(x,n), которая возвращает x в степени n
  */
