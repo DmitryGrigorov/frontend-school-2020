@@ -9,6 +9,7 @@ function lwTail(str){
     return str[0]+str.substr(1).toLowerCase();
 }
 //alert(lwTail("ПРИВЕТ"));
+console.log("1) " + lwTail("ПРИВЕТ") );
 
 /*
     2)
@@ -26,6 +27,7 @@ function palindrome(text) {
     return text.toLowerCase() == text.toLowerCase().split("").reverse().join("");
 }
 //alert(palindrome('John'));
+console.log("2) " + palindrome('John') );
 
 /*
     3)
@@ -48,7 +50,7 @@ function palindrome(text) {
 */
 
 console.log("3) fruits и shoppingCart ссылаются на один и тот же массив. Поэтому добавляя в любой из них элементы или удаляя - меняется один источник.");
-console.log("3) На экран будет выведена длина массива fruits/shoppingCart [\"Яблоки\", \"Груша\", \"Апельсин\"], \"Банан\"] , равная числу 4");
+console.log("На экран будет выведено число 4 - это длина массива fruits/shoppingCart [\"Яблоки\", \"Груша\", \"Апельсин\", \"Банан\"] ");
 
 /*
     4)
@@ -65,6 +67,11 @@ console.log("3) На экран будет выведена длина масс�
     потом переделайте всё как нужно и методом join соедините обратно.
 */
 
+function camelize(str) {
+    return str.split("-").map( e => e[0].toUpperCase()+e.substr(1) ).join('');
+}
+//alert(camelize("background-color"));
+console.log("4) camelize(\"background-color\") = " + camelize("background-color"));
 
 /*
     5)
@@ -94,3 +101,4 @@ function sum(arr){
     return arr.reduce( (sum, current) => current%2==0 ? sum+current : sum , 0);
 }
 //alert(sum([1,2,3,4,5]));
+console.log("6) sum([1,2,3,4,5]) = " + sum([1,2,3,4,5]));
