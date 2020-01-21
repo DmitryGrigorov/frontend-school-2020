@@ -120,23 +120,13 @@ switch (number) {
         }
     }
 */
-
 /*
-let quest = "0";
-getBackgroundColor(quest);
-
-function getBackgroundColor(theme) {
-  return theme === "ligth" ? "#FFF" : "#000";
-}
-console.log(getBackgroundColor(quest));
+getBackgroundColor = (theme => {(theme === "ligth") ? console.log("#FFF") : console.log("#000")});
+getBackgroundColor ("ligth");
 */
-
-let theme = "";
-console.log(theme === "ligth" ? "#FFF" : "#000");
-
-//let quest = (theme === "ligth") ? "#FFF" : "#000";
-// console.log(quest);
-
+getBackgroundColor = theme => {
+  theme === "ligth" ? "#FFF" : "#000";
+};
 /**
  * 6) Напишите функцию pow(x,n), которая возвращает x в степени n
  */
