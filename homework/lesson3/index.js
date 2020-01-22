@@ -5,6 +5,12 @@
     lwTail("ВАСЯ") == "Вася";
 */
 
+// function lwTail(str) {
+//     return str[0].toUpperCase() + str.slice(1).toLowerCase();
+// };
+
+// alert(lwTail("ВАСЯ"));
+
 /*
     2)
     Дана строка; нужно написать функцию, которая позволяет вернуть значение true,
@@ -17,6 +23,16 @@
     palindrome('John') === false
 */
 
+    // function palindrome(str) {
+    //     const str2 = str.toLowerCase();
+    //     return str2 === str2.split('').reverse().join('');
+    // }
+
+    // alert(palindrome('racecar')); 
+    // alert(palindrome('Anna'));
+    // alert(palindrome('table'));
+    // alert(palindrome('John'));
+    
 /*
     3)
     Что выведет следующий код?
@@ -37,6 +53,14 @@
     console.log( fruits.length ); // ?
 */
 
+// Массив является объектом и, следовательно, ведёт себя как объект.
+// При копировании массива мы копируем ссылку на него.
+// Значит fruits и shoppingCart имеют ссылки на один и тот же массив.
+
+// Тогда:
+// fruits = ["Яблоки", "Груша", "Апельсин", "Банан"];
+
+// console.log( fruits.length ); //4
 
 /*
     4)
@@ -53,6 +77,17 @@
     потом переделайте всё как нужно и методом join соедините обратно.
 */
 
+// function camelize(str) {
+//     let arr = str.split('-');
+//     let arrCase = arr.map(function(item, index) {
+//         return index === 0 ? item : item[0].toUpperCase() + item.slice(1);
+//     });
+//     return arrCase.join('');
+// }
+
+// console.log(camelize("background-color")); //'backgroundColor'
+// console.log(camelize("list-style-image")); // 'listStyleImage';
+// console.log(camelize("-webkit-transition")); //'WebkitTransition';
 
 /*
     5)
@@ -67,6 +102,17 @@
     alert( sorted ); // CSS, HTML, JavaScript
     alert( arr ); // HTML, JavaScript, CSS (без изменений)
 */
+    
+    // function copySorted(arr) {
+    //     return arr.slice().sort();
+    // }
+
+    // let arr = ["HTML", "JavaScript", "CSS"];
+
+    // let sorted = copySorted(arr);
+
+    // alert( sorted ); // CSS, HTML, JavaScript
+    // alert( arr ); // HTML, JavaScript, CSS (без изменений)
 
 /*
     6)
@@ -77,3 +123,11 @@
     sum(1, 2, 3, 4, 5) // 6
     sum(3, 8, 1, 40, 6) // 54
 */
+
+// function sum(arr) {
+//     return arr.reduce((summa, current) => (current % 2 === 0) ? summa + current : summa , 0);
+// }
+
+// alert(sum([1, 2, 3, 4, 5])); // 6
+
+// alert(sum([3, 8, 1, 40, 6])); // 54
