@@ -12,7 +12,7 @@ function lwTail(str) {
     return str = start + tail;
 }
 
-// lwTail('iT IS WORKing!');
+lwTail('iT IS WORKing!');
 
 /*
     2)
