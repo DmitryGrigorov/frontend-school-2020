@@ -10,6 +10,16 @@
     При отмене – «Отменено»
 */
 
+let login = prompt("Введи логин") ;
+if (login==="Админ") {
+    let pass = prompt("Введи пароль");
+    if (pass==="Я главный") {alert("Здравствуйте!");}
+    else if (pass===null) {alert("Отменено");}
+    else alert("Неверный пароль")
+}
+else if (login===null || login==='') {alert('Отменено');}
+else alert('Я вас не знаю');
+
 
 /*
     2)
@@ -19,22 +29,48 @@
     Оба цикла выводят alert с одинаковыми значениями или нет?
 
     префиксный вариант ++i
-    let i = 0;
-    while (++i < 5) alert( i );
+
 
     постфиксный вариант i++
-    let i = 0;
-    while (i++ < 5) alert( i );
+
+*/
+
+{let i = 0;
+while (++i < 5) alert( i );}
+{let i = 0;
+while (i++ < 5) alert( i );}
+
+/* Ответ
+    первый выведет 1, 2, 3, 4
+    второй 1, 2, 3, 4, 5
+
+    Поскольку во втором случае в скобках при проверке условия вернётся неувеличенное значение переменной i
+    раскоментил я для проверки.
+
+
 */
 
 /*
     3)
     Перепишите код, заменив цикл for на while, без изменения поведения цикла.
 
-    for (let i = 0; i < 3; i++) {
-        alert( `number ${i}!` );
-    }
+
 */
+
+alert("Фор цикл");
+for (let i = 0; i < 3; i++) {
+    alert( `number ${i}!` );
+}
+alert("такой же while");
+
+{
+    let i = 0;
+    while (i<3) {
+        alert( `number ${i}!` )
+        i++
+    }
+}
+
 
 /*
     4) Перепишите код с использованием одной конструкции switch:
@@ -54,6 +90,22 @@
     }
 */
 
+const number = +prompt('Введите число между 0 и 3', '');
+
+switch (number) {
+    case 0:
+        alert('Вы ввели число 0');
+        break;
+    case 1:
+        alert('Вы ввели число 1');
+        break;
+    case 2:
+    case 3:
+        alert('Вы ввели число 2, а может и 3');
+        break;
+}
+
+
 /*
     5)
     Перепишите функцию, чтобы она делала то же самое, но без if, в одну строку.
@@ -67,8 +119,26 @@
     }
 */
 
+function getBackgroundColor(theme) {
+    return theme==='light' ? '#FFF' : '#000';
+}
+
+//проверим
+alert(getBackgroundColor('light'));
+alert(getBackgroundColor('someThing'));
+
 /**
  * 6) Напишите функцию pow(x,n), которая возвращает x в степени n
  */
 
- 
+function pow(x,n) {
+    let result = 1;
+    for(let i=0; i<n; i++){
+        result*=x;
+    }
+    return result;
+}
+
+//проверка
+alert(pow(2, 3));
+alert(pow(3, 2));
