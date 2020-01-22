@@ -117,8 +117,8 @@ let sorted = copySorted(arr);
     sum(3, 8, 1, 40, 6) // 54
 */
 
-function sum(){
-    return Object.values(arguments).reduce(function(summary, current){
+function sum(...rest){
+    return rest.reduce(function(summary, current){
             if(typeof(current) == 'number' && current % 2 == 0)
                     return summary = summary + current;
             return summary;    
