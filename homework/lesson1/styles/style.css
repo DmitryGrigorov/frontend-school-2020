@@ -612,3 +612,12 @@ a {
 .stage6 .right-field a{
     color: #FFFFFF;
 }
+
+.stage7 {
+    position: absolute;
+    width: 1440px;
+    height: 435px;
+    left: 0px;
+    top: 3487px;
+    background: #FAFAFA;
+}
