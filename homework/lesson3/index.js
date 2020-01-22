@@ -5,6 +5,15 @@
     lwTail("ВАСЯ") == "Вася";
 */
 
+function lwTail(str) {
+    const start = str.substring(0, 1).toUpperCase();
+    const tail = str.substring(1, str.length).toLowerCase();
+
+    return str = start + tail;
+}
+
+// lwTail('iT IS WORKing!');
+
 /*
     2)
     Дана строка; нужно написать функцию, которая позволяет вернуть значение true,
@@ -16,6 +25,22 @@
     palindrome('table') === false
     palindrome('John') === false
 */
+
+// учитывается регистр и знаки
+function isStrictPalindrome(word) {
+    return word.toLowerCase() === word.toLowerCase().split('').reverse().join('');
+}
+
+// учитываются только буквы и цифры, остальное игнорируется
+function isPalindrome(str) {
+    const cleanedStr = str.replace(/[^a-zA-ZА-Яа-я0-9Ёё]/g, '').toLowerCase();
+
+    return cleanedStr === cleanedStr.split('').reverse().join('');
+}
+
+isStrictPalindrome('А роза упала на лапу Азора!'); // false due to additional symbols
+isPalindrome('А роза упала на лапу Азора!'); // true
+
 
 /*
     3)
@@ -38,6 +63,15 @@
 */
 
 
+
+/* Поскольку инициализация shoppingCart реализуется за счет ссылок,
+методы .push() изменяют в т.ч. и первоначальный массив. 
+Метод .pop() удаляет последний элемент массива, потому в результате имеем 
+fruits == shoppingCart (опять-таки, за счет ссылок изменился и новый массив),
+оба хранят ["Яблоки", "Груша", "Апельсин", "Банан"]
+ */
+
+
 /*
     4)
     Напишите функцию camelize(str), которая преобразует строки вида «my-short-string» в «myShortString».
@@ -53,6 +87,16 @@
     потом переделайте всё как нужно и методом join соедините обратно.
 */
 
+function camelize(str) {
+    const words = str.split('-')
+
+    words.forEach((item, index) => {
+        words[index] = (index === 0) ? item.toLowerCase() : lwTail(item);
+    })
+    
+    return words.join('');
+}
+camelize("background-color");
 
 /*
     5)
