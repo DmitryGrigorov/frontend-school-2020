@@ -387,3 +387,85 @@
   line-height: 14px;
   text-align: center;
 }
+
+.section-5 {
+  width: 1440px;
+  height: 500px;
+  background: #ED4C5C;
+  padding: 118px 165px 104px;
+  display: flex;
+}
+
+.section-5-left{
+  margin-right: 81px;
+}
+
+.section-5-header-text {
+  margin-top: 28px;
+  width: 445px;
+  height: 107px;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 43px;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+}
+
+.section-5-mid-text {
+  width: 445px;
+  height: 64px;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 140%;
+  text-align: justify;
+  color: #FFFFFF;
+  margin-bottom: 40px;
+}
+
+.section-5-icon {
+  display: flex;
+  align-items: center;
+}
+
+.section-5-icon-1 {
+  width: 32px;
+  height: 32px;
+  margin-right: 23px;
+}
+
+.section-5-icon-2 {
+  width: 32px;
+  height: 32px;
+  margin-right: 23px;
+}
+
+.section-5-icon-3 {
+  width: 24px;
+  height: 24px;
+}
+
+.section-5-right {
+  position: relative;
+  width: 533px;
+  height: 311px;
+}
+
+.section-5-right-bg-1 {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.section-5-right-bg-2 {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.section-5-right-image {
+  position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+ }
