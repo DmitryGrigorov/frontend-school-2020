@@ -9,10 +9,12 @@ function lwTail(str) {
     const start = str.substring(0, 1).toUpperCase();
     const tail = str.substring(1, str.length).toLowerCase();
 
-    return str = start + tail;
+    return start + tail;
 }
 
-lwTail('iT IS WORKing!');
+let str = 'iT IS WORKing!';
+lwTail(str);
+
 
 /*
     2)
@@ -38,8 +40,13 @@ function isPalindrome(str) {
     return cleanedStr === cleanedStr.split('').reverse().join('');
 }
 
-isStrictPalindrome('А роза упала на лапу Азора!'); // false due to additional symbols
-isPalindrome('А роза упала на лапу Азора!'); // true
+
+const test = 'А роза упала на лапу Азора!';
+isStrictPalindrome(test); // false due to additional symbols
+isPalindrome(test); // true
+
+
+
 
 
 /*
@@ -96,7 +103,12 @@ function camelize(str) {
     
     return words.join('');
 }
-camelize("background-color");
+
+const color = "background-color"
+camelize(color);
+
+console.log(camelize(color) == 'backgroundColor');
+
 
 /*
     5)
@@ -118,6 +130,9 @@ function copySorted(arr) {
 
 let arr = ["HTML", "JavaScript", "CSS"];
 let sorted = copySorted(arr);
+
+console.log(arr, sorted);
+
 
 /*
     6)
