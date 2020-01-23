@@ -61,6 +61,16 @@ console.log('2) '+(cloneSomeObj.metrics === someObj.metrics)); // false при �
 // let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
 // unionObject -> { name: 'Vasya', age: 45, isAdmin: true }
 
+function merge(...args) {
+    let obj = {};
+    for(let o of args)
+        for(let prop in o)
+            obj[prop] = o[prop];
+    return obj;
+}
+let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
+console.log('3) '); console.log(unionObject);
+
 // 4)
 // Есть объект dog = { name: 'Bobik' };
 // "научите" данный объект подавать голос, например он должен выводить в консоль строку "{{Здесь имя собаки}}: bark";
