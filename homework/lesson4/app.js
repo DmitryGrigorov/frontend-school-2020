@@ -50,11 +50,12 @@ function deepClone(obj) {
     return null;
 }
 
+console.log('2)');
 let someObj = {name: 'Petya', metrics: {weight: 80, height: 180}}; // есть такой объект
 console.log(someObj);
 let cloneSomeObj = deepClone(someObj); // создаем его копию
 console.log(cloneSomeObj);
-console.log('2) ' + (cloneSomeObj.metrics === someObj.metrics)); // false при сравнении вложенного объекта они тоже не равны
+console.log(cloneSomeObj.metrics === someObj.metrics); // false при сравнении вложенного объекта они тоже не равны
 // 3)
 // напишите функцию merge для объединения объектов НЕ используя встроеный метод Object.assign
 // колличество передаваемых аргументов в функцию НЕ ограничено (вложенные объекты копируются по ссылке)
@@ -86,6 +87,7 @@ console.log(unionObject);
 // dog.bark(4); // => "Bobik: bark bark bark bark"
 // dog.bark(); // => "Bobik: bark" если аргумент не передать - метод все равно сработает
 
+console.log('4)')
 let dog = {name: 'Bobik'};
 dog.bark = function (number) {
     let barkstring = 'bark';
@@ -99,8 +101,17 @@ dog.bark(); // => "Bobik: bark" если аргумент не передать 
 // Есть объект товара item = { label: 'phone', price: 500, currency: '$' };
 // сделайте так, чтобы при преобразовании данного объекта
 // к строке возвращалась строка => "500$",
-// а при преобразовании к числе возвращалось просто 500
+// а при преобразовании к числу возвращалось просто 500
 // обратите внимание, что 500 и $ это значения полей самого объекта (если их поменять то это будет учитываться при последующих преобразованиях)
+
+console.log('5)');
+let item = {label: 'phone', price: 500, currency: '$'};
+item[Symbol.toPrimitive] = function (type) {
+    if (type == 'string') return `${this.price}${this.currency}`;
+    if (type == 'number') return this.price;
+}
+console.log('To String -> ' + String(item));
+console.log('To Number -> ' + Number(item));
 
 // 6)
 // напишите конструктор Dog который создает объект со свойствами name, age, breed, weight, height, position, status
@@ -114,3 +125,50 @@ dog.bark(); // => "Bobik: bark" если аргумент не передать 
 // dog.down() => Меняет свойство status на строку 'lying';
 //
 // создайте массив с 25 объектами Dog
+
+function Dog(name, age, breed, weight, height, position, status) {
+    this.name = name;
+    this.age = age;
+    this.breed = breed;
+    this.weight = weight;
+    this.height = height;
+    this.position = position;
+    this.status = status;
+    this.bark = function () {
+        console.log(`{${this.name}}: bark`);
+    };
+    this.place = function () {
+        this.position = 'place';
+    };
+    this.come = function () {
+        this.position = 'here';
+    };
+    this.goOut = function () {
+        this.position = 'go out';
+    };
+    this.sit = function () {
+        this.status = 'sitting';
+    };
+    this.stand = function () {
+        this.status = 'standing';
+    };
+    this.down = function down() {
+        this.status = 'lying';
+    };
+}
+
+console.log('6)');
+let myDog = new Dog('Кора', 8, 'Алабай', 50, 40, 'place', 'standing');
+console.log(myDog);
+myDog.bark();// => Выводит в консоль '{{имя собаки}}: bark';
+myDog.place();// => Меняет свойство position на строку 'place';
+myDog.come();// => Меняет свойство position на строку 'here';
+myDog.goOut();// => Меняет свойство position на строку 'go out';
+myDog.sit();// => Меняет свойство status на строку 'sitting';
+myDog.stand();// => Меняет свойство status на строку 'standing';
+myDog.down();// => Меняет свойство status на строку 'lying';
+const dogs = [];
+for (let i = 0; i < 25; i++) {
+    dogs.push(new Dog('Собака' + (i + 1), i + 1, 'Алабай', 15 + i, 20 + i, 'place', 'standing'));
+}
+console.log(dogs);
