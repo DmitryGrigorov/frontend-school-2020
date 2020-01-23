@@ -21,6 +21,18 @@
     palindrome('table') === false
     palindrome('John') === false
 */
+    function palin(str){
+    if(str.indexof(str)===str.lastIndexOf(str)){
+        return true;
+    } ;
+    else return false;
+    }
+    debugger
+    palin(`racecar`);
+
+  // let str = 'Widget with id';
+
+  // console.log( str.indexOf(str) );
 
 /*
    // 3)
