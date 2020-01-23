@@ -11,19 +11,20 @@
 // calculate('lemon', 2, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // Извините, товар закончился!
 // calculate('pear', 4, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // 2000
 
-function calculate(name, amount, prices){
-    if(name in prices) {
-        if(prices[name] === undefined)
+function calculate(name, amount, prices) {
+    if (name in prices) {
+        if (prices[name] === undefined)
             return 'Извините, товар закончился!';
         else
             return prices[name] * amount;
     } else
         return 'Такого товара у нас еще нет!';
 }
+
 console.log('1)');
-console.log(calculate('potato', 1, { apple: 100, pear: 500, melon: 400, lemon: undefined })); // Такого товара у нас еще нет!
-console.log(calculate('lemon', 2, { apple: 100, pear: 500, melon: 400, lemon: undefined })); // Извините, товар закончился!
-console.log(calculate('pear', 4, { apple: 100, pear: 500, melon: 400, lemon: undefined })); // 2000
+console.log(calculate('potato', 1, {apple: 100, pear: 500, melon: 400, lemon: undefined})); // Такого товара у нас еще нет!
+console.log(calculate('lemon', 2, {apple: 100, pear: 500, melon: 400, lemon: undefined})); // Извините, товар закончился!
+console.log(calculate('pear', 4, {apple: 100, pear: 500, melon: 400, lemon: undefined})); // 2000
 
 // 2)
 // напишите функцию deepClone глубокого клонирования объекта, которая создаёт глубокую копию объекта
@@ -48,11 +49,12 @@ function deepClone(obj) {
     }
     return null;
 }
-let someObj = { name: 'Petya', metrics: { weight: 80, height: 180 } }; // есть такой объект
+
+let someObj = {name: 'Petya', metrics: {weight: 80, height: 180}}; // есть такой объект
 console.log(someObj);
 let cloneSomeObj = deepClone(someObj); // создаем его копию
 console.log(cloneSomeObj);
-console.log('2) '+(cloneSomeObj.metrics === someObj.metrics)); // false при сравнении вложенного объекта они тоже не равны
+console.log('2) ' + (cloneSomeObj.metrics === someObj.metrics)); // false при сравнении вложенного объекта они тоже не равны
 // 3)
 // напишите функцию merge для объединения объектов НЕ используя встроеный метод Object.assign
 // колличество передаваемых аргументов в функцию НЕ ограничено (вложенные объекты копируются по ссылке)
@@ -63,13 +65,15 @@ console.log('2) '+(cloneSomeObj.metrics === someObj.metrics)); // false при �
 
 function merge(...args) {
     let obj = {};
-    for(let o of args)
-        for(let prop in o)
+    for (let o of args)
+        for (let prop in o)
             obj[prop] = o[prop];
     return obj;
 }
-let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
-console.log('3) '); console.log(unionObject);
+
+let unionObject = merge({}, {name: 'Vasya'}, {age: 45}, {isAdmin: true});
+console.log('3) ');
+console.log(unionObject);
 
 // 4)
 // Есть объект dog = { name: 'Bobik' };
@@ -81,6 +85,15 @@ console.log('3) '); console.log(unionObject);
 // Например:
 // dog.bark(4); // => "Bobik: bark bark bark bark"
 // dog.bark(); // => "Bobik: bark" если аргумент не передать - метод все равно сработает
+
+let dog = {name: 'Bobik'};
+dog.bark = function (number) {
+    let barkstring = 'bark';
+    if (number) for (let b = 1; b < number; b++) barkstring += ' bark';
+    console.log(`${this.name}: ${barkstring}`);
+}
+dog.bark(4); // => "Bobik: bark bark bark bark"
+dog.bark(); // => "Bobik: bark" если аргумент не передать - метод все равно сработает
 
 // 5)
 // Есть объект товара item = { label: 'phone', price: 500, currency: '$' };
