@@ -101,6 +101,19 @@ console.log(dog.bark(4));
 // а при преобразовании к числе возвращалось просто 500
 // обратите внимание, что 500 и $ это значения полей самого объекта (если их поменять то это будет учитываться при последующих преобразованиях)
 
+item = { label: 'phone', price: 500, currency: '$' };
+
+item.toString = function customToString() {
+    return this.price + this.currency;
+}
+
+item.valueOf= function customValueOf() {
+    return this.price;
+}
+
+console.log(item.toString());
+console.log(item.valueOf());
+
 
 // 6)
 // напишите конструктор Dog который создает объект со свойствами name, age, breed, weight, height, position, status
@@ -114,3 +127,48 @@ console.log(dog.bark(4));
 // dog.down() => Меняет свойство status на строку 'lying';
 //
 // создайте массив с 25 объектами Dog
+
+function Dog(name = '', age = 0, breed = '', weight = 0, height = 0, position = '', status = '') {
+
+    this.name = name;
+    this.age = age;
+    this.breed = breed;
+    this.weight = weight;
+    this.height = height;
+    this.position = position;
+    this.status = status;
+
+    this.bark = function() {
+        console.log(`${this.name}: bark`);
+    };
+
+    this.place = function() {
+        this.position = 'place';
+    };
+
+    this.come = function() {
+        this.position = 'go out';
+    };
+
+    this.goOut = function() {
+        this.position = 'here';
+    };
+
+    this.sit = function() {
+        this.status = 'sitting';
+    };
+
+    this.stand = function() {
+        this.status = 'standing';
+    };
+
+    this.down = function() {
+        this.status = 'lying';
+    };
+  }
+
+const myDog = new Dog('Bobik', 2, 'pug', 10, 40, 'somewhere', 'eating');
+const unknownDog = new Dog();
+
+const dogs = new Array(25).fill(new Dog());
+
