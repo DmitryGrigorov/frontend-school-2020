@@ -21,14 +21,13 @@
     palindrome('table') === false
     palindrome('John') === false
 */
-    function palin(str){
-    if(str.indexof(str)===str.lastIndexOf(str)){
-        return true;
-    } ;
-    else return false;
-    }
+
+    let str =  ('table');   
+    let str1 = str.startsWith(str);
+    let str2 = str.endsWith(str);
     debugger
-    palin(`racecar`);
+    console.log(str2);
+   
 
   // let str = 'Widget with id';
 
