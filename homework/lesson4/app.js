@@ -26,10 +26,11 @@ function calculate(name, count, prices) {
 
 const pricesObj = { apple: 100, pear: 500, melon: 400, lemon: undefined };
 
-calculate('potato', 1, pricesObj);
-calculate('lemon', 1, pricesObj);
-calculate('pear', 4, pricesObj);
+let test1 = calculate('potato', 1, pricesObj);
+let test2 = calculate('lemon', 1, pricesObj);
+let test3 = calculate('pear', 4, pricesObj);
 
+console.log(test1, test2, test3);
 
 
 // 2)
@@ -48,6 +49,7 @@ function deepClone(obj) {
 
 const someObj = { name: 'Petya', metrics: { weight: 80, height: 180 } };
 let newObj = null;
+
 newObj = deepClone(someObj);
 console.log(someObj === newObj);
 console.log(someObj.metrics === newObj.metrics);
@@ -72,8 +74,6 @@ function merge(...objects) {
 
 let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
 
-
-
 // 4)
 // Есть объект dog = { name: 'Bobik' };
 // "научите" данный объект подавать голос, например он должен выводить в консоль строку "{{Здесь имя собаки}}: bark";
@@ -93,7 +93,6 @@ dog.bark = function(times = 1) {
 
 console.log(dog.bark());
 console.log(dog.bark(4));
-
 
 // 5)
 // Есть объект товара item = { label: 'phone', price: 500, currency: '$' };
