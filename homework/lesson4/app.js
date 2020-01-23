@@ -11,6 +11,27 @@
 // calculate('lemon', 2, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // Извините, товар закончился!
 // calculate('pear', 4, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // 2000
 
+function calculate(name, count, prices) {
+
+    if ( !(name in prices) ) {
+        return 'Такого товара у нас еще нет!';
+    }
+    
+    if ( !(prices[name])){
+        return 'Извините, товар закончился!';
+    }
+
+    return prices[name] * count;
+}
+
+const pricesObj = { apple: 100, pear: 500, melon: 400, lemon: undefined };
+
+calculate('potato', 1, pricesObj);
+calculate('lemon', 1, pricesObj);
+calculate('pear', 4, pricesObj);
+
+
+
 // 2)
 // напишите функцию deepClone глубокого клонирования объекта, которая создаёт глубокую копию объекта
 // * - глубокая копия - это значит, что если внутри объекта есть свойства объекты - их нужно тоже склонировать
@@ -21,6 +42,16 @@
 // cloneSomeObj === someObj // false при сравнении копия и первоначальный объект не равны
 // cloneSomeObj.metrics === someObj.metrics // false при сравнении вложенного объекта они тоже не равны
 
+function deepClone(obj) {
+    return JSON.parse(JSON.stringify(obj));
+}
+
+const someObj = { name: 'Petya', metrics: { weight: 80, height: 180 } };
+let newObj = null;
+newObj = deepClone(someObj);
+console.log(someObj === newObj);
+console.log(someObj.metrics === newObj.metrics);
+
 // 3)
 // напишите функцию merge для объединения объектов НЕ используя встроеный метод Object.assign
 // колличество передаваемых аргументов в функцию НЕ ограничено (вложенные объекты копируются по ссылке)
@@ -28,6 +59,20 @@
 // Например:
 // let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
 // unionObject -> { name: 'Vasya', age: 45, isAdmin: true }
+
+function merge(...objects) {
+    let resultObj = {};
+
+    objects.forEach(obj => {
+        resultObj = {...resultObj, ...obj};
+    })
+
+    return resultObj;
+}
+
+let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
+
+
 
 // 4)
 // Есть объект dog = { name: 'Bobik' };
@@ -40,12 +85,23 @@
 // dog.bark(4); // => "Bobik: bark bark bark bark"
 // dog.bark(); // => "Bobik: bark" если аргумент не передать - метод все равно сработает
 
+const dog = { name: 'Bobik'};
+
+dog.bark = function(times = 1) {
+    return `${dog.name}: ${'bark '.repeat(times).slice(0, -1)}`;
+}
+
+console.log(dog.bark());
+console.log(dog.bark(4));
+
+
 // 5)
 // Есть объект товара item = { label: 'phone', price: 500, currency: '$' };
 // сделайте так, чтобы при преобразовании данного объекта
 // к строке возвращалась строка => "500$",
 // а при преобразовании к числе возвращалось просто 500
 // обратите внимание, что 500 и $ это значения полей самого объекта (если их поменять то это будет учитываться при последующих преобразованиях)
+
 
 // 6)
 // напишите конструктор Dog который создает объект со свойствами name, age, breed, weight, height, position, status
