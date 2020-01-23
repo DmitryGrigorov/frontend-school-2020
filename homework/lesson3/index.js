@@ -4,7 +4,12 @@
 
     lwTail("ВАСЯ") == "Вася";
 */
-
+ //Ответ:
+ function lwTail(str){
+     return `${str[0]}${str.slice(1).toLowerCase()}`;
+ }
+ console.log(lwTail("ВАСЯ"));
+ 
 /*
     2)
     Дана строка; нужно написать функцию, которая позволяет вернуть значение true,
@@ -17,12 +22,12 @@
     palindrome('John') === false
 */
 
-/*
+
     3)
-    Что выведет следующий код?
+    //Что выведет следующий код?
 
     let fruits = ["Яблоки", "Груша", "Апельсин"];
-
+debugger
     // добавляем новое значение в "копию"
     let shoppingCart = fruits;
 
@@ -35,7 +40,7 @@
 
     // что в fruits?
     console.log( fruits.length ); // ?
-*/
+
 
 
 /*
