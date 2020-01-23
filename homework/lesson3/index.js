@@ -4,12 +4,12 @@
 
     lwTail("ВАСЯ") == "Вася";
 */
- //Ответ:
- /*function lwTail(str){
+//Ответ:
+/*function lwTail(str){
      return `${str[0]}${str.slice(1).toLowerCase()}`;
  }
  console.log(lwTail("ВАСЯ"));*/
- 
+
 /*
     2)
     Дана строка; нужно написать функцию, которая позволяет вернуть значение true,
@@ -21,18 +21,25 @@
     palindrome('table') === false
     palindrome('John') === false
 */
+//Ответ
+//let str =  ('Racecar');
+//let str2 = str.split("").reverse().join("").toLowerCase();
+//let str3=(str2.includes(str2,0));
+// console.log(str.toLowerCase()===str2);
+function palindrome(str) {
+  let str2 = str
+    .split("")
+    .reverse()
+    .join("")
+    .toLowerCase();
+  let str3 = str2.includes(str2, 0);
+  str.toLowerCase() === str2 ? true : false;
+}
 
-    let str =  ('Racecar');   
-    let str2 = str.split("").reverse().join("").toLowerCase();
-    let str3 = str2.toLowerCase();
-    let str4=(str3.includes(str3,0));
-    debugger
-    console.log(str4);
-   
+palindrome("Racecar");
+// let str = 'Widget with id';
 
-  // let str = 'Widget with id';
-
-  // console.log( str.indexOf(str) );
+// console.log( str.indexOf(str) );
 
 /*
    // 3)
@@ -73,7 +80,6 @@
     P.S. Подсказка: используйте split, чтобы разбить строку на массив символов,
     потом переделайте всё как нужно и методом join соедините обратно.
 */
-
 
 /*
     5)
