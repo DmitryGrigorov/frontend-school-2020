@@ -22,9 +22,8 @@
     palindrome('John') === false
 */
 
-    let str =  ('table');   
-    let str1 = str.startsWith(str);
-    let str2 = str.endsWith(str);
+    let str =  ('Racecar');   
+    let str2 = str.split("").reverse.join("");
     debugger
     console.log(str2);
    
