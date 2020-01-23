@@ -4,7 +4,10 @@
 
     lwTail("ВАСЯ") == "Вася";
 */
-
+function lwTail(str) {
+    return (str[0].toUpperCase() + str.slice(1).toLowerCase())
+}
+alert(lwTail("юЛИЯ"));
 /*
     2)
     Дана строка; нужно написать функцию, которая позволяет вернуть значение true,
@@ -16,7 +19,12 @@
     palindrome('table') === false
     palindrome('John') === false
 */
-
+function palindrome(str) {
+    str = str.toLowerCase();
+    reverse_str = str.toLowerCase().split('').reverse().join('');
+    return str == reverse_str;
+}
+alert(palindrome("Шалаш"));
 /*
     3)
     Что выведет следующий код?
@@ -37,6 +45,12 @@
     console.log( fruits.length ); // ?
 */
 
+let fruits = ["Яблоки", "Груша", "Апельсин"];
+let shoppingCart = fruits;
+shoppingCart.push("Банан");
+shoppingCart.push("Манго");
+fruits.pop()
+alert(fruits); // (4) ["Яблоки", "Груша", "Апельсин", "Банан"]
 
 /*
     4)
@@ -53,6 +67,12 @@
     потом переделайте всё как нужно и методом join соедините обратно.
 */
 
+function camelize(str) {
+    return str.replace(/[_.-](\w|$)/g, function(_, x) {
+        return x.toUpperCase();
+    });
+}
+alert(camelize('my-first-project'));
 
 /*
     5)
@@ -68,6 +88,13 @@
     alert( arr ); // HTML, JavaScript, CSS (без изменений)
 */
 
+function copySorted(arr) {
+    return arr.concat().sort();
+}
+let arr = ["HTML", "JavaScript", "CSS"];
+let sorted = copySorted(arr);
+alert(arr + ' --> ' + sorted);
+
 /*
     6)
     Написать функцию, которая считает сумму элементов массива кратных числу 2.
@@ -77,3 +104,10 @@
     sum(1, 2, 3, 4, 5) // 6
     sum(3, 8, 1, 40, 6) // 54
 */
+
+function sum(...numbers) {
+    arr = Array.from(numbers);
+    let even = arr.filter((e) => !(e & 1));
+    return even.reduce((a, b) => a + b);
+}
+alert(sum(3, 8, 1, 40, 6));
