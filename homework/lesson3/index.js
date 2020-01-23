@@ -23,9 +23,11 @@
 */
 
     let str =  ('Racecar');   
-    let str2 = str.split("").reverse.join("");
+    let str2 = str.split("").reverse().join("").toLowerCase();
+    let str3 = str2.toLowerCase();
+    let str4=(str3.includes(str3,0));
     debugger
-    console.log(str2);
+    console.log(str4);
    
 
   // let str = 'Widget with id';
