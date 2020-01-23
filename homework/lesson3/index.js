@@ -112,6 +112,13 @@ camelize("background-color");
     alert( arr ); // HTML, JavaScript, CSS (без изменений)
 */
 
+function copySorted(arr) {
+    return arr.slice(0).sort();
+}
+
+let arr = ["HTML", "JavaScript", "CSS"];
+let sorted = copySorted(arr);
+
 /*
     6)
     Написать функцию, которая считает сумму элементов массива кратных числу 2.
@@ -121,3 +128,34 @@ camelize("background-color");
     sum(1, 2, 3, 4, 5) // 6
     sum(3, 8, 1, 40, 6) // 54
 */
+
+function arrSum(arr) {
+    let sum = 0;
+
+    arr.map(item => {
+        if (item % 2 === 0) {
+            sum += item
+        } 
+    })
+
+    return sum;
+}
+
+
+function numSum() {
+    const numbers = Array.prototype.slice.call(arguments);
+    let sum = 0;
+
+    numbers.map(item => {
+        if (item % 2 === 0) {
+            sum += item
+        } 
+    })
+
+    return sum;
+}
+
+arrSum( [3, 8, 1, 40, 6] ); // for array
+numSum(3, 8, 1, 40, 6); // for sequence
+
+
