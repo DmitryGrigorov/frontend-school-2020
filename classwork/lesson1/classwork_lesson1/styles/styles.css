@@ -1,0 +1,108 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+.main {
+    width: 1440px;
+    background: #F4F6F9;
+    background-image: url(/images/Frame.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.container {
+    width: 100%;  
+    padding: 61px 163px;
+    height: 665px;
+
+}
+
+.header {
+    width: 99px;
+    height: 32px;
+}
+
+/* main body */
+
+.main-body {
+    
+}
+
+.main-body-title{
+    font-weight: bold;
+    font-size: 36px;
+    width: 546px;
+    margin-top: 140px;
+}
+
+.main-body-desc{
+    font-size: 18px;
+    font-family: Lato;
+    line-height: 26px;
+    width: 453px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    color: #4F4F4F;
+
+}
+
+.main-body-button {
+    display: inline-block;
+    margin-right: 36px;
+}
+
+.banner {
+    height: 592px;
+    background-image: url(../images/players.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    position: relative;
+
+
+}
+
+.banner::before {
+    position: absolute;
+    content: ' ';
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 805px;
+    background: linear-gradient(270deg, #FFFFFF 5.16%, rgba(255, 255, 255, 0) 67.14%), rgba(255, 255, 255, 0.5);
+
+}
+.container-banner {
+
+}
+
+.banner-match-block {
+    position: relative;
+    width: 360px;
+    height: 420px;
+}
+
+.banner-teamtable {
+    position: absolute;
+    left: 163px;
+    top: 109px;
+    width: 360px;
+    height: 218px;
+    z-index: 1;
+    background-image: url(../images/SAMPLE01.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.banner-video {
+    position: absolute;
+    width: 360px;
+    height: 218px;
+    left: 269px;
+    top: 296px;
+    background-image: url(../images/SAMPLE02.png);
+}
