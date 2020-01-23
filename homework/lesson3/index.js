@@ -5,10 +5,10 @@
     lwTail("ВАСЯ") == "Вася";
 */
  //Ответ:
- function lwTail(str){
+ /*function lwTail(str){
      return `${str[0]}${str.slice(1).toLowerCase()}`;
  }
- console.log(lwTail("ВАСЯ"));
+ console.log(lwTail("ВАСЯ"));*/
  
 /*
     2)
@@ -22,12 +22,12 @@
     palindrome('John') === false
 */
 
-
-    3)
-    //Что выведет следующий код?
-
+/*
+   // 3)
+   // Что выведет следующий код?
+    
     let fruits = ["Яблоки", "Груша", "Апельсин"];
-debugger
+
     // добавляем новое значение в "копию"
     let shoppingCart = fruits;
 
@@ -39,10 +39,14 @@ debugger
     fruits.pop()
 
     // что в fruits?
-    console.log( fruits.length ); // ?
-
-
-
+    console.log( fruits.length ); 
+    // ?
+    
+    //Ответ
+    console.log( fruits.length ); 
+    // ? Длинна массива fruits как и  shoppingCart будет ровна 4, после применения метода .pop
+    console.log(shoppingCart===fruits); равно true
+    Две переменные fruits и shoppingCart ссылаются на один и тот же массив.
 /*
     4)
     Напишите функцию camelize(str), которая преобразует строки вида «my-short-string» в «myShortString».
