@@ -39,16 +39,17 @@
 
 // проверка существования свойств
 
-// let item = {
-//     label: 'orange',
-//     price: 500,
-//     age: undefined
-// };
-
-// console.log(item.label);
-
-// console.log(item.age === undefined);
-// console.log('some' + 'Prop' in item);
+ let item = {
+     label: 'orange',
+     price: 500,
+     age: undefined,
+     someProp:10,
+     
+ };
+debugger
+ console.log(item.label);
+ console.log(item.age === undefined);
+ console.log('some' + 'Prop' in item);
 
 // цикл for..in
 
