@@ -621,3 +621,83 @@ a {
     top: 3487px;
     background: #FAFAFA;
 }
+
+.stage7 .group h3{
+    position: relative;
+    height: 22px;
+    left: 0px;
+    top: 0px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #101010;
+}
+
+.stage7 .group p{
+    position: relative;
+    width: 254px;
+    height: 54px;
+    left: 97px;
+    top: 33px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 150%;
+    color: #101010;
+}
+
+.stage7 .g1{
+    position: relative;
+    width: 259px;
+    height: 264px;
+    left: 161px;
+    top: 85px;
+    float: left;
+}
+
+.stage7 .g2{
+    position: relative;
+    width: 259px;
+    height: 264px;
+    left: 220px;
+    top: 85px;
+    float: left;
+}
+
+.stage7 .g3{
+    position: relative;
+    width: 259px;
+    height: 264px;
+    left: 220px;
+    top: 85px;
+    float: left;
+}
+.stage7 .g4{
+    position: relative;
+    width: 259px;
+    height: 264px;
+    left: 220px;
+    top: 85px;
+    float: left;
+}
+
+.stage7 .g3 img{
+    position: relative;
+    width: 14px;
+    height: 14px;
+    left: 80px;
+    top: 30px;
+    margin-right: 10px;
+}
+
+.stage7 .g4 img{
+    position: relative;
+    width: 216px;
+    height: 31px;
+    left: 80px;
+    top: 30px;
+}
