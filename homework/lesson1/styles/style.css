@@ -2,7 +2,7 @@
 *   {
     padding: 0;
     margin: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato', sans-serif
 }
 
 /* Main */
@@ -12,7 +12,7 @@
     background-image: url(../images/Bg.png);
     background-size: contain;
     background-repeat: no-repeat;
-    background-position:  center;
+    background-position:  center
 
 }
 
@@ -21,19 +21,19 @@
     width: 1440px;
     height: 100px;
     top: 17px;
-    display: flex;
+    display: flex
 }
 
 .logo {
     margin-left: 165px;
-    margin-top: 42px;
-    display: flex;
+    margin-top: 37px;
+    display: flex
 }
 
 .vector {
     width: 25px;
     height: 18px;
-    margin-right: 11px;
+    margin-right: 11px
 }
 
 .cloud {
@@ -44,7 +44,6 @@
     text-transform: uppercase;
     color: #FFFFFF;
     padding: 0px;
-
 }
 
 .menu {
@@ -53,7 +52,7 @@
     margin-top: 41px;
     margin-left: 160px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between
  
 }
 
@@ -64,50 +63,50 @@
     font-weight: bold;
     font-size: 14px;
     line-height: 17px;
-    text-transform: uppercase; 
+    text-transform: uppercase;
 }
 
 .navbar {
     display: flex;
-    width: 500px;
+    width: 500px
 }
 
 .flag {
     width: 32px;
     height: 32px;
-    margin-top: 42px;
-    margin-left: 118px;
+    margin-top: 35px;
+    margin-left: 118px
 }
 
 .En {
     width: 32px;
     height: 22px;
-    margin-top: 42px;
-    margin-left: 7px;;
+    margin-top: 41px;
+    margin-left: 7px
 }
 
 .strelka {
     width: 12px;
     height: 7px;
-    margin-top: 42px;
+    margin-top: 42px
 }
 
 .login {
     width: 100px;
     height: 40px;
-    margin-top: 42px;
-    margin-left: 34px;
+    margin-top: 30px;
+    margin-left: 34px
 }
 
 .container {
     width: 1440px;
-    height: 682px;
+    height: 682px
 }
 
 .content {
     position: relative; 
     top: 157px;
-    height: 249px;
+    height: 249px
 }
 
 .title {
@@ -121,7 +120,7 @@
     align-items: center;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: #FFFFFF
 }
 
 .desc {
@@ -135,7 +134,7 @@
     font-size: 24px;
     line-height: 150%;
     text-align: center;
-    color: #FFFFFF;
+    color: #FFFFFF
 }
 
 .button-signUp {
@@ -145,7 +144,7 @@
     left: 640px;
     top: 176px;
     background: #FFFFFF;
-    border-radius: 6px;
+    border-radius: 6px
 }
 
 .signUp {
@@ -158,7 +157,7 @@
     line-height: 17px;
     align-items: center;
     text-transform: uppercase;
-    color: #ED4C5C;
+    color: #ED4C5C
 }
 
 /* Banner */
@@ -166,17 +165,17 @@
     width: 1440px;
     height: 500px;
     background: #FFFFFF;
-    display: flex;
+    display: flex
 }
 
 .left-col {
     height: 500px;
-    width: 720px;
+    width: 720px
 }
 
 .right-col {
     height: 500px;
-    width: 720px;
+    width: 720px
 }
 
 .banner-title {
@@ -188,7 +187,7 @@
     font-weight: 600;
     font-size: 36px;
     line-height: 43px;
-    color: #000000;
+    color: #000000
 }
 
 .banner-text {    
@@ -203,13 +202,13 @@
     font-size: 14px;
     line-height: 140%;
     text-align: justify;
-    color: #000000;    
+    color: #000000
 }
 
 .learnmore {
     color: #ED4C5C;
     line-height: 20px;
-    text-decoration: none;
+    text-decoration: none
 }
 
 .video {
@@ -217,7 +216,7 @@
     height: 311px;
     margin-left: 15px;
     margin-top: 94px;
-    border-radius: 15px;
+    border-radius: 15px
 }
 
 .play {
@@ -227,19 +226,19 @@
     left: 702px;
     top: 999px;
     z-index: 1;
-    background-image: url(../images/Ellipse.png);
+    background-image: url(../images/Ellipse.png)
 }
 
 .buttonPlay {
     width: 66px;
-    height: 66px;
+    height: 66px
 }
 
 /* Features */
 .features {
     width: 1440px;
     height: 660px;
-    background: #FAFAFA;
+    background: #FAFAFA
 }
 
 #feat {
@@ -252,7 +251,7 @@
     font-size: 36px;
     line-height: 43px;
     text-align: center;
-    color: #000000;
+    color: #000000
 }
 
 .colums {
@@ -260,32 +259,32 @@
     width: 1440px;
     height: 479px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between
 }
 
 .first-col-feat {
     height: 479px;
     width: 350px;
-    margin-left: 165px;
+    margin-left: 165px
 }
 
 .second-col-feat {
     height: 479px;
-    width: 350px;
+    width: 350px
 }
 
 
 .third-col-feat {
     height: 479px;
     width: 350px;
-    margin-right: 165px;
+    margin-right: 165px
 }
 
 /* General settings for img */
 div.image {
     width: 350px;
     height: 250px;
-    border-radius: 8px;
+    border-radius: 8px
 }
 
 /* General settings for cards */
@@ -298,7 +297,7 @@ div.card {
     background: #FFFFFF;
     box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    z-index: 1;
+    z-index: 1
 }
 
 /* General settings for titles cards */
@@ -307,7 +306,7 @@ div.card {
     height: 40px;
     text-align: center;
     margin-left: 32px;
-    padding-top: 33px;
+    padding-top: 33px
 }
 
 .font {
@@ -316,7 +315,7 @@ div.card {
     font-size: 18px;
     line-height: 22px;
     text-align: center;
-    color: #101010;
+    color: #101010
 }
 
 /* General settings for text cards */
@@ -330,7 +329,7 @@ div.card {
     font-size: 12px;
     line-height: 150%;
     text-align: center;
-    color: #101010;
+    color: #101010
 }
 
 .readmore {
@@ -340,7 +339,7 @@ div.card {
     text-align: center;
     background-image: url(../images/Read\ More.png);
     background-repeat: no-repeat;
-    background-position:  center;
+    background-position:  center
 }
 
 /* 1st col os Features */
@@ -348,7 +347,7 @@ div.card {
     left: 165px;
     background: url(../images/bg_feat_1.png), #FFFFFF;
     background-repeat: no-repeat;
-    background-position:  center;
+    background-position:  center
 }
 
 
@@ -359,11 +358,11 @@ div.card {
     left: 545px;
     background: url(../images/bg_feat_2.png), #FFFFFF;
     background-repeat: no-repeat;
-    background-position:  center;
+    background-position:  center
 }
 
 .second-card{
-    left: 574px;
+    left: 574px
 }
 
 /* 3rd col of Features */
@@ -371,193 +370,383 @@ div.card {
     left: 925px;
     background: url(../images/bg_feat_3.png) #FFFFFF;
     background-repeat: no-repeat;
-    background-position:  center;
+    background-position:  center
 }
 
 .third-card{
-    left: 954px;
+    left: 954px
 }
 
 /* Technology */
 .technology {
-    position: relative;
     width: 1440px;
     height: 500px;
-    left: 0px;
-    background: #FFFFFF;
-    display: flex;
-    flex-flow: row nowrap;
+    background: #FFFFFF
 }
 
 #h1Tech {
-    position: absolute;
     width: 1110px;
-    height: 55px;
-    left: 165px;
-    top: 63px;
+    margin-left: 165px;
+    padding-top: 63px;
     text-align: center;
     font-style: normal;
     font-weight: 600;
     font-size: 36px;
     line-height: 43px;
-    color: #000000;
+    color: #000000
 }
 
 .mainblock {
-    position: absolute;
     width: 1110px;
     height: 226px;
-    left: 165px;
-    top: 170px;
-    display: inline-flex;
+    margin-left: 165px;
+    margin-top: 52px;
+    display: flex;
+    justify-content: space-between
 }
 
 .block {
     width: 255px;
     height: 226px;
-    position: relative;
-    margin-right: 30px;
+    margin-right: 30px
 }
 
 .block4{
     width: 255px;
-    height: 226px;
-    position: relative;
+    height: 226px
 }
 
-.tecnology-item1 {
+.tecnology-bg {
+    width: 117px;
+    height: 120px;
     font-style: normal;
     font-weight: bold;
     font-size: 100px;
     line-height: 120px;
     text-align: center;
-    color: rgba(16, 16, 16, 0.08);
+    margin-left: 69px;
+    color: rgba(16, 16, 16, 0.08)
 }
 
 
-.technology-icon1 {
-    position: absolute;
+.technology-icon {
     width: 80px;
     height: 80px;
-    left: 87px;
-    top: 59px;
+    margin-left: 87px;
+    margin-top: -61px;
     text-align: center;
-    z-index: 1;  
+    z-index: 1
 }
 
-.technology-icon2 {
-    position: absolute;
-    width: 66px;
-    height: 66px;
-    left: 94px;
-    top: 65px;
-    text-align: center;
-    z-index: 1;  
+.technology-item1 {
+    text-align: center
 }
 
-.technology-icon3 {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    left: 104.09px;
-    top: 69px;
-    z-index: 1;  
-}
-
-.technology-icon4 {
-    position: absolute;
-    width: 47px;
-    height: 54px;
-    left: 104px;
-    top: 71px;
-    text-align: center;
-    z-index: 1;  
-}
-
-.technology-item3 {
-    position: absolute;
-    height: 22px;
-    top: 139px;
-    text-align: center;
-}
-
-.technology-item4 {
-    position: absolute;
+.technology-item2 {
     width: 191px;
     height: 51px;
-    left: 34px;
-    top: 171px;
+    margin-left: 34px;
+    margin-top: 10px;;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
     line-height: 14px;
     text-align: center;
-    color: #000000;
+    color: #000000
 }
 
+
+/* App */
 .App {
     background-image: url(../images/bg4slide.png);
-    position: absolute;
     width: 1440px;
     height: 500px;
+    display: flex;
+    flex-wrap: nowrap
+}
+
+.Apptext{
+    width: 445px;
+    height: 500px;
+    margin-left: 165px
 }
 
 .App-item1 {
-    position: absolute;
     width: 445px;
-    height: 107px;
-    left: 165px;
-    top: 122px;
+    padding-top: 122px;
     font-style: normal;
     font-weight: 600;
     font-size: 36px;
     line-height: 43px;
-    color: #FFFFFF;
+    color: #FFFFFF
 }
 
+
 .App-item2  {
-    position: absolute;
     width: 445px;
     height: 64px;
-    left: 165px;
-    top: 253px;
+    margin-top: 24px;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 140%;
     text-align: justify;
-    color: #FFFFFF;
+    color: #FFFFFF
+}
+
+.App-icons {
+    width: 134px;
+    height: 32px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between
+}
+
+.icons {
+    width: 32px;
+    height: 32px
+}
+
+.Appvideo {
+    height: 500px;
+    margin-left: 81px;
+    display: flex
 }
 
 .video1 {
-    position: absolute;
+    position: relative;
     width: 383px;
     height: 267px;
-    left: 691px;
     top: 116px;
     background: url(../images/video_bg3.png), #C4C4C4;
     opacity: 0.5;
-    border-radius: 15px;
+    border-radius: 15px
 }
 
 .video2 {
-    position: absolute;
+    position: relative;
     width: 383px;
     height: 267px;
-    left: 841px;
     top: 116px;
+    left: -233px;
     background: url(../images/video_bg2.png), #C4C4C4;
     opacity: 0.5;
-    border-radius: 15px;
+    border-radius: 15px
 }
 
 .video3 {
-    position: absolute;
+    position: relative;
     width: 445px;
     height: 311px;
-    left: 735px;
+    left: -721px;
     top: 94px;
     background: url(../images/video_bg1.png), #C4C4C4;
     border-radius: 15px;
-    z-index: 1;
+    z-index: 1
 }
+
+/* Contact */
+
+.contact {
+    width: 1440px;
+    height: 500px;
+    background: #FFFFFF;
+    display: flex;
+    flex-wrap: nowrap
+}
+
+.wrapper {
+    width: 445px;
+    height: 160px;
+    margin-top: 117px;;
+    margin-left: 165px
+}
+
+h1 {
+    height: 107px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    color: #000000
+}
+
+p {
+    height: 53px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    text-align: justify;
+    color: #000000
+}
+
+.form {
+    width: 540px;
+    height: 305px;
+    margin-left: 125px;
+    margin-top: 117px
+}
+
+.firstname {
+    width: 255px;
+    height: 60px;
+    margin-right: 25px
+}
+
+input {
+    padding-left: 31px;
+    border: 1px solid #333333;
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: rgba(19, 39, 67, 0.5)
+  }
+
+.lastname {
+    width: 255px;
+    height: 60px
+}
+
+.phone {
+    margin-top: 24px;
+    width: 540px;
+    height: 60px
+}
+
+.service {
+    margin-top: 24px;
+    width: 540px;
+    height: 60px;
+    padding-left: 31px;
+    border: 1px solid #333333;
+    box-sizing: border-box;
+    border-radius: 6px
+}
+
+option {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: rgba(19, 39, 67, 0.5)
+}
+
+button {
+    width: 160px;
+    height: 50px;
+    background: #ED4C5C;
+    border: 1.5px solid #ED4C5C;
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin-top: 27px;
+    color: white 
+}
+
+/* Info */
+
+.info {
+    width: 1440px;
+    height: 435px;
+    background: #FAFAFA
+}
+
+.footer {
+    padding-top: 85px;
+    width: 1077px;
+    height: 264px;
+    margin-left: 165px;
+    display: flex
+}
+
+.info-address {
+    width: 259px;
+    height: 264px
+}
+
+.info-h1 {
+    height: 22px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #101010
+}
+
+.pfont {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 150%;
+    text-align: left;
+    color: #101010
+}
+
+.address-p1 {
+    width: 254px;
+    height: 54px;
+    margin-top: 33px
+}
+
+.address-p2 {
+    height: 14px;
+    margin-top: 141px;
+}
+
+.info-services{
+    width: 254px;
+    height: 164px;
+    margin-left: 30px;
+}
+
+ul {
+   margin-top: 28px;
+   height: 114px;
+}
+
+li {
+    list-style-type: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 160%;
+    text-transform: capitalize;
+    color: #000000
+ }
+
+ .info-contacts {
+    margin-left: 30px;
+    width: 122px;
+    height: 128px
+ }
+
+ .contact-p1 {
+    height: 14px;
+    margin-top: 33px
+ }
+
+ .contact-p2 {
+    height: 14px;
+    margin-top: 11px;
+ }
+
+ .social {
+    width: 66px;
+    height: 14px;
+    margin-top: 20px;
+ }
+
+ .info-payment {
+    width: 216px;
+    margin-left: 166px;
+
+ }
+
+ .payment {
+    width: 216px;
+    height: 31px;
+    margin-top: 33px
+ }
