@@ -14,7 +14,7 @@ calculate('pear', 4, { apple: 100, pear: 500, melon: 400, lemon: undefined }); /
 
 Решение:
 * /
-let calculate = (nameOfGoods, quantityOfGoods, pricesOfGoods) => {
+const calculate = (nameOfGoods, quantityOfGoods, pricesOfGoods) => {
  let message = 'Такого товара у нас еще нет!'
  for(let k in pricesOfGoods){
   if(k === nameOfGoods){
@@ -42,7 +42,23 @@ cloneSomeObj === someObj // false при сравнении копия и пер
 cloneSomeObj.metrics === someObj.metrics // false при сравнении вложенного объекта они тоже не равны
 
 Решение:
-*/
+* /
+const someObj = { name: 'Petya', metrics: { weight: 80, height: 180 } }
+const deepClone = (object) => {
+  let cloneObject = {}
+
+  for(let k in object){
+   if(object[k] !== null && typeof object[k] === 'object'){
+    cloneObject[k] = Object.assign({}, object[k])
+   } else{ cloneObject[k] = object[k] }
+  }
+
+  return cloneObject
+}
+const cloneSomeObj = deepClone(someObj)
+document.write(JSON.stringify(cloneSomeObj) + '<br>')
+document.write((cloneSomeObj === someObj) + '<br>')
+document.write(cloneSomeObj.metrics === someObj.metrics)
 //*/
 
 /*
@@ -55,7 +71,19 @@ let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
 unionObject -> { name: 'Vasya', age: 45, isAdmin: true }
 
 Решение:
-*/
+* /
+const merge = (...aProps) => {
+ let mergedObject = {}
+
+ aProps.forEach(function(v, i, aProps){
+  if(v !== null && typeof v === 'object'){
+   for(let k in v){ mergedObject[k] = v[k] }
+  }
+ })
+
+ return JSON.stringify(mergedObject);
+}
+document.write(merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true }))
 //*/
 
 /*
@@ -71,7 +99,16 @@ dog.bark(4); // => "Bobik: bark bark bark bark"
 dog.bark(); // => "Bobik: bark" если аргумент не передать - метод все равно сработает
 
 Решение:
-*/
+* /
+dog = { name: 'Bobik' }
+dog.bark = (count = 1) => {
+ let message = dog.name + ':'
+ for(let i = 1; i <= count; i++){ message += ' bark' }
+
+ return(console.log(message), document.write(message + '<br>'))
+}
+dog.bark(4); // => "Bobik: bark bark bark bark"
+dog.bark(); // => "Bobik: bark" если аргумент не передать - метод все равно сработает
 //*/
 
 /*
@@ -83,7 +120,14 @@ dog.bark(); // => "Bobik: bark" если аргумент не передать 
 обратите внимание, что 500 и $ это значения полей самого объекта (если их поменять то это будет учитываться при последующих преобразованиях)
 
 Решение:
-*/
+* /
+let item = { label: 'phone', price: 500, currency: '$' }
+
+item.toString = function(){ return this.price + this.currency }
+item.toNumber = function(){ return this.price }
+
+document.write(item.toString() + '<br>')
+document.write(item.toNumber())
 //*/
 
 /*
@@ -99,4 +143,45 @@ dog.stand() => Меняет свойство status на строку 'standing'
 dog.down() => Меняет свойство status на строку 'lying';
 
 создайте массив с 25 объектами Dog
+
+Решение:
 */
+function Dog(){
+ this.name = 'name',
+ this.age = 1,
+ this.breed = 'breed',
+ this.weight = 2,
+ this.height = 3,
+ this.position = 'position',
+ this.status = 'status',
+
+ this.bark = function(){ //=> Выводит в консоль '{{имя собаки}}: bark';
+  console.log(`${this.name}: bark`);
+ }
+ this.place = function(){ //=> Меняет свойство position на строку 'place';
+  this.position = 'place'
+ }
+ this.come = function(){ //=> Меняет свойство position на строку 'here';
+  this.position = 'here'
+ }
+ this.goOut = function(){ //=> Меняет свойство position на строку 'go out';
+  this.position = 'go out'
+ }
+ this.sit = function(){ //=> Меняет свойство status на строку 'sitting';
+  this.status = 'sitting'
+ }
+ this.stand = function(){ //=> Меняет свойство status на строку 'standing';
+  this.status = 'standing'
+ }
+ this.down = function(){ //=> Меняет свойство status на строку 'lying';
+  this.status = 'lying'
+ }
+}
+
+let aDogs = []
+for(let i = 0; i < 25; i++){
+ aDogs[i] = new Dog()
+}
+
+console.log(aDogs)
+//*/
