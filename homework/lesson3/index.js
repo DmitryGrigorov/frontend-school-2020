@@ -126,5 +126,5 @@ function sum(...rest){
 
 }
 
-// console.log(sum(1, 2, 3, 4, 5)); // 6
-// console.log(sum(3, 8, 1, 40, 6)); // 54
+console.log(sum(1, 2, 3, 4, 5)); // 6
+console.log(sum(3, 8, 1, 40, 6)); // 54
