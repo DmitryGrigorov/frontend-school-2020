@@ -26,12 +26,9 @@ function calculate(name, count, prices) {
 
 const pricesObj = { apple: 100, pear: 500, melon: 400, lemon: undefined };
 
-let test1 = calculate('potato', 1, pricesObj);
-let test2 = calculate('lemon', 1, pricesObj);
-let test3 = calculate('pear', 4, pricesObj);
-
-console.log(test1, test2, test3);
-
+const test1 = calculate('potato', 1, pricesObj);
+const test2 = calculate('lemon', 1, pricesObj);
+const test3 = calculate('pear', 4, pricesObj);
 
 // 2)
 // напишите функцию deepClone глубокого клонирования объекта, которая создаёт глубокую копию объекта
@@ -44,15 +41,14 @@ console.log(test1, test2, test3);
 // cloneSomeObj.metrics === someObj.metrics // false при сравнении вложенного объекта они тоже не равны
 
 function deepClone(obj) {
-    return JSON.parse(JSON.stringify(obj));
+    return JSON.parse(JSON.stringify(obj)); // ;)
 }
 
 const someObj = { name: 'Petya', metrics: { weight: 80, height: 180 } };
 let newObj = null;
 
 newObj = deepClone(someObj);
-console.log(someObj === newObj);
-console.log(someObj.metrics === newObj.metrics);
+
 
 // 3)
 // напишите функцию merge для объединения объектов НЕ используя встроеный метод Object.assign
@@ -72,7 +68,7 @@ function merge(...objects) {
     return resultObj;
 }
 
-let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
+const unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
 
 // 4)
 // Есть объект dog = { name: 'Bobik' };
@@ -91,8 +87,8 @@ dog.bark = function(times = 1) {
     return `${dog.name}: ${'bark '.repeat(times).slice(0, -1)}`;
 }
 
-console.log(dog.bark());
-console.log(dog.bark(4));
+dog.bark();
+dog.bark(4);
 
 // 5)
 // Есть объект товара item = { label: 'phone', price: 500, currency: '$' };
@@ -111,8 +107,8 @@ item.valueOf= function customValueOf() {
     return this.price;
 }
 
-console.log(item.toString());
-console.log(item.valueOf());
+item.toString();
+item.valueOf();
 
 
 // 6)
