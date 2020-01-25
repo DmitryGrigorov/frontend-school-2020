@@ -121,13 +121,18 @@ dog.bark(); // => "Bobik: bark" если аргумент не передать 
 
 Решение:
 * /
-let item = { label: 'phone', price: 500, currency: '$' }
+const item1 = { label: 'phone', price: 500, currency: '$' }
+item1.toString = function(){ return `${this.price + this.currency}` },
+item1.valueOf = function(){ return this.price }
+document.write(`${item1}<br>`)
+document.write(+item1)
 
-item.toString = function(){ return this.price + this.currency }
-item.toNumber = function(){ return this.price }
+document.write('<hr>') //или
 
-document.write(item.toString() + '<br>')
-document.write(item.toNumber())
+const item2 = { label: 'phone', price: 500, currency: '$' }
+item2[Symbol.toPrimitive] = function(hint){ return (hint === 'string') ? (this.price + this.currency) : this.price }
+document.write(`${item2}<br>`)
+document.write(+item2)
 //*/
 
 /*
@@ -144,10 +149,10 @@ dog.down() => Меняет свойство status на строку 'lying';
 
 создайте массив с 25 объектами Dog
 
-Решение:
-*/
-function Dog(){
- this.name = 'name',
+Решение (если я правильно понял, в чём сомневаюсь):
+* /
+function Dog(name){
+ this.name = name,
  this.age = 1,
  this.breed = 'breed',
  this.weight = 2,
@@ -156,7 +161,7 @@ function Dog(){
  this.status = 'status',
 
  this.bark = function(){ //=> Выводит в консоль '{{имя собаки}}: bark';
-  console.log(`${this.name}: bark`);
+  console.log(`${this.name}: bark`)
  }
  this.place = function(){ //=> Меняет свойство position на строку 'place';
   this.position = 'place'
@@ -180,8 +185,26 @@ function Dog(){
 
 let aDogs = []
 for(let i = 0; i < 25; i++){
- aDogs[i] = new Dog()
-}
+ aDogs[i] = new Dog(i)
 
-console.log(aDogs)
+ aDogs[i].bark()
+
+ aDogs[i].place()
+ console.log(`${aDogs[i].name}: ` + aDogs[i].position)
+
+ aDogs[i].come()
+ console.log(`${aDogs[i].name}: ` + aDogs[i].position)
+
+ aDogs[i].goOut()
+ console.log(`${aDogs[i].name}: ` + aDogs[i].position)
+
+ aDogs[i].sit()
+ console.log(`${aDogs[i].name}: ` + aDogs[i].status)
+
+ aDogs[i].stand()
+ console.log(`${aDogs[i].name}: ` + aDogs[i].status)
+
+ aDogs[i].down()
+ console.log(`${aDogs[i].name}: ` + aDogs[i].status)
+}
 //*/
