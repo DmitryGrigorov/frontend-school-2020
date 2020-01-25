@@ -12,7 +12,7 @@ function camelize(str) {
     return firstPart+newArr.join('');
 }
 
-console.log(camelize(str));
+document.write(camelize(str));
 
 
 
