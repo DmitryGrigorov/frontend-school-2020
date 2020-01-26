@@ -251,6 +251,17 @@ ul {
     justify-content: space-between;
 }
 
+.top_login_button {
+    width: 100px;
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
 .menu a {
     color: white;
     font-size: 14px;
