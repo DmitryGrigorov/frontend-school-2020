@@ -103,8 +103,8 @@ const copySorted = (arr = ["HTML", "JavaScript", "CSS"]) => {
     sum(3, 8, 1, 40, 6) // 54
 */
 
-function sum() {
-  return [...arguments].flat().reduce((previous, current) => {
+function sum(...rest) {
+  return rest.flat().reduce((previous, current) => {
     return current % 2 === 0 ? previous + current : previous;
   }, 0);
 }
