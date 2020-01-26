@@ -196,4 +196,4 @@ for (let i = 0; i < 25; i++){
         'place',
         'sitting'))
 }
-console.log(dogs);
+console.log(dogs); 
