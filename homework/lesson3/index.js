@@ -5,6 +5,13 @@
     lwTail("ВАСЯ") == "Вася";
 */
 
+//Первая буква строки остается в том же регистре, в котором была передана. Т.к. в условии не сказано про первую букву.
+let lwTail = (str = '') => str.charAt(0) + str.slice(1).toLowerCase();
+
+console.log(lwTail('Игнат'));
+
+// P.S. str = '' если параметр в функцию не передается, то используется значение по умолчанию.
+
 /*
     2)
     Дана строка; нужно написать функцию, которая позволяет вернуть значение true,
@@ -16,6 +23,13 @@
     palindrome('table') === false
     palindrome('John') === false
 */
+
+let palindrome = (str = '') => {
+    str = str.toLowerCase();
+    return str === str.split('').reverse().join('');
+}
+
+console.log(palindrome('Anna'));
 
 /*
     3)
@@ -37,6 +51,13 @@
     console.log( fruits.length ); // ?
 */
 
+/* Ответ:
+Код выведет: 4. 
+Т.к. массив shoppingCart копируется по ссылке, следовательно при добавлении/удалении элементов данного массива, 
+элементы добавляются/удалются и старом (fruits) массиве. 
+Метод push добавляет элемент в конец массива, метод pop извлекает элемент с конца массива. 
+Следовательно было 3 элемента, добавили 2 элемента в конец массива, стало 5, затем узвлекли один элемент с конца массива, стало 4.
+*/
 
 /*
     4)
@@ -53,6 +74,15 @@
     потом переделайте всё как нужно и методом join соедините обратно.
 */
 
+let camelize = (str = '') => {
+    return str.split('-').map(
+        (item, index) => index == 0 ? item : item[0].toUpperCase() + item.slice(1)
+        ).join('');
+};
+
+console.log(camelize('background-color'));
+console.log(camelize('list-style-image'));
+console.log(camelize('-webkit-transition')); 
 
 /*
     5)
@@ -68,6 +98,15 @@
     alert( arr ); // HTML, JavaScript, CSS (без изменений)
 */
 
+let copySorted = (arr) => arr.slice().sort();
+  
+let arr = ["HTML", "JavaScript", "CSS"];
+  
+let sorted = copySorted(arr);
+  
+alert(sorted);
+alert(arr);
+
 /*
     6)
     Написать функцию, которая считает сумму элементов массива кратных числу 2.
@@ -76,4 +115,23 @@
 
     sum(1, 2, 3, 4, 5) // 6
     sum(3, 8, 1, 40, 6) // 54
+*/
+
+function sum(arr) {
+    return arr.reduce((sum, current) => (current % 2 === 0) ? sum + current : sum , 0);
+}
+
+console.log(sum([1, 2, 3, 4, 5]));
+console.log(sum([3, 8, 1, 40, 6]));
+
+/* 
+Если нужно передавать последовательность чисел (не массив, как в примере), 
+то можно использовать остаточные параметры и положить их в массив 
+
+function sum(...args) {
+    return args.reduce((sum, current) => (current % 2 === 0) ? sum + current : sum , 0);
+}
+
+console.log(sum(1, 2, 3, 4, 5));
+console.log(sum(3, 8, 1, 40, 6));
 */
