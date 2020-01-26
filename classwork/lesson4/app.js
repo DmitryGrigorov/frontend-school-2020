@@ -184,17 +184,7 @@
 
 // someFunction(1, 2, 3, 4, 5, 6);
 
-function clonePart(obj, ...keys) {
-    const clone = {};
-
-    for (let key in obj) {
-        if (keys.includes(key)) {
-            clone[key] = obj[key];
-        }
-    }
-
-    return clone;
-}
+   
 
 let comment = {
     type: 'success',
