@@ -16,7 +16,7 @@
                     <img src="img/logo/logo.png" alt="Логотип">
                 </picture>
                 <nav class="navigation">
-                    <ul class="navigation__list">
+                    <ul class="navigation__list navigation__list--header">
                         <li class="navigation__link"><a>overview</a></li>
                         <li class="navigation__link"><a>features</a></li>
                         <li class="navigation__link"><a>technology</a></li>
@@ -24,111 +24,138 @@
                         <li class="navigation__link"><a>sign up</a></li>
                     </ul>
                 </nav>
-                    <select class="languageSelection" name="languageSelection" id="">
-                        <option value="english"><img src="img/lang/eng.svg" alt="">  EN</option>
-                        <option value="russian"><img src="img/lang/rus.svg" alt="">  РУС</option>
+                <div class="languageSelection">
+                    <img src="img/lang/eng.svg" alt="">
+                    <img src="img/lang/rus.svg" hidden alt="">
+                    <select class="languageSelection__selection" name="languageSelection" id="">
+                        <option value="english">EN</option>
+                        <option value="russian">РУС</option>
                     </select>
-                <a href="" class="button">login</a>
-            </header>
-            <section class="content">
-                <div class="textBlock">
-                    <h1 class="textBlock__caption">CloudBudget</h1>
-                    <p class="textBlock__text">Cloud budget management for everyone. Only €69.95 a Month After a 7 Day Trial of Up to €4.99</p>
                 </div>
-                <a href="" class="button content__button">sign up</a>
+                <a href="" class="button button--login">login</a>
+            </header>
+            <section class="content content--header">
+                <div class="textBlock textBlock--header">
+                    <h1 class="textBlock__caption textBlock__caption--size_h">CloudBudget</h1>
+                    <p class="textBlock__text textBlock__text--h">Cloud budget management for everyone. Only €69.95 a Month After a 7 Day Trial of Up to €4.99</p>
+                </div>
+                <a href="" class="button button--signUp">sign up</a>
             </section>
         </div>
         <section class="content content--video">
-            <div class="textBlock">
+            <div class="textBlock textBlock--video">
                 <h2 class="textBlock__caption textBlock__caption--size_m">Easy to Use Cloud Budget Management Software</h2>
                 <p class="textBlock__text textBlock__text--size-m">Our software is made so you can access and manage your budget and expenses online at any time from any device. It provides detailed income and expense reports with graphs so you can easilly see your spending patterns and budget at a glance. Read below to find out more.</p>
-                <a href="" class="link"></a>
+                <a href="" class="link link--video">Learn More</a>
             </div>
             <div class="container container--video">
-                <button class="button button--video"></button>
-                <video src="" class="video"></video>
+                <a class="button button--video" href="#"></a>
+                <iframe class="video" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </section>
         <section class="content content--features">
-            <div class="container container--features">
-                <div class="textBlock">
-                    <h3 class="textBlock__caption"></h3>
-                    <p class="textBlock__text"></p>
-                    <a href="" class="link"></a>
+            <h2 class="textBlock__caption--size_m textBlock__caption--size_m-features">Features</h2>
+            <div class="shels">
+                <div class="container container--features">
+                    <div class="textBlock textBlock--features">
+                        <h3 class="textBlock__caption textBlock__caption--features">Supports All Currencies and Cards</h3>
+                        <p class="textBlock__text textBlock__text--features">We support all popular currencies and is fully customizable to add</p>
+                        <a href="" class="link link--features">Read More</a>
+                    </div>
                 </div>
-            </div>
-            <div class="container container--features">
-                <div class="textBlock">
-                    <h3 class="textBlock__caption"></h3>
-                    <p class="textBlock__text"></p>
-                    <a href="" class="link"></a>
+                <div class="container container--features">
+                    <div class="textBlock textBlock--features">
+                        <h3 class="textBlock__caption textBlock__caption--features">Manage your expenses on the go</h3>
+                        <p class="textBlock__text textBlock__text--features">You can access your account from anywhere in the world on any device</p>
+                        <a href="" class="link link--features">Read More</a>
+                    </div>
                 </div>
-            </div>
-            <div class="container container--features">
-                <div class="textBlock">
-                    <h3 class="textBlock__caption"></h3>
-                    <p class="textBlock__text"></p>
-                    <a href="" class="link"></a>
+                <div class="container container--features">
+                    <div class="textBlock textBlock--features">
+                        <h3 class="textBlock__caption textBlock__caption--features">Cloud Budget Management Software</h3>
+                        <p class="textBlock__text textBlock__text--features">Our software is made so you can access and manage your budget</p>
+                        <a href="" class="link link--features">Read More</a>
+                    </div>
                 </div>
             </div>
         </section>
         <section class="content content--technology">
-            <div class="container container--technology">
-                <div class="container container--img"><img src="" alt="" class="picture"></div>
-                <div class="textBlock">
-                    <h3 class="textBlock__caption"></h3>
-                    <p class="textBlock__text"></p>
+            <h2 class="textBlock__caption--size_m textBlock__caption--size_m-features">Technology</h2>
+            <div class="shels shels--technology">
+                <div class="container container--technology">
+                    <div class="container container--img"><h4>01</h4></div>
+                    <div class="textBlock textBlock--technology">
+                        <h3 class="textBlock__caption textBlock__caption--technology">Cloud Storage</h3>
+                        <p class="textBlock__text textBlock__text--technology">Access your account from anywhere in the world on any device</p>
+                    </div>
                 </div>
-            </div>
-            <div class="container container--technology">
-                <div class="container container--img"><img src="" alt="" class="picture"></div>
-                <div class="textBlock">
-                    <h3 class="textBlock__caption"></h3>
-                    <p class="textBlock__text"></p>
+                <div class="container container--technology">
+                    <div class="container container--img"><h4>02</h4></div>
+                    <div class="textBlock textBlock--technology">
+                        <h3 class="textBlock__caption textBlock__caption--technology">Secure</h3>
+                        <p class="textBlock__text textBlock__text--technology">All your information is stored on secure cloud servers</p>
+                    </div>
                 </div>
-            </div>
-            <div class="container container--technology">
-                <div class="container container--img"><img src="" alt="" class="picture"></div>
-                <div class="textBlock">
-                    <h3 class="textBlock__caption"></h3>
-                    <p class="textBlock__text"></p>
+                <div class="container container--technology">
+                    <div class="container container--img"><h4>03</h4></div>
+                    <div class="textBlock textBlock--technology">
+                        <h3 class="textBlock__caption textBlock__caption--technology">PDF Download</h3>
+                        <p class="textBlock__text textBlock__text--technology">Download any of your reports in PDF format</p>
+                    </div>
                 </div>
-            </div>
-            <div class="container container--technology">
-                <div class="container container--img"><img src="" alt="" class="picture"></div>
-                <div class="textBlock">
-                    <h3 class="textBlock__caption"></h3>
-                    <p class="textBlock__text"></p>
+                <div class="container container--technology">
+                    <div class="container container--img"><h4>04</h4></div>
+                    <div class="textBlock textBlock--technology">
+                        <h3 class="textBlock__caption textBlock__caption--technology">CSV Download</h3>
+                        <p class="textBlock__text textBlock__text--technology">All your information is stored on secure cloud servers</p>
+                    </div>
                 </div>
             </div>
         </section>
         <section class="content content--appDownload">
-            <div class="textBlock">
-                <h3 class="textBlock__caption">Stay focused on saving money</h3>
-                <p class="textBlock__text">It is important to stay focused on saving money in any way you can. We help you monitor your spending habits so you can easily spot and cut any unnecessary expenses. Simply join today to get started!</p>
+            <div class="textBlock textBlock--appDownload">
+                <h3 class="textBlock__caption textBlock__caption--appDownload">Stay focused on saving money</h3>
+                <p class="textBlock__text textBlock__text--appDownload">It is important to stay focused on saving money in any way you can. We help you monitor your spending habits so you can easily spot and cut any unnecessary expenses. Simply join today to get started!</p>
                 <ul class="downloadApp">
                     <li class="downloadApp__link"><a class="" href=""></a></li>
                     <li class="downloadApp__link"><a class="" href=""></a></li>
                     <li class="downloadApp__link"><a class="" href=""></a></li>
                 </ul>
             </div>
-            <div class="slider" id="slider"></div>
+            <div class="slider">
+                <div class="slider__wrapper">
+                  <div class="slider__item">
+                    <div style=""><img src="img/slider/video2.jpg" alt=""></div>
+                  </div>
+                  <div class="slider__item">
+                    <div style=""><img src="img/slider/video1.jpg" alt=""></div>
+                  </div>
+                  <div class="slider__item">
+                    <div style=""><img src="img/slider/video3.jpg" alt=""></div>
+                  </div>
+                </div>
+                <a class="slider__control slider__control_left" href="#" role="button"></a>
+                <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>
+              </div>
         </section>
         <section class="content content--contact">
-            <div class="textBlock">
-                <h3 class="textBlock__caption">Contact</h3>
-                <p class="textBlock__text">Questions or concerns? Just fill out the form below and our support team will get back to you within 24 hours</p>
+            <div class="textBlock textBlock--contact">
+                <h3 class="textBlock__caption textBlock__caption--contact">Contact</h3>
+                <p class="textBlock__text textBlock__text--contact">Questions or concerns? Just fill out the form below and our support team will get back to you within 24 hours</p>
             </div>
             <form action="GET" class="contact">
-                <div class="container container--name"><input type="text" class="contact__firstName" placeholder="First Name"><input type="text" class="contact__lastName" placeholder="Last Name"></div>
+                <div class="container container--name">
+                    <input type="text" class="contact__firstName" placeholder="First Name">
+                    <input type="text" class="contact__lastName" placeholder="Last Name">
+                </div>
                 <input type="tel" class="contact__tel" placeholder="Phone Number">
-                <select name="" id="" placeholder="Select Service">
+                <select class="contact__service" name="" id="" placeholder="Select Service">
                     <option value="" disabled selected hidden>Select Service</option>
                     <option value=""></option>
                     <option value=""></option>
                     <option value=""></option>
                 </select>
-                <input type="submit" class="button button--submit">
+                <input type="submit" class="button button--submit" value="submit now">
             </form>
         </section>
     </main>
@@ -141,27 +168,25 @@
             <div class="footer__content">
                 <h4 class="footer__caption">Services</h4>
                 <ul class="footer__list">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>Overview</li>
+                    <li>Features</li>
+                    <li>Technology</li>
+                    <li>Terms & Conditions</li>
+                    <li>Privecy</li>
                 </ul>
             </div>
             <div class="footer__content">
                 <h4 class="footer__caption">Get in Touch</h4>
-                <a href="mailto:info@cloudbudget.com" class="footer__site"></a>
+                <a href="mailto:info@cloudbudget.com" class="footer__site">info@cloudbudget.com</a>
                 <p class="footer__tel">+1 844-721-7120</p>
-                <div class="socials">
-                    <ul class="socials socials__link">
-                        <li><a href=""></a></li>
-                        <li><a href=""></a></li>
-                        <li><a href=""></a></li>
-                    </ul>
-                </div>
+                <ul class="socials">
+                    <li class="socials__link socials__link--f"><a class="" href=""></a></li>
+                    <li class="socials__link socials__link--in"><a class="" href=""></a></li>
+                    <li class="socials__link socials__link--t"><a class="" href=""></a></li>
+                </ul>
             </div>
             <div class="footer__content">
-                <h4 class="footer__caption"></h4>
+                <h4 class="footer__caption">We Support</h4>
                 <picture class="footer__support">
                     <source srcset="img/sup/visa.svg">
                     <img src="img/sup/visa.png" alt="visa,mastercard">
@@ -170,5 +195,6 @@
         </div>
         <p class="footer__copyright">Copyright 2018 CloudBudget</p>
     </footer>
+    <script src="script/slider.js"></script>
 </body>
 </html>
