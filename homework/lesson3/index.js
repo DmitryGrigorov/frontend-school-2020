@@ -22,25 +22,23 @@
     palindrome('John') === false
 */
 //Ответ
-//let str =  ('Racecar');
-//let str2 = str.split("").reverse().join("").toLowerCase();
-//let str3=(str2.includes(str2,0));
-// console.log(str.toLowerCase()===str2);
-function palindrome(str) {
+/*
+function pal(str) {
   let str2 = str
     .split("")
     .reverse()
     .join("")
     .toLowerCase();
   let str3 = str2.includes(str2, 0);
-  str.toLowerCase() === str2 ? true : false;
+  if (str.toLowerCase() === str2) {
+    return true;
+  } else return false;
 }
-
-palindrome("Racecar");
-// let str = 'Widget with id';
-
-// console.log( str.indexOf(str) );
-
+console.log(pal("RaceCar"));
+console.log(pal("Anna"));
+console.log(pal("table"));
+console.log(pal("John"));
+*/
 /*
    // 3)
    // Что выведет следующий код?
@@ -79,13 +77,28 @@ palindrome("Racecar");
 
     P.S. Подсказка: используйте split, чтобы разбить строку на массив символов,
     потом переделайте всё как нужно и методом join соедините обратно.
+    
 */
+//Ответ
 
 /*
-    5)
-    У нас есть массив строк arr. Нужно получить отсортированную копию, но оставить arr неизменённым.
+function camelize(str) {
+  return str
+    .split("-")
+    .map((key, index) =>
+      index == 0 ? key : key[0].toUpperCase() + key.slice(1)
+    )
+    .join("");
+}
+alert(camelize("background-color"));
+alert(camelize("list-style-image"));
+alert(camelize("-webkit-transition"));
+*/
+/*
+    //5)
+    //У нас есть массив строк arr. Нужно получить отсортированную копию, но оставить arr неизменённым.
 
-    Создайте функцию copySorted(arr), которая будет возвращать такую копию.
+    //Создайте функцию copySorted(arr), которая будет возвращать такую копию.
 
     let arr = ["HTML", "JavaScript", "CSS"];
 
@@ -93,14 +106,43 @@ palindrome("Racecar");
 
     alert( sorted ); // CSS, HTML, JavaScript
     alert( arr ); // HTML, JavaScript, CSS (без изменений)
+
 */
 
+//Ответ
 /*
-    6)
+let arr = ["HTML", "JavaScript", "CSS"];
+function copySorted(arr) {
+  return arr.slice().sort();
+}
+let sorted = copySorted(arr);
+alert(sorted); // CSS, HTML, JavaScript
+alert(arr); // HTML, JavaScript, CSS (без изменений)
+*/
+
+/* 6)
     Написать функцию, которая считает сумму элементов массива кратных числу 2.
 
     Например:
 
     sum(1, 2, 3, 4, 5) // 6
     sum(3, 8, 1, 40, 6) // 54
+*/
+
+//Ответ
+/*
+let sum = [1, 2, 3, 4, 5];
+let sumSort = [];
+let sumSort2 = [];
+
+for (let i = 0; i < sum.length; i++) {
+  if (sum[i] % 2 == !0) {
+    sumSort.push(sum[i]);
+  } else sumSort2.push(sum[i]);
+}
+//alert(sumSort2);
+let result = sumSort2.reduce(function(total, i) {
+  return total + i;
+}, 0);
+alert(result);
 */
