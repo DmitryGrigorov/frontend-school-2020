@@ -113,7 +113,7 @@ function sortOdd(arr) {
 function findMax(...args) {
     return args.reduce((max,current)=>max<current?current:max);
 }
-console.log(`6) findMax(0, 2, 12, 4, 5) = ${findMax(0, 2, 12, 4, 5)}`); // 12
+console.log(`6) findMax(0, 2, 12, 4, 5) = ${ findMax(0, 2, 12, 4, 5) }`); // 12
 /*
   7)
   Написать функцию findMin(), которая найдет минимальный элемент из аргументов:
@@ -123,6 +123,10 @@ console.log(`6) findMax(0, 2, 12, 4, 5) = ${findMax(0, 2, 12, 4, 5)}`); // 12
   findMax(0, 2, 12, 4, 5) // 0
 */
 
+function findMin(...args) {
+    return args.reduce((min,current)=>min>current?current:min);
+}
+console.log(`7) findMin(0, 2, 12, 4, 5) = ${ findMin(0, 2, 12, 4, 5) }`); // 0
 
 /*
   8)
