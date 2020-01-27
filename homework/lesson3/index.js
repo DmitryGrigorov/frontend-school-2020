@@ -6,6 +6,15 @@
 */
 
 /*
+let name = 'Вася';
+
+let LwTail = name => name[0].toUpperCase() + name[1].toLowerCase() + name[2].toLowerCase() + name[3].toLowerCase();
+
+
+console.log(LwTail('ВАСЯ'));
+*/
+
+/*
     2)
     Дана строка; нужно написать функцию, которая позволяет вернуть значение true,
     если строка является палиндромом, и false — если нет. 
@@ -15,6 +24,27 @@
     palindrome('Anna') === true
     palindrome('table') === false
     palindrome('John') === false
+*/
+
+/*
+function isPalindrome(str) {
+
+let strLen = str.lenght;
+
+let strReverse = str.split('').reverse().join('');
+    
+    if (strReverse === str) {
+        return 'yes';
+    } else {
+        return 'no';
+    }
+}
+test = isPalindrome ('racecar');
+test2 = isPalindrome ('Anna');
+
+
+console.log(test);
+console.log(test2);
 */
 
 /*

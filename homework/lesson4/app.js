@@ -59,3 +59,17 @@
 // dog.down() => Меняет свойство status на строку 'lying';
 //
 // создайте массив с 25 объектами Dog
+function pow(x, n) {
+    let result = 1;
+  
+    // умножаем result на x n раз в цикле
+    for (let i = 0; i < n; i++) {
+      result *= x;
+    }
+  
+    return result;
+  }
+  
+  alert( pow(2, 3) ); // 8
+  console.log(pow);
+  
