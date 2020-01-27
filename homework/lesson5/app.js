@@ -33,6 +33,13 @@ console.log(`1) sumTo(3) = ${sumTo(3)}`);
   alert(fib(77)); // 5527939700884757
 */
 
+function fib(n) {
+    if(n == 0) return 0;
+    if(n == 1 || n == 2) return 1;
+    return fib(n-1)+fib(n-2);
+}
+console.log(`2) fib(3) = ${fib(3)}`);
+
 /* 
   3) Следующая функция вычисляет сумму передаваемых ей аргументов,
      используя для этой цели объект arguments:
@@ -55,6 +62,11 @@ console.log(`1) sumTo(3) = ${sumTo(3)}`);
 
   Используя rest-операторы, перепишите эту функцию так, чтобы не использовать arguments.
 */
+
+function sum(...args) {
+    return args.reduce((last,current)=>last + current,0);
+}
+console.log(`3) sum(10, 20, 3, 7)) = ${sum(10, 20, 3, 7)} `); // 40
 
 /*
   4) Напишите функцию add, которая работает, как на примере:
