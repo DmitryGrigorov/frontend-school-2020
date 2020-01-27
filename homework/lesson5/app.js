@@ -75,6 +75,20 @@ console.log(`3) sum(10, 20, 3, 7)) = ${sum(10, 20, 3, 7)} `); // 40
   add(2)(5) // 7
 */
 
+function add(...args) {
+    if(args.length >= 2) {
+        return args[0] + args[1]
+    }
+
+    return function sum(b) {
+        return args[0] + b
+    }
+}
+
+console.log(add(2, 5));
+
+console.log(add(2)(5));
+
 /*
   5)
   Написать функцию sortOdd(), которая сортирует только четные числа в массиве:
@@ -82,6 +96,10 @@ console.log(`3) sum(10, 20, 3, 7)) = ${sum(10, 20, 3, 7)} `); // 40
   // Examples:
   sort([9, 8, 7, 6, 5, 4, 3, 2, 1]) // [9, 2, 7, 4, 5, 6, 3, 8, 1]
 */
+
+function sortOdd(arr) {
+
+}
 
 /*
   6)
@@ -92,6 +110,10 @@ console.log(`3) sum(10, 20, 3, 7)) = ${sum(10, 20, 3, 7)} `); // 40
   findMax(0, 2, 12, 4, 5) // 12
 */
 
+function findMax(...args) {
+    return args.reduce((max,current)=>max<current?current:max);
+}
+console.log(`6) findMax(0, 2, 12, 4, 5) = ${findMax(0, 2, 12, 4, 5)}`); // 12
 /*
   7)
   Написать функцию findMin(), которая найдет минимальный элемент из аргументов:
