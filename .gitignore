@@ -61,3 +61,11 @@ Thumbs.db
 !.phpcs.xml.dist
 
 .idea/
+
+# игнорировать. Мой список
+
+../app/
+../desktop.ini
+../gulpfile.js
+../package-lock.json
+../package.json
