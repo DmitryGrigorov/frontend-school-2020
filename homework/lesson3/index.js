@@ -5,6 +5,14 @@
     lwTail("ВАСЯ") == "Вася";
 */
 
+const lwTail = (str) => {
+    debugger
+    str = str[0] + str.slice(1, ).toLowerCase();
+    return str;
+}
+
+lwTail('кАк ДЕла?');
+
 /*
     2)
     Дана строка; нужно написать функцию, которая позволяет вернуть значение true,
@@ -16,6 +24,17 @@
     palindrome('table') === false
     palindrome('John') === false
 */
+
+let palindrome = (str) => {
+    let str1 = str.replace(/[^A-Za-zА-Яа-яЁё]/g, "").toLowerCase();
+    let newStr = ``;
+    for (let i = str1.length; i > 0; i--){
+        newStr += str1[i-1];
+    }
+    return newStr === str1;
+};
+
+palindrome('а роза, упала на лапу Азора');
 
 /*
     3)
