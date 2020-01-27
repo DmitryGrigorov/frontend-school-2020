@@ -10,9 +10,10 @@
 */
 
 function sumTo(n) {
-    if(n == 1) return 1;
-    else return n + sumTo(n-1);
+    if (n == 1) return 1;
+    else return n + sumTo(n - 1);
 }
+
 console.log(`1) sumTo(3) = ${sumTo(3)}`);
 
 /*
@@ -34,10 +35,11 @@ console.log(`1) sumTo(3) = ${sumTo(3)}`);
 */
 
 function fib(n) {
-    if(n == 0) return 0;
-    if(n == 1 || n == 2) return 1;
-    return fib(n-1)+fib(n-2);
+    if (n == 0) return 0;
+    if (n == 1 || n == 2) return 1;
+    return fib(n - 1) + fib(n - 2);
 }
+
 console.log(`2) fib(3) = ${fib(3)}`);
 
 /* 
@@ -64,8 +66,9 @@ console.log(`2) fib(3) = ${fib(3)}`);
 */
 
 function sum(...args) {
-    return args.reduce((last,current)=>last + current,0);
+    return args.reduce((last, current) => last + current, 0);
 }
+
 console.log(`3) sum(10, 20, 3, 7)) = ${sum(10, 20, 3, 7)} `); // 40
 
 /*
@@ -76,10 +79,9 @@ console.log(`3) sum(10, 20, 3, 7)) = ${sum(10, 20, 3, 7)} `); // 40
 */
 
 function add(...args) {
-    if(args.length >= 2) {
+    if (args.length >= 2) {
         return args[0] + args[1]
     }
-
     return function sum(b) {
         return args[0] + b
     }
@@ -89,6 +91,7 @@ console.log(add(2, 5));
 
 console.log(add(2)(5));
 
+
 /*
   5)
   Написать функцию sortOdd(), которая сортирует только четные числа в массиве:
@@ -97,9 +100,22 @@ console.log(add(2)(5));
   sort([9, 8, 7, 6, 5, 4, 3, 2, 1]) // [9, 2, 7, 4, 5, 6, 3, 8, 1]
 */
 
+//Применена сортировка методом подстановки с пропуском нечётных чисел
 function sortOdd(arr) {
-
+    for (let n = 0; n < arr.length-1; n++) { //Перебор от 0 элемента до предпоследнего
+        if (arr[n]%2!=0) continue; //Нечётные числа нет смысла сравнивать с остальными
+        for (let s = n+1; s < arr.length; s++){ //Перебор подстановочных чисел массива от 1 эл до посл.
+            if (arr[s]%2!=0) continue; //Нет смысла сравнивать нечётные числа - снова пропускаем
+            if (arr[n]<arr[s]) { //Если левое число меньше правого
+                let temp = arr[n]; //Операция по смене элементов местами
+                arr[n] = arr[s];
+                arr[s] = temp;
+            }
+        }
+    }
+    return arr; //Возврат готового массива
 }
+console.log(  sortOdd([2, 4, 1, 3, 5, 2, 4])  ); // Сортировка по убыванию как указано в условии
 
 /*
   6)
@@ -111,9 +127,10 @@ function sortOdd(arr) {
 */
 
 function findMax(...args) {
-    return args.reduce((max,current)=>max<current?current:max);
+    return args.reduce((max, current) => max < current ? current : max);
 }
-console.log(`6) findMax(0, 2, 12, 4, 5) = ${ findMax(0, 2, 12, 4, 5) }`); // 12
+
+console.log(`6) findMax(0, 2, 12, 4, 5) = ${findMax(0, 2, 12, 4, 5)}`); // 12
 /*
   7)
   Написать функцию findMin(), которая найдет минимальный элемент из аргументов:
@@ -124,9 +141,10 @@ console.log(`6) findMax(0, 2, 12, 4, 5) = ${ findMax(0, 2, 12, 4, 5) }`); // 12
 */
 
 function findMin(...args) {
-    return args.reduce((min,current)=>min>current?current:min);
+    return args.reduce((min, current) => min > current ? current : min);
 }
-console.log(`7) findMin(0, 2, 12, 4, 5) = ${ findMin(0, 2, 12, 4, 5) }`); // 0
+
+console.log(`7) findMin(0, 2, 12, 4, 5) = ${findMin(0, 2, 12, 4, 5)}`); // 0
 
 /*
   8)
