@@ -126,4 +126,4 @@ function pow(x, n) {
   } else return 1;
 }
 
-console.log(pow(2, 0));
+
