@@ -13,7 +13,7 @@
 */
 
 // Поговорим о функция this, arguments
-function greet{
+/*function greet{
   return 'hi,'+ this.name;
 }
 let user1={
@@ -23,7 +23,11 @@ let user2={
   name:'bob',
   greet:greet
 }  
+}*/
+function um(n,v){
+
 }
+return 
 /*
   // 1. Рекурсия
 
@@ -36,6 +40,7 @@ let user2={
 
     return chirp(n-1) + '-chirp'
   }
+  
 
   //  1.2 Напишем функцию которая возводит в натуральную степень.
 
