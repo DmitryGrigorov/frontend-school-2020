@@ -1,0 +1,464 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'Lato', sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(90deg, rgba(213, 32, 71, 0.8) 0%, rgba(238, 61, 27, 0.8) 100%), url(./media/main.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: white;
+}
+
+.container {
+    padding: 0 11vw;
+    height: 100%;
+}
+
+.main .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.main-navbar {
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.main-navbar-logo {
+    width: 172px;
+    height: 29px;
+}
+
+.main-navbar-text {
+    list-style: none;
+    padding: 0;
+}
+
+.main-navbar-text li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.main-navbar-language {
+    display: flex;
+    align-items: center;
+}
+
+.main-navbar-language button {
+    border: 1px solid #FFFFFF;
+    border-radius: 6px;
+    background-color: inherit;
+    color: white;
+    padding: 11px 29px;
+    margin-left: 20px;
+}
+
+.main-navbar-language select {
+    color: white;
+    border: none;
+    background-color: inherit;
+}
+
+.main-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.main-body * {
+    margin-bottom: 39px;
+}
+
+.main-body h1 {
+    height: 86px;
+    font-weight: bold;
+    font-size: 72px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.main-body p {
+    width: 480px;
+    height: 124px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.main-body button {
+    width: 160px;
+    height: 50px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #ED4C5C;
+}
+
+
+/* video-section */
+
+.video-section {
+    position: relative;
+    height: 500px;
+}
+
+.video-section .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-section-images {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.video-section-image-play {
+    position: relative;
+    left: 33px;
+}
+
+.video-section-text {
+    width: 445px;
+}
+
+.video-section-text h1 {
+    width: 445px;
+    height: 107px;
+    font-size: 36px;
+    line-height: 43px;
+}
+
+.video-section-text p {
+    width: 445px;
+    font-size: 14px;
+    text-align: justify;
+}
+
+.video-section-text a {
+    width: 71px;
+    height: 20px;
+    font-size: 14px;
+    text-align: justify;
+    color: #ED4C5C;
+}
+
+
+/* overview */
+
+.overview {
+    position: relative;
+    height: 660px;
+}
+
+.overview h1 {
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    height: 55px;
+    margin: 63px 0;
+}
+
+.overview-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.overview-card {
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.overview-card-text {
+    position: relative;
+    bottom: 93px;
+    width: 293px;
+    height: 198px;
+    background: #FFFFFF;
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.overview-card-text h2 {
+    width: 229px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 33px;
+}
+
+.overview-card-text p {
+    width: 229px;
+    height: 57px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    text-align: center;
+}
+
+.overview-card-text a {
+    width: 253px;
+    height: 18px;
+    font-weight: bold;
+    font-size: 12px;
+    color: #ED4C5C;
+    text-align: center;
+}
+
+
+/* features-section */
+
+.features-section {
+    position: relative;
+    height: 500px;
+}
+
+.features-section h1 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.features-section-body-groups {
+    display: flex;
+    flex-direction: row;
+}
+
+.features-section-body-group {
+    width: 255px;
+    height: 226px;
+    padding: 0 15px;
+}
+
+.features-section-body-group-back {
+    font-weight: bold;
+    font-size: 100px;
+    text-align: center;
+    color: rgba(16, 16, 16, 0.08);
+}
+
+.features-section-body-group-body {
+    position: relative;
+    bottom: 61px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.features-section-body-group-body img {
+    width: 80px;
+    height: 80px;
+}
+
+.features-section-body-group-body h2 {
+    height: 22px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+
+.features-section-body-group-body p {
+    width: 191px;
+    height: 51px;
+    margin: 0;
+    font-weight: normal;
+    font-size: 12px;
+    text-align: center;
+}
+
+
+/* appdownload-section */
+
+.appdownload-section {
+    height: 500px;
+    background: #ED4C5C;
+}
+
+.appdownload-section .container {
+    padding-right: 15vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.appdownload-section-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    color: #FFFFFF;
+}
+
+.appdownload-section-text h1 {
+    width: 445px;
+    height: 107px;
+    font-weight: 600;
+    font-size: 36px;
+}
+
+.appdownload-section-text p {
+    width: 445px;
+    height: 64px;
+    font-size: 14px;
+    line-height: 20px;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.appdownload-section-icons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.appdownload-section-icons img {
+    width: 32px;
+    height: 32px;
+    margin-right: 23px;
+}
+
+.appdownload-section-images {
+    width: 533px;
+    height: 311px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.appdownload-section-images-bg {
+    width: 533px;
+    height: 311px;
+    display: flex;
+    flex-direction: row;
+}
+
+.appdownload-section-images-bg-l {
+    position: relative;
+    left: 0;
+}
+
+.appdownload-section-images-bg-r {
+    position: relative;
+    right: 233px;
+}
+
+.appdownload-section-images-body {
+    position: relative;
+    bottom: 289px;
+}
+
+
+/* contact */
+
+.contact {
+    position: relative;
+    height: 500px;
+}
+
+.contact .container {
+    padding-bottom: 15.6vh;
+    padding-top: 23.4vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.contact-left {
+    width: 445px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-left h1 {
+    margin: 0;
+    width: 445px;
+    height: 107px;
+    font-size: 36px;
+}
+
+.contact-left p {
+    width: 434px;
+    height: 64px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.contact-right {
+    width: 540px;
+    height: 305px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.contact-right input,
+select {
+    padding-left: 31px;
+    height: 60px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-size: 16px;
+    color: rgba(19, 39, 67, 0.5);
+    border: 1px solid #333333;
+}
+
+.contact-right input::placeholder {
+    color: rgba(19, 39, 67, 0.5);
+}
+
+.contact-right button {
+    width: 160px;
+    height: 50px;
+    font-size: 14px;
+    color: #FFFFFF;
+    background: #ED4C5C;
+    border: 1.5px solid #ED4C5C;
+    box-sizing: border-box;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+.contact-name input {
+    width: 255px;
+}
+
+
+/* footer */
