@@ -13,7 +13,17 @@
 */
 
 // Поговорим о функция this, arguments
-
+function greet{
+  return 'hi,'+ this.name;
+}
+let user1={
+  name:'Jack',
+  greet:greet}
+let user2={
+  name:'bob',
+  greet:greet
+}  
+}
 /*
   // 1. Рекурсия
 
