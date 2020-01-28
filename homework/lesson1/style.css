@@ -386,6 +386,7 @@ ul {
 }
 
 .contact .container {
+    height: 305px;
     padding-bottom: 15.6vh;
     padding-top: 23.4vh;
     display: flex;
@@ -462,3 +463,55 @@ select {
 
 
 /* footer */
+
+.footer {
+    position: relative;
+    height: 435px;
+}
+
+.footer .container {
+    padding-left: 11.2vw;
+    padding-right: 13.6vw;
+    padding-top: 19.5vh;
+    padding-bottom: 19.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer-groups {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer h1 {
+    height: 22px;
+    font-size: 18px;
+    margin: 0;
+}
+
+.footer p,
+.footer ul {
+    font-size: 12px;
+    margin: 0;
+}
+
+.footer ul,
+.footer img {
+    padding-left: 0;
+    padding-top: 33px;
+}
+
+.get-in-touch img {
+    padding-top: 0px;
+}
+
+.footer li {
+    padding: 1px 0;
+}
+
+.footer-tel {
+    margin-top: 11px;
+    margin-bottom: 20px;
+}
