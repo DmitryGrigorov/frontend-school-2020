@@ -98,10 +98,18 @@ console.log( fruits.length ); // ? 4
     P.S. Подсказка: используйте split, чтобы разбить строку на массив символов,
     потом переделайте всё как нужно и методом join соедините обратно.
 */
- function cmeLize(str) {
-    return str.split
+
+function camelize(str) {
+    return str
+    .split('-') 
+    .map(
+      (word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1)
+    )
+    .join(''); 
 }
-console.log(cmeLize(back))
+
+console.log(camelize('background-color-asdasda-d-as-das-d-as-da-sd-as-d-asd'));
+
 /*
     5)
     У нас есть массив строк arr. Нужно получить отсортированную копию, но оставить arr неизменённым.
