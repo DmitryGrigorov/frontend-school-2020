@@ -98,7 +98,7 @@ console.log( fruits.length ); // ? 4
     P.S. Подсказка: используйте split, чтобы разбить строку на массив символов,
     потом переделайте всё как нужно и методом join соедините обратно.
 */
-
+/*
 function camelize(str) {
     return str
     .split('-') 
@@ -109,7 +109,7 @@ function camelize(str) {
 }
 
 console.log(camelize('background-color-asdasda-d-as-das-d-as-da-sd-as-d-asd'));
-
+*/
 /*
     5)
     У нас есть массив строк arr. Нужно получить отсортированную копию, но оставить arr неизменённым.
@@ -122,8 +122,16 @@ console.log(camelize('background-color-asdasda-d-as-das-d-as-da-sd-as-d-asd'));
 
     alert( sorted ); // CSS, HTML, JavaScript
     alert( arr ); // HTML, JavaScript, CSS (без изменений)
-*/
 
+*/
+let arr = ["HTML", "JavaScript", "CSS"];
+
+function copySorted(arr) {
+    return arr.slice().sort();
+}
+let sorted = copySorted(arr);
+alert (sorted);
+alert (arr);
 /*
     6)
     Написать функцию, которая считает сумму элементов массива кратных числу 2.
