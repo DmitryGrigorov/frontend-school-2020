@@ -12,7 +12,7 @@
 // calculate('pear', 4, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // 2000
 
 
-/*
+
 function calcObj (name, count, prices){
   
     let g;
@@ -30,7 +30,7 @@ function calcObj (name, count, prices){
 }
 
 let message = calcObj(fruit, numberCou, prices);
-alert(message);*/
+alert(message);
 
 // 2)
 // напишите функцию deepClone глубокого клонирования объекта, которая создаёт глубокую копию объекта
@@ -42,14 +42,14 @@ alert(message);*/
 // cloneSomeObj === someObj // false при сравнении копия и первоначальный объект не равны
 // cloneSomeObj.metrics === someObj.metrics // false при сравнении вложенного объекта они тоже не равны
 
-/*function deepClone (){
+function deepClone (){
 
   let cloneSomeObj = {};
 for (key in someObj){
   cloneSomeObj[key]=someObj[key];
 }
 return;
-}*/
+}
 
 // 3)
 // напишите функцию merge для объединения объектов НЕ используя встроеный метод Object.assign
@@ -59,12 +59,12 @@ return;
 // let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
 // unionObject -> { name: 'Vasya', age: 45, isAdmin: true }
 
-/*function merge (...object){
+function merge (...object){
 
   let newObj = {};
   for (let key in object){
    object[key]=newObj[key];}
-}*/
+}
 
 // 4)
 // Есть объект dog = { name: 'Bobik' };
