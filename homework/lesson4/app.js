@@ -11,15 +11,15 @@
 // calculate('lemon', 2, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // Извините, товар закончился!
 // calculate('pear', 4, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // 2000
 
-// function calculate(name, number, prices) {
-//     if (!(name in prices)) {
-//         return 'Такого товара у нас еще нет!';
-//     }
-//     if (!(prices[name])) {
-//         return 'Извините, товар закончился';
-//     }
-//     return number * prices[name]
-// }
+function calculate(name, number, prices) {
+    if (!(name in prices)) {
+        return 'Такого товара у нас еще нет!';
+    }
+    if (!(prices[name])) {
+        return 'Извините, товар закончился';
+    }
+    return number * prices[name]
+}
 
 
 // 2)
@@ -54,6 +54,16 @@ function deepClone(obj) {
 // let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
 // unionObject -> { name: 'Vasya', age: 45, isAdmin: true }
 
+function merge(...args) {
+    let obj = {};
+    for (i in args) {
+        for (key in args[i]) {
+            obj[key] = args[i][key];
+        }
+    }
+    return obj;
+}
+
 // 4)
 // Есть объект dog = { name: 'Bobik' };
 // "научите" данный объект подавать голос, например он должен выводить в консоль строку "{{Здесь имя собаки}}: bark";
@@ -65,12 +75,28 @@ function deepClone(obj) {
 // dog.bark(4); // => "Bobik: bark bark bark bark"
 // dog.bark(); // => "Bobik: bark" если аргумент не передать - метод все равно сработает
 
+let dog = { name: 'Bobik', };
+dog.bark = function(number = 1) {
+    if (number === 1) {
+        return this.name + ":" + " bark";
+    }
+    return this.bark(--number) + " bark";
+};
+
 // 5)
 // Есть объект товара item = { label: 'phone', price: 500, currency: '$' };
 // сделайте так, чтобы при преобразовании данного объекта
 // к строке возвращалась строка => "500$",
 // а при преобразовании к числе возвращалось просто 500
 // обратите внимание, что 500 и $ это значения полей самого объекта (если их поменять то это будет учитываться при последующих преобразованиях)
+
+let item = { label: 'phone', price: 500, currency: '$' };
+item.toString = function() {
+    return this.price + this.currency;
+}
+item.valueOf = function() {
+    return this.price;
+}
 
 // 6)
 // напишите конструктор Dog который создает объект со свойствами name, age, breed, weight, height, position, status
@@ -84,3 +110,60 @@ function deepClone(obj) {
 // dog.down() => Меняет свойство status на строку 'lying';
 //
 // создайте массив с 25 объектами Dog
+
+function Dog(name, age, breed, weight, height, position, status) {
+    this.name = name;
+    this.age = age;
+    this.breed = breed;
+    this.weight = weight;
+    this.height = height;
+    this.position = position;
+    this.status = status;
+    this.bark = function() {
+        return console.log(this.name + ": bark");
+    };
+    this.place = function() {
+        this.position = 'place';
+    };
+    this.come = function() {
+        this.position = 'here';
+    };
+    this.goOut = function() {
+        this.position = 'go out';
+    };
+    this.sit = function() {
+        this.status = 'sitting';
+    };
+    this.stand = function() {
+        this.status = 'standing';
+    };
+    this.down = function() {
+        this.status = 'lying';
+    };
+}
+dog = new Array();
+dog.push(new Dog("Rex", 6, 'Bulldog', 27, 37));
+dog.push(new Dog("Stefan", 2, 'Beagle', 10, 23));
+dog.push(new Dog("Max", 6, 'Dachshund', 17, 26));
+dog.push(new Dog("Rocky", 12, 'Dalmatian', 14, 45));
+dog.push(new Dog("Cooper", 1, 'Hovawart', 6, 34));
+dog.push(new Dog("Bear", 3, 'Pekingese', 23, 23));
+dog.push(new Dog("Bentley", 7, 'Hovawart', 28, 36));
+dog.push(new Dog("Charlie", 4, 'Beagle', 16, 23));
+dog.push(new Dog("Buddy", 4, 'Bulldog', 14, 31));
+dog.push(new Dog("Stefan", 11, 'Sloughi', 16, 45));
+dog.push(new Dog("Duke", 3, 'Bulldog', 21, 36));
+dog.push(new Dog("Zeus", 8, 'Pekingese', 8, 23));
+dog.push(new Dog("Rex", 12, 'Poodle', 14, 27));
+dog.push(new Dog("Toby", 8, 'Beagle', 18, 19));
+dog.push(new Dog("Rex", 8, 'Sloughi', 16, 26));
+dog.push(new Dog("Bella", 5, 'Pekingese', 9, 19));
+dog.push(new Dog("Lola", 6, 'Bulldog', 30, 41));
+dog.push(new Dog("Chloe", 3, 'Beagle', 11, 25));
+dog.push(new Dog("Rex", 3, 'Poodle', 16, 29));
+dog.push(new Dog("Daisy", 1, 'Beagle', 14, 23));
+dog.push(new Dog("Bella", 13, 'Bulldog', 24, 43));
+dog.push(new Dog("Stefan", 9, 'Sloughi ', 16, 24));
+dog.push(new Dog("Rocky ", 9, 'Bulldog', 25, 35));
+dog.push(new Dog("Stefan", 4, 'Beagle', 16, 23));
+dog.push(new Dog("Luna", 5, 'Poodle', 10, 21));
