@@ -11,6 +11,37 @@
 // calculate('lemon', 2, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // Извините, товар закончился!
 // calculate('pear', 4, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // 2000
 
+//Ответ :)
+
+function calculate(name, amount, object) {
+  for (key in object) {
+    if (name === key) {
+      if (object[key] === undefined) {
+        alert(`Извините, товар ${[key]} закончился!`);
+      } else {
+        alert(
+          `Общая стоимость ${amount} товаров ${[name]} составила ${object[
+            name
+          ] * amount}`
+        );
+      }
+      return;
+    }
+  }
+  alert(`Такого товара ${name} у вас ещё нет`);
+  let answer = confirm(`Хотите добавить ${name} в наименование товаров?`);
+  if (answer) {
+    object[name] = "potato";
+    for (let prop in object) {
+      alert(prop);
+    }
+  } else alert("хорошо");
+}
+
+calculate("potato", 1, { apple: 100, pear: 500, melon: 400, lemon: undefined });
+//calculate("lemon", 2, { apple: 100, pear: 500, melon: 400, lemon: undefined });
+//calculate("pear", 4, { apple: 100, pear: 500, melon: 400, lemon: undefined });
+
 // 2)
 // напишите функцию deepClone глубокого клонирования объекта, которая создаёт глубокую копию объекта
 // * - глубокая копия - это значит, что если внутри объекта есть свойства объекты - их нужно тоже склонировать
@@ -24,7 +55,7 @@
 // 3)
 // напишите функцию merge для объединения объектов НЕ используя встроеный метод Object.assign
 // колличество передаваемых аргументов в функцию НЕ ограничено (вложенные объекты копируются по ссылке)
-// 
+//
 // Например:
 // let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
 // unionObject -> { name: 'Vasya', age: 45, isAdmin: true }
