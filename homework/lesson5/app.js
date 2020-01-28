@@ -78,18 +78,40 @@ console.log(`3) sum(10, 20, 3, 7)) = ${sum(10, 20, 3, 7)} `); // 40
   add(2)(5) // 7
 */
 
+//Вариант №1, который мне показали после занятия. Только немного улучшил с помощью reduce.
 function add(...args) {
-    if (args.length >= 2) {
-        return args[0] + args[1]
+    if (args.length > 1) {
+        return args.reduce((s,i)=>s+i, 0);
     }
     return function sum(b) {
         return args[0] + b
     }
 }
+console.log(`4) Вариант №1: add(2, 5) = ${ add(2, 5) }`);
+console.log(`Вариант №1: add(2, 5) = ${ add(2)(5) }`);
 
-console.log(add(2, 5));
+function add2(...args) {
+    let sum = 0;
 
-console.log(add(2)(5));
+    function intAdd(...argues) {
+        if (argues.length>1) {
+            for (let a of argues) sum += +a;
+            return intAdd;
+        }
+        if (argues.length == 1) {
+            sum += +argues[0];
+            return intAdd;
+        }
+        if (argues.length == 0) {
+            return +sum;
+        }
+    }
+    return intAdd(args);
+}
+console.log( `Вариант №2: add2(1)(2,3)(4)(5,15,20)(30)() = ${add2(1)(2,3)(4)(5,15,20)(30)()} ` );
+console.log('2 вариант сделан через замыкания внутреннего метода на поле sum. Единственное ограничение \n' + 'в конце набора методом нужно указать пустые скобки, чтобы вывелся результат из sum');
+
+
 
 
 /*
@@ -167,4 +189,4 @@ function pushZeros(arr) {
     }
     return arr;
 }
-console.log(pushZeros([0, 2, 0, 12, 4, 5])  );
+console.log(`8) pushZeros([0, 2, 0, 12, 4, 5]) = ${pushZeros([0, 2, 0, 12, 4, 5])} `);
