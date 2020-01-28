@@ -14,11 +14,11 @@
 
 // Поговорим о функция this, arguments
 
-/*
+
   // 1. Рекурсия
 
   // 1.1 Функция chirp
-
+/*
   function chirp(n) {
     if(n === 1) {
       return 'chirp'
@@ -26,7 +26,9 @@
 
     return chirp(n-1) + '-chirp'
   }
-
+  console.log(chirp(3));
+  */
+/*
   //  1.2 Напишем функцию которая возводит в натуральную степень.
 
   // через цикл
@@ -180,15 +182,15 @@
 
 // 3.1 Свойство name, length
 
-function functionDeclarationName(a, b) {}
+//function functionDeclarationName(a, b) {}
 
-const functionExpression = function (a,b,c,d) {}
+//const functionExpression = function (a,b,c,d) {}
 
-console.log('functionDeclarationName.name: ', functionDeclarationName.name);
-console.log('functionDeclarationName.length: ', functionDeclarationName.length);
+//console.log('functionDeclarationName.name: ', functionDeclarationName.name);
+//console.log('functionDeclarationName.length: ', functionDeclarationName.length);
 
-console.log('functionExpression.names: ', functionExpression.name);
-console.log('functionExpression.length: ', functionExpression.length);
+//console.log('functionExpression.names: ', functionExpression.name);
+//console.log('functionExpression.length: ', functionExpression.length);
 
 // 3.1 Пользовательские свойства
 
@@ -264,7 +266,7 @@ console.log('functionExpression.length: ', functionExpression.length);
 // 3.2 NFE — named function expression
 
   // Function Expression:
-
+/*
   let sayHi = function(who) {
     alert(`Hello, ${who}`);
   };
@@ -285,7 +287,7 @@ console.log('functionExpression.length: ', functionExpression.length);
   let sayHi = new Function('alert("Hello")');
 
   sayHi(); // Hello
-
+*/
 
 
 /*
@@ -310,8 +312,25 @@ console.log('functionExpression.length: ', functionExpression.length);
 // }();
 
 */
+/*
+let user = { name: "Джон" };
+let admin = { name: "Админ" };
+let bob = { name: "Боб" };
+function sayHi() {
+  alert( this.name );
+}
 
+// используем одну и ту же функцию в двух объектах
+user.f = sayHi;
+admin.f = sayHi;
+bob.f = sayHi;
 
+// вызовы функции, приведённые ниже, имеют разное значение this
+// "this" внутри функции является ссылкой на объект, который указан "перед точкой"
+user.f(); // Джон  (this == user)
+admin.f(); // Админ  (this
+bob.f();
+*/
 
 
 

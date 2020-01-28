@@ -66,7 +66,23 @@ console.log(test2);
     // что в fruits?
     console.log( fruits.length ); // ?
 */
+/*
+let fruits = ["Яблоки", "Груша", "Апельсин"];
 
+// добавляем новое значение в "копию"
+let shoppingCart = fruits;
+
+shoppingCart.push("Банан");
+
+shoppingCart.push("Манго");
+
+// удаляем значения в старом массиве
+fruits.pop() // извлекает элемент из конца массива
+
+// что в fruits?
+console.log( fruits.length ); // ? 4 
+//4
+*/
 
 /*
     4)
@@ -82,8 +98,10 @@ console.log(test2);
     P.S. Подсказка: используйте split, чтобы разбить строку на массив символов,
     потом переделайте всё как нужно и методом join соедините обратно.
 */
-
-
+ function cmeLize(str) {
+    return str.split
+}
+console.log(cmeLize(back))
 /*
     5)
     У нас есть массив строк arr. Нужно получить отсортированную копию, но оставить arr неизменённым.
