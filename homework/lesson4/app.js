@@ -11,6 +11,17 @@
 // calculate('lemon', 2, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // Извините, товар закончился!
 // calculate('pear', 4, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // 2000
 
+// function calculate(name, number, prices) {
+//     if (!(name in prices)) {
+//         return 'Такого товара у нас еще нет!';
+//     }
+//     if (!(prices[name])) {
+//         return 'Извините, товар закончился';
+//     }
+//     return number * prices[name]
+// }
+
+
 // 2)
 // напишите функцию deepClone глубокого клонирования объекта, которая создаёт глубокую копию объекта
 // * - глубокая копия - это значит, что если внутри объекта есть свойства объекты - их нужно тоже склонировать
@@ -20,6 +31,20 @@
 // cloneSomeObj -> { name: 'Petya', metrics: { weight: 80, height: 180 } }; // копия повторяет структуру первоначального объекта
 // cloneSomeObj === someObj // false при сравнении копия и первоначальный объект не равны
 // cloneSomeObj.metrics === someObj.metrics // false при сравнении вложенного объекта они тоже не равны
+
+function deepClone(obj) {
+    let clone = {};
+    for (key in obj) {
+        if (typeof(obj[key]) === "object") {
+            clone[key] = deepClone(obj[key]);
+        } else {
+            clone[key] = obj[key];
+        }
+    }
+    return clone;
+}
+
+
 
 // 3)
 // напишите функцию merge для объединения объектов НЕ используя встроеный метод Object.assign
