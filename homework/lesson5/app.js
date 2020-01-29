@@ -1,3 +1,4 @@
+
 // Первые две задачи на понимание рекурсии.
 
 /*
@@ -9,6 +10,17 @@
   sumTo(4) = 4 + 3 + 2 + 1 = 10
 */
 
+function sumTo(n) {
+  if (n == 1) {
+    return n;
+  }
+    return sumTo(n-1) + n;
+}
+
+console.log(sumTo(1));
+console.log(sumTo(2));
+console.log(sumTo(3));
+console.log(sumTo(4));
 /*
   2)
   Последовательность чисел Фибоначчи определяется формулой Fn = Fn-1 + Fn-2. То есть, следующее число получается как сумма двух предыдущих.
@@ -19,13 +31,20 @@
 
   Напишите функцию fib(n) которая возвращает n-е число Фибоначчи.
 
-  Пример работы:
-  function fib(n) {  ваш код }
-
-  alert(fib(3)); // 2
-  alert(fib(7)); // 13
-  alert(fib(77)); // 5527939700884757
 */
+
+  function fib(n) {
+    if (n==1||n==2) {
+      return 1;
+    } else {
+      return fib(n-2)+fib(n-1);	
+    }	
+  };
+
+  console.log(fib(3)); // 2
+  console.log(fib(7)); // 13
+  //console.log(fib(77)); // 5527939700884757
+
 
 /* 
   3) Следующая функция вычисляет сумму передаваемых ей аргументов,
@@ -50,12 +69,56 @@
   Используя rest-операторы, перепишите эту функцию так, чтобы не использовать arguments.
 */
 
+function sum(...rest) {
+  let sum = 0;
+  for(let i = 0; i < rest.length; i++) {
+    sum += rest[i];
+  }
+
+  return sum;
+}
+
+console.log(sum(1, 2, 3));  // 6
+console.log(sum(5, 5));  // 10
+console.log(sum(10, 20, 3, 7)); // 40
+
+
 /*
   4) Напишите функцию add, которая работает, как на примере:
 
   add(2, 5) // 7
   add(2)(5) // 7
 */
+
+
+    
+function add(...a) {
+  
+  let currentSum = 0;
+  let array = a;
+
+  if (Array.isArray(array)) {
+    for (let i = 0; i < array.length; i++) {
+      currentSum += array[i];
+    }
+  }
+
+  alert(currentSum);
+  function f(b) {
+    currentSum += b;
+    return f;
+  }
+
+  f.toString = function() {
+    return currentSum;
+  };
+
+  return f;
+};
+
+console.log(add(2, 5, 8));
+console.log(add(2)(5));
+
 
 /*
   5)
@@ -64,6 +127,29 @@
   // Examples:
   sort([9, 8, 7, 6, 5, 4, 3, 2, 1]) // [9, 2, 7, 4, 5, 6, 3, 8, 1]
 */
+
+function sortOdd(array) {
+  
+  let newArr = array.filter(function (item) {
+    return item % 2 == 0;
+  });
+
+  newArr.sort((a, b) => a - b);
+
+  let copyArray = [];
+  let n = 0;
+
+  array.forEach(el => {
+    if (el % 2 == 0) {
+        copyArray.push(newArr[n]);
+        n++;
+      } else {
+        copyArray.push(el);
+      }
+  });
+  return copyArray;
+}
+console.log(sortOdd([9, 8, 7, 6, 5, 4, 3, 2, 1]));
 
 /*
   6)
@@ -74,6 +160,14 @@
   findMax(0, 2, 12, 4, 5) // 12
 */
 
+function findMax(...arg) {
+
+  arg.sort((a, b) => b - a);
+  return arg[0];
+}
+
+console.log(findMax(9, 8, 7, 6, 5, 4, 3, 2, 1)); // 9
+console.log(findMax(0, 2, 12, 4, 5)) // 12
 /*
   7)
   Написать функцию findMin(), которая найдет минимальный элемент из аргументов:
@@ -82,6 +176,15 @@
   findMax(9, 8, 7, 6, 5, 4, 3, 2, 1) // 1
   findMax(0, 2, 12, 4, 5) // 0
 */
+
+function findMin(...arg) {
+
+  arg.sort((a, b) => a - b);
+  return arg[0];
+}
+
+console.log(findMin(9, 8, 7, 6, 5, 4, 3, 2, 1)); // 1
+console.log(findMin(0, 2, 12, 4, 5)) // 0
 
 
 /*
@@ -92,3 +195,19 @@
   pushZeros([0, 9, 0, 8, 7, 0, 6, 5, 4, 3, 2, 1]) // [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 0, 0]
   pushZeros([0, 2, 12, 4, 5]) // [2, 12, 4, 5, 0]
 */
+
+function pushZeros(array) {
+
+  let zeroArr = array.filter(function (item) {
+    return item == 0;
+  });
+  let otherArr = array.filter(function (item) {
+    return item != 0;
+  });
+
+  var arr = otherArr.concat(zeroArr);
+  return arr;
+}
+
+console.log(pushZeros([0, 9, 0, 8, 7, 0, 6, 5, 4, 3, 2, 1]));
+console.log(pushZeros([0, 2, 12, 4, 5]));
