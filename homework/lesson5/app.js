@@ -8,6 +8,13 @@
   sumTo(3) = 3 + 2 + 1 = 6
   sumTo(4) = 4 + 3 + 2 + 1 = 10
 */
+function sumTo(n) {
+    if (n === 1) {
+        return n;
+    } else {
+        return n + sumTo(n - 1);
+    }
+}
 
 /*
   2)
@@ -26,8 +33,15 @@
   alert(fib(7)); // 13
   alert(fib(77)); // 5527939700884757
 */
+function fib(n) {
+    if (n === 1 || n === 2) {
+        return 1;
+    } else {
+        return fib(n - 1) + fib(n - 2);
+    }
+}
 
-/* 
+/*
   3) Следующая функция вычисляет сумму передаваемых ей аргументов,
      используя для этой цели объект arguments:
   
@@ -49,6 +63,13 @@
 
   Используя rest-операторы, перепишите эту функцию так, чтобы не использовать arguments.
 */
+function sum(...args) {
+    let sum = 0;
+    for (i in args) {
+        sum += args[i];
+    }
+    return sum;
+}
 
 /*
   4) Напишите функцию add, которая работает, как на примере:
@@ -56,7 +77,15 @@
   add(2, 5) // 7
   add(2)(5) // 7
 */
-
+function add(...args) {
+    if (args.length === 2) {
+        return args[0] + args[1];
+    } else {
+        return function (a2) {
+            return args[0] + a2;
+        }
+    }
+}
 /*
   5)
   Написать функцию sortOdd(), которая сортирует только четные числа в массиве:
@@ -64,6 +93,25 @@
   // Examples:
   sort([9, 8, 7, 6, 5, 4, 3, 2, 1]) // [9, 2, 7, 4, 5, 6, 3, 8, 1]
 */
+function sortOdd(arr) {
+    for (let i = 0; i < arr.length - 1; i++) {
+        if (arr[i] % 2 != 0) {
+            continue;
+        }
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] % 2 != 0) {
+                continue;
+            } else {
+                if (arr[j] < arr[i]) {
+                    let temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+    }
+    return arr;
+}
 
 /*
   6)
@@ -73,16 +121,33 @@
   findMax(9, 8, 7, 6, 5, 4, 3, 2, 1) // 9
   findMax(0, 2, 12, 4, 5) // 12
 */
+function findMax(...args) {
+    let max = args[0];
+    for (let i = 1; i < args.length; i++) {
+        if (args[i] > max) {
+            max = args[i];
+        }
+    }
+    return max;
+}
 
 /*
   7)
   Написать функцию findMin(), которая найдет минимальный элемент из аргументов:
 
   // Examples:
-  findMax(9, 8, 7, 6, 5, 4, 3, 2, 1) // 1
-  findMax(0, 2, 12, 4, 5) // 0
+  findMin(9, 8, 7, 6, 5, 4, 3, 2, 1) // 1
+  findMin(0, 2, 12, 4, 5) // 0
 */
-
+function findMin(...args) {
+    let min = args[0];
+    for (let i = 1; i < args.length; i++) {
+        if (args[i] < min) {
+            min = args[i];
+        }
+    }
+    return min;
+}
 
 /*
   8)
@@ -92,3 +157,13 @@
   pushZeros([0, 9, 0, 8, 7, 0, 6, 5, 4, 3, 2, 1]) // [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 0, 0]
   pushZeros([0, 2, 12, 4, 5]) // [2, 12, 4, 5, 0]
 */
+
+function pushZeros(arr) {
+    for (i in arr) {
+        if (arr[i] === 0) {
+            arr.splice(i, 1);
+            arr.push(0);
+        }
+    }
+    return arr;
+}
