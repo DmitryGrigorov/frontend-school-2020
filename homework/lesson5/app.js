@@ -85,7 +85,7 @@ function add (...restNums) {
   }else {
     this.collector = 0;
 
-    var innerFunc = function(...innerRest){
+    const innerFunc = function(...innerRest){
       if(innerRest.length > 0){
         this.collector = this.collector + innerRest[0];
         return innerFunc;
