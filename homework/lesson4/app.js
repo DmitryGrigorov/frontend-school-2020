@@ -35,7 +35,7 @@ function calculate(name, amount, object) {
     for (let prop in object) {
       alert(prop);
     }
-  } else alert('хорошо');
+  } else alert("хорошо");
 }
 
 calculate("potato", 1, { apple: 100, pear: 500, melon: 400, lemon: undefined });

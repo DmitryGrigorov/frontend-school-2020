@@ -24,10 +24,7 @@ let user2={
   greet:greet
 }  
 }*/
-function um(n,v){
 
-}
-return 
 /*
   // 1. Рекурсия
 
