@@ -7,9 +7,19 @@
 // Если при вызове функции передать товар который есть в прайс листе но его цена = undefined, то функция должна вернуть "Извините, товар закончился!"
 // Если при вызове функции передать товар который есть в прайс листе и у него есть цена, то посчитать итоговую цену и вернуть её
 // Например:
-// calculate('potato', 1, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // Такого товара у нас еще нет!
-// calculate('lemon', 2, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // Извините, товар закончился!
-// calculate('pear', 4, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // 2000
+// console.log(calculate('potato', 1, { apple: 100, pear: 500, melon: 400, lemon: undefined })); // Такого товара у нас еще нет!
+// console.log(calculate('lemon', 2, { apple: 100, pear: 500, melon: 400, lemon: undefined })); // Извините, товар закончился!
+// console.log(calculate('pear', 4, { apple: 100, pear: 500, melon: 400, lemon: undefined })); // 2000
+
+function calculate(prop, value, pricesObj) {
+    if (!(prop in pricesObj)) {
+       return "Такого товара у нас нет";
+    } else if (!pricesObj[prop]) {
+        return "Извините, товар закончился!";
+    } else {
+        return `Итоговая цена: ${pricesObj[prop] * value}`
+    }
+};
 
 // 2)
 // напишите функцию deepClone глубокого клонирования объекта, которая создаёт глубокую копию объекта
@@ -21,13 +31,50 @@
 // cloneSomeObj === someObj // false при сравнении копия и первоначальный объект не равны
 // cloneSomeObj.metrics === someObj.metrics // false при сравнении вложенного объекта они тоже не равны
 
+
+// 1 вариант
+deepClone = obj => JSON.parse(JSON.stringify(obj));
+
+let copiedObj = null;
+const someObj = { name: 'Petya', metrics: { weight: 80, height: 180 } };
+copiedObj = deepClone(someObj);
+console.log(copiedObj);
+
+
+// 2 вариант
+function deepClone(obj) {
+    let copy = Object.create(Object.getPrototypeOf(obj));
+    let propNames = Object.getOwnPropertyNames(obj);
+
+    propNames.forEach(function(name) {
+        let desc = Object.getOwnPropertyDescriptor(obj, name);
+        Object.defineProperty(copy, name, desc);
+    });
+
+    return copy;
+}
+
+const someObj = { name: 'Petya', metrics: { weight: 80, height: 180 } };
+copiedObj = deepClone(someObj);
+console.log(copiedObj);
+
 // 3)
 // напишите функцию merge для объединения объектов НЕ используя встроеный метод Object.assign
-// колличество передаваемых аргументов в функцию НЕ ограничено (вложенные объекты копируются по ссылке)
+// количество передаваемых аргументов в функцию НЕ ограничено (вложенные объекты копируются по ссылке)
 // 
 // Например:
 // let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
 // unionObject -> { name: 'Vasya', age: 45, isAdmin: true }
+
+function merge(...objects) {
+    let unitedObj = {};
+    objects.forEach(obj => {
+        unitedObj = {...unitedObj, ...obj};
+    });
+    return unitedObj;
+};
+
+console.log(merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true }, { car: 'BMW' }, {cat: 'Kitty'}));
 
 // 4)
 // Есть объект dog = { name: 'Bobik' };
@@ -40,12 +87,28 @@
 // dog.bark(4); // => "Bobik: bark bark bark bark"
 // dog.bark(); // => "Bobik: bark" если аргумент не передать - метод все равно сработает
 
+const dog = { name: 'Bobik' };
+
+dog.bark = function(barksNum = 1) {
+    return `${dog.name}: ${'bark '.repeat(barksNum).trimRight()}`;
+};
+
+console.log(dog.bark(4));
+console.log(dog.bark());
+
 // 5)
 // Есть объект товара item = { label: 'phone', price: 500, currency: '$' };
 // сделайте так, чтобы при преобразовании данного объекта
 // к строке возвращалась строка => "500$",
 // а при преобразовании к числе возвращалось просто 500
 // обратите внимание, что 500 и $ это значения полей самого объекта (если их поменять то это будет учитываться при последующих преобразованиях)
+
+item = { label: 'phone', price: 500, currency: '$', [Symbol.toPrimitive](hint) {
+    return hint === 'string' ? `${this.price}${this.currency}` : this.price;
+}};
+
+console.log(String(item));
+console.log(+item);
 
 // 6)
 // напишите конструктор Dog который создает объект со свойствами name, age, breed, weight, height, position, status
@@ -59,3 +122,48 @@
 // dog.down() => Меняет свойство status на строку 'lying';
 //
 // создайте массив с 25 объектами Dog
+
+function Dog (name = '', age = 0, breed = '', weight = 0, height = 0, position = '', status = '') {
+    this.name = name;
+    this.age = age;
+    this.breed = breed;
+    this.weight = weight;
+    this.height = height;
+    this.position = position;
+    this.status = status;
+
+    this.bark = function() {
+        console.log(`${this.name}: bark`);
+    };
+
+    this.place = function() {
+        this.position = 'place';
+    };
+
+    this.come = function() {
+        this.position = 'go out';
+    };
+
+    this.goOut = function() {
+        this.position = 'here';
+    };
+
+    this.sit = function() {
+        this.status = 'sitting';
+    };
+
+    this.stand = function() {
+        this.status = 'standing';
+    };
+
+    this.down = function() {
+        this.status = 'lying';
+    };
+}
+
+let dogsArray = [];
+for (let i = 0; i < 25; i++ ) {
+    dog[i] = new Dog();
+}
+
+console.log(dogsArray);
