@@ -123,7 +123,7 @@ console.log(+item);
 //
 // создайте массив с 25 объектами Dog
 
-function Dog (name = '', age = 0, breed = '', weight = 0, height = 0, position = '', status = '') {
+function Dog (name, age, breed, weight, height, position, status) {
     this.name = name;
     this.age = age;
     this.breed = breed;
@@ -163,7 +163,7 @@ function Dog (name = '', age = 0, breed = '', weight = 0, height = 0, position =
 
 let dogsArray = [];
 for (let i = 0; i < 25; i++ ) {
-    dog[i] = new Dog();
+    dogsArray[i] = new Dog();
 }
 
 console.log(dogsArray);
