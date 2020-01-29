@@ -184,24 +184,24 @@
 
 // someFunction(1, 2, 3, 4, 5, 6);
 
-function clonePart(obj, ...keys) {
-    const clone = {};
+// function clonePart(obj, ...keys) {
+//     const clone = {};
 
-    for (let key in obj) {
-        if (keys.includes(key)) {
-            clone[key] = obj[key];
-        }
-    }
+//     for (let key in obj) {
+//         if (keys.includes(key)) {
+//             clone[key] = obj[key];
+//         }
+//     }
 
-    return clone;
-}
+//     return clone;
+// }
 
-let comment = {
-    type: 'success',
-    message: 'text-text',
-    authorId: 'qwerty'
-};
-let cl = clonePart(comment, 'message', 'authorId'); 
+// let comment = {
+//     type: 'success',
+//     message: 'text-text',
+//     authorId: 'qwerty'
+// };
+// let cl = clonePart(comment, 'message', 'authorId'); 
 
 /**
  * написать функцию filter которая принимает в качестве аргумента любой объект
