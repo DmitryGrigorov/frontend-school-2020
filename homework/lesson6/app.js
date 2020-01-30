@@ -17,11 +17,49 @@
 // cat.meow(); // выводит в консоль "murzik: meow"
 
 
+// Решение:
+
+// function Cat(name) {
+//     this.name = name;
+//     this.state = 'lying';
+// }   
+
+// Cat.prototype.meow = function() {
+//     console.log(this.name + ': meou');
+// };
+
+// Cat.prototype.up =function() {
+//     this.state = 'standing';
+// };
+
+// Cat.prototype.down =function() {
+//     this.state = 'lying';
+// };
+
+// const cat = new Cat('murzik');
+// console.log(cat.name); // 'murzik'
+// console.log(cat.state); // 'lying'
+// cat.up();
+// console.log(cat.state); // 'standing'
+// cat.down();
+// console.log(cat.state); // 'lying'
+// cat.meow(); // выводит в консоль "murzik: me
+
 // 2
 // Cоздайте объект dictionary в котором будут содержаться переводы слов с английского на русский
 // при отсутсвии перевода в данном объекте - должно возвращаться значение undefined
 //
 // Например:
+// dictionary['hello'] = 'привет';
+// dictionary['good morning'] = 'доброе утро';
+// console.log(dictionary['hello']); // 'привет'
+// console.log(dictionary['good morning']); // 'доброе утро'
+// console.log(dictionary['toString']); // undefined
+
+// Решение:
+
+// const dictionary = Object.create(null);
+
 // dictionary['hello'] = 'привет';
 // dictionary['good morning'] = 'доброе утро';
 // console.log(dictionary['hello']); // 'привет'

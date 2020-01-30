@@ -80,6 +80,9 @@
 //   return sum;
 // }
 
+// function sum(...rest) {
+//   return rest.reduce((summa, current) => summa + current, 0);
+// }
 
 // console.log(sum(1, 2, 3));  // 6
 // console.log(sum(5, 5));  // 10
@@ -116,6 +119,18 @@
 //   return f;
 // }
 
+// function add(...args) {
+//   let sum = 0;
+//   if (args.length > 1) {
+//     sum = args.reduce((summa, current) => summa + current, 0);
+//     return sum;
+//   };
+  
+//   return function f(b) {
+//     return args[0] + b;
+//   };
+// };
+
 // console.log(add(2, 5)); // 7
 // console.log(add(2)(5)); // 7
 
@@ -127,17 +142,23 @@
   sort([9, 8, 7, 6, 5, 4, 3, 2, 1]) // [9, 2, 7, 4, 5, 6, 3, 8, 1]
 */
 
-
-// function sortOdd(a, b) {
-//   if ((a % 2 === 0) && (b % 2 === 0)) {
-//   return (a, b) => a - b;
+// function sortOdd(arr) {
+//   for (let i = 0; i < arr.length - 1; i++) {
+//     if (arr[i] % 2 !== 0) continue;
+//    for (let j = i + 1; j< arr.length; j++) {
+//     if (arr[j] % 2 !== 0) continue
+     
+//     if (arr[i] > arr[j]) {
+//        let value = arr[i];
+//        arr[i] = arr[j];
+//        arr[j] = value;
+//      }
+//    }
 //   }
+//   return arr;
 // }
 
-// arr = [9, 8, 7, 6, 5, 4, 3, 2, 1];
-// arr.sort(sortOdd()); 
-// console.log(arr); // [9, 2, 7, 4, 5, 6, 3, 8, 1]
-
+// console.log(sortOdd([9, 8, 7, 6, 5, 4, 3, 2, 1])); // [9, 2, 7, 4, 5, 6, 3, 8, 1]
 
 
 /*
