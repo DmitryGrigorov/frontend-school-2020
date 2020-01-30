@@ -43,7 +43,7 @@
 // cloneSomeObj === someObj // false при сравнении копия и первоначальный объект не равны
 // cloneSomeObj.metrics === someObj.metrics // false при сравнении вложенного объекта они тоже не равны
 
-//Решение:
+// Решение:
 
 // function deepClone(obj) {
 //  let clone = {};
@@ -73,6 +73,19 @@
 // unionObject -> { name: 'Vasya', age: 45, isAdmin: true }
 
 // Решение:
+
+// function clone (origin, clone) {
+//   for (let key in clone) {
+//     origin[key] = clone[key];
+//     return origin;
+//   }
+// }
+
+// function merge (...obj) {
+//   return (obj.reduce(clone));
+// }
+
+// let unionObject = merge({}, {name: 'Vasya', size: {clothes: 'M', boots: 43}}, {age: 45}, {isAdmin: true});
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
