@@ -16,6 +16,27 @@
 // console.log(cat.state); // 'lying'
 // cat.meow(); // выводит в консоль "murzik: meow"
 
+function Cat(name) {
+    this.name = name;
+    this.state = 'standing';
+    Cat.prototype.up = function () {
+        this.state = 'standing';
+    };
+    Cat.prototype.down = function () {
+        this.state = 'lying';
+    };
+    Cat.prototype.meow = function () {
+        console.log(`${this.name}: meow`);
+    };
+}
+console.log("1)");
+const cat = new Cat('murzik');
+console.log(cat);
+cat.up();
+console.log(`cat.state = ${cat.state}`); // 'standing'
+cat.down();
+console.log(`cat.state = ${cat.state}`); // 'lying'
+cat.meow(); // выводит в консоль "murzik: meow"
 
 // 2
 // Cоздайте объект dictionary в котором будут содержаться переводы слов с английского на русский
@@ -28,8 +49,18 @@
 // console.log(dictionary['good morning']); // 'доброе утро'
 // console.log(dictionary['toString']); // undefined
 
+let dictionary = {};
+
+dictionary['hello'] = 'привет';
+dictionary['good morning'] = 'доброе утро';
+console.log(dictionary['hello']); // 'привет'
+console.log(dictionary['good morning']); // 'доброе утро'
+console.log(dictionary['toString']); // undefined
+
 // 3
 // Напишите полифил для метода массива forEach
+
+
 
 // 4
 // Напишите полифил для метода массива join
