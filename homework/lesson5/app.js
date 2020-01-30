@@ -9,11 +9,7 @@
   sumTo(4) = 4 + 3 + 2 + 1 = 10
 */
 function sumTo(n) {
-    if (n === 1) {
-        return n;
-    } else {
-        return n + sumTo(n - 1);
-    }
+    return (n === 1) ? n : n + sumTo(n - 1);
 }
 
 /*
@@ -34,11 +30,7 @@ function sumTo(n) {
   alert(fib(77)); // 5527939700884757
 */
 function fib(n) {
-    if (n === 1 || n === 2) {
-        return 1;
-    } else {
-        return fib(n - 1) + fib(n - 2);
-    }
+    return (n === 1 || n === 2) ? 1 : fib(n - 1) + fib(n - 2);
 }
 
 /*
@@ -64,12 +56,12 @@ function fib(n) {
   Используя rest-операторы, перепишите эту функцию так, чтобы не использовать arguments.
 */
 function sum(...args) {
-    let sum = 0;
-    for (i in args) {
-        sum += args[i];
-    }
-    return sum;
+    return args.reduce(function (sum, current) {
+        return sum + current;
+    }, 0)
 }
+
+console.log(sum(10, 20, 3, 7));
 
 /*
   4) Напишите функцию add, которая работает, как на примере:
@@ -86,6 +78,7 @@ function add(...args) {
         }
     }
 }
+
 /*
   5)
   Написать функцию sortOdd(), которая сортирует только четные числа в массиве:
@@ -94,23 +87,7 @@ function add(...args) {
   sort([9, 8, 7, 6, 5, 4, 3, 2, 1]) // [9, 2, 7, 4, 5, 6, 3, 8, 1]
 */
 function sortOdd(arr) {
-    for (let i = 0; i < arr.length - 1; i++) {
-        if (arr[i] % 2 != 0) {
-            continue;
-        }
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[j] % 2 != 0) {
-                continue;
-            } else {
-                if (arr[j] < arr[i]) {
-                    let temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
-                }
-            }
-        }
-    }
-    return arr;
+    return arr.sort((a, b) => (a % 2 == 0 && b % 2 == 0) ? a - b : 0);
 }
 
 /*
@@ -122,13 +99,7 @@ function sortOdd(arr) {
   findMax(0, 2, 12, 4, 5) // 12
 */
 function findMax(...args) {
-    let max = args[0];
-    for (let i = 1; i < args.length; i++) {
-        if (args[i] > max) {
-            max = args[i];
-        }
-    }
-    return max;
+    return Math.max.apply(null, args);
 }
 
 /*
@@ -140,13 +111,7 @@ function findMax(...args) {
   findMin(0, 2, 12, 4, 5) // 0
 */
 function findMin(...args) {
-    let min = args[0];
-    for (let i = 1; i < args.length; i++) {
-        if (args[i] < min) {
-            min = args[i];
-        }
-    }
-    return min;
+    return Math.min.apply(null, args);
 }
 
 /*
@@ -159,11 +124,5 @@ function findMin(...args) {
 */
 
 function pushZeros(arr) {
-    for (i in arr) {
-        if (arr[i] === 0) {
-            arr.splice(i, 1);
-            arr.push(0);
-        }
-    }
-    return arr;
+    return arr.sort((a, b) => (a === 0 || b === 0) ? b - a : 0);
 }
