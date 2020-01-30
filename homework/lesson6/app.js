@@ -16,6 +16,29 @@
 // console.log(cat.state); // 'lying'
 // cat.meow(); // выводит в консоль "murzik: meow"
 
+// function Cat(name){
+//     this.name = name;
+//     this.state = 'lying';
+// }
+// Cat.prototype.meow = function(){
+//     console.log(this.name + ': meow')
+// }
+// Cat.prototype.up = function(){
+//     this.state = 'standing';
+// }
+// Cat.prototype.down = function(){
+//     this.state = 'lying';
+// }
+
+// const cat = new Cat('murzik');
+// console.log(cat.name); // 'murzik'
+// console.log(cat.state); // 'lying'
+// cat.up();
+// console.log(cat.state); // 'standing'
+// cat.down();
+// console.log(cat.state); // 'lying'
+// cat.meow(); // выводит в консоль "murzik: meow"
+
 
 // 2
 // Cоздайте объект dictionary в котором будут содержаться переводы слов с английского на русский
@@ -28,8 +51,25 @@
 // console.log(dictionary['good morning']); // 'доброе утро'
 // console.log(dictionary['toString']); // undefined
 
+// const dictionary = Object.create(null, {
+//     'hello':{
+//         value:'привет'
+//     },
+//     'good morning':{
+//         value:'доброе утро'
+//     }
+//     });
+
+// dictionary['hello'] = 'привет';
+// dictionary['good morning'] = 'доброе утро';
+// console.log(dictionary['hello']); // 'привет'
+// console.log(dictionary['good morning']); // 'доброе утро'
+// console.log(dictionary['toString']); // undefined
+
 // 3
 // Напишите полифил для метода массива forEach
+
+
 
 // 4
 // Напишите полифил для метода массива join
@@ -43,6 +83,20 @@
 // Реализуйте наследование класса Animal классом Dog,
 // так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
 // Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
+
+function Animal(movingType, color){
+    this.movingType = movingType,
+    this.color = color
+}
+function Dog(movingType, color, name, age, weight){
+    this.name = name,
+    this.age = age, 
+    this.weight = weight,
+    Animal.call(this, movingType, color)
+}
+
+const someDog = new Dog('walking', 'black', 'tuzik', 4, 10);
+console.log(someDog);
 
 // 6 (наследование через прототипы)
 // Создайте два конструктора Transport и Car
@@ -59,3 +113,34 @@
 // console.log(someCar.status); // 'stopped'
 // console.log(someCar.run()); // 'running'
 // console.log(someCar.stop()); // 'stopped'
+
+function Transport(){
+    this.status = 'stopped',
+    this.run = function(){
+        
+        this.status = 'running';
+    },
+    this.stop = function(){
+        
+        this.status = 'stopped';
+       
+    }
+
+}
+function Car(){
+   
+}
+Object.setPrototypeOf(Car.prototype, Transport.prototype)
+
+// const someTransport = new Transport();
+// console.log(someTransport.status); // 'stopped'
+// someTransport.run(); // 'running'
+// console.log(someTransport.status); 
+// someTransport.stop(); // 'stopped'
+// console.log(someTransport.status); 
+// const someCar = new Car();
+// console.log(someCar.status); // 'stopped'
+// someCar.run(); // 'running'
+// console.log(someCar.status);
+// someCar.stop(); // 'stopped'
+// console.log(someCar.status);
