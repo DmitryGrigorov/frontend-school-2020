@@ -16,6 +16,24 @@
 // console.log(cat.state); // 'lying'
 // cat.meow(); // выводит в консоль "murzik: meow"
 
+function Cat(name) {
+  this.name = name;
+  this.state = "lying";
+}
+
+Cat.prototype.meow = function() {
+  console.log(`${this.name}: meow`);
+};
+
+Cat.prototype.up = function() {
+  this.state = "standing";
+};
+
+Cat.prototype.down = function() {
+  this.state = "lying";
+};
+
+const cat = new Cat("murzik");
 
 // 2
 // Cоздайте объект dictionary в котором будут содержаться переводы слов с английского на русский
@@ -28,11 +46,22 @@
 // console.log(dictionary['good morning']); // 'доброе утро'
 // console.log(dictionary['toString']); // undefined
 
+const dictionary = Object.create(null);
+
+dictionary["hello"] = "привет";
+dictionary["good morning"] = "доброе утро";
+
 // 3
 // Напишите полифил для метода массива forEach
 
+Array.prototype.forEach = undefined;
+// смотри forEach-polyfill.js
+
 // 4
 // Напишите полифил для метода массива join
+
+Array.prototype.join = undefined;
+// смотри join-polyfill.js
 
 // 5 (наследование свойст без прототипов)
 // Создайте два конструктора Animal и Dog
@@ -43,6 +72,19 @@
 // Реализуйте наследование класса Animal классом Dog,
 // так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
 // Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
+
+function Animal(movingType, color) {
+  this.movingType = movingType;
+  this.color = color;
+}
+
+function Dog(movingType, color, name, age, weight) {
+  Animal.call(this, movingType, color);
+
+  this.name = name;
+  this.age = age;
+  this.weight = weight;
+}
 
 // 6 (наследование через прототипы)
 // Создайте два конструктора Transport и Car
@@ -59,3 +101,21 @@
 // console.log(someCar.status); // 'stopped'
 // console.log(someCar.run()); // 'running'
 // console.log(someCar.stop()); // 'stopped'
+
+function Transport() {
+  this.status = "stopped";
+
+  Transport.prototype.run = function() {
+    this.status = "running";
+  };
+
+  Transport.prototype.stop = function() {
+    this.status = "stopped";
+  };
+}
+
+function Car() {
+  Transport.call(this);
+}
+
+Car.prototype = new Object(Transport.prototype);
