@@ -62,7 +62,19 @@ console.log(dictionary['toString']); // undefined
 // 3
 // Напишите полифил для метода массива forEach
 
-
+(function () {
+    if(!Array.prototype.forEach) {
+        Array.prototype.forEach = function(func) {
+            for (let a = 0; a < this.length; a++) {
+                func(this[a]);
+            }
+        }
+    }
+})();
+console.log("3)");
+let testArray = [1,2,3];
+console.log(testArray);
+testArray.forEach((x)=>console.log(x));
 
 // 4
 // Напишите полифил для метода массива join
