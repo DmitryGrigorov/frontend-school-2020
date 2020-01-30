@@ -29,6 +29,7 @@ function Cat(name) {
         console.log(`${this.name}: meow`);
     };
 }
+
 console.log("1)");
 const cat = new Cat('murzik');
 console.log(cat);
@@ -63,8 +64,8 @@ console.log(dictionary['toString']); // undefined
 // Напишите полифил для метода массива forEach
 
 (function () {
-    if(!Array.prototype.forEach) {
-        Array.prototype.forEach = function(func) {
+    if (!Array.prototype.forEach) {
+        Array.prototype.forEach = function (func) {
             for (let a = 0; a < this.length; a++) {
                 func(this[a]);
             }
@@ -72,12 +73,27 @@ console.log(dictionary['toString']); // undefined
     }
 })();
 console.log("3)");
-let testArray = [1,2,3];
+let testArray = [1, 2, 3];
 console.log(testArray);
-testArray.forEach((x)=>console.log(x));
+testArray.forEach((x) => console.log(x));
 
 // 4
 // Напишите полифил для метода массива join
+
+(function () {
+    if (!Array.prototype.join) {
+        Array.prototype.join = function (sep) {
+            let result = this[0];
+            for (let a = 1; a < this.length; a++)
+                result += sep + this[a];
+            return result;
+        }
+    }
+})();
+console.log("4)");
+testArray = [1, 2, 3];
+console.log(testArray);
+console.log(testArray.join('-'));
 
 // 5 (наследование свойст без прототипов)
 // Создайте два конструктора Animal и Dog
