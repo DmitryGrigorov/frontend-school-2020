@@ -49,7 +49,9 @@ cat.meow(); // выводит в консоль "murzik: meow"
 // console.log(dictionary['good morning']); // 'доброе утро'
 // console.log(dictionary['toString']); // undefined
 
+console.log("2)");
 let dictionary = {};
+dictionary.__proto__ = null;
 
 dictionary['hello'] = 'привет';
 dictionary['good morning'] = 'доброе утро';
