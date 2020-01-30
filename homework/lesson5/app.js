@@ -56,9 +56,7 @@ function fib(n) {
   Используя rest-операторы, перепишите эту функцию так, чтобы не использовать arguments.
 */
 function sum(...args) {
-    return args.reduce(function (sum, current) {
-        return sum + current;
-    }, 0)
+    return args.reduce(((sum, current) => sum + current), 0);
 }
 
 console.log(sum(10, 20, 3, 7));
@@ -70,13 +68,7 @@ console.log(sum(10, 20, 3, 7));
   add(2)(5) // 7
 */
 function add(...args) {
-    if (args.length === 2) {
-        return args[0] + args[1];
-    } else {
-        return function (a2) {
-            return args[0] + a2;
-        }
-    }
+    return (args.length === 2) ? args[0] + args[1] : (a2) => args[0] + a2;
 }
 
 /*
