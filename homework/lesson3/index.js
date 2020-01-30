@@ -56,6 +56,7 @@ palindrome('а роза, упала на лапу Азора');
     console.log( fruits.length ); // ?
 */
 
+//Так как массивы являются одним из видов Объекта в JS, то обе переменные ссыkаются на один и тот же массив, в fruits будет "Яблоки", "Груша", "Апельсин", "Банан", а fruits.length === 4;
 
 /*
     4)
@@ -72,6 +73,16 @@ palindrome('а роза, упала на лапу Азора');
     потом переделайте всё как нужно и методом join соедините обратно.
 */
 
+const camelize = (str) => {
+    let arr = str.split('-');
+    for (let i = 1; arr.length > i; i++) {
+        arr[i] = arr[i][0].toUpperCase() + arr[i].slice(1);
+    }
+    let newStr = arr.join('');
+    return newStr;
+}
+
+camelize("background-color");
 
 /*
     5)
@@ -87,6 +98,18 @@ palindrome('а роза, упала на лапу Азора');
     alert( arr ); // HTML, JavaScript, CSS (без изменений)
 */
 
+let arr = ["HTML", "JavaScript", "CSS"];
+
+const copySorted = (arr) => {
+    let arrSort = arr.slice(0).sort();
+    return arrSort;
+}
+
+let sorted = copySorted(arr);
+
+console.log(sorted);
+console.log(arr);
+
 /*
     6)
     Написать функцию, которая считает сумму элементов массива кратных числу 2.
@@ -96,3 +119,16 @@ palindrome('а роза, упала на лапу Азора');
     sum(1, 2, 3, 4, 5) // 6
     sum(3, 8, 1, 40, 6) // 54
 */
+
+const sum = (...args) => {
+    debugger
+    let num = 0;
+    for (let i = 0; args.length > i; i++) {
+        if(!(args[i]%2)) {
+            num += +args[i]; 
+        }
+    }
+    return num;
+};
+
+sum(3, 8, 1, 40, 6);
