@@ -83,6 +83,13 @@ function sum(...numbers) {
   add(2)(5) // 7
 */
 
+function add(a, b) {
+  if (b) return a + b;
+
+  return function(b) {
+    return a + b; 
+  };
+}
 
 
 /*
@@ -93,6 +100,15 @@ function sum(...numbers) {
   sort([9, 8, 7, 6, 5, 4, 3, 2, 1]) // [9, 2, 7, 4, 5, 6, 3, 8, 1]
 */
 
+function sortOdd(arr) {
+  let i = 0;
+  const oddArr = arr.filter(item => item % 2 === 0).sort((a, b) => a - b ) //get sorted odd values (as Numbers!)
+
+  return arr.map(item => {
+    return (item % 2 === 0) ? oddArr[i++] : item; //replace if needed
+  })
+}
+
 /*
   6)
   Написать функцию findMax(), которая найдет максимальный элемент из аргументов:
@@ -101,6 +117,10 @@ function sum(...numbers) {
   findMax(9, 8, 7, 6, 5, 4, 3, 2, 1) // 9
   findMax(0, 2, 12, 4, 5) // 12
 */
+
+function findMax(...numbers) {
+  return numbers.sort()[0];
+}
 
 /*
   7)
