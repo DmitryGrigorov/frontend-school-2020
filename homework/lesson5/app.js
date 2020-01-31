@@ -72,15 +72,6 @@
 */
 
 // function sum(...rest) {
-//   let sum = 0;
-//   for (let arg of rest) {
-//     sum += arg;
-//   }
-  
-//   return sum;
-// }
-
-// function sum(...rest) {
 //   return rest.reduce((summa, current) => summa + current, 0);
 // }
 
@@ -98,18 +89,11 @@
 */
 
 // function add(...a) {
-//   let sum = 0;
-//   for (let arg of a) {
-//     sum += arg;
-//   }
+//   let sum = a.reduce((sum, current) => sum + current, 0);
 
 //   function f(b) {
-//     if (b === null) {
-//       return sum;
-//     } else {
-//       sum += b;
-//       return f;
-//     }
+//     sum += b;
+//     return f;
 //   }
 
 //   f.toString = function() {
@@ -119,20 +103,8 @@
 //   return f;
 // }
 
-// function add(...args) {
-//   let sum = 0;
-//   if (args.length > 1) {
-//     sum = args.reduce((summa, current) => summa + current, 0);
-//     return sum;
-//   };
-  
-//   return function f(b) {
-//     return args[0] + b;
-//   };
-// };
-
 // console.log(add(2, 5)); // 7
-// console.log(add(2)(5)); // 7
+// console.log(add(2)(5)); // 12
 
 /*
   5)
@@ -144,16 +116,21 @@
 
 // function sortOdd(arr) {
 //   for (let i = 0; i < arr.length - 1; i++) {
-//     if (arr[i] % 2 !== 0) continue;
-//    for (let j = i + 1; j< arr.length; j++) {
-//     if (arr[j] % 2 !== 0) continue
-     
-//     if (arr[i] > arr[j]) {
-//        let value = arr[i];
-//        arr[i] = arr[j];
-//        arr[j] = value;
-//      }
-//    }
+//     if (arr[i] % 2 !== 0) {
+//       continue;
+//     }
+
+//     for (let j = i + 1; j< arr.length; j++) {
+//       if (arr[j] % 2 !== 0) {
+//         continue;
+//       }
+      
+//       if (arr[i] > arr[j]) {
+//         let value = arr[i];
+//         arr[i] = arr[j];
+//         arr[j] = value;
+//       }
+//     }
 //   }
 //   return arr;
 // }
@@ -172,8 +149,8 @@
   Решение:
 */
 
-// function findMax(...rest) {
-//   return Math.max.apply(null, rest);
+// function findMax(...array) {
+//   return Math.max(...array);
 // }
 
 // console.log(findMax(9, 8, 7, 6, 5, 4, 3, 2, 1)); // 9
