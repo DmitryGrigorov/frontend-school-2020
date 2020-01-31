@@ -119,7 +119,7 @@ function sortOdd(arr) {
 */
 
 function findMax(...numbers) {
-  return numbers.sort()[0];
+  return numbers.sort((a, b) => b - a )[0];
 }
 
 /*
@@ -131,6 +131,10 @@ function findMax(...numbers) {
   findMax(0, 2, 12, 4, 5) // 0
 */
 
+function findMin(...numbers) {
+  return numbers.sort((a, b) => a - b )[0];
+}
+
 
 /*
   8)
@@ -140,3 +144,15 @@ function findMax(...numbers) {
   pushZeros([0, 9, 0, 8, 7, 0, 6, 5, 4, 3, 2, 1]) // [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 0, 0]
   pushZeros([0, 2, 12, 4, 5]) // [2, 12, 4, 5, 0]
 */
+
+function pushZeros(arr) {
+  arr.forEach((item, index) => {
+    if (item === 0) {
+      arr.splice(index, 1);
+      arr.push(0);
+    }
+  });
+
+  return arr;
+}
+
