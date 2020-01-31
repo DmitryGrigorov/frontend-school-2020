@@ -59,7 +59,6 @@ function sum(...args) {
     return args.reduce(((sum, current) => sum + current), 0);
 }
 
-console.log(sum(10, 20, 3, 7));
 
 /*
   4) Напишите функцию add, которая работает, как на примере:
