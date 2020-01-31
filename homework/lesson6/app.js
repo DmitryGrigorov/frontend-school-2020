@@ -105,6 +105,21 @@ console.log(testArray.join('-'));
 // так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
 // Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
 
+function Animal(movingType, color) {
+    this.movingType = movingType;
+    this.color = color;
+}
+
+function Dog(name, age, weight, ...args) {
+    Animal.apply(this, args);
+    this.name = name;
+    this.age = age;
+    this.weight = weight;
+}
+const someDog = new Dog('walking', 'black', 'tuzik', 4, 10);
+console.log("5)");
+console.log(someDog);
+
 // 6 (наследование через прототипы)
 // Создайте два конструктора Transport и Car
 // Эклемпляры конструктора Transport имеют свойтсво status и методы run и stop,
