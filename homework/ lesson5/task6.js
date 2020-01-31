@@ -2,13 +2,14 @@ function findMax(...elements){
   return Math.max(...elements);
 };
 
-let max = findMax(9, 8, 7, 6, 5, 4, 3, 2, 1);
-console.log(max);
+// let max = findMax(9, 8, 7, 6, 5, 4, 3, 2, 1);
+// console.log(max);
 
-let max2 = findMax(0, 2, 12, 4, 5);
-console.log(max2);
+// let max2 = findMax(0, 2, 12, 4, 5);
+// console.log(max2);
 
-
+// console.log(findMax.call(this, 0, 2, 12, 4, 5)); //call
+// console.log(findMax.apply(null,[0, 2, 12, 4, 5])); //apply
 /*
   6)
   Написать функцию findMax(), которая найдет максимальный элемент из аргументов:
