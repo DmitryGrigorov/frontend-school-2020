@@ -7,6 +7,7 @@
 function lwTail(str) {
     return str[0].toUpperCase() + str.slice(1).toLowerCase();
 }
+
 /*
 2)
 Дана строка; нужно написать функцию, которая позволяет вернуть значение true,
@@ -21,15 +22,9 @@ palindrome('John') === false
 */
 
 function palindrome(text) {
-    text = text.toLowerCase();
-    let center = Math.floor(text.length / 2);
-    let count = text.length;
-    for (let i = 0; i < center; i++) {
-        if (text[i] != text[count - 1 - i]) {
-            return false;
-        }
-    }
-    return true
+    let arr = text.toLowerCase().split('');
+    let arrReverse = text.toLowerCase().split('').reverse();
+    return (arrReverse.join('') === arr.join('')) ? true : false;
 }
 
 /*
@@ -52,7 +47,7 @@ function palindrome(text) {
     console.log( fruits.length ); // ?
 */
 
-alert(4);
+console.log("4) 4");
 
 /*
     4)
@@ -69,15 +64,8 @@ alert(4);
     потом переделайте всё как нужно и методом join соедините обратно.
 */
 function camelize(str) {
-    let arr = str.split('');
-    let count = arr.length;
-    for (let i = 0; i < count; i++) {
-        if (arr[i] === '-') {
-            let letter = arr[i + 1].toUpperCase();
-            arr.splice(i, 2, letter);
-        }
-    }
-    return arr.join('');
+    let arr = str.split('-');
+    return arr.map(name => name.slice(0, 1).toUpperCase() + name.slice(1)).join('');
 }
 
 /*
@@ -109,12 +97,7 @@ function copySorted(arr) {
     }
     return copyArr;
 }
-let arr = ["HTML", "JavaScript", "CSS"];
 
-let sorted = copySorted(arr);
-
-alert( sorted ); // CSS, HTML, JavaScript
-alert( arr ); // HTML, JavaScript, CSS (без изменений)
 
 /*
     6)
@@ -127,11 +110,6 @@ alert( arr ); // HTML, JavaScript, CSS (без изменений)
 */
 function sum(arr) {
     let sum = 0;
-    for (obj in arr) {
-        if (arr[obj] % 2 === 0) {
-            sum += arr[obj];
-            console.log(sum);
-        }
-    }
+    arr.forEach(item => sum += (item % 2 === 0) ? item : 0);
     return sum;
 }
