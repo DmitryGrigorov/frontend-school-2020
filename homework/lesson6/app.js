@@ -116,6 +116,7 @@ function Dog(name, age, weight, ...args) {
     this.age = age;
     this.weight = weight;
 }
+
 const someDog = new Dog('walking', 'black', 'tuzik', 4, 10);
 console.log("5)");
 console.log(someDog);
@@ -135,3 +136,50 @@ console.log(someDog);
 // console.log(someCar.status); // 'stopped'
 // console.log(someCar.run()); // 'running'
 // console.log(someCar.stop()); // 'stopped'
+
+console.log("6)");
+function Transport() {};
+
+Transport.prototype.status = "stopped";
+
+Transport.prototype.run = function () {
+    return this.status = "running";
+};
+Transport.prototype.stop = function () {
+    return this.status = "stopped";
+};
+
+function Car() {};
+
+Car.prototype = Object.create(Transport.prototype);
+Car.prototype.constructor = Car;
+
+const someTransport = new Transport();
+console.log(`someTransport.status = ${someTransport.status}`); // 'stopped'
+console.log(`someTransport.run() = ${someTransport.run()}`); // 'running'
+console.log(`someTransport.stop() = ${someTransport.stop()}`); // 'stopped'
+const someCar = new Car();
+console.log(`someCar.status) = ${someCar.status}`); // 'stopped'
+console.log(`someCar.run() = ${someCar.run()}`); // 'running'
+console.log(`someCar.stop() = ${someCar.stop()}`); // 'stopped'
+
+
+
+//Реализация через классы гораздо приятнее на вид. Не удержался от воспоминаний о C# и Java...
+class Пирог {
+    начинка = 'нет';
+    сменитьНачинку(начинка) {
+        return this.начинка = начинка;
+    }
+}
+class ВишнёвыйПирог extends Пирог {
+
+}
+пирожок = new Пирог();
+console.log(пирожок);
+console.log(пирожок.сменитьНачинку("клубника"));
+console.log(пирожок);
+вишнёвыйПирожочек = new ВишнёвыйПирог();
+console.log(вишнёвыйПирожочек.начинка);
+вишнёвыйПирожочек.сменитьНачинку("вишня");
+console.log(вишнёвыйПирожочек);
