@@ -20,7 +20,6 @@ if (login ==="Админ") {
         } else {
             alert("Неверный пароль");
         }
-    }
 
 } else if (login === "") || (login === null) {
     alert("Отменено");
@@ -116,10 +115,11 @@ function getBackgroundColor(theme) {
 /**
  * 6) Напишите функцию pow(x,n), которая возвращает x в степени n
  */
-function pow(x,n) {
+function pow(x, n) {
    //   let result = Math.pow(x,n); - 1 вариант через встроенный метод
-   for(let i = 1; i < n; i++){
-      let result = x * x;
+   let result = x;
+   for (let i = 1; i < n; i++){
+      let result = result * x;
    }
    return result;
 }
