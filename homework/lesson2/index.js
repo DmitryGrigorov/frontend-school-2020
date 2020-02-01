@@ -114,10 +114,17 @@ function getBackgroundColor(theme) {
  */
 function pow(x, n) {
    //   let result = Math.pow(x,n); - 1 вариант через встроенный метод
-   let result = x;
-   for (let i = 1; i < n; i++){
-      let result = result * x;
-   }
-   return result;
+    if (n < 0) {
+        alert ( 'Нельзя вводить отрицательные значения для степени!' );
+        return;
+    } 
+
+    let result = 1;
+
+    for (let i = 0; i < n; i++) {
+        let result = result * x;
+    }
+    
+    return result;
 }
  
