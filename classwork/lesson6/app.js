@@ -1,6 +1,18 @@
 // конструктор с прототипом
 
-// способы задания прототипов
+function Car() {
+    Car.prototype.run = function() {
+
+        console.log('running');
+
+    }
+
+
+    // способы задания прототипов
+    comst someCar = new Car();
+    console.log(someCar);
+
+}
 
 // встроенные объекты, полифилы
 
