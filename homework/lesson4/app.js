@@ -54,11 +54,11 @@ function deepClone(obj) {
 // let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
 // unionObject -> { name: 'Vasya', age: 45, isAdmin: true }
 
-function merge(...args) {
+function merge() {
     let obj = {};
-    for (i in args) {
-        for (key in args[i]) {
-            obj[key] = args[i][key];
+    for (i in arguments) {
+        for (key in arguments[i]) {
+            obj[key] = arguments[i][key];
         }
     }
     return obj;
@@ -75,14 +75,11 @@ function merge(...args) {
 // dog.bark(4); // => "Bobik: bark bark bark bark"
 // dog.bark(); // => "Bobik: bark" если аргумент не передать - метод все равно сработает
 
-let dog = { name: 'Bobik', };
-dog.bark = function(number = 1) {
-    if (number === 1) {
-        return this.name + ":" + " bark";
-    }
-    return this.bark(--number) + " bark";
+let dog = { name: 'Bobik' };
+dog.bark = function(number=1) {
+    console.log(this.name+":"+" bark".repeat(number));
 };
-
+dog.bark(4);
 // 5)
 // Есть объект товара item = { label: 'phone', price: 500, currency: '$' };
 // сделайте так, чтобы при преобразовании данного объекта
