@@ -16,6 +16,18 @@
 // console.log(cat.state); // 'lying'
 // cat.meow(); // выводит в консоль "murzik: meow"
 
+//Ответ
+
+class cat{
+    constructor(name,state){
+        this.name = name;
+        this.state = state;
+    }
+}
+
+const cat1 = new Cat('murzik','standing');
+console.log(cat1);
+
 
 // 2
 // Cоздайте объект dictionary в котором будут содержаться переводы слов с английского на русский

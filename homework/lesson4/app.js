@@ -12,7 +12,7 @@
 // calculate('pear', 4, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // 2000
 
 //Ответ :)
-
+/*
 function calculate(name, amount, object) {
   for (key in object) {
     if (name === key) {
@@ -41,7 +41,7 @@ function calculate(name, amount, object) {
 calculate("potato", 1, { apple: 100, pear: 500, melon: 400, lemon: undefined });
 //calculate("lemon", 2, { apple: 100, pear: 500, melon: 400, lemon: undefined });
 //calculate("pear", 4, { apple: 100, pear: 500, melon: 400, lemon: undefined });
-
+*/
 // 2)
 // напишите функцию deepClone глубокого клонирования объекта, которая создаёт глубокую копию объекта
 // * - глубокая копия - это значит, что если внутри объекта есть свойства объекты - их нужно тоже склонировать
@@ -70,6 +70,20 @@ calculate("potato", 1, { apple: 100, pear: 500, melon: 400, lemon: undefined });
 // Например:
 // dog.bark(4); // => "Bobik: bark bark bark bark"
 // dog.bark(); // => "Bobik: bark" если аргумент не передать - метод все равно сработает
+
+//Ответ
+
+dog = {
+  name: "Bobik",
+  bark: function(howl) {
+    let voice = ": bark ";
+    for (i = 1; i < howl; i++) {
+      voice += "bark ";
+    }
+  }
+};
+console.log(`${dog.name}${bark(6)}`);
+console.log(`${dog.name}${bark()}`);
 
 // 5)
 // Есть объект товара item = { label: 'phone', price: 500, currency: '$' };
