@@ -11,6 +11,27 @@
 // calculate('lemon', 2, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // Извините, товар закончился!
 // calculate('pear', 4, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // 2000
 
+const calculate = (name, amount, prices) => {
+    let check = null;
+    if (!(name in prices)) {
+        alert('Такого товара у нас еще нет!')
+        return check;
+    }
+    for (key in prices) {
+        if (key === name && prices[key] === undefined) {
+            alert('Извините, товар закончился!');
+            return check;
+        }
+    }
+    for (key in prices) {
+        if (key === name && isFinite(prices[key]) === true) {
+           return check = prices[key] * amount;
+        }
+    };
+};
+
+calculate('lemon', 3, { apple: 100, pear: 500, melon: 400, lemon: undefined });
+
 // 2)
 // напишите функцию deepClone глубокого клонирования объекта, которая создаёт глубокую копию объекта
 // * - глубокая копия - это значит, что если внутри объекта есть свойства объекты - их нужно тоже склонировать
@@ -21,6 +42,19 @@
 // cloneSomeObj === someObj // false при сравнении копия и первоначальный объект не равны
 // cloneSomeObj.metrics === someObj.metrics // false при сравнении вложенного объекта они тоже не равны
 
+let someObj = { name: 'Petya', metrics: { weight: 80, height: 180 } };
+
+const deepClone = (obj) => {
+    debugger
+    let clone = {};
+    for(key in obj) {
+        clone[key] = obj[key];   
+    }
+    return clone;
+}
+
+let cloneSomeObj = deepClone(someObj);
+
 // 3)
 // напишите функцию merge для объединения объектов НЕ используя встроеный метод Object.assign
 // колличество передаваемых аргументов в функцию НЕ ограничено (вложенные объекты копируются по ссылке)
@@ -28,6 +62,19 @@
 // Например:
 // let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
 // unionObject -> { name: 'Vasya', age: 45, isAdmin: true }
+
+const merge = (...args) => {
+    debugger
+    let newObj = {};
+    args.forEach((obj) => {
+        for (key in obj) {
+            newObj[key] = obj[key];
+        }
+    })
+    return newObj;
+}
+
+let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
 
 // 4)
 // Есть объект dog = { name: 'Bobik' };
@@ -40,12 +87,66 @@
 // dog.bark(4); // => "Bobik: bark bark bark bark"
 // dog.bark(); // => "Bobik: bark" если аргумент не передать - метод все равно сработает
 
+let dog = { 
+    name: 'Bobik',
+    bark: 'bark',
+    voice(num) {
+        let str = '';
+        if (num === undefined) {
+            str = ` ${this.bark}`;
+        } else for (let i = 0; num > i; i++) {
+            str += ` ${this.bark}`;
+        }
+        alert(`${this.name}:${str}`);
+    }
+ };
+
+ let dog = { 
+    name: 'Bobik',
+    bark: 'bark',
+    voice(num) {
+        let str = '';
+        switch(num) {
+            case undefined:
+                alert(`${this.name}: ${this.bark}`);
+                break;
+
+            default:
+                for (let i = 0; num > i; i++) {
+                    str += ` ${this.bark}`;
+                };
+                alert(`${this.name}: ${str}`);
+        }
+    }
+ };
+
+dog.voice(4);
+
+
+
 // 5)
 // Есть объект товара item = { label: 'phone', price: 500, currency: '$' };
 // сделайте так, чтобы при преобразовании данного объекта
 // к строке возвращалась строка => "500$",
 // а при преобразовании к числе возвращалось просто 500
 // обратите внимание, что 500 и $ это значения полей самого объекта (если их поменять то это будет учитываться при последующих преобразованиях)
+
+let item = {
+    label: 'phone', 
+    price: 500, 
+    currency: '$',
+    
+    toString() {
+        return `${this.price}${this.currency}`;
+    },
+
+    valueOf() {
+        return `${this.price}`;
+    }
+};
+
+alert(item);
+alert(item + 500);
 
 // 6)
 // напишите конструктор Dog который создает объект со свойствами name, age, breed, weight, height, position, status
@@ -59,3 +160,50 @@
 // dog.down() => Меняет свойство status на строку 'lying';
 //
 // создайте массив с 25 объектами Dog
+
+function Dog(name, age, breed, weight, height, position, status) {
+    this.name = name;
+    this.age = age;
+    this.breed = breed;
+    this.weight = weight;
+    this.height = height;
+    this.position = position;
+    this.status = status;
+
+    this.bark = () => {
+        return `${this.name}: bark`;
+    };
+
+    this.place = () => {
+        this.position = 'place';
+    };
+
+    this.come = () => {
+        this.position = 'here';
+    };
+
+    this.goOut = () => {
+        this.position = 'go out';
+    };
+
+    this.sit = () => {
+        this.status = `sitting`;
+    };
+
+    this.stand = () => {
+        this.status = `standing`;
+    };
+
+    this.down = () => {
+        this.status = `lying`;
+    };
+};
+
+let dog = null;
+
+let dogArr = [];
+
+for (let i = 0; 25 > i; i++) {
+    debugger
+    dogArr.push(dog = new Dog(`dog${i}`));
+}
