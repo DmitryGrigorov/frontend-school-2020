@@ -15,6 +15,14 @@
 // cat.down();
 // console.log(cat.state); // 'lying'
 // cat.meow(); // выводит в консоль "murzik: meow"
+    function Cat(name) {
+        this.name = name;
+        this.state = 'lying';
+    }
+
+    const cat = new Cat('murzik');
+    console.log(cat.name);
+    console.log(cat.state);
 
 
 // 2
