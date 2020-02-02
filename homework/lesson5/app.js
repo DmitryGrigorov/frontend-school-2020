@@ -8,6 +8,20 @@
   sumTo(3) = 3 + 2 + 1 = 6
   sumTo(4) = 4 + 3 + 2 + 1 = 10
 */
+//Ответ
+
+function sumTo(n){
+    if (n===1){
+    return n;
+  }
+  else
+  for(let i=1;i<n;i--){
+    n+=i;
+  }
+  return n;
+}
+sumTo(2);
+
 
 /*
   2)
