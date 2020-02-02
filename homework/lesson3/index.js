@@ -2,8 +2,14 @@
     1)
     Напишите функцию lwTail(str), возвращающую строку str в нижнем регистры все буквы кроме первой. Например:
 
-    lwTail("ВАСЯ") == "Вася";
+    lwTail("ВАСЯ") == "ВАСЯ";
 */
+// function lwTail(str){
+//   if (!str) return str;
+//   return  str[0].toUpperCase() + str.slice(1).toLowerCase()
+// }
+//
+// console.log(lwTail('ВАСЯ'));
 
 /*
     2)
@@ -16,6 +22,14 @@
     palindrome('table') === false
     palindrome('John') === false
 */
+
+// const palindrome = str => {
+//   str = str.toLowerCase();
+//   return str === str.split('').reverse().join('');
+// }
+//
+//
+// console.log(palindrome('gggg'));
 
 /*
     3)
@@ -34,7 +48,7 @@
     fruits.pop()
 
     // что в fruits?
-    console.log( fruits.length ); // ?
+    console.log( fruits.length ); // (останется 4(ответ) фрукта)
 */
 
 
@@ -53,6 +67,16 @@
     потом переделайте всё как нужно и методом join соедините обратно.
 */
 
+// function camelize(str) {
+//   return str
+//     .split('-')
+//     .map(
+//       (wd, indicator) => indicator == 0 ? wd : wd[0].toUpperCase() + wd.slice(1)
+//     )
+//     .join('');
+// }
+//
+// console.log(camelize("my-short-string"));
 
 /*
     5)
@@ -67,7 +91,16 @@
     alert( sorted ); // CSS, HTML, JavaScript
     alert( arr ); // HTML, JavaScript, CSS (без изменений)
 */
-
+//
+// function copySorted(arr) {
+//   return arr.slice().sort();
+// }
+//
+// let arr = ["HTML", "JavaScript", "CSS"];
+//
+// let sorted = copySorted(arr);
+// alert(sorted);
+// alert(arr);
 /*
     6)
     Написать функцию, которая считает сумму элементов массива кратных числу 2.
@@ -77,3 +110,16 @@
     sum(1, 2, 3, 4, 5) // 6
     sum(3, 8, 1, 40, 6) // 54
 */
+
+// function numb(array) {
+//
+//     let a = 0;
+//     for (let i = 0; i < array.length; i++) {
+//         if (array[i] % 2 === 0) {
+//             sum1 = sum1 + array[i];
+//         }
+//     }
+//     return a;
+// }
+// let b = [1, 2, 3, 4, 5];
+// console.log(numb(b));

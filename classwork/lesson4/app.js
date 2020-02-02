@@ -34,6 +34,24 @@
  * clonePart({ type: 'success', message: 'text-text', authorId: 'qwerty' }, 'message', 'authorId'); // вернет новый объект => { message: 'text-text', authorId: 'qwerty' }
  */
 
+function filter(obs) {
+  for(let key in obs){
+    if(obs[key] === undefined){
+       delete obs[key]
+    }
+  }
+}
+
+ filter();
+
+let car ={
+  color: undefined,
+  speed: null,
+  model: "",
+  key: "qwerty"
+}
+
+
 // методы объекта, cокращённая запись метода *
 
 // Ключевое слово «this» в методах *
