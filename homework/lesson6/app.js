@@ -16,6 +16,58 @@
 // console.log(cat.state); // 'lying'
 // cat.meow(); // выводит в консоль "murzik: meow"
 
+// function CatPat(name) {
+//
+//     this.name = name;
+//     this.state = '';
+//
+//     this.meow = function () {
+//         console.log(this.name + ': meow');
+//     };
+//
+//     this.up = function () {
+//         this.state = 'standing';
+//     };
+//
+//     this.down = function () {
+//         this.state = 'lying';
+//     };
+// }
+// const catPat = new CatPat('Murzik');
+// const cat = Object.create(catPat);
+// console.log(cat.name);
+// cat.up();
+// console.log(cat.state);
+// cat.meow();
+
+// МБ так?
+
+// function Cat(name) {
+//
+//     this.name = name;
+//     this.state = '';
+//
+// }
+// const cat = new Cat('Murzik');
+//
+// Cat.prototype.meow = function () {
+//         console.log(this.name + ': meow');
+//     };
+//
+// Cat.prototype.up = function () {
+//         this.state = 'standing';
+//     };
+//
+// Cat.prototype.down = function () {
+//         this.state = 'lying';
+//     };
+// console.log(cat.name);
+// cat.up();
+// console.log(cat.state);
+// cat.meow();
+
+
+
 
 // 2
 // Cоздайте объект dictionary в котором будут содержаться переводы слов с английского на русский
@@ -28,11 +80,50 @@
 // console.log(dictionary['good morning']); // 'доброе утро'
 // console.log(dictionary['toString']); // undefined
 
+
+// let dictionary = {
+//
+// };
+
+// console.log(dictionary['good morning']);
+// dictionary['world'] = 'мир';
+// console.log(dictionary['world']);
+
 // 3
 // Напишите полифил для метода массива forEach
 
+// (function () {
+//     if (!Array.prototype.forEach) {
+//         Array.prototype.forEach = function (arr, callback, thisArg) {
+//             if (typeof callback !== 'function') {
+//                 throw new TypeError(callback + ' is not a function');
+//             };
+//             for (var i = 0; i < arr.length; i++) {
+//                 callback.call(thisArg, arr[i], i, arr);
+//             }
+//         }
+//     }
+// })();
+
 // 4
 // Напишите полифил для метода массива join
+
+// (function () {
+//     if(!Array.prototype.join) {
+//         Array.prototype.join = function(separator) {
+//             var defaultSeparator = '';
+//             var result = '';
+//
+//             separator === undefined ? separator = defaultSeparator : separator;
+//
+//             for (var i = 0; i < this.length; i++) {
+//                 result += result ? separator + this[i] : this[i];
+//             }
+//
+//             return result;
+//         }
+//     }
+// })();
 
 // 5 (наследование свойст без прототипов)
 // Создайте два конструктора Animal и Dog
@@ -43,6 +134,24 @@
 // Реализуйте наследование класса Animal классом Dog,
 // так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
 // Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
+
+// function Animal() {
+//
+//     this.movingType = 'walking';
+//     this.color = 'black';
+// }
+// const animal = new Animal();
+//
+// function Dog() {
+//
+//     Animal.call(this);
+//     this.name = 'tuzik';
+//     this.age =  4;
+//     this.weight = 10;
+// }
+// const dog = new Dog();
+// console.log(dog);
+
 
 // 6 (наследование через прототипы)
 // Создайте два конструктора Transport и Car
@@ -59,3 +168,24 @@
 // console.log(someCar.status); // 'stopped'
 // console.log(someCar.run()); // 'running'
 // console.log(someCar.stop()); // 'stopped'
+
+// function Transport() {
+//     this.status = '';
+//
+//     this.run = function() {
+//         this.status = 'running';
+//     };
+//
+//     this.stop = function() {
+//         this.status = 'stopped';
+//     };
+// }
+// let transport = new Transport();
+//
+// function Car() {
+//     // Transport.call(this);
+// }
+// let car = new Car();
+// Car.prototype = Object.create((Transport.prototype));
+// Car.prototype.constructor = Car;
+// console.log(car);
