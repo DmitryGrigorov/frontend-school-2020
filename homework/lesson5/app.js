@@ -9,7 +9,7 @@
   sumTo(4) = 4 + 3 + 2 + 1 = 10
 */
   function sumTo(n) {
-    if (n == 1) {
+    if (n === 1) {
       return n;
     } else {
       return sumTo(n - 1) + n;
@@ -39,14 +39,15 @@
 */
 
   function fib(n) {
-    if (n == 1) {
+    if (n <= 1) {
       return n;
     } else {
       return fib(n-1) + fib(n-2);
     }
   }
   console.log(fib(3));
-
+  console.log(fib(7));
+  console.log(fib(77));
 
 /* 
   3) Следующая функция вычисляет сумму передаваемых ей аргументов,
