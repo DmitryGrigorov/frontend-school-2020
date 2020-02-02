@@ -11,6 +11,21 @@
 // calculate('lemon', 2, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // Извините, товар закончился!
 // calculate('pear', 4, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // 2000
 
+function calculate(product, weight, list)
+{
+	if(product in list)
+	{
+		if(list[product]=== undefined)
+			return "Извините, товар закончился!";
+		else
+		{
+			return list[product]*weight;
+		}
+	}
+	else
+		return "Такого товара у нас еще нет!";
+}
+console.log(calculate('apple', 3, { apple: 100, pear: 500, melon: 400, lemon: undefined }));
 // 2)
 // напишите функцию deepClone глубокого клонирования объекта, которая создаёт глубокую копию объекта
 // * - глубокая копия - это значит, что если внутри объекта есть свойства объекты - их нужно тоже склонировать
@@ -21,6 +36,26 @@
 // cloneSomeObj === someObj // false при сравнении копия и первоначальный объект не равны
 // cloneSomeObj.metrics === someObj.metrics // false при сравнении вложенного объекта они тоже не равны
 
+	function deepClone(obj)
+	{
+		let clonedObj={};
+		for(prop in obj)
+		{
+			const val = obj[prop];
+			if(typeof(obj[prop]) ==='object' && prop !== null)
+			{
+				clonedObj[prop] = deepClone(val);
+			}
+			else if(val !== undefined)
+			{
+				clonedObj[prop] = val;
+			}
+		}
+		return clonedObj;
+	}
+	let someObj = { name: 'Petya', metrics: { weight: 80, height: 180 } }
+	let cloneSomeObj = deepClone(someObj);
+	console.log(cloneSomeObj) ;
 // 3)
 // напишите функцию merge для объединения объектов НЕ используя встроеный метод Object.assign
 // колличество передаваемых аргументов в функцию НЕ ограничено (вложенные объекты копируются по ссылке)
@@ -29,6 +64,14 @@
 // let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
 // unionObject -> { name: 'Vasya', age: 45, isAdmin: true }
 
+	function merge(obj, ...args)
+	{
+		for(let key of args)
+		obj = {...obj,...key};
+			return obj;
+	}
+	
+	console.log(merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true }));
 // 4)
 // Есть объект dog = { name: 'Bobik' };
 // "научите" данный объект подавать голос, например он должен выводить в консоль строку "{{Здесь имя собаки}}: bark";
@@ -39,6 +82,27 @@
 // Например:
 // dog.bark(4); // => "Bobik: bark bark bark bark"
 // dog.bark(); // => "Bobik: bark" если аргумент не передать - метод все равно сработает
+	
+const dog=
+{
+	name:"Bobik",
+	bark:function(num)
+	{
+		let barkStr="bark";
+
+		if(arguments.length>0)
+		{
+			const num = arguments[0];
+			for(let i=0;i<num-1;i++)
+			{
+				barkStr+=" "+"bark";
+			}
+		}
+		console.log(this.name +":"+barkStr);
+	},
+};
+dog.bark();
+
 
 // 5)
 // Есть объект товара item = { label: 'phone', price: 500, currency: '$' };
@@ -46,6 +110,22 @@
 // к строке возвращалась строка => "500$",
 // а при преобразовании к числе возвращалось просто 500
 // обратите внимание, что 500 и $ это значения полей самого объекта (если их поменять то это будет учитываться при последующих преобразованиях)
+
+ let item = {
+     label: 'phone',
+     price: 1300,
+     currency:'$',
+     [Symbol.toPrimitive](type) {
+         return type === 'string'
+          ? `${this.price}${this.currency} `
+          : this.price;
+     }
+ };
+
+console.log(String(item));
+console.log(+item);
+console.log('' + item);
+
 
 // 6)
 // напишите конструктор Dog который создает объект со свойствами name, age, breed, weight, height, position, status
@@ -59,3 +139,47 @@
 // dog.down() => Меняет свойство status на строку 'lying';
 //
 // создайте массив с 25 объектами Dog
+function Dog(name, age, breed, weight, height, position, status)
+{
+	this.name = name;
+	this.age = age;
+	this.breed = breed;
+	this.weight = weight;
+	this.height = height;
+	this.position = position;
+	this.status = status;
+	this.bark = function()
+	{
+		console.log('{'+this.name+'}: bark');
+	}
+	this.place = function()
+	{
+		this.position = 'place';
+	}
+	this.come = function()
+	{
+		this.position ='here';
+	}
+	this.goOut = function()
+	{
+		this.position = 'go out';
+	}
+	this.sit = function()
+	{
+		this.status = 'sitting'; 
+	}
+	this.stand = function()
+	{
+		this.status='standing';
+	}
+	this.down = function()
+	{
+		this.status = 'lying';
+	}
+}
+ let myDog = new Dog("dog", "1", "white", "5", "100", "here", "sitting");
+ myDog.bark();
+ myDog.stand();
+
+ console.log(myDog);
+ myDog.down();
