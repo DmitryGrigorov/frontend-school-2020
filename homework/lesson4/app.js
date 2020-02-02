@@ -63,16 +63,15 @@
 // unionObject -> { name: 'Vasya', age: 45, isAdmin: true }
 
     function merge(obj, ...param) {
-        let newObj ={};
         param.forEach(element => {
-            let obj1 = element;
             for (let key in param) {
-                newObj[key] = param[key];
+                obj[key] = param[key];
             }
         });
-        return newObj;
-      
-    }
+
+        return obj;
+    };
+
     let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
     console.log(unionObject);
 
@@ -112,6 +111,18 @@
         currency: '$' 
     };
 
+    item.toString = function() {
+        return this.price + this.currency;
+    };
+
+    item.valueOf = function() {
+        return this.price;
+    };
+
+    console.log(item.toString());
+    console.log(item.valueOf());
+    console.log(item);
+
 
 // 6)
 // напишите конструктор Dog который создает объект со свойствами name, age, breed, weight, height, position, status
@@ -125,42 +136,48 @@
 // dog.down() => Меняет свойство status на строку 'lying';
 //
 // создайте массив с 25 объектами Dog
- function Dog() {
-     this.name = 'Hatiko';
-     this.age = 10;
-     this.breed = 'Akita-inu';
-     this.weight = 15;
-     this.height = 60;
-     this.position = 'park';
-     this.status = 'walking';
-     this.bark = function() {
-         console.log(this.name + ': bark');
-     };
-     this.place = function() {
-         this.position = 'place';
-     };
-     this.come = function() {
-         this.position = 'here';
-     };
-     this.goOut = function() {
-         this.position = 'go out';
-     };
-     this.sit = function() {
-         this.status = 'sitting';
-     };
-     this.stand = function() {
-        this.status = 'standing';
-    };
-    this.down = function() {
-        this.status = 'lying';
-    };
- }
-
-    let dogs = [];
-        for (let i = 0; i < 25; i++) {
-        dogs[i]= new Dog();
+    function Dog() {
+        this.name = 'Hatiko';
+        this.age = 10;
+        this.breed = 'Akita-inu';
+        this.weight = 15;
+        this.height = 60;
+        this.position = 'park';
+        this.status = 'walking';
+        this.bark = function() {
+            console.log(this.name + ': bark');
+        };
+        this.place = function() {
+            this.position = 'place';
+        };
+        this.come = function() {
+            this.position = 'here';
+        };
+        this.goOut = function() {
+            this.position = 'go out';
+        };
+        this.sit = function() {
+            this.status = 'sitting';
+        };
+        this.stand = function() {
+            this.status = 'standing';
+        };
+        this.down = function() {
+            this.status = 'lying';
+        };
     }
-    console.log(dogs);
+    
+    let dogs = [];
+
+    function createDog(arr, count) {
+        for (let i = 0; i < count; i++) {
+        arr[i]= new Dog();
+        };
+        return arr;
+    };
+
+    console.log(createDog(dogs, 25));
+        
     
 
 
