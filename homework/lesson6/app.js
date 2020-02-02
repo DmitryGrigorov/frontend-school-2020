@@ -16,32 +16,6 @@
 // console.log(cat.state); // 'lying'
 // cat.meow(); // выводит в консоль "murzik: meow"
 
-// function CatPat(name) {
-//
-//     this.name = name;
-//     this.state = '';
-//
-//     this.meow = function () {
-//         console.log(this.name + ': meow');
-//     };
-//
-//     this.up = function () {
-//         this.state = 'standing';
-//     };
-//
-//     this.down = function () {
-//         this.state = 'lying';
-//     };
-// }
-// const catPat = new CatPat('Murzik');
-// const cat = Object.create(catPat);
-// console.log(cat.name);
-// cat.up();
-// console.log(cat.state);
-// cat.meow();
-
-// МБ так?
-
 // function Cat(name) {
 //
 //     this.name = name;
@@ -51,23 +25,21 @@
 // const cat = new Cat('Murzik');
 //
 // Cat.prototype.meow = function () {
-//         console.log(this.name + ': meow');
-//     };
+//     console.log(this.name + ': meow');
+// };
 //
 // Cat.prototype.up = function () {
-//         this.state = 'standing';
-//     };
+//     this.state = 'standing';
+// };
 //
 // Cat.prototype.down = function () {
-//         this.state = 'lying';
-//     };
+//     this.state = 'lying';
+// };
+//
 // console.log(cat.name);
 // cat.up();
 // console.log(cat.state);
 // cat.meow();
-
-
-
 
 // 2
 // Cоздайте объект dictionary в котором будут содержаться переводы слов с английского на русский
@@ -81,10 +53,11 @@
 // console.log(dictionary['toString']); // undefined
 
 
-// let dictionary = {
+// const dictionary = new Object(null);
 //
-// };
-
+// dictionary.hello = 'привет';
+// dictionary['good morning'] = 'доброе утро';
+//
 // console.log(dictionary['good morning']);
 // dictionary['world'] = 'мир';
 // console.log(dictionary['world']);
@@ -183,9 +156,7 @@
 // let transport = new Transport();
 //
 // function Car() {
-//     // Transport.call(this);
+//     Transport.call(this);
 // }
 // let car = new Car();
-// Car.prototype = Object.create((Transport.prototype));
-// Car.prototype.constructor = Car;
 // console.log(car);
