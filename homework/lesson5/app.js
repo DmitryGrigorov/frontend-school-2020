@@ -70,37 +70,20 @@
   add(2, 5) // 7
   add(2)(5) // 7
 */
-// function curry(func) {
-//
-//     return function curried(...args) {
-//         if (args.length >= func.length) {
-//             return func.apply(this, args);
-//         } else {
-//             return function(...args2) {
-//                 return curried.apply(this, args.concat(args2));
-//             }
-//         }
-//     };
-//
-// }
-// function curring(array) {
-//     function carry(id1) {
-//             return function (id2) {
-//                 return id1, id2;
-//             }
-//         }
-//
-//     function sum(id1, id2) {
+
+// function add(id1, id2){
+//     let sum = function (id2) {
 //         return id1 + id2;
 //     }
 //
-//     if (array.length !== 1) {
-//         return carry(sum);
+//     if(typeof id2 == 'undefined') {
+//         return sum;
 //     } else {
-//         return sum(array);
+//         return sum (id2);
 //     }
 // }
-// console.log(curring(2, 5));
+// console.log(add(2)(5));
+// console.log(add(2, 5));
 
 /*
   5)
