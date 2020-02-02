@@ -16,6 +16,27 @@
 // console.log(cat.state); // 'lying'
 // cat.meow(); // выводит в консоль "murzik: meow"
 
+function Cat(name) {
+    this.name = name;
+    this.state = 'lying';
+
+    Cat.prototype.meow = () => console.log(`${this.name}: meow`);
+
+    Cat.prototype.up = () => this.state = 'standing';
+
+    Cat.prototype.down = () => this.state = 'lying';
+}
+
+console.log(`#1)`)
+const cat = new Cat('murzik');
+console.log(`cat.name: ${cat.name}`); // 'murzik'
+console.log(`cat.state: ${cat.state}`); // 'lying'
+cat.up();
+console.log(`cat.up -> cat.state: ${cat.state}`); // 'standing'
+cat.down();
+console.log(`cat.down -> cat.state: ${cat.state}`); // 'lying'
+cat.meow(); // выводит в консоль "murzik: meow"
+
 
 // 2
 // Cоздайте объект dictionary в котором будут содержаться переводы слов с английского на русский
@@ -28,11 +49,52 @@
 // console.log(dictionary['good morning']); // 'доброе утро'
 // console.log(dictionary['toString']); // undefined
 
+let dictionary = {};
+dictionary.__proto__ = null;
+dictionary['hello'] = 'привет';
+dictionary['good morning'] = 'доброе утро';
+
+console.log(`\n#2) dictionary['hello']: ${dictionary['hello']}`);
+console.log(`dictionary['good morning']: ${dictionary['good morning']}`);
+console.log(`dictionary['toString']: ${dictionary['toString']}`);
+
+
 // 3
 // Напишите полифил для метода массива forEach
 
+(function () {
+    if (!Array.prototype.forEach) {
+        Array.prototype.forEach = function (element) {
+            for (let i = 0; i < this.length; i++) {
+                return this[i];
+            }
+        }
+    }
+})();
+let arr = [1, 2, 3, 4, 5];
+
+console.log(`\n#3) arr: ${arr}`);
+arr.forEach((x) => console.log(`x: ${x}`));
+
+
 // 4
 // Напишите полифил для метода массива join
+
+(function () {
+    if (!Array.prototype.join) {
+        Array.prototype.join = function (separator) {
+            let result = this[0];
+            for (let i = 1; i < this.length; i++)
+                result += separator + this[i];
+            separator(result);
+        }
+    }
+})();
+arr = [1, 2, 3, 4, 5];
+
+console.log(`\n#4) arr: ${arr}`);
+console.log(`arr.join('&'): ${arr.join('&')}`);
+
 
 // 5 (наследование свойст без прототипов)
 // Создайте два конструктора Animal и Dog
@@ -43,6 +105,24 @@
 // Реализуйте наследование класса Animal классом Dog,
 // так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
 // Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
+
+function Animal(movingType, color) {
+    this.movingType = movingType;
+    this.color = color;
+}
+
+function Dog(name, age, weight, ...args) {
+    Animal.apply(this, args);
+    this.name = name;
+    this.age = age;
+    this.weight = weight;
+}
+
+const someDog = new Dog('walking', 'black', 'tuzik', 4, 10);
+
+console.log(`\n#5) someDog:`);
+console.log(someDog);
+
 
 // 6 (наследование через прототипы)
 // Создайте два конструктора Transport и Car
@@ -59,3 +139,26 @@
 // console.log(someCar.status); // 'stopped'
 // console.log(someCar.run()); // 'running'
 // console.log(someCar.stop()); // 'stopped'
+
+function Transport(status) {
+    Transport.prototype.status = 'stopped';
+    Transport.prototype.run = () => this.status = 'running';
+    Transport.prototype.stop = () => this.status = 'stopped';
+}
+
+function Car() {
+
+}
+
+Car.prototype = Object.create(Transport.prototype);
+Car.prototype.constructor = Transport;
+const someTransport = new Transport();
+
+console.log(`\n#6) :`);
+console.log(`someTransport.status: ${someTransport.status}`); // 'stopped'
+console.log(`someTransport.run(): ${someTransport.run()}`); // 'running'
+console.log(`someTransport.stop(): ${someTransport.stop()}`); // 'stopped'
+const someCar = new Car();
+console.log(`someCar.status: ${someCar.status}`); // 'stopped'
+console.log(`someCar.run(): ${someCar.run()}`); // 'running'
+console.log(`someCar.stop(): ${someCar.stop()}`); // 'stopped'
