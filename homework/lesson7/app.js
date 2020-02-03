@@ -19,7 +19,26 @@
     cat.meow(); // выводит в консоль "murzik: meow"
  */
 
- /*
+class Cat {
+  constructor(name) {
+    this.name = name;
+    this.state = "lying";
+  }
+
+  meow() {
+    console.log(`${this.name}: meow`);
+  }
+
+  up() {
+    this.state = "standing";
+  }
+
+  down() {
+    this.state = "lying";
+  }
+}
+
+/*
     2)
 
     Создайте два класса Animal и Dog
@@ -32,7 +51,23 @@
     Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
  */
 
- /*
+class Animal {
+  constructor(movingType, color) {
+    this.movingType = movingType;
+    this.color = color;
+  }
+}
+
+class Dog extends Animal {
+  constructor(movingType, color, name, age, weight) {
+    super(movingType, color);
+    this.name = name;
+    this.age = age;
+    this.weight = weight;
+  }
+}
+
+/*
     3)
 
     Создайте два конструктора Transport и Car
@@ -50,6 +85,26 @@
     console.log(someCar.run()); // 'running'
     console.log(someCar.stop()); // 'stopped'
  */
+
+class Transport {
+  constructor() {
+    this.status = "stopped";
+  }
+
+  run() {
+    return (this.status = "running");
+  }
+
+  stop() {
+    return (this.status = "stopped");
+  }
+}
+
+class Car extends Transport {
+  constructor() {
+    super();
+  }
+}
 
 /*
    4)
@@ -77,3 +132,56 @@
      которые смогут отсортировать массив по именам (в алфавитном порядке)
      или росту (по убыванию роста). Вызовите только функцию сортировки по росту.
 */
+
+class Human {
+  constructor(name, age, height) {
+    this.name = name;
+    this.age = age;
+    this.height = height;
+  }
+
+  getInfo() {
+    return `${this.name}, ${this.age}, ${this.height}`;
+  }
+
+  get firstname() {
+    return this.name;
+  }
+
+  set firstname(name) {
+    this.name = name;
+  }
+}
+
+const humanArray = [
+  ["Коля", 23, 180],
+  ["Даша", 19, 170],
+  ["Ваня", 18, 192],
+  ["Петя", 45, 178],
+  ["Вася", 34, 197],
+  ["Джони", 40, 168],
+  ["Катя", 37, 160],
+  ["Петя", 29, 200],
+  ["Соня", 21, 172],
+  ["Женя", 25, 175]
+];
+
+const humans = humanArray.map(value => new Human(...value));
+
+const sortByName = arr =>
+  arr.sort((a, b) => {
+    if (a.firstname > b.firstname) return 1;
+    if (b.firstname > a.firstname) return -1;
+    return 0;
+  });
+
+const sortByHeight = arr =>
+  arr.sort((a, b) => {
+    if (a.height > b.height) return 1;
+    if (b.height > a.height) return -1;
+    return 0;
+  });
+
+sortByHeight(humans);
+
+console.log(humans);
