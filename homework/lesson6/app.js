@@ -106,11 +106,11 @@ function Transport() {
   this.status = "stopped";
 
   Transport.prototype.run = function() {
-    this.status = "running";
+    return (this.status = "running");
   };
 
   Transport.prototype.stop = function() {
-    this.status = "stopped";
+    return (this.status = "stopped");
   };
 }
 
@@ -119,3 +119,4 @@ function Car() {
 }
 
 Car.prototype = new Object(Transport.prototype);
+Car.prototype.constructor = Car;
