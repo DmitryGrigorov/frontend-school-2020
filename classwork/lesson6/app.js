@@ -1,20 +1,20 @@
-// конструктор с прототипом
-// function Car() {
-//   this.state = 'stopped';
-// }
+//конструктор с прототипом
+function Car() {
+  this.state = 'stopped';
+}
 
-// Car.prototype.run = function() {
-//   this.state = 'running';
-// }
+Car.prototype.run = function() {
+  this.state = 'running';
+}
 
-// console.log(Car === Car.prototype.constructor);
-// const someCar = new Car();
-// console.log(someCar);
-// someCar.run();
-// console.log(someCar);
+console.log(Car === Car.prototype.constructor);
+const someCar = new Car();
+console.log(someCar);
+someCar.run();
+console.log(someCar);
 
-// someCar.__proto__.run
-// someCar
+someCar.__proto__.run
+someCar
 
 // способы задания прототипов
 // let someObj = {};
@@ -24,30 +24,30 @@
 // Object.setPrototypeOf(someObj, { b: 1 });
 // console.log(someObj);
 
-// const someObj = Object.create(null);
+const someObj = Object.create(null);
 
-// someObj.hello = 'привет';
-// console.log(someObj);
+someObj.hello = 'привет';
+console.log(someObj);
 
 // встроенные объекты, полифилы
-// const arr = ['a', 'b', 'c']; // new Array();
-// console.log(arr.join('-'));
-// Array.prototype.join = undefined;
-//  смотри join-polyfill.js
+const arr = ['a', 'b', 'c']; // new Array();
+console.log(arr.join('-'));
+Array.prototype.join = undefined;
+ //смотри join-polyfill.js
 
-// защищенные свойства
-// function User(name) {
-//   let age = 15;
+//защищенные свойства
+function User(name) {
+  let age = 15;
 
-//   this.name = name;
+  this.name = name;
 
-//   this.sayHello = function() {
-//     return this.name + ' says hello ' + age;
-//   }
-// }
-// const user = new User('Petya');
-// console.log('user: ', user);
-// console.log(user.sayHello());
+  this.sayHello = function() {
+    return this.name + ' says hello ' + age;
+  }
+}
+const user = new User('Petya');
+console.log('user: ', user);
+console.log(user.sayHello());
 
 
 // наследование свойств не из прототипа
@@ -67,6 +67,7 @@ function Cat(name, ...args) {
   this.name = name;
 }
 
+// наследование свойств через прототипом
 const prototypeConnector = Object.create(Animal.prototype);
 
 Cat.prototype = prototypeConnector;
@@ -78,8 +79,8 @@ Cat.prototype.run = function() {
 const someAnimal = new Animal(4);
 const someCat = new Cat('barsik', 4);
 
-// console.log(someAnimal);
-// console.log(someCat.run());
+console.log(someAnimal);
+console.log(someCat.run());
 console.log(someCat);
 console.log(someCat.run());
 
