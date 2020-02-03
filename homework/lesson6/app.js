@@ -69,10 +69,24 @@
 // 3
 // Напишите полифил для метода массива forEach
 
+// см файл forEach-polyfill.js
+//имитация работы старого браузера в том же файле
 
+//проверка работы
+const arr1 = [1, 2, 3];
+arr1.forEach(function(item){
+    console.log(item);
+});
 
 // 4
 // Напишите полифил для метода массива join
+
+// см файл join-polyfill.js
+//имитация работы старого браузера в том же файле
+
+//проверка работы
+const arr2 = [1, 2, 3];
+console.log(arr2.join('-'));
 
 // 5 (наследование свойст без прототипов)
 // Создайте два конструктора Animal и Dog
@@ -130,17 +144,19 @@ function Transport(){
 function Car(){
    
 }
-Object.setPrototypeOf(Car.prototype, Transport.prototype)
+Car.prototype=new Transport();
 
-// const someTransport = new Transport();
-// console.log(someTransport.status); // 'stopped'
-// someTransport.run(); // 'running'
-// console.log(someTransport.status); 
-// someTransport.stop(); // 'stopped'
-// console.log(someTransport.status); 
-// const someCar = new Car();
-// console.log(someCar.status); // 'stopped'
-// someCar.run(); // 'running'
-// console.log(someCar.status);
-// someCar.stop(); // 'stopped'
-// console.log(someCar.status);
+ 
+
+const someTransport = new Transport();
+console.log(someTransport.status); // 'stopped'
+someTransport.run(); // 'running'
+console.log(someTransport.status); 
+someTransport.stop(); // 'stopped'
+console.log(someTransport.status); 
+const someCar = new Car();
+console.log(someCar.status); // 'stopped'
+someCar.run(); // 'running'
+console.log(someCar.status);
+someCar.stop(); // 'stopped'
+console.log(someCar.status);

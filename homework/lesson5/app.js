@@ -91,8 +91,20 @@ console.log(sum(10, 20, 3, 7)); // 40
   add(2, 5) // 7
   add(2)(5) // 7
 */
+function add(x, y){
+  let newX = x;
+  let newY = y;
+  if (newY === undefined){
+    return function (newY){
+      return newX + newY;
+    }
+  }
+  return x+y;
+}
 
-
+console.log('add');
+console.log(add(2, 5));
+console.log(add(2)(5));
 /*
   5)
   Написать функцию sortOdd(), которая сортирует только четные числа в массиве:
