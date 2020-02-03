@@ -151,7 +151,7 @@ console.log(someDog);
 // console.log(someCar.stop()); // 'stopped'
 
 function Transport() {
-    this.status = 'ok';
+    this.status = 'stopped';
     this.run = function() {
         this.status = 'running';
     };
@@ -164,12 +164,9 @@ function Car() {
     Transport.apply(this);
 }
 
-//Car.prototype.constructor = Transport; //так тоже работает
-Car.prototype.constructor = Object.create(Transport.prototype);
-
-// const prototypeConnector = Object.create(Transport.prototype);
-// Car.prototype = prototypeConnector;
-// Car.prototype.constructor = Car;
+const prototypeConnector = Object.create(Transport.prototype);
+Car.prototype = prototypeConnector;
+Car.prototype.constructor = Car;
 
 const someTransport = new Transport();
 console.log(someTransport.status); 
