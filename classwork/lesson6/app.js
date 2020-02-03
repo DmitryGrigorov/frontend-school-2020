@@ -1,108 +1,100 @@
 // конструктор с прототипом
-
-// function Car(){
-//     this.state = 'stopped';
-
+// function Car() {
+//   this.state = 'stopped';
 // }
 
-
-// Car.prototype.run = function(){
-//     this.state = 'running';
+// Car.prototype.run = function() {
+//   this.state = 'running';
 // }
 
-//console.log(Car === Car.prototype.constructor);
-
+// console.log(Car === Car.prototype.constructor);
 // const someCar = new Car();
-
+// console.log(someCar);
+// someCar.run();
 // console.log(someCar);
 
-// // someCar.__proto__.run
-// // someCar
-// someCar.run();
+// someCar.__proto__.run
+// someCar
 
 // способы задания прототипов
-
-//let someObj = {};
-
-// someObj.__proto__ = new Object({a:1});
-
-// Object.setPrototypeOf(someObj,{b:1});
-
-// const someObj = Object.create({c:3});
-// const someObj = Object.create(null);
-
+// let someObj = {};
+// someObj.__proto__ = new Object({ a: 1 });
 // console.log(someObj);
 
-// someObj.hello = 'привет'
+// Object.setPrototypeOf(someObj, { b: 1 });
+// console.log(someObj);
 
+// const someObj = Object.create(null);
+
+// someObj.hello = 'привет';
 // console.log(someObj);
 
 // встроенные объекты, полифилы
-
-// const arr = ['a', 'b', 'c'];
+// const arr = ['a', 'b', 'c']; // new Array();
 // console.log(arr.join('-'));
 // Array.prototype.join = undefined;
-//console.log(arr.join('.'));
+//  смотри join-polyfill.js
 
-// (function(){
-// if(!Array.prototype.join){
-//     Array.prototype.join = function(separator){
-//         var result = '';
-
-//         for (var i = 0; i < this.length; i++){
-//             if(result){
-//                 result = result + separator + this[i];
-//             } else {
-//                 result = result + this[i];
-//             }  
-//         }
-
-//         return result;
-//     }
-// }})();
-
-// console.log(arr.join(','));
 // защищенные свойства
+// function User(name) {
+//   let age = 15;
 
-function User(name){
-    let age = 15;
+//   this.name = name;
 
-    this.name = name;
-
-    this.sayHello = function(){
-        return this.name + 'says hello ' + age;
-    }
-}
-
-const user = new User('Petya');
-
+//   this.sayHello = function() {
+//     return this.name + ' says hello ' + age;
+//   }
+// }
+// const user = new User('Petya');
 // console.log('user: ', user);
 // console.log(user.sayHello());
 
 
 // наследование свойств не из прототипа
 
-function Animal(powCount){
-    this.powCount = powCount;
+function Animal(powCount) {
+  // *
+  this.powCount = powCount;
 }
 
-Animal.prototype.run = function(){
-    console.log('run');
+Animal.prototype.run = function() {
+  console.log('rUUUUn');
 }
 
-function Cat(name, ...args){
-    Animal.apply(this, args);
-
-    this.name = name;
+function Cat(name, ...args) {
+  // this = {}
+  Animal.apply(this, args);
+  this.name = name;
 }
 
 const prototypeConnector = Object.create(Animal.prototype);
 
 Cat.prototype = prototypeConnector;
 Cat.prototype.constructor = Cat;
+Cat.prototype.run = function() {
+  console.log('cat run');
+}
 
 const someAnimal = new Animal(4);
-const someCat = new Cat('Barsik', 4);
+const someCat = new Cat('barsik', 4);
 
-console.log(someAnimal);
+// console.log(someAnimal);
+// console.log(someCat.run());
+console.log(someCat);
 console.log(someCat.run());
+
+let someObj = {
+  a: 1,
+
+  __proto__: {
+    b: 2
+  }
+}
+
+console.log(someObj);
+console.log(someObj.a);
+console.log(someObj.b);
+someObj.a = 3;
+console.log(someObj.a);
+someObj.b = 4;
+console.log(someObj);
