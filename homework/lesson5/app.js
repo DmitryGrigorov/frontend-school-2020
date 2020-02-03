@@ -158,9 +158,9 @@ console.log( findMax(0, 2, 12, 4, 5) );
   findMax(0, 2, 12, 4, 5) // 0
 */
 
-function  findMin() {
+function  findMin(...rest) {
   
-  return Math.min.apply(null, arguments)
+  return Math.min.apply(null, rest)
 }
 
 console.log( findMin(9, 8, 7, 6, 5, 4, 3, 2, 1) );
