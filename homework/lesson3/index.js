@@ -124,6 +124,7 @@ console.log(camelize('background-color-asdasda-d-as-das-d-as-da-sd-as-d-asd'));
     alert( arr ); // HTML, JavaScript, CSS (без изменений)
 
 */
+/*
 let arr = ["HTML", "JavaScript", "CSS"];
 
 function copySorted(arr) {
@@ -132,6 +133,7 @@ function copySorted(arr) {
 let sorted = copySorted(arr);
 alert (sorted);
 alert (arr);
+*/
 /*
     6)
     Написать функцию, которая считает сумму элементов массива кратных числу 2.
@@ -141,3 +143,7 @@ alert (arr);
     sum(1, 2, 3, 4, 5) // 6
     sum(3, 8, 1, 40, 6) // 54
 */
+
+function sum2() {
+
+}

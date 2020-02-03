@@ -59,6 +59,7 @@
 // dog.down() => Меняет свойство status на строку 'lying';
 //
 // создайте массив с 25 объектами Dog
+/*
 function pow(x, n) {
     let result = 1;
   
@@ -72,4 +73,14 @@ function pow(x, n) {
   
   alert( pow(2, 3) ); // 8
   console.log(pow);
-  
+  */
+
+ let animal = {
+  eats: true
+};
+let rabbit = {
+  jumps: true
+};
+
+rabbit.__proto__ = animal;
+

@@ -5,16 +5,28 @@
 // meow - выводит в консоль строку "ИМЯ_КОШКИ: meow"
 // up - меняет состояние кошки на 'standing'
 // down - меняет состояние кошки на 'lying'
-//
-// Например:
-// const cat = new Cat('murzik');
-// console.log(cat.name); // 'murzik'
-// console.log(cat.state); // 'lying'
-// cat.up();
-// console.log(cat.state); // 'standing'
-// cat.down();
-// console.log(cat.state); // 'lying'
-// cat.meow(); // выводит в консоль "murzik: meow"
+
+ //Например:::
+function Cat(name) {
+    this.state = 'standing';
+    this.name = name;
+    
+}
+Cat.prototype.constructor = function() {
+    this.state = 'lying';
+}
+
+
+ const cat = new Cat('Tom');
+
+ console.log(cat.name); // 'murzik'
+ console.log(cat.state); // 'lying'
+
+ cat.up();
+ console.log(cat.state); // 'standing'
+ cat.down();
+ console.log(cat.state); // 'lying'
+ cat.meow(); // выводит в консоль "murzik: meow"
 
 
 // 2
