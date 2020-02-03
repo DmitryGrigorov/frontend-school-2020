@@ -114,6 +114,3 @@ function divTwoArraySumm(arr) {
   return summ;
 }
 
-let arr = [0,1,2,3,4,5, 6, 8, 100, 101];
-console.log(divTwoArraySumm(arr));
-
