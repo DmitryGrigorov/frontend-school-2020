@@ -22,20 +22,25 @@
 class Cat {
     name;
     state;
+
     constructor(name) {
         this.name = name;
         this.state = 'lying';
     }
+
     up() {
         this.state = 'standing';
     }
+
     down() {
         this.state = 'lying';
     }
+
     meow() {
-        console.log(this.name+': meow');
+        console.log(this.name + ': meow');
     }
 }
+
 console.log('1)');
 const cat = new Cat('murzik');
 console.log(cat.name); // 'murzik'
@@ -58,6 +63,46 @@ cat.meow(); // выводит в консоль "murzik: meow"
    так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
    Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
 */
+
+class Animal {
+    movingType;
+    color;
+
+    constructor(movingType, color) {
+        this.movingType = movingType;
+        this.color = color;
+    }
+}
+
+class Dog extends Animal {
+    name;
+    age;
+    weight;
+
+    constructor(...args) {
+        if (args.length == 3) {
+            super('standing', 'white');
+            this.name = args[0]
+            this.age = args[1]
+            this.weight = args[2]
+        }
+        else {
+            super(args[0], args[1]);
+            this.name = args[2]
+            this.age = args[3]
+            this.weight = args[4]
+        }
+
+    }
+}
+
+console.log('2)')
+const someAnimal = new Animal('walking', 'black'); // { movingType: 'walking', color: 'black' };
+console.log(someAnimal);
+const someDog = new Dog('tuzik', 4, 10); // { name: 'tuzik', age: 4, weight: 10 };
+console.log(someDog);
+const someDog2 = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
+console.log(someDog2);
 
 /*
    3)
