@@ -79,9 +79,7 @@ document.write(fib(77))
  const sum = (...props) => {
   let sum = 0
 
-  for(let key in props){
-   sum += props[key]
-  }
+  props.forEach(function(v, k, props){ sum += v })
 
   return sum
  }
@@ -98,15 +96,15 @@ document.write(sum(10, 20, 3, 7))
   add(2)(5) // 7
 
 Решение:
-*/
+* /
 function add(...props){
  let sum = 0
 
  if(props.length > 1){
-  for(let key in props){ sum += props[key] }
+  props.forEach(function(v, k, props){ sum += v })
   return sum
  } else{
-  return (b) => { return sum = +b + +props }
+  return (b) => { return sum = b + +props }
  }
 }
 document.write(add(2, 5) + '<br>')
@@ -122,6 +120,32 @@ document.write(add(2)(5))
 
 Решение:
 * /
+function sortOdd(aOld){
+ let aA = [] //Чётные значения
+ let aB = [] //Нечётные значения
+ let aA_ = [] //Ключи чётных
+ let aB_ = [] //Ключи нечётных
+ let aNew = []
+
+ aOld.forEach(function(v, k, aOld){
+  if(v % 2){
+   aB.push(v)
+   aB_.push(k)
+  } else{
+   aA.push(v)
+   aA_.push(k)
+  }
+ })
+
+ aA.sort()
+
+ aA.forEach(function(v, k, aA){ aNew[aA_[k]] = v })
+ aB.forEach(function(v, k, aB){ aNew[aB_[k]] = v })
+
+ return aNew
+}
+
+document.write(sortOdd([9, 8, 7, 6, 5, 4, 3, 2, 1]))
 //*/
 
 /*
@@ -134,6 +158,14 @@ document.write(add(2)(5))
 
 Решение:
 * /
+function findMax(...props){
+ props.forEach(function(v, k, props){ if(typeof(max) === 'undefined' || v > max){ max = v } })
+
+ return max
+}
+
+document.write(findMax(9, 8, 7, 6, 5, 4, 3, 2, 1) + '<br>')
+document.write(findMax(0, 2, 12, 4, 5))
 //*/
 
 /*
@@ -141,11 +173,19 @@ document.write(add(2)(5))
   Написать функцию findMin(), которая найдет минимальный элемент из аргументов:
 
   // Examples:
-  findMax(9, 8, 7, 6, 5, 4, 3, 2, 1) // 1
-  findMax(0, 2, 12, 4, 5) // 0
+  findMin(9, 8, 7, 6, 5, 4, 3, 2, 1) // 1
+  findMin(0, 2, 12, 4, 5) // 0
 
 Решение:
 * /
+function findMin(...props){
+  props.forEach(function(v, k, props){ if(typeof(min) === 'undefined' || v < min){ min = v } })
+ 
+  return min
+ }
+
+ document.write(findMin(9, 8, 7, 6, 5, 4, 3, 2, 1) + '<br>')
+ document.write(findMin(0, 2, 12, 4, 5))
 //*/
 
 
@@ -159,4 +199,16 @@ document.write(add(2)(5))
 
 Решение:
 * /
+function pushZeros(aOld){
+ let aNew = []
+ let countOfZero = 0
+
+ aOld.forEach(function(v, k, aOld){ (v !== 0 ) ? aNew.push(v) : countOfZero++ })
+ for(let i = 0; i < countOfZero; i++){ aNew.push(0) }
+ 
+ return aNew
+}
+
+document.write(pushZeros([0, 9, 0, 8, 7, 0, 6, 5, 4, 3, 2, 1]) + '<br>')
+document.write(pushZeros([0, 2, 12, 4, 5]))
 //*/
