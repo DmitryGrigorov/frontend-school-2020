@@ -17,11 +17,32 @@
     cat.down();
     console.log(cat.state); // 'lying'
     cat.meow(); // выводит в консоль "murzik: meow"
- */
+
+Решение:
+* /
+class Cat{
+ constructor(name){
+  this.state = 'lying'
+  this.name = name
+ }
+
+ meow = () => { console.log(this.name + ': meow') }
+ up = () => { this.state = 'standing' }
+ down = () => { this.state = 'lying' }
+}
+
+const cat = new Cat('murzik')
+console.log(cat.name)
+console.log(cat.state)
+cat.up()
+console.log(cat.state)
+cat.down()
+console.log(cat.state)
+cat.meow()
+//*/
 
  /*
     2)
-
     Создайте два класса Animal и Dog
     У всех экземпляров класса Animal есть собственные (не наследуемые) свойства: { movingType, color }
     Например: const someAnimal = new Animal('walking', 'black'); // { movingType: 'walking', color: 'black' };
@@ -30,11 +51,32 @@
     Реализуйте наследование класса Animal классом Dog,
     так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
     Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
- */
+
+Решение:
+* /
+class Animal{
+ constructor(movingType, color){
+  this.movingType = movingType
+  this.color = color
+ }
+}
+
+class Dog extends Animal{
+ constructor(name, age, weight, ...props){
+  super(...props)
+
+  this.name = name
+  this.age = age
+  this.weight = weight
+ }
+}
+
+const someDog = new Dog('tuzik', 4, 10, 'walking', 'black')
+console.log(someDog)
+//*/
 
  /*
     3)
-
     Создайте два конструктора Transport и Car
     Эклемпляры конструктора Transport имеют свойтсво status и методы run и stop,
     которые меняют свойсто status на 'running' и 'stopped' соответсвтенно.
@@ -49,7 +91,38 @@
     console.log(someCar.status); // 'stopped'
     console.log(someCar.run()); // 'running'
     console.log(someCar.stop()); // 'stopped'
- */
+
+Решение:
+* /
+class Transport{
+ constructor(){
+  this.status = 'stopped'
+ }
+
+ run(){
+  this.status = 'running'
+  return this.status
+ }
+ stop(){
+  this.status = 'stopped'
+  return this.status
+ }
+}
+class Car extends Transport{
+ constructor(...props){
+  super(...props)
+ }
+}
+
+const someTransport = new Transport()
+console.log(someTransport.status)
+console.log(someTransport.run())
+console.log(someTransport.stop())
+const someCar = new Car()
+console.log(someCar.status)
+console.log(someCar.run())
+console.log(someCar.stop())
+//*/
 
 /*
    4)
@@ -76,4 +149,7 @@
    — Напишите функции сортировки sortByName и sortByHeight,
      которые смогут отсортировать массив по именам (в алфавитном порядке)
      или росту (по убыванию роста). Вызовите только функцию сортировки по росту.
+
+Решение:
 */
+//*/
