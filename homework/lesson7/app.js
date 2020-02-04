@@ -85,8 +85,7 @@ class Dog extends Animal {
             this.name = args[0]
             this.age = args[1]
             this.weight = args[2]
-        }
-        else {
+        } else {
             super(args[0], args[1]);
             this.name = args[2]
             this.age = args[3]
@@ -106,11 +105,10 @@ console.log(someDog2);
 
 /*
    3)
-
-   Создайте два конструктора Transport и Car
-   Эклемпляры конструктора Transport имеют свойтсво status и методы run и stop,
+   Создайте два класса Transport и Car
+   Эклемпляры класса Transport имеют свойтсво status и методы run и stop,
    которые меняют свойсто status на 'running' и 'stopped' соответсвтенно.
-   Унаследуйте эти методы и свойство конструктором Car
+   Унаследуйте эти методы и свойство классом Car
 
    Например:
    const someTransport = new Transport();
@@ -122,6 +120,32 @@ console.log(someDog2);
    console.log(someCar.run()); // 'running'
    console.log(someCar.stop()); // 'stopped'
 */
+
+class Transport {
+    status = 'stopped';
+
+    run() {
+        return this.status = 'running';
+    }
+
+    stop() {
+        return this.status = 'stopped';
+    }
+}
+
+class Car extends Transport {
+
+}
+
+console.log('3)');
+const someTransport = new Transport();
+console.log(someTransport.status); // 'stopped'
+console.log(someTransport.run()); // 'running'
+console.log(someTransport.stop()); // 'stopped'
+const someCar = new Car();
+console.log(someCar.status); // 'stopped'
+console.log(someCar.run()); // 'running'
+console.log(someCar.stop()); // 'stopped'
 
 /*
    4)
