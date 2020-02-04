@@ -1,0 +1,19 @@
+{
+  "folders": [
+	{
+		"path": "."
+	},
+	{
+		"path": "E:\\web\\frontend-school-2020\\homework\\lesson3"
+	},
+	{
+		"path": "E:\\web\\frontend-school-2020\\homework\\lesson4"
+	},
+	{
+		"path": "E:\\web\\frontend-school-2020\\homework\\lesson5"
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "lesson4"
+  }
+}
