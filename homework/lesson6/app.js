@@ -118,6 +118,7 @@
 // так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
 // Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
 
+/* 1 способ */
 // function Animal(movingType, color) {
 //     this.movingType = movingType,
 //     this.color = color
@@ -130,6 +131,7 @@
 //     this.weight = weight;
 // }
 
+/* 2 способ */
 // someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
 // console.log(someDog);
 
