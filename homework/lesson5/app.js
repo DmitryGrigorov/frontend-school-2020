@@ -9,19 +9,19 @@
   sumTo(4) = 4 + 3 + 2 + 1 = 10
 */
 //Ответ
-
-function sumTo(n){
-    if (n===1){
+/*
+function sumTo(n) {
+  if (n === 1) {
     return n;
+  } else {
+    return (n = n + sumTo(n - 1));
   }
-  else
-  for(let i=1;i<n;i--){
-    n+=i;
-  }
-  return n;
 }
-sumTo(2);
-
+console.log(sumTo(1));
+console.log(sumTo(2));
+console.log(sumTo(3));
+console.log(sumTo(4));
+*/
 
 /*
   2)
@@ -39,6 +39,19 @@ sumTo(2);
   alert(fib(3)); // 2
   alert(fib(7)); // 13
   alert(fib(77)); // 5527939700884757
+*/
+//Ответ
+/*
+function fib(n) {
+  if (n <= 1) {
+    return n;
+  } else {
+    return (n = fib(n - 1) + fib(n - 2));
+  }
+}
+console.log(fib(3));
+console.log(fib(7));
+console.log(fib(77));
 */
 
 /* 
@@ -61,7 +74,16 @@ sumTo(2);
   console.log(sum(10, 20, 3, 7)); // 40
 
 
+
   Используя rest-операторы, перепишите эту функцию так, чтобы не использовать arguments.
+*/
+//Ответ
+/*
+function sum(...rest) {
+  rest.reduce((sum,items)=>sum + items,0)}
+console.log(sum(1, 2, 3)); // 6
+console.log(sum(5, 5)); // 10
+console.log(sum(10, 20, 3, 7)); //40
 */
 
 /*
@@ -96,7 +118,6 @@ sumTo(2);
   findMax(9, 8, 7, 6, 5, 4, 3, 2, 1) // 1
   findMax(0, 2, 12, 4, 5) // 0
 */
-
 
 /*
   8)
