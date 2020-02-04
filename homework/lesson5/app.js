@@ -7,6 +7,12 @@
   sumTo(2) = 2 + 1 = 3
   sumTo(3) = 3 + 2 + 1 = 6
   sumTo(4) = 4 + 3 + 2 + 1 = 10
+
+  //Решение:
+
+  function sumTo(n) {
+    return (n == 1) ? 1 : (n + sumTo(n - 1));
+  }
 */
 
 /*
@@ -25,6 +31,12 @@
   alert(fib(3)); // 2
   alert(fib(7)); // 13
   alert(fib(77)); // 5527939700884757
+
+  //Решение:
+
+  function fib(n) {
+    return n <= 1 ? n : fib(n - 1) + fib(n - 2);
+  }
 */
 
 /* 
@@ -48,6 +60,18 @@
 
 
   Используя rest-операторы, перепишите эту функцию так, чтобы не использовать arguments.
+
+
+  //Решение:
+
+  function sum(...rest) {
+    let sum = 0;
+    for(let i = 0; i < rest.length; i++) {
+      sum += rest[i];
+    }
+
+  return sum;
+}
 */
 
 /*
@@ -55,6 +79,12 @@
 
   add(2, 5) // 7
   add(2)(5) // 7
+
+  //Решение:
+
+  function add(a, b){
+    return a && b ? a + b : function(c) { return a + c; };
+  }
 */
 
 /*
@@ -63,6 +93,30 @@
 
   // Examples:
   sort([9, 8, 7, 6, 5, 4, 3, 2, 1]) // [9, 2, 7, 4, 5, 6, 3, 8, 1]
+
+  // Решение 
+
+  let arr = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+
+  function sortOdd(arr) {
+    let sortArr = [];
+
+    arr.forEach(function (i) {
+      if (i % 2 === 0) {
+        sortArr.push(i);
+      }
+    });
+
+    sortArr.sort((a, b) => a - b);
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] % 2 == 0) {
+        arr[i] = sortArr.shift();
+      }
+    }
+
+    return arr;
+  }
 */
 
 /*
@@ -72,6 +126,14 @@
   // Examples:
   findMax(9, 8, 7, 6, 5, 4, 3, 2, 1) // 9
   findMax(0, 2, 12, 4, 5) // 12
+
+  //Решение:
+
+  function findMax(...arg) {
+    return Math.max(...arg);
+  }
+
+  alert(findMax(9, 8, 7, 6, 5, 4, 3, 2, 1));
 */
 
 /*
@@ -81,8 +143,15 @@
   // Examples:
   findMax(9, 8, 7, 6, 5, 4, 3, 2, 1) // 1
   findMax(0, 2, 12, 4, 5) // 0
-*/
 
+  //Решение:
+
+  function findMin(...arg) {
+    return Math.min(...arg);
+  }
+
+  alert(findMin(0, 2, 12, 4, 5));
+*/
 
 /*
   8)
@@ -91,4 +160,10 @@
   // Examples:
   pushZeros([0, 9, 0, 8, 7, 0, 6, 5, 4, 3, 2, 1]) // [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 0, 0]
   pushZeros([0, 2, 12, 4, 5]) // [2, 12, 4, 5, 0]
+
+  //Решение:
+
+  function pushZeros (arr) {
+    return arr.sort((a) => a > 0 ? -1 : 1);
+  }
 */

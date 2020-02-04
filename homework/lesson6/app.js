@@ -1,3 +1,19 @@
+function makeWorker() {
+  let name = "Pete";
+
+  return function() {
+    alert(name);
+  };
+}
+
+let name = "John";
+
+// create a function
+let work = makeWorker();
+
+// call it
+work(); // что будет показано? "Pete" (из места создания) или "John" (из места выполнения)
+
 // 1
 // Создайте конструктор Cat экземпляры которого (объекты созданные с помощью данного конструктора)
 // должны содержать свойства { name, state }
