@@ -42,7 +42,6 @@ Cat.prototype.down = function () {
 // console.log(dictionary['good morning']); // 'доброе утро'
 // console.log(dictionary['toString']); // undefined
 let dictionary = Object.create(null);
-console.log(dictionary);
 dictionary.hello = 'привет';
 dictionary.cat = 'кошка';
 dictionary.dog = 'собака';
@@ -62,11 +61,11 @@ dictionary.box = 'коробка';
 // 4
 // Напишите полифил для метода массива join
 (function () {
-    if (!Array.prototype.joi) {
-        Array.prototype.joi = function (separator) {
+    if (!Array.prototype.join()) {
+        Array.prototype.join = function (separator) {
             let str = '';
             for (let i = 0; i < this.length; i++) {
-                str += str ? separator + this[i]: this[i];
+                str += str ? separator + this[i] : this[i];
             }
             return str;
         }
@@ -81,6 +80,17 @@ dictionary.box = 'коробка';
 // Реализуйте наследование класса Animal классом Dog,
 // так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
 // Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
+function Animal(movingType, color) {
+    this.movingType = movingType;
+    this.color = color;
+}
+
+function Dog(name, age, weight, ...args) {
+    Animal.apply(this, args);
+    this.name = name;
+    this.age = age;
+    this.weight = weight;
+}
 
 // 6 (наследование через прототипы)
 // Создайте два конструктора Transport и Car
@@ -88,6 +98,25 @@ dictionary.box = 'коробка';
 // которые меняют свойсто status на 'running' и 'stopped' соответсвтенно.
 // Унаследуйте эти методы и свойство конструктором Car
 //
+function Transport() {}
+Transport.prototype.status = 'stopped';
+Transport.prototype.run = () => this.status = 'running';
+Transport.prototype.stop = () => this.status = 'stopped';
+
+function Car() {}
+Car.prototype = Transport.prototype;
+
+
+const someTransport = new Transport();
+console.log(someTransport); // 'stopped'
+console.log(someTransport.run()); // 'running'
+console.log(someTransport.stop()); // 'stopped'
+const someCar = new Car();
+console.log(someCar.status); // 'stopped'
+console.log(someCar.run()); // 'running'
+console.log(someCar.stop()); // 'stopped'
+
+
 // Например:
 // const someTransport = new Transport();
 // console.log(someTransport.status); // 'stopped'
