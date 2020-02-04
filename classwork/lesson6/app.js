@@ -1,18 +1,4 @@
 // конструктор с прототипом
-<<<<<<< HEAD
-function Car{
-
-
-
-
-}
-Car.prototype.run = function{
-    console.log('running');
-}
-console.log(Car === Car.prototype.const);
-const someCar = new Car();
-console.log(someCar);
-=======
 // function Car() {
 //   this.state = 'stopped';
 // }
@@ -29,7 +15,6 @@ console.log(someCar);
 
 // someCar.__proto__.run
 // someCar
->>>>>>> 8d026a2218eec1039175cfe276cf136b63dcbcd9
 
 // способы задания прототипов
 // let someObj = {};

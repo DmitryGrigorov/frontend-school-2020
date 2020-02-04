@@ -71,3 +71,16 @@ console.log(cat1);
 // console.log(someCar.status); // 'stopped'
 // console.log(someCar.run()); // 'running'
 // console.log(someCar.stop()); // 'stopped'
+
+
+/*
+<<<<<<< HEAD
+function Car{
+}
+Car.prototype.run = function{
+    console.log('running');
+}
+console.log(Car === Car.prototype.const);
+const someCar = new Car();
+console.log(someCar);
+*/
