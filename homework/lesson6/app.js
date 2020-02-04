@@ -52,6 +52,14 @@
 // console.log(dictionary['good morning']); // 'доброе утро'
 // console.log(dictionary['toString']); // undefined
 
+let dictionary = Object.create(null);
+dictionary['hello'] = 'привет';
+dictionary['good morning'] = 'доброе утро';
+console.log('Exercise #2:');
+console.log(dictionary['hello']); // 'привет'
+console.log(dictionary['good morning']); // 'доброе утро'
+console.log(dictionary['toString']); // undefined
+
 // 3
 // Напишите полифил для метода массива forEach
 

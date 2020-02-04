@@ -93,15 +93,15 @@
   add(2, 5) // 7
   add(2)(5) // 7
 */
-  function add(...args) {
-    if (args.length > 1) {
-      return args[0] + args[1];
-    } else {
-      return function (a, b)  {
-        return a + b;
-      };
-    }
 
+  function add(a, b) {
+    if (b == undefined) {
+      return function(c) {
+        return a + c;
+      };
+    } else {
+      return a + b;
+    }
   }
   console.log('Exercise #4:');
   console.log(add(2, 5));
@@ -115,15 +115,17 @@
 */
 
   function sortOdd(arr) {
-    let oddArr = [];
-    for (let i = 0; i < arr.length-1; i++)  {
+    let oddArr = arr.filter(function(elem) {
+      return elem % 2 == 0;
+    })
+    oddArr.sort();
+    console.log(oddArr);
+    for (let i = 0; i < arr.length - 1; i++) {
       
-      if (arr[i] % 2 === 0) {
-        oddArr.push[i];
-      }
     }
-    return oddArr;
+    
   }
+  console.log('Exercise #5:');
   console.log(sortOdd([9, 8, 7, 6, 5, 4, 3, 2, 1]));
 /*
   6)
