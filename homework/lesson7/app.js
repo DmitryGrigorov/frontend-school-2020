@@ -87,9 +87,7 @@ class Dog extends Animal {
  */
 
 class Transport {
-  constructor() {
-    this.status = "stopped";
-  }
+  status = "stopped";
 
   run() {
     return (this.status = "running");
@@ -100,11 +98,7 @@ class Transport {
   }
 }
 
-class Car extends Transport {
-  constructor() {
-    super();
-  }
-}
+class Car extends Transport {}
 
 /*
    4)
