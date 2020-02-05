@@ -152,4 +152,59 @@ console.log(someCar.stop())
 
 Решение:
 */
+class Human{
+ constructor(name, age, height){
+  this.name = name
+  this.age = +age
+  this.height = +height
+ }
+
+ getInfo(){ return `${this.name}, ${this.age}, ${this.height}` }
+
+ get firstname(){ return this.name }
+
+ set firstname(name){ this.name = name }
+}
+
+const humans = [
+ new Human('Коля', 23, 180),
+ new Human('Даша', 19, 170),
+ new Human('Ваня', 18, 192),
+ new Human('Петя', 45, 178),
+ new Human('Вася', 34, 197),
+ new Human('Джони', 40, 168),
+ new Human('Катя', 37, 160),
+ new Human('Петя', 29, 200),
+ new Human('Соня', 21, 172),
+ new Human('Женя', 25, 175)
+]
+console.log(humans)
+
+function sortByName(aA){
+ let aB = []
+ let aC = []
+
+ aA.map(function(v){ aB.push(`${v.name}, ${v.age}, ${v.height}`) })
+ aB.sort()
+ aB.map(function(v){ aC.push(v.split(', ')) })
+
+ console.log(aC)
+}
+//sortByName(humans)
+
+function sortByHeight(aA){
+ let aB = []
+ let aC = []
+ let aD = []
+   
+ aA.map(function(v){ aB.push(`${v.height}, ${v.name}, ${v.age}`) })
+ aB.sort().reverse()
+ aB.map(function(v){
+  aC = v.split(', ')
+  aD.push([aC[1], aC[2], aC[0]])
+ })
+
+ console.log(aD)
+}
+sortByHeight(humans)
 //*/
