@@ -70,10 +70,10 @@ class Dog extends Animal {
 /*
     3)
 
-    Создайте два конструктора Transport и Car
-    Эклемпляры конструктора Transport имеют свойтсво status и методы run и stop,
+    Создайте два класса Transport и Car
+    Эклемпляры класса Transport имеют свойтсво status и методы run и stop,
     которые меняют свойсто status на 'running' и 'stopped' соответсвтенно.
-    Унаследуйте эти методы и свойство конструктором Car
+    Унаследуйте эти методы и свойство классом Car
     
     Например:
     const someTransport = new Transport();
