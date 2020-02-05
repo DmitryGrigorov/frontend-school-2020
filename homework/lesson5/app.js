@@ -7,11 +7,11 @@
   sumTo(3) = 3 + 2 + 1 = 6
   sumTo(4) = 4 + 3 + 2 + 1 = 10
 */
-function sumTo(n){
-    if (n===1){
+function sumTo(n) {
+    if (n === 1) {
         return 1;
     }
-    return n+(sumTo(n-1));
+    return n + (sumTo(n - 1));
 }
 
 /*
@@ -26,17 +26,17 @@ function sumTo(n){
   alert(fib(7)); // 13
   alert(fib(77)); // 5527939700884757
 */
-function fib(n){
-    if (n===1 || n===2){
+function fib(n) {
+    if (n === 1 || n === 2) {
         return 1;
     }
-    return fib(n-1)+fib(n-2);
+    return fib(n - 1) + fib(n - 2);
 }
 
-/* 
+/*
   3) Следующая функция вычисляет сумму передаваемых ей аргументов,
      используя для этой цели объект arguments:
-  
+
   function sum() {
     let sum = 0;
     for(let i = 0; i < arguments.length; i++) {
@@ -50,72 +50,88 @@ function fib(n){
   console.log(sum(10, 20, 3, 7)); // 40
   Используя rest-операторы, перепишите эту функцию так, чтобы не использовать arguments.
 */
-function sum(...rest){
-    return (rest.reduce(function(acc,item){
-        return acc+=item;
-    },0));
+function sum(...rest) {
+    return (rest.reduce(function (acc, item) {
+        return acc += item;
+    }, 0));
 }
-
 
 /*
   4) Напишите функцию add, которая работает, как на примере:
-
   add(2, 5) // 7
   add(2)(5) // 7
 */
-function add(a, b){
-  if (b!==undefined){
-   return a+b;
-  }
- return function(c){
-    return a+c;
-    };
-}
+function add(a, b) {
+    let sum = a + b;
 
-// function sum(...a){
-// let inner = a.reduce(function(acc,item){return acc+=item;},0);
-// return function sum2(...b){
-// if (b.length==0){
-// return inner;}
-// else {
-// inner+=b.reduce(function(acc,item){return acc+=item;},0);
-// return sum2;
-// }
-// };
-// }
+    function addMore(c) {
+        return a + c;
+    }
+
+    return sum;
+}
 
 /*
   5)
   Написать функцию sortOdd(), которая сортирует только четные числа в массиве:
-
   // Examples:
   sort([9, 8, 7, 6, 5, 4, 3, 2, 1]) // [9, 2, 7, 4, 5, 6, 3, 8, 1]
+
 */
+function sortOdd(mass) {
+    let odd = mass.filter((item) => item % 2 === 0);
+
+    odd.sort((a, b) => a - b);
+
+    for (let i = 0; i < mass.length; i++) {
+        if (mass[i] % 2 === 0) {
+            mass[i] = odd[0];
+            odd.shift();
+
+        }
+    }
+    return mass;
+}
 
 /*
   6)
   Написать функцию findMax(), которая найдет максимальный элемент из аргументов:
-
   // Examples:
   findMax(9, 8, 7, 6, 5, 4, 3, 2, 1) // 9
   findMax(0, 2, 12, 4, 5) // 12
+
 */
+
+function findMax(...args) {
+    return Math.max.call(findMax, ...args);
+};
 
 /*
   7)
   Написать функцию findMin(), которая найдет минимальный элемент из аргументов:
-
   // Examples:
   findMax(9, 8, 7, 6, 5, 4, 3, 2, 1) // 1
   findMax(0, 2, 12, 4, 5) // 0
 */
-
+function findMin(...args) {
+    return Math.min.apply(findMin, args);
+};
 
 /*
   8)
   Написать функцию pushZeros(), которая сдвигает все элементы со значением '0' в конец массива:
-
   // Examples:
   pushZeros([0, 9, 0, 8, 7, 0, 6, 5, 4, 3, 2, 1]) // [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 0, 0]
   pushZeros([0, 2, 12, 4, 5]) // [2, 12, 4, 5, 0]
 */
+
+function pushZeros(arr) {
+
+    let nozeros = arr.filter((item) => item !== 0);
+    let k = arr.length - nozeros.length;
+    while (k != 0) {
+        nozeros.push(0);
+        k--;
+    }
+    return nozeros;
+}
