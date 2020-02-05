@@ -124,17 +124,20 @@
 //     this.color = color
 // }
 
-// function Dog(movingType, color, name, age, weight) {
+// function Dog(name, age, weight, movingType, color) {
 //     Animal.call(this, movingType, color);
 //     this.name = name,
 //     this.age = age,
 //     this.weight = weight;
 // }
 
-/* 2 способ */
-// someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
+
+// someDog1 = new Dog('tuzik', 4, 10); // {movingType: undefined, color: undefined, name: "tuzik", age: 4, weight: 10}
+// console.log(someDog1);
+// someDog = new Dog('tuzik', 4, 10, 'walking', 'black',); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
 // console.log(someDog);
 
+/* 2 способ */
 // function Animal(movingType, color) {
 //     this.movingType = movingType,
 //     this.color = color
@@ -147,6 +150,8 @@
 //     this.weight = weight;
 // }
 
+// someDog1 = new Dog('tuzik', 4, 10); // {movingType: undefined, color: undefined, name: "tuzik", age: 4, weight: 10}
+// console.log(someDog1);
 // someDog = new Dog('tuzik', 4, 10, 'walking', 'black',); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
 // console.log(someDog);
 
