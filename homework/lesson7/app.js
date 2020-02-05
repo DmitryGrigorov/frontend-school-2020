@@ -68,7 +68,7 @@
 // }
 
 // class Dog extends Animal {
-//    constructor(movingType, color, name, age, weight) {
+//    constructor(name, age, weight, movingType, color) {
 //       super(movingType, color);
 //       this.name = name,
 //       this.age = age,
@@ -76,7 +76,9 @@
 //    }
 // }
 
-// someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
+// someDog1 = new Dog('tuzik', 4, 10); // {movingType: undefined, color: undefined, name: "tuzik", age: 4, weight: 10}
+// console.log(someDog1);
+// someDog = new Dog('tuzik', 4, 10, 'walking', 'black'); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
 // console.log(someDog);
 
  /*
@@ -103,10 +105,10 @@
 //       this.status = 'stopped';
 //    }
 //    run() {
-//       this.status = 'running';
+//       return this.status = 'running';
 //    }
 //    stop() {
-//       this.status = 'stopped';
+//       return this.status = 'stopped';
 //    }
 // }
 
@@ -117,16 +119,12 @@
 // const someTransport = new Transport();
 // console.log(someTransport);
 // console.log(someTransport.status); // 'stopped'
-// someTransport.run();
-// console.log(someTransport); // 'running'
-// someTransport.stop()
-// console.log(someTransport); // 'stopped'
+// console.log(someTransport.run()); // 'running'
+// console.log(someTransport.stop()); // 'stopped'
 // const someCar = new Car();
 // console.log(someCar.status); // 'stopped'
-// someCar.run();
-// console.log(someCar) // 'running'
-// someCar.stop();
-// console.log(someCar); // 'stopped'
+// console.log(someCar.run()) // 'running'
+// console.log(someCar.stop()); // 'stopped'
 
 /*
    4)
