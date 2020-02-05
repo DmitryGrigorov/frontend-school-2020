@@ -4,6 +4,8 @@
 //     setTimeout(callback, time);
 // }
 
+//Начал работу над домашкой
+
 // 2
 // перепишите с использованием fetch
 // function request(url, successCallback, failCallback) {
