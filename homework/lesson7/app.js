@@ -173,3 +173,66 @@ console.log(someCar.stop()); // 'stopped'
      которые смогут отсортировать массив по именам (в алфавитном порядке)
      или росту (по убыванию роста). Вызовите только функцию сортировки по росту.
 */
+
+class Human {
+    name;
+    age;
+    height;
+
+    constructor(name, age, height) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
+    }
+
+    getInfo() {
+        return this.name + ', ' + this.age + ', ' + this.height;
+    }
+
+    get firstname() {
+        return this.name;
+    }
+
+    set firstname(name) {
+        this.name = name;
+    }
+
+    static sortByName(arr) {
+        arr.sort(function (a, b) {
+            if (a.name > b.name) return 1;
+            if (a.name == b.name) return 0;
+            if (a.name < b.name) return -1;
+        });
+    }
+
+    static sortByHeight(arr) { //Сортировка по убыванию
+        arr.sort(function (a, b) {
+            if (a.height > b.height) return -1; //Поэтому меняется + на -
+            if (a.height == b.height) return 0;
+            if (a.height < b.height) return 1; //Поэтому меняется + на -
+        });
+    }
+}
+
+let humans = [];
+humans.push(new Human("Коля", 23, 180));
+humans.push(new Human("Коля", 23, 180));
+humans.push(new Human("Даша", 19, 170));
+humans.push(new Human("Петя", 45, 178));
+humans.push(new Human("Вася", 34, 197));
+humans.push(new Human("Джони", 40, 168));
+humans.push(new Human("Катя", 37, 160));
+humans.push(new Human("Петя", 29, 200));
+humans.push(new Human("Соня", 21, 172));
+humans.push(new Human("Женя", 25, 175));
+
+console.log('4) humans');
+console.log(humans);
+let humansSortedByName = humans.slice();
+Human.sortByName(humansSortedByName);
+console.log('humans sorted by name');
+console.log(humansSortedByName);
+let humansSortedByHeight = humans.slice();
+Human.sortByHeight(humansSortedByHeight);
+console.log('humans sorted by height');
+console.log(humansSortedByHeight);
