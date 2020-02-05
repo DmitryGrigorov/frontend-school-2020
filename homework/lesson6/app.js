@@ -23,6 +23,16 @@ class cat{
         this.name = name;
         this.state = state;
     }
+    function meow(name) {
+        this.name:
+    }
+    function up(){
+
+    }
+    function down(){
+        
+    }
+    
 }
 
 const cat1 = new Cat('murzik','standing');
