@@ -16,6 +16,29 @@
 // console.log(cat.state); // 'lying'
 // cat.meow(); // выводит в консоль "murzik: meow"
 
+function Cat(name, state) {
+    this.name = name;
+    this.state = state;
+}
+
+let animal = {
+    up: function() {
+        this.state = 'standing';
+    },
+
+    down: function() {
+        this.state = 'lying';
+    },
+
+    meow: function() {
+        console.log(`${this.name}: meow`);
+    }
+}
+
+let sew = new Cat('murzik', 'lying');
+
+sew.__proto__ = animal;
+
 
 // 2
 // Cоздайте объект dictionary в котором будут содержаться переводы слов с английского на русский
@@ -27,6 +50,21 @@
 // console.log(dictionary['hello']); // 'привет'
 // console.log(dictionary['good morning']); // 'доброе утро'
 // console.log(dictionary['toString']); // undefined
+
+let dictionary = {
+    'hello': 'привет',
+    'good morning': 'доброе утро',
+
+    get noWord() {
+        for(this.key in this.obj) {
+            if(this.key in this.obj) return this[key];
+        }
+    }
+}
+debugger
+console.log(dictionary['hello']);
+console.log(dictionary['good morning']);
+console.log(dictionary['toString']);
 
 // 3
 // Напишите полифил для метода массива forEach
