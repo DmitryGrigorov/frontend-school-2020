@@ -101,7 +101,24 @@ const add = (...args) => {
   sort([9, 8, 7, 6, 5, 4, 3, 2, 1]) // [9, 2, 7, 4, 5, 6, 3, 8, 1]
 */
 
+const sortOdd = (arr) => {
+  let array = arr;
+  let evenNum = [];
+  array.forEach((element, index) => {
+    if(element%2 === 0) {
+      evenNum.push(element);
+    }
+  });
+  evenNum.sort((a,b) => {return a - b});
+  array.forEach((element, index) => {
+    if(element%2 === 0) {
+      array[index] = evenNum.shift(); 
+    }
+  });
+  return array;
+}
 
+  sortOdd([9, 8, 7, 6, 5, 4, 3, 2, 1])
 
 /*
   6)
