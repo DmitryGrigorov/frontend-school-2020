@@ -70,10 +70,10 @@ class Dog extends Animal {
 /*
     3)
 
-    Создайте два конструктора Transport и Car
-    Эклемпляры конструктора Transport имеют свойтсво status и методы run и stop,
+    Создайте два класса Transport и Car
+    Эклемпляры класса Transport имеют свойтсво status и методы run и stop,
     которые меняют свойсто status на 'running' и 'stopped' соответсвтенно.
-    Унаследуйте эти методы и свойство конструктором Car
+    Унаследуйте эти методы и свойство классом Car
     
     Например:
     const someTransport = new Transport();
@@ -126,6 +126,7 @@ class Car extends Transport {}
      которые смогут отсортировать массив по именам (в алфавитном порядке)
      или росту (по убыванию роста). Вызовите только функцию сортировки по росту.
 */
+<<<<<<< HEAD
 
 class Human {
   constructor(name, age, height) {
@@ -179,3 +180,5 @@ const sortByHeight = arr =>
 sortByHeight(humans);
 
 console.log(humans);
+=======
+>>>>>>> 4f4fb233de8dfe5f9b59fb549943da9b9ee7135f
