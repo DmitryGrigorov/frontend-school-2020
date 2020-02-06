@@ -69,8 +69,45 @@ console.log(dictionary['toString']);
 // 3
 // Напишите полифил для метода массива forEach
 
+function polifil(func) {
+    for (let i = 0; this.length > i; i++) {
+        func(this[i]);
+    }
+};
+
+Array.prototype.polifil = polifil;
+
+let items = ['item1', 'item2', 'item3'];
+let copy = [];
+
+items.polifil((item) => {
+  copy.push(item)
+});
+
+
+
 // 4
 // Напишите полифил для метода массива join
+function joinPolifil(separator) {
+    debugger
+    let copyArr = [];
+    let str = '';
+    copyArr = this.slice();
+    for (let i = 0; copyArr.length > i;) {
+        if(separator === undefined) {
+        str += `${copyArr.shift()},`
+        } else str += `${copyArr.shift()}${separator}`
+    } 
+    str = str.slice(0, (str.length - 1));
+    return str;
+};
+
+Array.prototype.joinPolifil = joinPolifil;
+
+let items = ['item1', 'item2', 'item3'];
+let string = '';
+
+items.joinPolifil();
 
 // 5 (наследование свойст без прототипов)
 // Создайте два конструктора Animal и Dog
@@ -81,6 +118,22 @@ console.log(dictionary['toString']);
 // Реализуйте наследование класса Animal классом Dog,
 // так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
 // Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
+
+const Animal = function(movingType, color) {
+    this.movingType = movingType;
+    this.color = color;
+}
+
+const Dog = function(name, age, weight, ...args) {
+    Animal.apply(this, args);
+    this.name = name;
+    this.age = age;
+    this.weight = weight;
+}
+
+let someAnimal = new Animal('walking', 'black');
+
+let someDog = new Dog('tuzik', 4, 10, 'walking', 'black');
 
 // 6 (наследование через прототипы)
 // Создайте два конструктора Transport и Car
@@ -97,3 +150,22 @@ console.log(dictionary['toString']);
 // console.log(someCar.status); // 'stopped'
 // console.log(someCar.run()); // 'running'
 // console.log(someCar.stop()); // 'stopped'
+
+
+const Transport = function() {
+    this.status = `stopped`;
+    this.run = function() {
+        this.status = `running`;
+    };
+    this.stop = function () {
+        this.status = `stopped`;
+    };
+}
+const Car = function() {};
+
+Car.prototype = new Transport();
+Car.prototype.constructor = Car;
+
+let someTransport = new Transport();
+
+let someCar = new Car();
