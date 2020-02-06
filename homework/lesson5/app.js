@@ -99,9 +99,9 @@ function sortOdd(arr) {
   arr.forEach((element, index) => {
     element % 2 == 0 ? (oddArr[index] = element) : false;
   });
-  oddArr.sort();
-  console.log(oddArr);
-
+  oddArr.sort((a, b) => {
+    return a - b;
+  });
   arr.forEach((element, index) => {
     if (element % 2 == 1) {
       resultArr[index] = element;
@@ -112,6 +112,9 @@ function sortOdd(arr) {
   });
   return resultArr;
 }
+
+console.log(sortOdd([9, 14, 7, 6, 5, 4, 3, 2, 1, 12]));
+
 
 /*
   6)
@@ -124,7 +127,9 @@ function sortOdd(arr) {
 
 function findMax(...arg) {
   let arr = [...arg];
-  arr.sort();
+  arr.sort((a, b) => {
+    return a - b;
+  });
   return arr[arr.length - 1];
 }
 
@@ -137,9 +142,11 @@ function findMax(...arg) {
   findMax(0, 2, 12, 4, 5) // 0
 */
 
-function findMax(...arg) {
+function findMin(...arg) {
   let arr = [...arg];
-  arr.sort();
+  arr.sort((a, b) => {
+    return a - b;
+  });
   return arr[0];
 }
 
@@ -153,12 +160,11 @@ function findMax(...arg) {
 */
 
 function pushZeros(arr) {
-  arr.forEach((index) => {
+  arr.forEach(index => {
     if (arr[index] == 0) {
-      arr.splice(index,1);
+      arr.splice(index, 1);
       arr.push(0);
     }
   });
   return arr;
 }
-console.log(pushZeros([0, 9, 0, 8, 7, 0, 6, 5, 4, 3, 2, 1]));
