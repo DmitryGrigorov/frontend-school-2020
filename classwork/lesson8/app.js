@@ -185,5 +185,4 @@ function getRequestPromise(url) {
 //         console.log(data);
 //     });
 // } catch (error) {
-
 // }
