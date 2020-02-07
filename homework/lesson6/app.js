@@ -164,6 +164,9 @@ function Car() {
     Transport.apply(this);
 }
 
+//Car.prototype.constructor = Transport; //так тоже работает
+// Car.prototype.constructor = Object.create(Transport.prototype);
+
 const prototypeConnector = Object.create(Transport.prototype);
 Car.prototype = prototypeConnector;
 Car.prototype.constructor = Car;
