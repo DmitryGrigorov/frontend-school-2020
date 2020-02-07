@@ -47,11 +47,32 @@ let someObj = { name: 'Petya', metrics: { weight: 80, height: 180 } };
 const deepClone = (obj) => {
     debugger
     let clone = {};
-    for(key in obj) {
-        clone[key] = obj[key];   
+    for(let key in obj) {
+        if (typeof obj[key] === `object`) {
+            clone[key] = deepClone(obj[key]);
+        } else clone[key] = obj[key];
     }
     return clone;
 }
+
+debugger
+
+let cloneSomeObj = deepClone(someObj);
+
+
+
+let someObj = { name: 'Petya', metrics: { weight: 80, height: 180 } };
+
+const deepClone = (obj) => {
+    debugger
+    let clone = {};
+    for(key in obj) {
+        if (obj.hasOwnProperty(key)) clone[key] = deepClone(obj[key]);
+    }
+    return clone;
+}
+
+debugger
 
 let cloneSomeObj = deepClone(someObj);
 
