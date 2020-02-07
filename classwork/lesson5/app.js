@@ -12,7 +12,39 @@
   new Function('a', 'b', 'return a + b') // функция конструктор
 */
 
-// Поговорим о функция this, arguments
+/*
+// Поговорим о функциях: this и arguments.
+
+  function greet() {
+    return `Hi, ${this.name}`
+  }
+
+  let user1 = {
+    name: 'John',
+    greet
+  }
+
+  let user2 = {
+    name: 'Jack',
+  }
+
+  // this как user1
+  console.log(user1.greet())
+  // Передаем в this user2
+  console.log(user1.greet.call(user2))
+  const bound = user1.greet.bind(user2, 'great');
+  console.log(bound())
+
+
+  // Методы вызова функции с помощью call и apply
+
+  function greeting(surname, mood) {
+    return `Hi, ${this.name} ${surname}. I am ${mood}`;
+  }
+
+  console.log(greeting.call(user1, 'Smith', 'good')); // call
+  console.log(greeting.apply(user2, [ 'Jackson', 'fine'])); // apply
+*/
 
 /*
   // 1. Рекурсия
@@ -278,6 +310,20 @@ console.log(pow(2, 3));
   // let sayHi = function(who) {
   //   alert(`Hello, ${who}`);
   // };
+<<<<<<< HEAD
+
+  // // Named Function Expression:
+
+  // let sayHi = function func(who) {
+  //   alert(`Hello, ${who}`);
+  // };
+
+  // // Синтаксис "new Function"
+
+  // let sum = new Function('a', 'b', 'return a + b');
+
+  // alert( sum(1, 2) ); // 3
+=======
 
   // // Named Function Expression:
 
@@ -296,6 +342,69 @@ console.log(pow(2, 3));
 
   // sayHi(); // Hello
 
+
+// 4 Декораторы 
+// https://learn.javascript.ru/call-apply-decorators
+
+// Простой пример
+
+// function addDecorator(fn) {
+//   let count = 0;
+//   return function() {
+//     count++;
+//     console.log(count);
+//     return fn();
+//   }
+// }
+
+// function sayHi() {
+//   return `Hi`
+// }
+
+// const counter = addDecorator(sayHi)
+
+// console.log(counter())
+// console.log(counter())
+// console.log(counter())
+// console.log(counter())
+
+// Пример сложнее c https://learn.javascript.ru/call-apply-decorators
+
+// function slow(x) {
+//   // здесь могут быть ресурсоёмкие вычисления
+//   alert(`Called with ${x}`);
+//   return x;
+// }
+
+// function cachingDecorator(func) {
+//   let cache = new Map();
+
+//   return function(x) {
+//     if (cache.has(x)) {    // если кеш содержит такой x,
+//       return cache.get(x); // читаем из него результат
+//     }
+
+//     let result = func(x); // иначе, вызываем функцию
+>>>>>>> 4f4fb233de8dfe5f9b59fb549943da9b9ee7135f
+
+//     cache.set(x, result); // и кешируем (запоминаем) результат
+//     return result;
+//   };
+// }
+
+<<<<<<< HEAD
+  // let sayHi = new Function('alert("Hello")');
+
+  // sayHi(); // Hello
+=======
+// slow = cachingDecorator(slow);
+
+// alert( slow(1) ); // slow(1) кешируем
+// alert( "Again: " + slow(1) ); // возвращаем из кеша
+>>>>>>> 4f4fb233de8dfe5f9b59fb549943da9b9ee7135f
+
+// alert( slow(2) ); // slow(2) кешируем
+// alert( "Again: " + slow(2) ); // возвращаем из кеша
 
 
 /*

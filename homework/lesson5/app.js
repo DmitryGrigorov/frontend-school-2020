@@ -94,18 +94,25 @@
   add(2)(5) // 7
 */
 
-  function add(a, b) {
-    if (b == undefined) {
-      return function(c) {
-        return a + c;
-      };
-    } else {
-      return a + b;
+  function add(...args) {
+    let result = args.reduce((sum, elem) => sum += elem, 0); 
+
+    function sum(b) {
+      result += b;
+      return sum;
     }
+
+    sum.toString = function() {
+      return result;
+    };
+
+    return  sum;
   }
   console.log('Exercise #4:');
   console.log(add(2, 5));
   console.log(add(2)(5));
+  console.log(add(3, 9));
+  console.log(add(6)(2));
 /*
   5)
   Написать функцию sortOdd(), которая сортирует только четные числа в массиве:
@@ -117,14 +124,22 @@
   function sortOdd(arr) {
     let oddArr = arr.filter(function(elem) {
       return elem % 2 == 0;
-    })
-    oddArr.sort();
-    console.log(oddArr);
-    for (let i = 0; i < arr.length - 1; i++) {
-      
-    }
+    });
+    oddArr.sort((a, b) => a-b);
     
-  }
+    let sortArr = [];
+    let i = 0;
+    arr.forEach(function(item) {
+      if (item % 2 == 0) {
+        sortArr.push(oddArr[i]);
+        i++;
+      } else {  
+        sortArr.push(item);
+      }
+    });
+
+    return sortArr;
+  };
   console.log('Exercise #5:');
   console.log(sortOdd([9, 8, 7, 6, 5, 4, 3, 2, 1]));
 /*
