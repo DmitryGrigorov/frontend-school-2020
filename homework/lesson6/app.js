@@ -147,10 +147,10 @@ function Transport() {}
 Transport.prototype.status = 'stopped';
 
 Transport.prototype.run = function() {
-    this.status = 'running';
+    return this.status = 'running';
 }
 Transport.prototype.stop = function() {
-    this.status = 'stopped';
+    return this.status = 'stopped';
 }
 
 function Car() {}
@@ -162,13 +162,9 @@ Car.prototype.constructor = Car;
 
 const someTransport = new Transport();
 console.log(someTransport.status); // 'stopped'
-someTransport.run();
-console.log(someTransport); // 'running'
-someTransport.stop();
-console.log(someTransport); // 'stopped'
+console.log(someTransport.run()); // 'running'
+console.log(someTransport.stop()); // 'stopped'
 const someCar = new Car();
 console.log(someCar.status); // 'stopped'
-someCar.run();
-console.log(someCar) // 'running'
-someCar.stop();
-console.log(someCar); // 'stopped'
+console.log(someCar.run()); // 'running'
+console.log(someCar.stop()); // 'stopped'
