@@ -16,6 +16,22 @@
 // console.log(cat.state); // 'lying'
 // cat.meow(); // выводит в консоль "murzik: meow"
 
+function Cat(name, state) {
+  this.name = name;
+  this.state = state;
+}
+
+Cat.prototype.meow = function() {
+  console.log(`${this.name}: meow`);
+};
+
+Cat.prototype.up = function() {
+  this.state = "standing";
+};
+
+Cat.prototype.down = function() {
+  this.state = "lying";
+};
 
 // 2
 // Cоздайте объект dictionary в котором будут содержаться переводы слов с английского на русский
@@ -28,11 +44,42 @@
 // console.log(dictionary['good morning']); // 'доброе утро'
 // console.log(dictionary['toString']); // undefined
 
+let dictionary = {
+  hello: "привет",
+  "good morning": "доброе утро",
+  undefined
+};
 // 3
 // Напишите полифил для метода массива forEach
 
+(function forEachPoly() {
+  if (!Array.prototype.forEach) {
+    Array.prototype.forEach = function(callback) {
+      for (let i = 0; i < this.length; i++) {
+        callback(this[i]);
+      }
+    };
+  }
+})();
+
 // 4
 // Напишите полифил для метода массива join
+
+Array.prototype.join = undefined;
+
+(function joinPoly() {
+  if (!Array.prototype.join) {
+    Array.prototype.join = function(separator) {
+      let result = this[0];
+
+      for (let i = 1; i < this.length; i++) {
+        result += separator + this[i];
+      }
+
+      return result;
+    };
+  }
+})();
 
 // 5 (наследование свойст без прототипов)
 // Создайте два конструктора Animal и Dog
@@ -43,6 +90,18 @@
 // Реализуйте наследование класса Animal классом Dog,
 // так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
 // Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
+
+function Animal(movingType, color) {
+  this.movingType = movingType;
+  this.color = color;
+}
+
+function Dog(movingType, color, name, age, weight) {
+  Animal.apply(this, [movingType, color]);
+  this.name = name;
+  this.age = age;
+  this.weight = weight;
+}
 
 // 6 (наследование через прототипы)
 // Создайте два конструктора Transport и Car
@@ -59,3 +118,21 @@
 // console.log(someCar.status); // 'stopped'
 // console.log(someCar.run()); // 'running'
 // console.log(someCar.stop()); // 'stopped'
+
+function Transport(status) {
+  this.status = status;
+  this.run = function() {
+    this.status = "running";
+    return this.status;
+  };
+  this.stop = function() {
+    this.status = "stopped";
+    return this.status;
+  };
+}
+
+function Car() {}
+const transport = new Transport("pending");
+Car.prototype = transport;
+const car = new Car();
+
