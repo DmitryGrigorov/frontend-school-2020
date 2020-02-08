@@ -103,6 +103,36 @@ const someDog = new Dog('walking', 'black', 'tuzik', 4, 10);
     console.log(someCar.stop()); // 'stopped'
  */
 
+class Transport {
+
+   constructor() {
+      this.status = 'stopped';
+   }
+
+   run() {
+      this.status = 'running';
+      return this.status; // for console.log()
+   }
+
+   stop() {
+      this.status = 'stopped';
+      return this.status;
+   }
+
+}
+
+class Car extends Transport {
+
+   constructor() {
+      super();
+   }
+
+}
+
+const someTransport = new Transport();
+const someCar = new Car();
+
+
 /*
    4)
 
@@ -129,3 +159,78 @@ const someDog = new Dog('walking', 'black', 'tuzik', 4, 10);
      которые смогут отсортировать массив по именам (в алфавитном порядке)
      или росту (по убыванию роста). Вызовите только функцию сортировки по росту.
 */
+
+class Human {
+
+   constructor(name, age, height){
+      this.name = name;
+      this.age = age;
+      this.height = height;
+   }
+
+   getInfo() {
+      return `${this.name}, ${this.age}, ${this.height}`;
+   }
+
+   get getName() {
+      return this.name;
+   }
+
+   set newName(newName) {
+      this.name = newName;
+   }
+
+}
+
+// const person = new Human('Коля', 23, 180);
+
+// console.log(person.getInfo());
+// console.log(person.getName);
+
+// person.newName = 'Петр';
+// console.log(person.getName);
+
+
+const data = [
+   ['Коля', 23, 180],
+   ['Даша', 19, 170],
+   ['Ваня', 18, 192],
+   ['Петя', 45, 178],
+   ['Вася', 34, 197],
+   ['Джони', 40, 168],
+   ['Катя', 37, 160],
+   ['Петя', 29, 200],
+   ['Соня', 21, 172],
+   ['Женя', 25, 175]
+]
+
+// create an array
+const humans = [];
+
+data.forEach(person => 
+   humans.push(new Human(person[0], person[1], person[2]))
+);
+
+// custom compare func for sort()
+function compareName( a, b ) {
+   if ( a.name < b.name ){
+     return -1;
+   }
+   if ( a.name > b.name ){
+     return 1;
+   }
+   return 0;
+}
+
+function sortByName(arr) {
+   return arr.sort(compareName);
+}
+
+function sortByHeight(arr) {
+   return arr.sort( (a, b) => b.height - a.height );
+}
+
+// console.log(sortByName(humans));
+// console.log(sortByHeight(humans));
+
+sortByHeight(humans);
