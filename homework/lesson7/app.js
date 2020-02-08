@@ -19,6 +19,33 @@
     cat.meow(); // выводит в консоль "murzik: meow"
  */
 
+class Cat {
+    constructor(name, state = 'unknown') {
+        this.name = name;
+        this.state = state;
+    }
+    meow() {
+        console.log(`${this.name}: meow`)
+    }
+    up() {
+        this.state = 'standing';
+    }
+    down() {
+        this.state = 'lying';
+    }
+
+}
+
+const cat = new Cat('Murzik');
+console.log(cat);
+console.log('task-1:');
+console.log(cat.name);
+console.log(cat.state);
+cat.up();
+console.log(cat.state);
+cat.down();
+console.log(cat.state);
+cat.meow();
  /*
     2)
 
@@ -31,6 +58,27 @@
     так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
     Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
  */
+
+ class Animal {
+     constructor(movingType, color) {
+         this.movingType = movingType;
+         this.color = color;
+     }
+ }
+
+ class Dog extends Animal{
+     constructor(movingType, color, name, age, weight) {
+         super(movingType, color);
+         this.name = name;
+         this.age = age;
+         this.weight = weight;
+     }
+ }
+
+ const someDog = new Dog('walking', 'black', 'Tuzik', 4, 10);
+ console.log('task-2:');
+ console.log(someDog);
+
 
  /*
     3)
@@ -50,6 +98,32 @@
     console.log(someCar.run()); // 'running'
     console.log(someCar.stop()); // 'stopped'
  */
+
+ class Transport {
+     constructor(status){
+         this.status = status;
+     }
+     run() {
+         this.status = 'running';
+     }
+     stop() {
+         this.status = 'stopped';
+     }
+ }
+
+ class Car extends Transport{
+     constructor(status) {
+         super(status);
+     }
+ }
+
+ const someCar = new Car('unknown');
+ console.log('task-3:');
+ console.log(someCar.status);
+ someCar.run();
+ console.log(someCar.status);
+ someCar.stop();
+ console.log(someCar.status);
 
 /*
    4)
@@ -77,3 +151,66 @@
      которые смогут отсортировать массив по именам (в алфавитном порядке)
      или росту (по убыванию роста). Вызовите только функцию сортировки по росту.
 */
+
+class Human {
+    constructor(name, age, heigth) {
+        this.name = name;
+        this.age = age;
+        this.height = heigth;
+    }
+    getInfo() {
+        return `${this.name}, ${this.age}, ${this.height}`;
+    }
+    get firstname() {
+        return this.name;
+    }
+    set firstname(arg) {
+        this.name = arg.substring(0, 1).toUpperCase() + arg.slice(1);
+    }
+}
+
+const unitOne = new Human('Коля', 23, 180);
+console.log('task-4:');
+console.log(unitOne.getInfo());
+console.log(unitOne.firstname);
+unitOne.firstname = 'stick';
+console.log(unitOne);
+
+const arrayBefore = [
+    "Коля" , 23, 180,
+   "Даша", 19, 170,
+   "Ваня", 18, 192,
+   "Петя", 45, 178,
+   "Вася", 34, 197,
+   "Джони", 40, 168,
+   "Катя", 37, 160,
+   "Петя", 29, 200,
+   "Соня", 21, 172,
+   "Женя", 25, 175];
+
+function toArrayHumanObj(arr) {
+    let result = [];
+    for (let i = 0; i < arr.length; i += 3) {
+        result.push(new Human(arr[i], arr[i + 1], arr[i + 2]));
+    }
+    return result;
+}
+
+const arrayAfter = toArrayHumanObj(arrayBefore);
+
+function sortByName(arr) {
+    return arr.sort((a, b) => {
+        if(a.name < b.name) return -1;
+        else if (a.name > b.name) return 1;
+        else return 0;
+    })
+}
+
+function sortByHeight(arr) {
+    return arr.sort((a, b) => {
+        return b.height - a.height;
+    })
+}
+
+// console.log(sortByName(arrayAfter));
+console.log(sortByHeight(arrayAfter));
