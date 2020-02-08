@@ -151,7 +151,7 @@ console.log(someCar.stop())
      или росту (по убыванию роста). Вызовите только функцию сортировки по росту.
 
 Решение:
-*/
+* /
 class Human{
  constructor(name, age, height){
   this.name = name
