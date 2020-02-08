@@ -1,0 +1,33 @@
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 37.500vw;
+    height: 21.181vw;
+}
+
+.contact__firstName {
+    width: 17.708vw;
+    border-radius: 0.417vw;
+}
+
+.contact__firstName::placeholder, .contact__lastName::placeholder, .contact__tel::placeholder, .contact__service::placeholder {
+    font: normal normal 1rem/1.2  'Lato', sans-serif;
+    color: rgba(19, 39, 67, 0.5);
+    padding: 1.458vw 0 1.389vw 2.153vw;
+}
+
+.contact__lastName {
+    width: 17.708vw;
+    border-radius: 0.417vw;
+}
+
+.contact__tel {
+    height: 3.75vw;
+    border-radius: 0.417vw;
+}
+
+.contact__service {
+    height: 3.75vw;
+    border-radius: 0.417vw;
+}

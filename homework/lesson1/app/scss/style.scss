@@ -1,0 +1,51 @@
+@import 'base/_reset';
+@import 'base/_typography';
+
+
+@import 'common-blocks/main/main.scss';
+
+@import 'common-blocks/button/button.scss';
+@import 'common-blocks/button/button--login.scss';
+@import 'common-blocks/button/button--signUp.scss';
+@import 'common-blocks/button/button--video.scss';
+@import 'common-blocks/button/button--submit.scss';
+
+@import 'common-blocks/logo/logo.scss';
+
+@import 'common-blocks/textBlock/textBlock.scss';
+
+@import 'common-blocks/downloadApp/downloadApp.scss';
+
+@import 'common-blocks/slider/slider.scss';
+
+
+@import 'common-blocks/link/link.scss';
+
+@import 'common-blocks/languageSelection/languageSelection.scss';
+
+@import 'common-blocks/container/container.scss';
+@import 'common-blocks/container/container--header.scss';
+@import 'common-blocks/container/container--video.scss';
+@import 'common-blocks/container/shels.scss';
+@import 'common-blocks/container/container--technology.scss';
+@import 'common-blocks/container/container--features.scss';
+@import 'common-blocks/container/container--name.scss';
+
+@import 'common-blocks/header/header.scss';
+
+@import 'common-blocks/navigation/navigation.scss';
+@import 'common-blocks/navigation/navigation__list.scss';
+@import 'common-blocks/navigation/navigation__list--header.scss';
+@import 'common-blocks/navigation/navigation__link.scss';
+
+@import 'common-blocks/content/content.scss';
+@import 'common-blocks/content/content--header.scss';
+@import 'common-blocks/content/content--video.scss';
+@import 'common-blocks/content/content--features.scss';
+@import 'common-blocks/content/content--technology.scss';
+@import 'common-blocks/content/content--appDownload.scss';
+@import 'common-blocks/content/content--contact.scss';
+
+@import 'common-blocks/contact/contact.scss';
+
+@import 'common-blocks/footer/footer.scss';

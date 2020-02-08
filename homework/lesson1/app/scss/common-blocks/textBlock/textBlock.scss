@@ -1,0 +1,148 @@
+.textBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    flex-basis: 20.833vw;
+}
+
+.textBlock--header{
+    font: normal 1.5rem/1.5  'Lato', sans-serif;
+    width: 33.500vw;
+    text-align: center; 
+}
+
+.textBlock--video {
+    align-items: flex-start;
+    justify-content: space-between;
+    font: normal 1.5rem/1.5  'Lato', sans-serif;
+    width: 30.903vw;
+    height: 17.361vw;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    text-transform: none;
+}
+
+.textBlock--features {
+    width: 20.347vw;
+    height: 13.750vw;
+    background-color: #fff;
+    border-radius: 0.556vw;
+    position: relative;
+    top: 11.111vw;
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+}
+
+.textBlock--technology {
+    background-color: #fff;
+    text-align: center;
+}
+
+.textBlock--appDownload {
+    align-items: flex-start;
+    font: normal 1.5rem/1.5  'Lato', sans-serif;
+    width: 30.903vw;
+    height: 17.361vw;
+    color: rgb(255, 255, 255);
+    text-align: left;
+    text-transform: none;
+}
+
+.textBlock--contact {
+    align-items: flex-start;
+    justify-content: space-between;
+    font: normal 1.5rem/1.5  'Lato', sans-serif;
+    width: 30.139vw;
+    height: 11.111vw;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    text-transform: none;
+}
+
+.textBlock__caption {
+    font: normal bold 1rem/1.0  'Lato', sans-serif;
+}
+.textBlock__caption--size_h {
+    font-size: 4.5rem;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+}
+
+.textBlock__caption--size_m {
+    font-weight: bold;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    width: 30.903vw;
+    text-align: left;
+}
+
+.textBlock__caption--size_m-features {
+    text-align: center;
+    padding: 4.167vw 0;
+}
+
+.textBlock__caption--features {
+    font: normal bold 1.2rem/1.4  'Lato', sans-serif;
+    width: 15.903vw;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.textBlock__caption--technology {
+    font: normal bold 1.2rem/1.4  'Lato', sans-serif;
+    width: 9.847vw;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.textBlock__caption--appDownload {
+    font-weight: bold;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    width: 30.903vw;
+    text-align: left;
+}
+
+.textBlock__caption--contact {
+    font-weight: bold;
+    font-size: 2.25rem;
+    line-height: 1rem;
+    width: 30.903vw;
+    text-align: left;
+}
+
+.textBlock__text {
+    font: normal 1.5rem/1.5  'Lato', sans-serif;
+    width: 33.500vw;
+}
+
+.textBlock__text--h {
+    text-align: center;
+    text-transform: none;
+}
+
+.textBlock__text--size-m {
+    font: normal 0.9rem/1.2  'Lato', sans-serif;
+    width: 33.500vw;
+}
+
+.textBlock__text--features {
+    font: normal 0.8rem/1.2  'Lato', sans-serif;
+    width: 15.903vw;
+}
+
+.textBlock__text--technology {
+    font: normal 0.8rem/1.2  'Lato', sans-serif;
+    width: 14.264vw;
+}
+
+.textBlock__text--appDownload {
+    font: normal 0.9rem/1.2  'Lato', sans-serif;
+    width: 33.500vw;
+}
+
+.textBlock__text--contact {
+    font: normal 0.9rem/1.2  'Lato', sans-serif;
+    width: 30.139vw;
+    margin-bottom: 4.167vw;
+}

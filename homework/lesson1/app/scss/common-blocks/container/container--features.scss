@@ -1,0 +1,21 @@
+.container--features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 24.306vw;
+    height: 17.361vw;
+    background-image: url(../img/background/features/bg.png);
+    border-radius: 0.556vw;
+}
+
+.container--features:nth-child(2) {
+    width: 24.306vw;
+    height: 17.361vw;
+    background-image: url(../img/background/features/bg1.png);
+}
+
+.container--features:nth-child(3) {
+    width: 24.306vw;
+    height: 17.361vw;
+    background-image: url(../img/background/features/bg2.png);
+}
