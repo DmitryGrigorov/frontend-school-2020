@@ -23,6 +23,7 @@
 //   .then(() => console.log('delay callback 2'))
 //   .then(() => delay(3000))
 //   .then(() => console.log('delay callback 3'));
+
 function delay(time) {
     let promise = new Promise(function(resolve, reject) {
         setTimeout(() => resolve(), time);
@@ -61,12 +62,21 @@ delay(1000)
 // запрос на сервер после доработки функции request:
 // request(url)
 //   .then(data => console.log(data)); // выведет в консоль { id: 'qwerty', name: 'petya' }
-//
-//
-//
-//
-//
-//
+
+console.log("Задание №2");
+function request(url) {
+    let promise = new Promise(async function(resolve, reject) {
+        let response = await fetch('http://echo.jsontest.com/id/qwerty/name/petya');
+        let text = await response.text(); // прочитать тело ответа как текст
+        resolve(text);
+    });
+    return promise;
+}
+
+const someUrl = 'http://echo.jsontest.com/id/qwerty/name/petya';
+request(someUrl)
+    .then(data => console.log(data));
+
 //
 //
 //
