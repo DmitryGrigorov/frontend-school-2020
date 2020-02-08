@@ -23,39 +23,20 @@
 //   .then(() => console.log('delay callback 2'))
 //   .then(() => delay(3000))
 //   .then(() => console.log('delay callback 3'));
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//  ** ПОДСКАЗКА для задачи №1 обратите внимание, что после вызова delay мы сразу пишем .then, (delay должна вернуть promise)
+function delay(time) {
+    let promise = new Promise(function(resolve, reject) {
+        setTimeout(() => resolve(), time);
+    });
+    return promise;
+}
 
-
-
-//Начал работу над домашкой
+console.log("Задание №1");
+delay(1000)
+    .then(() => console.log('delay callback 1'))
+    .then(() => delay(2000))
+    .then(() => console.log('delay callback 2'))
+    .then(() => delay(3000))
+    .then(() => console.log('delay callback 3'));
 
 // 2
 // Переделайте запрос на сервер при помощи метода fetch
