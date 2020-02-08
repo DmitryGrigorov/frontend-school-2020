@@ -19,6 +19,25 @@
     cat.meow(); // выводит в консоль "murzik: meow"
  */
 
+ class Cat {
+   constructor(name, state) {
+      this.name = name;
+      this.state = state;
+   }
+
+   meow() {
+      console.log(`${this.name}: meow`);
+   }
+   up() {
+      this.state = 'standing';
+   }
+   down() {
+      this.state = 'lying';
+   }
+ }
+
+ let murzik = new Cat('murzik', 'standing');
+
  /*
     2)
 
@@ -31,6 +50,26 @@
     так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
     Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
  */
+
+class Animal {
+   constructor(movingType, color) {
+      this.movingType = movingType;
+      this.color = color;
+   }
+}
+
+class Dog extends Animal {
+   constructor(name, age, weight, ...args) {
+      super(...args);
+      this.name = name;
+      this.age = age;
+      this.weight = weight;
+   }
+}
+
+let someAnimal = new Animal('walking', 'black');
+
+let someDog = new Dog('tuzik', 4, 10, 'walking', 'black');
 
  /*
     3)
@@ -50,6 +89,24 @@
     console.log(someCar.run()); // 'running'
     console.log(someCar.stop()); // 'stopped'
  */
+
+   class Transport {
+      constructor() {
+         this.status = `stopped`;
+      }
+      run() {
+         this.status = `running`;
+     }
+      stop() {
+         this.status = `stopped`;
+     }
+   }
+
+   class Car extends Transport {};
+   
+   let someTransport = new Transport();
+
+   let someCar = new Car();
 
 /*
    4)
@@ -77,3 +134,51 @@
      которые смогут отсортировать массив по именам (в алфавитном порядке)
      или росту (по убыванию роста). Вызовите только функцию сортировки по росту.
 */
+
+class Human {
+   constructor(name, age, height) {
+      this.name = name;
+      this.age = age;
+      this.height = height;
+   }
+   getInfo() {
+      return `${this.name}, ${this.age}, ${this.height}`;
+   }
+
+   get firstname() {
+      return this.name;
+   }
+
+   set firstname(name) {
+      this.name = name;
+   }
+}
+
+function sortByName(arr) {
+   arr.sort((a, b) => {
+      if (a.name > b.name) return 1;
+      if (a.name < b.name) return -1;
+      return 0;
+   })
+};
+
+function sortByHeight(arr) {
+   arr.sort((a, b) => {
+     return b.height - a.height;
+   })
+};
+
+let Kolya = new Human(`Коля`, 23, 180);
+let Dasha = new Human(`Даша`, 19, 170);
+let Vanya = new Human(`Ваня`, 18, 192);
+let Petya = new Human(`Петя`, 45, 178);
+let Vasya = new Human(`Вася`, 34, 197);
+let Jonny = new Human(`Джони`, 40, 168);
+let Katya = new Human(`Катя`, 37, 160);
+let Petay = new Human(`Петя`, 29, 200);
+let Sonya = new Human(`Соня`, 21, 172);
+let Jenya = new Human(`Женя`, 25, 175);
+
+let arrHuman = [Kolya, Dasha, Vanya, Petya, Vasya, Jonny, Katya, Petay, Sonya, Jenya];
+
+sortByHeight(arrHuman);
