@@ -4,6 +4,17 @@
 //     setTimeout(callback, time);
 // }
 
+
+function delay(time) {
+
+    let promise = new Promise( resolve =>  setTimeout(resolve, time) )
+
+    return promise;
+}
+
+delay(2000).then(() => console.info('resolved'))
+
+
 // 2
 // перепишите с использованием fetch
 // function request(url, successCallback, failCallback) {
