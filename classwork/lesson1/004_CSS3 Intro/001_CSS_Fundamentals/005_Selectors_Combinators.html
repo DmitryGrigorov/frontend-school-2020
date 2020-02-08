@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CSS3 Combinators</title>
+
+    <style>
+        /* 
+            General sibling combinator  http://www.w3.org/TR/selectors/#general-sibling-combinators
+            Элементы имеют общего родителья в документе и элемент p находиться за элементом h2. 
+        */
+        h2 ~ p {
+            margin: 10px;
+            border: 1px solid green;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div>
+        <h2>Hello</h2>
+
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+
+        <p>world</p> <!--Данный элемент будет выбран селектором-->
+    </div>
+
+    <div>
+        <h2>Hello</h2>
+        <a href="#">Link</a>
+        <p>world</p> <!--Данный элемент будет выбран селектором-->
+    </div>
+
+    <p>HELLO WORLD</p>
+    <h2>hello world</h2>
+
+    <a href="http://www.w3.org/TR/selectors/">SCC3 Selectrs</a>
+</body>
+</html>

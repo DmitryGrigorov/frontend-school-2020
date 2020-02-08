@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>nth-last-child</title>
+    <style>
+        table {
+            width: 100%;
+        }
+
+        td {
+            border: 1px solid #333;
+            padding: 3px;
+        }
+
+            /* nth-last-child - то же что и nth-child но обход элементов начинается с последнего */
+            td:nth-last-child(5) {
+                background: red;
+            }
+
+            td:nth-last-child(1) {
+                border: 1px solid #333;
+                background: green;
+            }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Январь</td>
+            <td>Фувраль</td>
+            <td>Март</td>
+            <td>Апрель</td>
+            <td>Май</td>
+        </tr>
+        <tr>
+            <td>Нефть</td>
+            <td>16</td>
+            <td>34</td>
+            <td>62</td>
+            <td>74</td>
+            <td>57</td>
+        </tr>
+        <tr>
+            <td>Золото</td>
+            <td>4</td>
+            <td>69</td>
+            <td>72</td>
+            <td>56</td>
+            <td>47</td>
+        </tr>
+        <tr>
+            <td>Дерево</td>
+            <td>7</td>
+            <td>73</td>
+            <td>79</td>
+            <td>34</td>
+            <td>86</td>
+        </tr>
+        <tr>
+            <td>Камни</td>
+            <td>23</td>
+            <td>34</td>
+            <td>88</td>
+            <td>53</td>
+            <td>103</td>
+        </tr>
+    </table>
+</body>
+</html>

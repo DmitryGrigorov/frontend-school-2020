@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Элементы для работы с датами</title>
+</head>
+<body>
+
+    <form>
+        <p>
+            <label>
+                <!--
+                    datetime - элемент для выбора даты и времени.    
+                    На момент разработки данного примера работает только в Opera
+                -->
+                Укажите дату и время
+                <input type="datetime" name="dateAndTime" /></label>
+        </p>
+        <p>
+            <input type="submit" value="Отправить" />
+        </p>
+    </form>
+
+    <form>
+        <p>
+            <label>
+                <!--
+                    date - элемент для выбора даты. Отобржает всплывающий календарь.
+                    Атрибуты min и max определяют диапазон допустимых дат.
+                -->
+                Укажите дату
+                <input type="date" name="date" min="2011-03-15" max="2012-03-14" /></label>
+        </p>
+        <p>
+            <label>
+                <!--
+                    time - элемент для выбора времени. 
+                    Атрибуты min и max определяют диапазон допустимого времени.
+                -->
+                Укажите время
+                <input type="time" name="time" min="08:00" max="18:00" /></label>
+        </p>
+        <p>
+            <input type="submit" value="Отправить" />
+        </p>
+    </form>
+</body>
+</html>

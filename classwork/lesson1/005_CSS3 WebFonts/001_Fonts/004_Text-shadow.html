@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>text-shadow</title>
+    <style type='text/css'>
+        #id1, #id2, #id3 {
+            font-size: 2.5em;
+            font-family: Arial;
+        }
+
+        #id1 {
+            /* 
+                text-shadow определение тени
+                смещение по X | смещение по Y | цвет    
+            */
+            -webkit-text-shadow: 3px 2px #FFAE00;
+            text-shadow: 3px 2px #FFAE00;
+        }
+
+        #id2 {
+            /* 
+                смещение по X | смещение по Y | размытие | цвет    
+            */
+
+            -webkit-text-shadow: 1px 1px 10px #FFAE00;
+            text-shadow: 1px 1px 10px #FFAE00;
+        }
+
+        #id3 {
+            /* 
+                определение нескольких теней для текста
+            */
+
+            -webkit-text-shadow: 2px 2px 2px #FFAE00, 2px 2px 15px #1435AD;
+            text-shadow: 2px 2px 2px #FFAE00, 2px 2px 15px #1435AD;
+        }
+    </style>
+</head>
+<body>
+    <p id="id1">Пример простой тени</p>
+    <p id="id2">Пример тени с размытием</p>
+    <p id="id3">Несколько теней одновременно</p>
+</body>
+</html>
+
+

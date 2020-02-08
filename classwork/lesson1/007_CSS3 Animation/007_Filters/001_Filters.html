@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Filters</title>
+    <style>
+        div {
+            width: 600px;
+            height: 389px;
+            padding: 10px;
+            margin: 10px;
+            color: red;
+            background-image: url(photo.jpg);
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+            div.class1 {
+                -webkit-filter: grayscale(100%);
+                filter: grayscale(100%); /* grayscale (оттенки серого) - конвертирует цвет в ч/б */
+                filter: grayscale(100%); /* grayscale (оттенки серого) - конвертирует цвет в ч/б */
+            }
+
+            div.class2 {
+                -webkit-filter: grayscale(50%);
+                filter: grayscale(50%);
+            }
+
+            div.class3 {
+                -webkit-filter: sepia(100%);
+                filter: sepia(100%); /* сепия */
+            }
+
+            div.class4 {
+                -webkit-filter: sepia(100%) grayscale(50%);
+                filter: sepia(100%) grayscale(50%);
+            }
+
+            div.class5 {
+                -webkit-filter: saturate(3);
+                filter: saturate(3); /* насыщенность */
+            }
+
+            div.class6 {
+                -webkit-filter: blur(2px);
+                filter: blur(2px); /* Задаем радиус размытости */
+            }
+
+            div.class7 {
+                -webkit-filter: contrast(200%);
+                filter: contrast(200%); /* изменяет контрастность изображения */
+            }
+
+            div.class8 {
+                -webkit-filter: brightness(2);
+                filter: brightness(2); /* Изменяет яркость изображения */
+            }
+
+            div.class9 {
+                -webkit-filter: hue-rotate(270deg);
+                filter: hue-rotate(270deg); /* определяет на сколько должен измениться данный цвет в цветовом круге от красного до фиолетового */
+            }
+
+            div.class10 {
+                -webkit-filter: invert(100%);
+                filter: invert(100%); /* Инвертация цвета */
+            }
+
+            div.class11 {
+                -webkit-filter: opacity(0.5);
+                filter: opacity(0.5); /* прозрачность элемента, то же что и свойство opacity но фильтры поддерживают аппаратное ускорение, поэтому данный подход даст большую производительность чем свойство */
+            }
+    </style>
+</head>
+<body>
+    <div>Original</div>
+
+    <div class="class1">
+        grayscale (100%)
+    </div>
+
+    <div class="class2">
+        grayscale(50%)
+    </div>
+    <div class="class3">
+        sepia(100%)
+    </div>
+    <div class="class4">
+        sepia(100%) grayscale(50%)
+    </div>
+    <div class="class5">
+        saturate(3)
+    </div>
+    <div class="class6">
+        blur(2px)
+    </div>
+    <div class="class7">
+        contrast(200%)
+    </div>
+    <div class="class8">
+        brightness(2)
+    </div>
+    <div class="class9">
+        hue-rotate(270deg)
+    </div>
+    <div class="class10">
+        invert(100%)
+    </div>
+    <div class="class11">
+        opacity(0.5)
+    </div>
+</body>
+</html>

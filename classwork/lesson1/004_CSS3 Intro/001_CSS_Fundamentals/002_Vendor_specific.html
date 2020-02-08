@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Vendor-Specific</title>
+    <style>
+        p {
+            /* 
+                если CSS свойство еще не попало в спецификацию или частично реализовано 
+                используется специфическое названия в соответствии с производителем браузера  
+            */
+            -khtml-property: 1px; /* Konqueror */
+            -ms-property: 1px; /* Microsoft IE */
+            -moz-property: 1px; /* Mozilla (Gecko browsers) */
+            -webkit-property: 1px; /* Safari & Chrome (WebKit browsers) */
+            -o-property: 1px; /* Opera */
+            property: 1px; /* стандартизированное свойство */
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Hello world
+    </p>
+</body>
+</html>

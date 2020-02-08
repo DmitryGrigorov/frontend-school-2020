@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>::before</title>
+    <style>
+        p {
+            width: 400px;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        /* 
+            Псевдо элемент ::before применяется для отображения желаемого контента до содержимого элемента, к которому он добавляется. 
+            Работает совместно со свойством content.
+        */
+        p::before {
+            content: 'Иван ';
+        }
+    </style>
+</head>
+<body>
+    <p>любит учится</p>
+    <p>любит работать </p>
+    <p>любит путешествовать </p>
+    <p>любит отдыхать </p>
+</body>
+</html>
+

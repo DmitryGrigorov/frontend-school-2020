@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Font-face</title>
+    <style type='text/css'>
+        /* Подключим шрифт */
+        @font-face {
+            font-family: heinrich;
+            src: url('heinrich.ttf'), url('heinrich.eot');
+        }
+
+        /* Подключим шрифт для курсивного начертания */
+        @font-face {
+            font-family: heinrich;
+            font-style: italic;
+            src: url('heinrichitalic.ttf'), url('heinrichitalic.eot');
+        }
+
+        /* Указываем, что все параграфы должны использовать подключенные шрифты */
+        p {
+            font-family: heinrich;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <p>Для обычного текста будет использован шрифт heinrich.</p>
+    <p><i>Для курсивного текста будет использован шрифт heinrich italic.</i></p>
+    <p>А это обычный текст с <i>"вставками"</i> курсивного.</p>
+</body>
+</html>

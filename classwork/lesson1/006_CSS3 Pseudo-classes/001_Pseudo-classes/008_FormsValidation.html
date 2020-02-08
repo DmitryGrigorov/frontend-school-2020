@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>:invalid</title>
+    <style>
+        /* :invalid - псевдокласс для получения элементов форм в которых допущены ошибки */
+        input:invalid {
+            background: #fdd;
+            font-weight: bold;
+        }
+
+        /* :valid - пслевдокалсс для получения элеметов форм, которые корректно заполнены */
+        input:valid {
+            background: #dfd;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <p>Адрес сайта</p>
+        <p>
+            <!--В правильном формате http://edu.cbsystematics.com/-->
+            <input type="url" required />
+        </p>
+
+
+        <p>Адрес электронной почты</p>
+        <p>
+            <!--В правильном формате edu@cbsystematics.com-->
+            <input type="email" required />
+        </p>
+
+        <p>
+            <input type="submit" value="Отправить" />
+        </p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>border-image</title>
+    <style>
+        #id {
+            border: 15px solid transparent;
+            width: 250px;
+            padding: 10px 20px;
+
+            /* Отображение рисованной рамки вокруг элемента
+               Возможные значения: repeat, round, stretch 
+            */
+            -o-border-image: url(border.png) 30 stretch;
+            -moz-border-image: url(border.png) 30 stretch;
+            -webkit-border-image: url(border.png) 30 stretch;
+            border-image: url(border.png) 30 stretch;
+        }
+    </style>
+</head>
+<body>
+    <div id="id">Элемент с рисованной рамкой.</div>
+
+    <a href="http://htmlbook.ru/css/border-image">border-image</a>
+</body>
+</html>
+

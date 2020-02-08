@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CSS3 Combinators</title>
+
+    <style>
+
+        /* 
+            Child Combinator http://www.w3.org/TR/selectors/#child-combinators
+            Получение прямых потомков div элемента article. 
+        */
+        article > div {
+            margin:10px;
+            border:1px solid green;
+        }
+
+    </style>
+
+</head>
+<body>
+    <article>
+        
+        <div> <!--Данный элемент будет выбран селектором-->
+            Paragraph 1
+            <div>Inner Paragraph 1</div>
+        </div>
+
+        <div> <!--Данный элемент будет выбран селектором-->
+            Paragraph 2
+            <div>Inner Paragraph 2</div>
+        </div>
+
+        <div> <!--Данный элемент будет выбран селектором-->
+            Paragraph 3
+            <div>Inner Paragraph 3</div>
+        </div>
+
+    </article>
+
+    <a href="http://www.w3.org/TR/selectors/">SCC3 Selectrs</a>
+</body>
+</html>

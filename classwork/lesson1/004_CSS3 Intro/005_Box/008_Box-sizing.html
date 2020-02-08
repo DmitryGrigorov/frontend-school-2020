@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>box-sizing</title>
+    <style>
+        .box1 {
+            /* 
+                Согласно спецификации CSS ширина блока складывается из ширины контента (width), значений отступов (margin), полей (padding) и границ (border). 
+                Аналогично обстоит и с высотой блока. Свойство box-sizing позволяет изменить этот алгоритм, чтобы свойства width и height задавали размеры не контента, а размеры блока.
+            */
+            background: #f0f0f0;
+            width: 400px;
+            padding: 10px;
+            margin: 10px;
+            border: 10px solid #000;
+
+            /*
+                content-box - width и height задают ширину и высоту контента и не включают в себя значения отступов, полей и границ.
+            */
+            -moz-box-sizing: content-box;
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+        }
+
+        .box2 {
+            background: #fc0;
+            width: 400px;
+            padding: 10px;
+            margin: 10px;
+            border: 10px solid #000;
+            
+            /*
+                border-box - Свойства width и height включают в себя значения полей и границ, но не отступов (margin).
+            */
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box1">content-box</div>
+    <div class="box2">border-box</div>
+</body>
+</html>

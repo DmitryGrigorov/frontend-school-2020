@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CSS3 Combinators</title>
+
+    <style>
+
+        /* 
+            Adjacent sibling combinator http://www.w3.org/TR/selectors/#adjacent-sibling-combinators
+            получение p, который сразу следует за h2. 
+        */
+        h2 + p {
+            margin:10px;
+            border:1px solid green;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <h2>Hello</h2>
+    <p>world</p><!--Данный элемент будет выбран селектором-->
+
+    <h2>Hello</h2>
+    <p>world</p><!--Данный элемент будет выбран селектором-->
+    
+    <p>HELLO WORLD</p>
+    <h2>hello world</h2>
+
+    <a href="http://www.w3.org/TR/selectors/">SCC3 Selectrs</a>
+</body>
+</html>

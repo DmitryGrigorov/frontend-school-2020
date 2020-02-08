@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>content attr</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+            a::after {
+                /*
+                    content: attr - возвращает строку, которая является значением параметра тега указанного в скобках. 
+                    Например, a:after {content:attr(href)} добавит после ссылки её адрес, т.е. значение атрибута href. 
+                    Если указанного атрибута нет, вернется пустая строка.
+                */
+                content: " (" attr(href) ")";
+            }
+    </style>
+</head>
+
+<body>
+
+    <a href="http://edu.cbsystematics.com/video">Video Lessons</a> <br />
+    <a href="http://www.w3schools.com">W3Schools</a><br />
+    <a href="http://www.google.com">Google search</a><br />
+
+</body>
+</html>

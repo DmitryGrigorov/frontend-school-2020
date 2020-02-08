@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Geolocation API</title>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+</head>
+<body>
+    <div id="map" style="height: 300px; width: 600px;">
+    </div>
+    <p id="message">
+    </p>
+    <script type="text/javascript">
+        navigator.geolocation.getCurrentPosition(updatePosition);
+
+        function updatePosition(pos) {
+            // задание координат.
+            var position = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+            document.getElementById("message").innerHTML = "Позиция определена с точностью в " + pos.coords.accuracy + " метров.";
+
+            // параметры для карты.
+            var options = {
+                zoom: 15,
+                center: position, // позиция на карте
+                mapTypeId: google.maps.MapTypeId.ROADMAP // тип карты - ROADMAP, SATELLITE, HYBRID and TERRAIN
+            };
+
+            // объект карты.
+            var map = new google.maps.Map(document.getElementById("map"), options);
+
+            // маркер на карте
+            var marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: "Это Вы!"
+            });
+
+            // объект всплывающей подсказки.
+            var infowindow = new google.maps.InfoWindow({
+                content: "Скорее всего, это Ваше текущее положение"
+            });
+
+            // присвоение обработчика на нажатие по маркеру.
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Использование box-pack</title>
+
+    <style type="text/css">
+        .grid {
+            width: 800px;
+            border: 1px solid black;
+            display: -moz-box;
+            display: -webkit-box;
+            display: flexbox;
+
+            -moz-box-orient: horizontal;
+            -webkit-box-orient: horizontal;
+            box-orient: horizontal;
+
+            /*
+                box-pack - определяет как дочерние элементы должны размещаться в box элементе, когда он больше по размеру чем дочерние элементы
+                start|end|center|justify
+            */
+            -moz-box-pack: justify;
+            -webkit-box-pack: justify;
+            box-pack: justify;
+        }
+
+        .block {
+            width: 30px;
+            background: #0094ff;
+            padding: 20px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="block">Block 1</div>
+        <div class="block">Block 2</div>
+        <div class="block">Block 3</div>
+        <div class="block">Block 4</div>
+    </div>
+</body>
+</html>
+

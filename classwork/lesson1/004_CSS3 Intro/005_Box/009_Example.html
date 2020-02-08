@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Пример</title>
+    <style type="text/css">
+        body{
+            font-family:'Segoe UI', Tahoma;
+        }
+
+        #main, header, footer {
+            margin: 10px;
+            padding: 10px;
+            min-width: 640px;
+            border: 1px solid #eee; 
+        }
+
+        #main {
+            display: -moz-box;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flexbox;
+        }
+
+        #content {
+            height: auto;
+            padding:10px;
+            
+            -moz-box-flex: 1;
+            -webkit-box-flex: 1;
+            -ms-box-flex: 1;
+            box-flex: 1;
+
+            background-color: #E8B15B;
+        }
+
+        aside {
+            height: auto;
+            width: 180px;
+            padding:10px;
+            background-color: #C1D652;
+        }
+
+        nav {
+            padding:10px;
+            background-color: #CDFCA9;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Site</h1>
+    </header>
+
+    <section id="main">
+        <nav>
+            <h1>Navigation</h1>
+
+            <ul>
+                <li><a href="#" title="Lorum ipsum dolor sit amet">Lorem</a></li>
+                <li><a href="#" title="Aliquam tincidunt mauris eu risus">Aliquam</a></li>
+                <li><a href="#" title="Morbi in sem quis dui placerat ornare">Morbi</a></li>
+                <li><a href="#" title="Praesent dapibus, neque id cursus faucibus">Praesent</a></li>
+                <li><a href="#" title="Pellentesque fermentum dolor">Pellentesque</a></li>
+            </ul>
+        </nav>
+
+        <section id="content">
+            <h1>Content</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in malesuada semper mi, id sollicitudin urna fermentum ut fusce varius nisl ac ipsum gravida vel pretium tellus.
+            </p>
+        </section>
+
+        <aside>
+            <h1>Aside</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+            </p>
+        </aside>
+    </section>
+
+    <footer>
+        <h1>Footer</h1>
+    </footer>
+</body>
+</html>

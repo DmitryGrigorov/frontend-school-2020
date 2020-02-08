@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Card rotation</title>
+    <style>
+        .card {
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d; /* дочерние элементы должны отображаться в 3D пространстве */
+        }
+
+        .back, .front {
+            position: absolute;
+            width: 272px;
+            height: 380px;
+            -moz-transition: all .8s;
+            -o-transition: all .8s;
+            -webkit-transition: all .8s;
+            transition: all .8s;
+        }
+
+        .back {
+            background-image: url(back.jpg);
+        }
+
+        .front {
+            background-image: url(front.jpg);
+        
+            -moz-transform: rotate3d(0,1,0, 180deg);
+            -ms-transform: rotate3d(0,1,0, 180deg);
+            -o-transform: rotate3d(0,1,0, 180deg);
+            -webkit-transform: rotate3d(0,1,0, 180deg);
+            transform: rotate3d(0,1,0, 180deg);
+        }
+
+        .card:hover .back {
+            -moz-transform: rotate3d(0,1,0, 180deg);
+            -ms-transform: rotate3d(0,1,0, 180deg);
+            -o-transform: rotate3d(0,1,0, 180deg);
+            -webkit-transform: rotate3d(0,1,0, 180deg);
+            transform: rotate3d(0,1,0, 180deg);
+        }
+
+        .card:hover .front {
+            -moz-transform: rotate3d(0,1,0, 0deg);
+            -ms-transform: rotate3d(0,1,0, 0deg);
+            -o-transform: rotate3d(0,1,0, 0deg);
+            -webkit-transform: rotate3d(0,1,0, 0deg);
+            transform: rotate3d(0,1,0, 0deg);
+        }
+
+        .backface .back, .backface .front {
+            -moz-backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden; /* определяет будет ли видно контент элемента, который с помощью 3d трансформаций отвернут лицом от пользователя */
+        }
+    </style>
+</head>
+<body>
+    <div class="card backface">
+        <div class="back"></div>
+        <div class="front"></div>
+    </div>
+</body>
+</html>

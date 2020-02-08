@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Повторяющийся градиент</title>
+    <style type="text/css">
+        div {
+            margin: 10px;
+            height: 200px;
+            width: 700px;
+            border: 1px #000 solid;
+            float: left;
+        }
+
+        p {
+            background-color: rgba(0,0,0,1);
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            font-family: 'Segoe UI';
+        }
+
+        b {
+            color: red;
+        }
+
+        #id1 {
+            background: repeating-linear-gradient(top left, white, white 5px, black 5px, black 10px);
+        }
+
+        #id2 {
+            background: repeating-radial-gradient(circle, #8F04A8 0px, #5D016D 40px, black 60px);
+        }
+    </style>
+</head>
+<body>
+    <div id="id1">
+        <p><b>repeating-linear-gradient</b>(top left, white, white 5px, black 5px, black 10px)</p>
+    </div>
+
+    <div id="id2">
+        <p><b>repeating-radial-gradient</b>(circle, #8F04A8 0%, #5D016D 40%, black 60%)</p>
+    </div>
+
+</body>
+</html>

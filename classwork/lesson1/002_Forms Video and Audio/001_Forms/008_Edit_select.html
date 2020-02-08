@@ -1,0 +1,28 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Элемент datalist</title>
+</head>
+<body>
+
+    <form>
+        <p>
+            <label>
+                Сумма пожертвования
+                <!--Элемент, который связанный с источником данных через атрибут list-->
+                <input type="text" name="donation" list="donations" /></label>
+        </p>
+
+        <!--Источник данных-->
+        <datalist id="donations">
+            <option value="10.00">10.00 $</option>
+            <option value="25.00">25.00 $</option>
+            <option value="50.00">50.00 $</option>
+        </datalist>
+        <p>
+            <input type="submit" value="Отправить" />
+        </p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Анимация</title>
+    <style>
+        /* определение кадров анимации */
+        @keyframes moveRight {
+            /* начинаем анимацию с margin-left 3px */
+            from {
+                margin-left: 3px;
+            }
+
+            /* завершаем анимацию с margin-left 500px*/
+            to {
+                margin-left: 500px;
+            }
+        }
+
+        #id1 {
+            border: 2px #000 solid;
+            background-color: #7F0055;
+            height: 100px;
+            width: 100px;
+            font-size: 20px;
+
+            -moz-animation: moveRight 4s 3;
+            -webkit-animation: moveRight 4s 3;
+            animation: moveRight 4s 3; /* запустить анимацию с именем moveLeft, продолжительность анимации 4s, повторить анимацию 3 раза*/
+        }
+    </style>
+
+</head>
+<body>
+    <div id="id1"></div>
+</body>
+</html>

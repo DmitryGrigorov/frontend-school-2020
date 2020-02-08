@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>:optional</title>
+    <style>
+        /* стиль для элемента который не использует атрибут required */
+        input[type=text]:optional {
+            border: 2px dashed grey;
+        }
+
+        /* стиль для элемента с атрибутом required*/
+        input:required {
+            border: 2px dashed red;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <p>Пожалуйста, укажите ваше имя и возраст.</p>
+        <p>
+            Имя:
+            <input type="text" name="name">
+        </p>
+        <p>
+            Возраст:
+            <input type="number" min="18" required name="old" title="Заполните Ваш возраст">
+        </p>
+        <p>
+            <input type="submit" value="Отправить">
+        </p>
+    </form>
+</body>
+</html>
+
