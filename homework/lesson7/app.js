@@ -19,6 +19,33 @@
     cat.meow(); // выводит в консоль "murzik: meow"
  */
 
+ class Cat {
+
+    constructor(name){
+       this.name = name;
+       this.state = 'lying';
+    }
+
+    meow() {
+       console.log(`${this.name}: meow`);  
+    }
+
+    up() {
+       this.state = 'standing'
+    }
+
+    down() {
+       this.state = 'lying'
+    }
+ }
+
+const cat = new Cat('murzik');
+
+cat.up();
+cat.down();
+cat.meow();
+
+
  /*
     2)
 
@@ -31,6 +58,31 @@
     так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
     Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
  */
+
+class Animal {
+
+   constructor(movingType, color) {
+      this.movingType = movingType;
+      this.color = color;
+   }
+
+}
+
+class Dog extends Animal{
+
+  constructor(movingType, color, name, age, weight) {  
+      super(movingType, color);
+
+      this.name = name;
+      this.age = age;
+      this.weight = weight;
+   }
+
+}
+
+const someAnimal = new Animal('walking', 'black'); 
+const someDog = new Dog('walking', 'black', 'tuzik', 4, 10);
+
 
  /*
     3)
