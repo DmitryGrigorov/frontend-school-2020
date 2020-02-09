@@ -19,7 +19,23 @@
     cat.meow(); // выводит в консоль "murzik: meow"
  */
 
- /*
+class Cat {
+  constructor(name, state) {
+    this.name = name;
+    this.state = state;
+  }
+  meow() {
+    console.log(`${this.name}: meow`);
+  }
+  up() {
+    this.state = "standing";
+  }
+  down() {
+    this.state = "lying";
+  }
+}
+
+/*
     2)
 
     Создайте два класса Animal и Dog
@@ -32,7 +48,23 @@
     Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
  */
 
- /*
+class Animal {
+  constructor(movingType, color) {
+    this.movingType = movingType;
+    this.color = color;
+  }
+}
+
+class Dog extends Animal {
+  constructor(movingType, color, name, age, weight) {
+    super(movingType, color);
+    this.name = name;
+    this.age = age;
+    this.weight = weight;
+  }
+}
+
+/*
     3)
 
     Создайте два класса Transport и Car
@@ -50,6 +82,24 @@
     console.log(someCar.run()); // 'running'
     console.log(someCar.stop()); // 'stopped'
  */
+
+class Transport {
+  constructor(status) {
+    this.status = status;
+  }
+  run() {
+    this.status = "running";
+  }
+  stop() {
+    this.status = "stopped";
+  }
+}
+
+class Car extends Transport {
+  constructor(status) {
+    super(status);
+  }
+}
 
 /*
    4)
@@ -77,3 +127,85 @@
      которые смогут отсортировать массив по именам (в алфавитном порядке)
      или росту (по убыванию роста). Вызовите только функцию сортировки по росту.
 */
+
+const dataArr = [
+  "Коля",
+  23,
+  180,
+  "Даша",
+  19,
+  170,
+  "Ваня",
+  18,
+  192,
+  "Петя",
+  45,
+  178,
+  "Вася",
+  34,
+  197,
+  "Джони",
+  40,
+  168,
+  "Катя",
+  37,
+  160,
+  "Петя",
+  29,
+  200,
+  "Соня",
+  21,
+  172,
+  "Женя",
+  25,
+  175
+];
+
+class Human {
+  constructor(name, age, height) {
+    this.name = name;
+    this.age = age;
+    this.height = height;
+  }
+  getInfo() {
+    return `'${this.name}', ${this.age}, ${this.height}`;
+  }
+  set firstname(name) {
+    this.name = name;
+  }
+  get firstname() {
+    return this.name;
+  }
+}
+
+function arrToObj(arr) {
+  let objArr = [];
+  for (i = 0; i < arr.length; i += 3) {
+    objArr.push(new Human(arr[i], arr[i + 1], arr[i + 2]));
+  }
+  return objArr;
+}
+
+const humans = arrToObj(dataArr);
+
+function sortByName(arr) {
+  arr.sort((a, b) => {
+    if (a.name < b.name) return -1;
+    else if (a.name > b.name) return 1;
+    else return 0;
+  });
+  return arr;
+}
+
+function sortByHeight(arr) {
+   arr.sort((a, b) => {
+     if (a.height < b.height) return 1;
+     else if (a.height > b.height) return -1;
+     else return 0;
+   });
+   return arr;
+ }
+
+ console.log(sortByHeight(humans));
+ 
+
