@@ -1,16 +1,14 @@
-Array.prototype.join = undefined;
-if(!Array.prototype.join) {
-    Array.prototype.join = function (args) {
-        var result = '';
-        for(var i =0; i< this.length; i++) {
-            result += this[i];
-            if(this[i+1]) {
-                result += args;
-            }
-
+Array.prototype.forEach = undefined;
+if (!Array.prototype.forEach) {
+    Array.prototype.forEach = function(fun) {
+        for (var i = 0; i < this.length; i++) {
+            fun(this[i]);
         }
-        return result;
     }
 }
-const arr = [1,2,3,4,5,6];
-console.log(arr.join(''));
+function printToConsole(element) {
+    console.log(element);
+};
+let arr = [12,2,3,5,6,4,7];
+arr.forEach(printToConsole);
+console.log(Array.prototype);
