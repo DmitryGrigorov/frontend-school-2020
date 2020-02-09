@@ -16,12 +16,13 @@
 //   });
 // });
 function delay(time) {
-    const promise=new Promise((resolve, reject)=>{
-        setTimeout(()=> resolve(),time);
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(() => resolve(), time);
     });
     return promise;
 
 }
+
 //
 // перепишите её с помощью промисов, чтобы мы могли код выше заменить на:
 // delay(1000)
@@ -61,30 +62,38 @@ function delay(time) {
 //  ** ПОДСКАЗКА для задачи №1 обратите внимание, что после вызова delay мы сразу пишем .then, (delay должна вернуть promise)
 
 
-
 // 2
 // Переделайте запрос на сервер при помощи метода fetch
 //
-// const someUrl = 'http://echo.jsontest.com/id/qwerty/name/petya';
+const someUrl = 'http://echo.jsontest.com/id/qwerty/name/petya';
 //
 // старая функция для запросов на сервер:
-// function request(url, onloadCallback) {
-//   const xhr = new XMLHttpRequest();
-//   xhr.open('GET', url);
-//   xhr.send();
-//   xhr.onload = function() {
-//     onloadCallback(xhr.response);
-//   }
-// }
+function request(url, onloadCallback) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.send();
+    xhr.onload = function () {
+        onloadCallback(xhr.response);
+    }
+}
+
 //
 // старый запрос на сервер:
-// request(someUrl, function (response) {
-//   console.log(response); // выведет в консоль { id: 'qwerty', name: 'petya' }
-// });
+request(someUrl, function (response) {
+    console.log(response); // выведет в консоль { id: 'qwerty', name: 'petya' }
+});
+
 //
+function request(url) {
+    return fetch(url).then((response) => {
+        return response.json();
+    });
+
+}
+
 // запрос на сервер после доработки функции request:
-// request(url)
-//   .then(data => console.log(data)); // выведет в консоль { id: 'qwerty', name: 'petya' }
+request(someUrl)
+    .then(data => console.log(data)); // выведет в консоль { id: 'qwerty', name: 'petya' }
 //
 //
 //
@@ -124,13 +133,22 @@ function delay(time) {
 
 // 3*
 // Есть массив (колличество элементов может быть любым):
-// let urls = [
-//     'http://echo.jsontest.com/id/qwerty1/name/petya',
-//     'http://echo.jsontest.com/id/qwerty2/name/vasya',
-//     'http://echo.jsontest.com/id/qwerty3/name/kolya'
-// ];
 // загрузите данные со всех урлов параллельно и получите результат в виде массива ответов от сервера [response1, response2, response3]
 //
+
+let urls = [
+    'http://echo.jsontest.com/id/qwerty1/name/petya',
+    'http://echo.jsontest.com/id/qwerty2/name/vasya',
+    'http://echo.jsontest.com/id/qwerty3/name/kolya'
+];
+
+let newUrls=urls.map(function (item) {
+    return fetch(item)
+        .then((response)=>response.json());
+});
+
+Promise.all(newUrls).then((data) => console.log(data));
+
 //
 //
 //
