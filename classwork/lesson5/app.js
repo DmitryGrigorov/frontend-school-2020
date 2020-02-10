@@ -12,7 +12,39 @@
   new Function('a', 'b', 'return a + b') // функция конструктор
 */
 
-// Поговорим о функция this, arguments
+/*
+// Поговорим о функциях: this и arguments.
+
+  function greet() {
+    return `Hi, ${this.name}`
+  }
+
+  let user1 = {
+    name: 'John',
+    greet
+  }
+
+  let user2 = {
+    name: 'Jack',
+  }
+
+  // this как user1
+  console.log(user1.greet())
+  // Передаем в this user2
+  console.log(user1.greet.call(user2))
+  const bound = user1.greet.bind(user2, 'great');
+  console.log(bound())
+
+
+  // Методы вызова функции с помощью call и apply
+
+  function greeting(surname, mood) {
+    return `Hi, ${this.name} ${surname}. I am ${mood}`;
+  }
+
+  console.log(greeting.call(user1, 'Smith', 'good')); // call
+  console.log(greeting.apply(user2, [ 'Jackson', 'fine'])); // apply
+*/
 
 
   // 1. Рекурсия
@@ -182,6 +214,7 @@
 
 // 3.1 Свойство name, length
 
+<<<<<<< HEAD
 //function functionDeclarationName(a, b) {}
 
 //const functionExpression = function (a,b,c,d) {}
@@ -191,6 +224,17 @@
 
 //console.log('functionExpression.names: ', functionExpression.name);
 //console.log('functionExpression.length: ', functionExpression.length);
+=======
+// function functionDeclarationName(a, b) {}
+
+// const functionExpression = function (a,b,c,d) {}
+
+// console.log('functionDeclarationName.name: ', functionDeclarationName.name);
+// console.log('functionDeclarationName.length: ', functionDeclarationName.length);
+
+// console.log('functionExpression.names: ', functionExpression.name);
+// console.log('functionExpression.length: ', functionExpression.length);
+>>>>>>> 804a0ca05ab84d500a2d040fff12f4e2deb76229
 
 // 3.1 Пользовательские свойства
 
@@ -266,28 +310,96 @@
 // 3.2 NFE — named function expression
 
   // Function Expression:
+<<<<<<< HEAD
 /*
   let sayHi = function(who) {
     alert(`Hello, ${who}`);
   };
+=======
 
-  // Named Function Expression:
+  // let sayHi = function(who) {
+  //   alert(`Hello, ${who}`);
+  // };
 
-  let sayHi = function func(who) {
-    alert(`Hello, ${who}`);
-  };
+  // // Named Function Expression:
 
-  // Синтаксис "new Function"
+  // let sayHi = function func(who) {
+  //   alert(`Hello, ${who}`);
+  // };
 
-  let sum = new Function('a', 'b', 'return a + b');
+  // // Синтаксис "new Function"
 
-  alert( sum(1, 2) ); // 3
+  // let sum = new Function('a', 'b', 'return a + b');
+
+  // alert( sum(1, 2) ); // 3
 
 
-  let sayHi = new Function('alert("Hello")');
+  // let sayHi = new Function('alert("Hello")');
 
+  // sayHi(); // Hello
+
+
+// 4 Декораторы 
+// https://learn.javascript.ru/call-apply-decorators
+
+// Простой пример
+
+// function addDecorator(fn) {
+//   let count = 0;
+//   return function() {
+//     count++;
+//     console.log(count);
+//     return fn();
+//   }
+// }
+
+// function sayHi() {
+//   return `Hi`
+// }
+
+// const counter = addDecorator(sayHi)
+
+// console.log(counter())
+// console.log(counter())
+// console.log(counter())
+// console.log(counter())
+>>>>>>> 804a0ca05ab84d500a2d040fff12f4e2deb76229
+
+// Пример сложнее c https://learn.javascript.ru/call-apply-decorators
+
+// function slow(x) {
+//   // здесь могут быть ресурсоёмкие вычисления
+//   alert(`Called with ${x}`);
+//   return x;
+// }
+
+// function cachingDecorator(func) {
+//   let cache = new Map();
+
+//   return function(x) {
+//     if (cache.has(x)) {    // если кеш содержит такой x,
+//       return cache.get(x); // читаем из него результат
+//     }
+
+//     let result = func(x); // иначе, вызываем функцию
+
+//     cache.set(x, result); // и кешируем (запоминаем) результат
+//     return result;
+//   };
+// }
+
+// slow = cachingDecorator(slow);
+
+<<<<<<< HEAD
   sayHi(); // Hello
 */
+=======
+// alert( slow(1) ); // slow(1) кешируем
+// alert( "Again: " + slow(1) ); // возвращаем из кеша
+
+// alert( slow(2) ); // slow(2) кешируем
+// alert( "Again: " + slow(2) ); // возвращаем из кеша
+>>>>>>> 804a0ca05ab84d500a2d040fff12f4e2deb76229
 
 
 /*
