@@ -6,17 +6,24 @@
 //
 // delay(1000, function() {
 //   console.log('delay callback 1');
-//
+
 //   delay(2000, function() {
 //     console.log('delay callback 2');
-//
+
 //     delay(3000, function() {
 //       console.log('delay callback 3');
 //     });
 //   });
 // });
+
 //
 // перепишите её с помощью промисов, чтобы мы могли код выше заменить на:
+
+function delay(time){
+    return new Promise((resolve)=>{
+        setTimeout(()=>{return resolve();},time);      
+    });
+}
 // delay(1000)
 //   .then(() => console.log('delay callback 1'))
 //   .then(() => delay(2000))
@@ -82,31 +89,18 @@
 //
 //
 //
+const someUrl = 'http://echo.jsontest.com/id/qwerty/name/petya';
 //
+
 //
+// старый запрос на сервер:
+// request(someUrl, function (response) {
+//   console.log(response); // выведет в консоль { id: 'qwerty', name: 'petya' }
+// });
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+// запрос на сервер после доработки функции request:
+// request(url)
+//   .then(data => console.log(data)); // выведет в консоль { id: 'qwerty', name: 'petya' }
 //
 //
 //
