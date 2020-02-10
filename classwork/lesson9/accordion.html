@@ -53,5 +53,16 @@
     <p>Lorem ipsum...</p>
   </div>
   
+  <script>
+    let accordions = document.querySelectorAll('.accordion');
+
+    accordions.forEach((el) => {
+      el.addEventListener('click', (event) => {
+        let htmlEL = event.target;
+        htmlEL.classList.toggle('active');
+        htmlEL.nextElementSibling.classList.toggle('panel-active');
+      });
+    });
+  </script>
 </body>
 </html>
