@@ -54,7 +54,7 @@
 //  ** ПОДСКАЗКА для задачи №1 обратите внимание, что после вызова delay мы сразу пишем .then, (delay должна вернуть promise)
 
 function delay(time) {
-  return Promise.resolve(time);
+  return new Promise(resolve => setTimeout(() => resolve(), time));
 }
 
 delay(1000)
