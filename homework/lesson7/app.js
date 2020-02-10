@@ -201,16 +201,30 @@ let arr = [
    ['Женя', 25, 175]
 ];
 
-function sortByName(a, b) {
-   if (a > b) {
+let humans = [];
+
+arr.forEach(element => humans.push(new Human(element[0], element[1], element[2])));
+console.log(humans);
+
+
+function compareName(a,b) {
+   if (a - b) {
       return 1;
-   } else if (a < b) {
+   } else if (a - b) {
       return -1;
    } else {
       return 0;
    }
 }
 
-function sortByHeight(a, b) {
-   
+function sortByName(compareName) {
+   return arr.sort();
+};
+
+function sortByHeight(arr) {
+   let i = 0;
+   arr.forEach(element => element[2])
 }
+
+let name = sortByName(humans);
+console.log(name);
