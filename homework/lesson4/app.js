@@ -12,6 +12,7 @@
 // calculate('pear', 4, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // 2000
 
 //Ответ :)
+
 /*
 function calculate(name, amount, object) {
   for (key in object) {
@@ -42,6 +43,8 @@ calculate("potato", 1, { apple: 100, pear: 500, melon: 400, lemon: undefined });
 //calculate("lemon", 2, { apple: 100, pear: 500, melon: 400, lemon: undefined });
 //calculate("pear", 4, { apple: 100, pear: 500, melon: 400, lemon: undefined });
 */
+
+/*
 // 2)
 // напишите функцию deepClone глубокого клонирования объекта, которая создаёт глубокую копию объекта
 // * - глубокая копия - это значит, что если внутри объекта есть свойства объекты - их нужно тоже склонировать
@@ -51,6 +54,21 @@ calculate("potato", 1, { apple: 100, pear: 500, melon: 400, lemon: undefined });
 // cloneSomeObj -> { name: 'Petya', metrics: { weight: 80, height: 180 } }; // копия повторяет структуру первоначального объекта
 // cloneSomeObj === someObj // false при сравнении копия и первоначальный объект не равны
 // cloneSomeObj.metrics === someObj.metrics // false при сравнении вложенного объекта они тоже не равны
+*/
+
+//Ответ
+/*
+let deepClone = n => {
+  let sj = {};
+  for (let key in n) {
+    typeof n[key] === "object" ? deepClone(n[key]) : (sj[key] = n[key]);
+  }
+  return sj;
+};
+let someObj = { name: "Petya", metrics: { weight: 80, height: 180 } };
+//let yy = (deepClone(someObj).metrics === someObj.metrics)?true:false; //false
+//let yy = (deepClone(someObj) === someObj)?true:false; //false 
+*/
 
 // 3)
 // напишите функцию merge для объединения объектов НЕ используя встроеный метод Object.assign
@@ -73,24 +91,52 @@ calculate("potato", 1, { apple: 100, pear: 500, melon: 400, lemon: undefined });
 
 //Ответ
 
-dog = {
-  name: "Bobik",
-  bark: function(howl) {
-    let voice = ": bark ";
+/*let dog = {
+  name: "Bobik:",
+  bark: function(howl, weig) {
+    let voice;
+    let voiceX;
+    if (weig > 2) {
+      voiceX = "- BARK";
+      voice = voiceX;
+    } else voiceX = "- bark";
+    voice = voiceX;
+
     for (i = 1; i < howl; i++) {
-      voice += "bark ";
+      voice = voice + voiceX;
     }
+    return voice;
   }
 };
-console.log(`${dog.name}${bark(6)}`);
-console.log(`${dog.name}${bark()}`);
+console.log(`${dog.name}${dog.bark(6, 3)}`);
+console.log(`${dog.name}${dog.bark(0, 1)}`);
+*/
 
+/*
 // 5)
 // Есть объект товара item = { label: 'phone', price: 500, currency: '$' };
 // сделайте так, чтобы при преобразовании данного объекта
 // к строке возвращалась строка => "500$",
 // а при преобразовании к числе возвращалось просто 500
 // обратите внимание, что 500 и $ это значения полей самого объекта (если их поменять то это будет учитываться при последующих преобразованиях)
+*/
+
+// Ответ:
+/*
+let item = {
+  label: "phone",
+  price: 500,
+  currency: "$",
+  toString: function() {
+    return this.price + this.currency;
+  },
+  valueOf: function() {
+    return this.price;
+  }
+};
+console.log(String(item));
+console.log(Number(item));
+*/
 
 // 6)
 // напишите конструктор Dog который создает объект со свойствами name, age, breed, weight, height, position, status
