@@ -18,6 +18,23 @@
     console.log(cat.state); // 'lying'
     cat.meow(); // выводит в консоль "murzik: meow"
  */
+class Cat {
+    constructor(name) {
+        this.name = name;
+        this.state = 'lying'
+    }
+    up = () => {this.state = 'standing'};
+    down = () => {this.state = 'lying'};
+    meow = () => {console.log(`${this.name}: meow`)};
+}
+const cat = new Cat('murzik');
+console.log(cat.name); // 'murzik'
+console.log(cat.state); // 'lying'
+cat.up();
+console.log(cat.state); // 'standing'
+cat.down();
+console.log(cat.state); // 'lying'
+cat.meow(); // выводит в консоль "murzik: meow"
 
  /*
     2)
@@ -31,7 +48,23 @@
     так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
     Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
  */
+class Animal {
+    constructor(movingType, color) {
+        this.movingType = movingType;
+        this.color = color;
+    }
+}
 
+class Dog extends Animal{
+    constructor( movingType, color, name, age, weight ) {
+        super(movingType, color);
+        this.name = name;
+        this.age = age;
+        this.weight = weight;
+    }
+}
+const someDog = new Dog('walking', 'black', 'tuzik', 4, 10);
+console.log(someDog);
  /*
     3)
 
@@ -50,7 +83,27 @@
     console.log(someCar.run()); // 'running'
     console.log(someCar.stop()); // 'stopped'
  */
+class Transport {
+    status = 'stopped';
+    run = ()=> {this.status = 'running'};
+    stop = () => {this.status = 'stopped'};
+}
+class Car extends Transport { //Забавно, что гуглохроме так прокатывает.
 
+}
+
+const someTransport = new Transport();
+console.log(someTransport.status); // 'stopped'
+someTransport.run();
+console.log(someTransport.status); // 'running'
+someTransport.stop();
+console.log(someTransport.status); // 'stopped'
+const someCar = new Car();
+console.log(someCar.status); // 'stopped'
+someCar.run();
+console.log(someCar.status); // 'running'
+someCar.stop();
+console.log(someCar.status); // 'stopped'
 /*
    4)
 
@@ -58,18 +111,18 @@
    age и height конструктор класса должен принимать одноимённые аргументы.
 
    — Создайте массив humans из десяти объектов на основе класса Human:
-   «Коля», 23, 180,
-   «Даша», 19, 170,
-   «Ваня», 18, 192,
-   «Петя», 45, 178,
-   «Вася», 34, 197,
-   «Джони», 40, 168,
-   «Катя», 37, 160,
-   «Петя», 29, 200,
-   «Соня», 21, 172,
-   «Женя», 25, 175
+   'Коля', 23, 180,
+   'Даша', 19, 170,
+   'Ваня', 18, 192,
+   'Петя', 45, 178,
+   'Вася', 34, 197,
+   'Джони', 40, 168,
+   'Катя', 37, 160,
+   'Петя', 29, 200,
+   'Соня', 21, 172,
+   'Женя', 25, 175
 
-   — Укажите классу метод getInfo (он должен возвращать строки вида «Коля, 23, 180»),
+   — Укажите классу метод getInfo (он должен возвращать строки вида 'Коля, 23, 180'),
    — Укажите метод геттер firstname ( он должен возвращать свойство name объекта)
    — Укажите метод сеттер firstname ( он должен настраивать свойство name объекта)
 
@@ -77,3 +130,29 @@
      которые смогут отсортировать массив по именам (в алфавитном порядке)
      или росту (по убыванию роста). Вызовите только функцию сортировки по росту.
 */
+
+class Human {
+    constructor(name, age, height) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
+    }
+}
+
+const humanArray = [
+    ['Коля', 23, 180],
+   ['Даша', 19, 170],
+   ['Ваня', 18, 192],
+   ['Петя', 45, 178],
+   ['Вася', 34, 197],
+   ['Джони', 40, 168],
+   ['Катя', 37, 160],
+   ['Петя', 29, 200],
+   ['Соня', 21, 172],
+   ['Женя', 25, 175]
+].map((item) => new Human(...item));
+
+sortByName = (arr) => {arr.sort((i, j) => i.name > j.name? 1 : -1)};
+sortByHeight = (arr) => {arr.sort((i, j) => (i.height - j.height))};
+sortByHeight(humanArray);
+console.log(humanArray);
