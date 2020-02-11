@@ -91,7 +91,15 @@ function delay(time){
 //
 const someUrl = 'http://echo.jsontest.com/id/qwerty/name/petya';
 //
+function request(url) {
+    let promiseResponse = fetch(url)
+                            .then((response) => response.json());
 
+    return promiseResponse;
+}
+
+// request(someUrl)
+//   .then(data => console.log(data)); // выведет в консоль { id: 'qwerty', name: 'petya' }
 //
 // старый запрос на сервер:
 // request(someUrl, function (response) {
