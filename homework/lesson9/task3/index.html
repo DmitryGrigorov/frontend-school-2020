@@ -42,15 +42,25 @@ let item = (A) => {
 
 document.querySelector('#add-first-item').addEventListener('click', (event) => {
  document.querySelector('#list').prepend(item(0))
+ document.querySelectorAll('Button[id^="remove"]').forEach((v) => { v.removeAttribute('disabled') })
 })
 document.querySelector('#remove-first-item').addEventListener('click', (event) => {
- document.querySelector('#list').firstElementChild.remove()
+ if(document.querySelector('#list').children.length > 1){
+  document.querySelector('#list').firstElementChild.remove()
+ } else{
+  document.querySelectorAll('Button[id^="remove"]').forEach((v) => { v.setAttribute('disabled','disabled') })
+ }
 })
 document.querySelector('#add-last-item').addEventListener('click', (event) => {
  document.querySelector('#list').append(item(1))
+ document.querySelectorAll('Button[id^="remove"]').forEach((v) => { v.removeAttribute('disabled') })
 })
 document.querySelector('#remove-last-item').addEventListener('click', (event) => {
- document.querySelector('#list').lastElementChild.remove()
+ if(document.querySelector('#list').children.length > 1){
+  document.querySelector('#list').lastElementChild.remove()
+ } else{
+  document.querySelectorAll('Button[id^="remove"]').forEach((v) => { v.setAttribute('disabled', 'disabled') })
+ }
 })
   </script>
  </body>
