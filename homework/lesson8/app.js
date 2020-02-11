@@ -19,9 +19,9 @@
 //
 // перепишите её с помощью промисов, чтобы мы могли код выше заменить на:
 
-function delay(time){
+function delay(time) {
     return new Promise((resolve)=>{
-        setTimeout(()=>{return resolve();},time);      
+        setTimeout(()=> resolve(), time);      
     });
 }
 // delay(1000)
@@ -30,28 +30,6 @@ function delay(time){
 //   .then(() => console.log('delay callback 2'))
 //   .then(() => delay(3000))
 //   .then(() => console.log('delay callback 3'));
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -128,48 +106,17 @@ function request(url) {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+let urls = [
+    'http://echo.jsontest.com/id/qwerty1/name/petya',
+    'http://echo.jsontest.com/id/qwerty2/name/vasya',
+    'http://echo.jsontest.com/id/qwerty3/name/kolya'
+];
+
+urls = urls.map((url) => fetch(url));
+
+Promise.all(urls)
+        .then((response) => console.log(response)); 
+
 //
 // ** ПОДСКАЗКА для задачи №3 с помощью метода массива .map() -> переделайте массив строк в массив промисов
 // во второй задаче есть подстказка как url превращяется в промис
