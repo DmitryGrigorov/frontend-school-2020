@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo-list</title>
+</head>
+<body>
+    <ul id="list">
+        <li class="item">item 1</li>
+        <li class="item">item 2</li>
+        <li class="item">item 3</li>
+        <li class="item">item 4</li>
+        <li class="item">item 5</li>
+    </ul>
+
+    <button id="remove-fiest-child">Remove first child</button>
+    <button id="add-fiest-child">Add first child</button>
+    <button id="remove-last-child">Remove last child</button>
+    <button id="add-last-child">Add last child</button>
+    <script>
+    removeLast.addEventListener('click', function() {
+        list.lastElementChild.remove();
+    })
+    </script>
+</body>
+</html>
