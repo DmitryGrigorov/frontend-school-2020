@@ -311,6 +311,7 @@ console.log(pow(2, 3));
   //   alert(`Hello, ${who}`);
   // };
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   // // Named Function Expression:
 
@@ -324,6 +325,8 @@ console.log(pow(2, 3));
 
   // alert( sum(1, 2) ); // 3
 =======
+=======
+>>>>>>> a8f5580e4c799c90899f5d9b0ba04b29a3a0ce22
 
   // // Named Function Expression:
 
@@ -367,6 +370,7 @@ console.log(pow(2, 3));
 // console.log(counter())
 // console.log(counter())
 // console.log(counter())
+<<<<<<< HEAD
 
 // Пример сложнее c https://learn.javascript.ru/call-apply-decorators
 
@@ -397,11 +401,40 @@ console.log(pow(2, 3));
 
   // sayHi(); // Hello
 =======
+=======
+
+// Пример сложнее c https://learn.javascript.ru/call-apply-decorators
+
+// function slow(x) {
+//   // здесь могут быть ресурсоёмкие вычисления
+//   alert(`Called with ${x}`);
+//   return x;
+// }
+
+// function cachingDecorator(func) {
+//   let cache = new Map();
+
+//   return function(x) {
+//     if (cache.has(x)) {    // если кеш содержит такой x,
+//       return cache.get(x); // читаем из него результат
+//     }
+
+//     let result = func(x); // иначе, вызываем функцию
+
+//     cache.set(x, result); // и кешируем (запоминаем) результат
+//     return result;
+//   };
+// }
+
+>>>>>>> a8f5580e4c799c90899f5d9b0ba04b29a3a0ce22
 // slow = cachingDecorator(slow);
 
 // alert( slow(1) ); // slow(1) кешируем
 // alert( "Again: " + slow(1) ); // возвращаем из кеша
+<<<<<<< HEAD
 >>>>>>> e49e781437f6557dd385df314d5d818dcfe220bf
+=======
+>>>>>>> a8f5580e4c799c90899f5d9b0ba04b29a3a0ce22
 
 // alert( slow(2) ); // slow(2) кешируем
 // alert( "Again: " + slow(2) ); // возвращаем из кеша

@@ -18,6 +18,7 @@
     console.log(cat.state); // 'lying'
     cat.meow(); // выводит в консоль "murzik: meow"
  */
+<<<<<<< HEAD
    class Cat {
       constructor(name) {
          this.name = name,
@@ -48,6 +49,8 @@
    cat.meow(); // выводит в консоль "murzik: meow"
    console.groupEnd();
 
+=======
+>>>>>>> a8f5580e4c799c90899f5d9b0ba04b29a3a0ce22
 
  /*
     2)
@@ -56,11 +59,16 @@
     У всех экземпляров класса Animal есть собственные (не наследуемые) свойства: { movingType, color }
     Например: const someAnimal = new Animal('walking', 'black'); // { movingType: 'walking', color: 'black' };
     А у экземпляров класса Dog есть собственные свойства: { name, age, weight }
+<<<<<<< HEAD
     Например:  // { name: 'tuzik', age: 4, weight: 10 };
+=======
+    Например: const someDog = new Dog('tuzik', 4, 10); // { name: 'tuzik', age: 4, weight: 10 };
+>>>>>>> a8f5580e4c799c90899f5d9b0ba04b29a3a0ce22
     Реализуйте наследование класса Animal классом Dog,
     так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
     Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
  */
+<<<<<<< HEAD
    class Animal {
       constructor(options) {
          this.movingType = options.movingType,
@@ -84,6 +92,9 @@
    const someDog1 = new Dog({movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10});
    console.log(someDog);
    console.log(someDog1);   
+=======
+
+>>>>>>> a8f5580e4c799c90899f5d9b0ba04b29a3a0ce22
  /*
     3)
 
@@ -103,6 +114,7 @@
     console.log(someCar.stop()); // 'stopped'
  */
 
+<<<<<<< HEAD
    class Transport {
 
       constructor() {
@@ -142,6 +154,8 @@
    console.groupEnd();
 
 
+=======
+>>>>>>> a8f5580e4c799c90899f5d9b0ba04b29a3a0ce22
 /*
    4)
 
@@ -168,6 +182,7 @@
      которые смогут отсортировать массив по именам (в алфавитном порядке)
      или росту (по убыванию роста). Вызовите только функцию сортировки по росту.
 */
+<<<<<<< HEAD
 
 class Human {
    constructor(name, age , height) {
@@ -228,3 +243,5 @@ function sortByHeight(arr) {
 
 let name = sortByName(humans);
 console.log(name);
+=======
+>>>>>>> a8f5580e4c799c90899f5d9b0ba04b29a3a0ce22
