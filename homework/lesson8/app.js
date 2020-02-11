@@ -1,4 +1,4 @@
-// 1
+// 1)
 // Есть функция "отложенного вызова функции" delay
 // function delay(time, callback) {
 //     setTimeout(callback, time);
@@ -23,6 +23,26 @@
 //   .then(() => console.log('delay callback 2'))
 //   .then(() => delay(3000))
 //   .then(() => console.log('delay callback 3'));
+/*
+     --------
+    1)Ответ:
+
+    function delay(time) {
+    const deleyPromise = new Promise(function(resolve, reject) {
+        setTimeout(() => {
+        resolve();
+        }, time);
+    });
+    return deleyPromise;
+    }
+
+    delay(1000)
+    .then(() => console.log("delay callback 1"))
+    .then(() => delay(2000))
+    .then(() => console.log("delay callback 2"))
+    .then(() => delay(3000))
+    .then(() => console.log("delay callback 3"));
+*/
 //
 //
 //
@@ -53,8 +73,6 @@
 //
 //  ** ПОДСКАЗКА для задачи №1 обратите внимание, что после вызова delay мы сразу пишем .then, (delay должна вернуть promise)
 
-
-
 // 2
 // Переделайте запрос на сервер при помощи метода fetch
 //
@@ -79,6 +97,18 @@
 // request(url)
 //   .then(data => console.log(data)); // выведет в консоль { id: 'qwerty', name: 'petya' }
 //
+/*
+    ---------
+    2)Ответ:
+
+    function request(url) {
+    return fetch(url).then(response => response.json());
+    }
+    const someUrl = "http://echo.jsontest.com/id/qwerty/name/petya";
+    request(someUrl)
+        .then(data => console.log(data));
+*/
+
 //
 //
 //
@@ -114,7 +144,6 @@
 // ** ПОДСКАЗКА для задачи №2 метод fetch возвращает промис
 // обратите внимание, что после вызова новой функции request в первый же "then" нам попадает уже тело ответа от сервера, а не заголовки ответа
 
-
 // 3*
 // Есть массив (колличество элементов может быть любым):
 // let urls = [
@@ -125,6 +154,29 @@
 // загрузите данные со всех урлов параллельно и получите результат в виде массива ответов от сервера [response1, response2, response3]
 //
 //
+/*
+    ------------
+    3)Ответ:
+
+    let urls = [
+        'http://echo.jsontest.com/id/qwerty1/name/petya',
+        'http://echo.jsontest.com/id/qwerty2/name/vasya',
+        'http://echo.jsontest.com/id/qwerty3/name/kolya'
+    ];
+    function responseServer (urls) {
+        let array = new Array();
+        let i = 0;
+        urls.map(key => {
+            return fetch(key).then(response => response.json()).then(data => {
+                array[i++] = data;
+            });
+        });
+        return array;
+    }
+
+    console.log(responseServer(urls));
+
+*/
 //
 //
 //
@@ -171,4 +223,3 @@
 //
 // ** ПОДСКАЗКА для задачи №3 с помощью метода массива .map() -> переделайте массив строк в массив промисов
 // во второй задаче есть подстказка как url превращяется в промис
-
