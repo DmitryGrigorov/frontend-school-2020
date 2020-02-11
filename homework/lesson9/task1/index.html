@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+ <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Task 1</title>
-</head>
-<body>
+ </head>
+ <body>
   <ul id="list">
     <li>Арбуз</li>
     <li>Апельсин</li>
@@ -22,8 +22,13 @@
     
    -->
   <script>
+const element = document.querySelector('Ul#list') //1
 
+const aA = ['Бананы', 'Черника', 'Малина']
+aA.forEach(function(v){ element.innerHTML += `    <li>${v}</li>\r\n` }) //2
 
+const aB = document.querySelectorAll('Ul#list > Li:nth-child(even)')
+aB.forEach(function(v){ v.style.background = 'tomato' }) //3
   </script>
-</body>
+ </body>
 </html>

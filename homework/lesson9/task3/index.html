@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+ <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Task 3</title>
-</head>
+ </head>
 <body>
   <ul id="list">
-    <li>item 1</li>
-    <li>item 2</li>
-    <li>item 3</li>
-    <li>item 4</li>
-    <li>item 5</li>
-    <li>item 6</li>
-    <li>item 7</li>
+   <li>item 1</li>
+   <li>item 2</li>
+   <li>item 3</li>
+   <li>item 4</li>
+   <li>item 5</li>
+   <li>item 6</li>
+   <li>item 7</li>
   </ul>
 
   <button id="add-first-item">Add first item</button>
@@ -30,7 +30,28 @@
     4. Кнопка "Remove last item" должна удалять элемент в конце списка
   -->
   <script>
-  </script>
+let item = (A) => {
+ let list = document.querySelector('#list')
+ let element = (A) ? list.lastElementChild : list.firstElementChild
+ element = element.cloneNode(true)
+ let a_element = element.innerHTML.split(' ')
+ element.innerHTML = a_element[0] + ' ' + ((A) ? ++a_element[1] : --a_element[1])
 
-</body>
+ return element
+}
+
+document.querySelector('#add-first-item').addEventListener('click', (event) => {
+ document.querySelector('#list').prepend(item(0))
+})
+document.querySelector('#remove-first-item').addEventListener('click', (event) => {
+ document.querySelector('#list').firstElementChild.remove()
+})
+document.querySelector('#add-last-item').addEventListener('click', (event) => {
+ document.querySelector('#list').append(item(1))
+})
+document.querySelector('#remove-last-item').addEventListener('click', (event) => {
+ document.querySelector('#list').lastElementChild.remove()
+})
+  </script>
+ </body>
 </html>
