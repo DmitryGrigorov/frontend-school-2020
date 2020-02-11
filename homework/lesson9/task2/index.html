@@ -8,13 +8,36 @@
       height: 300px;
       border: 10px solid black;
       background-color: #efd5ff;
+      position: relative;
     }
 
     .element {
       width: 50px;
       height: 50px;
       background-color: yellowgreen;
+      position: absolute;
     }
+
+    .center {      
+      left: calc(150px - 25px);/* из полуширины контейнера вычитается полуширина элемента */
+      top: calc(150px - 25px);
+    }
+
+    .top-right {
+      right: 0;
+      top: 0;
+    }
+
+    .bottom-right {
+      right: 0;
+      bottom: 0;
+    }
+
+    .bottom-left {
+      left: 0;
+      bottom: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -30,6 +53,25 @@
 -->
 
   <script>
+    
+    let container = document.querySelector('.container');
+    let element = document.querySelector('.element');
+    
+    let elementCenter = element.cloneNode(true);
+    elementCenter.classList.toggle('center');
+    container.append(elementCenter);
+
+    let elementTopRight = element.cloneNode(true);
+    elementTopRight.classList.toggle('top-right');
+    container.append(elementTopRight);
+
+    let elementBottomRight = element.cloneNode(true);
+    elementBottomRight.classList.toggle('bottom-right');
+    container.append(elementBottomRight);
+
+    let bottomLeft = element.cloneNode(true);
+    bottomLeft.classList.toggle('bottom-left');
+    container.append(bottomLeft);
 
   </script>
 </body>
