@@ -170,7 +170,7 @@
 */
 
 class Human {
-   constructor(name, age , height) {
+   constructor(name, age, height) {
       this.name = name,
       this.age = age,
       this.height = height
@@ -189,28 +189,49 @@ class Human {
    }
 }
 
-let arr = [
-   ['Коля', 23, 180],
-   ['Ваня', 18, 192],
-   ['Петя', 45, 178],
-   ['Вася', 34, 197],
-   ['Джони', 40, 168],
-   ['Катя', 37, 160],
-   ['Петя', 29, 200],
-   ['Соня', 21, 172],
-   ['Женя', 25, 175]
-];
+let arr = ['Коля', 23, 180,
+           'Ваня', 18, 192,
+           'Петя', 45, 178,
+           'Вася', 34, 197,
+           'Джони', 40, 168,
+           'Катя', 37, 160,
+           'Петя', 29, 200,
+           'Соня', 21, 172,
+           'Женя', 25, 175];
 
-function sortByName(a, b) {
-   if (a > b) {
-      return 1;
-   } else if (a < b) {
-      return -1;
-   } else {
-      return 0;
+let humans = [];
+
+function instancesOfClassHuman(arr) {
+   for (let i = 0; i < arr.length; i += 3) {
+      humans.push(new Human(arr[i], arr[i + 1], arr[i + 2]));
    }
 }
 
-function sortByHeight(a, b) {
-   
+instancesOfClassHuman(arr);
+
+function sortByName(arr) {
+   arr.sort((a, b) => {
+      if (a.name > b.name) {
+         return 1;
+      } else if (a.name < b.name) {
+         return -1;
+      } else {
+         return 0;
+      }
+   });
+};
+
+function sortByHeight(arr) {
+   arr.sort((a, b) => b.height - a.height);
 }
+
+
+sortByHeight(humans);
+
+console.group('Exercise 4:')
+console.log(humans); // отсортированный массив по росту
+console.log(humans[0].getinfo()); // Петя, 29, 200
+console.log(humans[0].firstname); // Петя
+console.log(humans[0].firstname = 'Боб'); // Боб
+console.groupEnd();
+
