@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>lesson 9</h1>
+    <ul id = 'ulilist' class = "list">
+      <li id='item1' value="sdf">item1</li>
+      <li>item2</li>
+      <li description="title">item3</li>
+      <li id='item4'>item4</li>
+      <li>item5</li>
+      <li>item6</li>
+      <li>item7</li>
+      <li>item8</li>
+      <li>item9</li>
+      <li>item10</li>
+      <li>item11</li>
+      <li>item12</li>
+      <li>item13</li>
+      <li>item14</li>
+      <li>item15</li>
+      <li>item16</li>
+    </ul>
+  </body>
+
+  <script>
+    let list = document.getElementById('ulilist');
+    // list.style.background = 'red';
+    // console.log(list.firstChild);
+    let item1 = document.querySelector('#item1');
+    let item4 = document.getElementById('item4');
+    list.style.background = 'cyan';
+    item4.style.background = 'red';
+    //console.log(item4.parentElement);
+
+    let h1 = document.createElement('h1');
+    h1.innerHTML = '<i>Head</i>line';
+    list.after(h1);
+    item1.remove();
+
+    list.replaceChild(h1, item4);
+  </script>
+</html>
