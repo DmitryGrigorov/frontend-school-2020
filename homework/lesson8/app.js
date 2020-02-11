@@ -24,37 +24,10 @@
 //   .then(() => delay(3000))
 //   .then(() => console.log('delay callback 3'));
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//  ** ПОДСКАЗКА для задачи №1 обратите внимание, что после вызова delay мы сразу пишем .then, (delay должна вернуть promise)
-
 function delay(time) {
-  return Promise.resolve(time);
+  return new Promise(resolve => {
+    setTimeout(() => resolve(), time);
+  })
 }
 
 delay(1000)
@@ -64,6 +37,9 @@ delay(1000)
   .then(() => console.log("delay callback 2"))
   .then(() => delay(3000))
   .then(() => console.log("delay callback 3"));
+
+//  ** ПОДСКАЗКА для задачи №1 обратите внимание, что после вызова delay мы сразу пишем .then, (delay должна вернуть promise)
+
 
 // 2
 // Переделайте запрос на сервер при помощи метода fetch
@@ -88,50 +64,21 @@ delay(1000)
 // запрос на сервер после доработки функции request:
 // request(url)
 //   .then(data => console.log(data)); // выведет в консоль { id: 'qwerty', name: 'petya' }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+const someUrl = 'http://echo.jsontest.com/id/qwerty/name/petya';
+
+function request(url) {
+    return fetch(url)
+      .then(response => response.json())
+  }
+
+request(someUrl)
+  .then(data => console.log(data));
+
 // ** ПОДСКАЗКА для задачи №2 метод fetch возвращает промис
 // обратите внимание, что после вызова новой функции request в первый же "then" нам попадает уже тело ответа от сервера, а не заголовки ответа
 
-const someUrl = "http://echo.jsontest.com/id/qwerty/name/petya";
 
-async function request(url) {
-  const response = await fetch(url);
-  return response.json();
-}
-
-request(someUrl).then(data => console.log("2d task \n", data));
 
 // 3*
 // Есть массив (колличество элементов может быть любым):
@@ -141,67 +88,25 @@ request(someUrl).then(data => console.log("2d task \n", data));
 //     'http://echo.jsontest.com/id/qwerty3/name/kolya'
 // ];
 // загрузите данные со всех урлов параллельно и получите результат в виде массива ответов от сервера [response1, response2, response3]
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+let urls = [
+  'http://echo.jsontest.com/id/qwerty1/name/petya',
+  'http://echo.jsontest.com/id/qwerty2/name/vasya',
+  'http://echo.jsontest.com/id/qwerty3/name/kolya'
+];
+debugger
+let arrUrl = urls.map(item => fetch(item));
+
+let arrRespone = null;
+
+ Promise.all(arrUrl)
+  .then(responses => Promise.all(responses.map((respone) => {
+    return respone.json();
+  })))
+  .then(resolve => {return arrRespone = resolve})
+  .then(result => console.log(result));
+
 // ** ПОДСКАЗКА для задачи №3 с помощью метода массива .map() -> переделайте массив строк в массив промисов
 // во второй задаче есть подстказка как url превращяется в промис
 
-let urls = [
-  "http://echo.jsontest.com/id/qwerty1/name/petya",
-  "http://echo.jsontest.com/id/qwerty2/name/vasya",
-  "http://echo.jsontest.com/id/qwerty3/name/kolya"
-];
 
-const fetchData = async urls => {
-  const urlPromises = urls.map(async url => {
-    const response = await fetch(url);
-    return response.json();
-  });
-  console.log("3d task \n", await Promise.all(urlPromises));
-};
-
-fetchData(urls);
