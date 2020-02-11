@@ -2,8 +2,22 @@
 <html lang="en">
 <head>
   <title>Classlist</title>
+  <ul class="list">
+    <li class="item-1">Пункт 1</li>
+    <li class="item-2">Пункт 2</li>
+    <li class="item-3">Пункт 3</li>
+    <li class="item-4">Пункт 4</li>
+  </ul>
+  <button class="button">Удалить</button>
 </head>
 <body>
-  
+  <script>
+    let list = document.querySelector('.list');
+    let button = document.querySelector('.button');
+    //let li = document.querySelector('li:first-child');
+    button.addEventListener('click', function() {
+      document.querySelector('li:first-child').remove();
+    });
+  </script>
 </body>
 </html>
