@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Task 2: Centered block</title>
-  <style>
-    .container {
-      width: 300px;
-      height: 300px;
-      border: 10px solid black;
-      background-color: #efd5ff;
-    }
+    <title>Task 2: Centered block</title>
+    <style>
+        .container {
+            width: 300px;
+            height: 300px;
+            border: 10px solid black;
+            background-color: #efd5ff;
+        }
 
-    .element {
-      width: 50px;
-      height: 50px;
-      background-color: yellowgreen;
-    }
-  </style>
+        .element {
+            width: 50px;
+            height: 50px;
+            background-color: yellowgreen;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
+<div class="container">
     <div class="element"></div>
-  </div>
+</div>
 
 <!-- 
   1. Склонировать элемент (ноду) и расположить его по центру контейнера
@@ -29,8 +29,39 @@
   4. Склонировать элемент (ноду) и расположить его в левый нижний угол контейнера
 -->
 
-  <script>
+<script>
+    let noda = document.querySelector('.element');
+    noda.style.position = 'absulute';
 
-  </script>
+    let container = document.querySelector('.container');
+    container.style.position = 'absolute';
+
+
+    let nodeCenter = noda.cloneNode();
+    nodeCenter.style.position = 'absolute';
+    let leftSize = (container.clientWidth / 2) - (noda.clientWidth/2);
+    nodeCenter.style.left = leftSize + 'px';
+    let topSize = (container.clientHeight / 2) - (noda.clientHeight/2);
+    nodeCenter.style.top = topSize + 'px';
+    container.appendChild(nodeCenter);
+
+    let nodeRightTop = noda.cloneNode();
+    nodeRightTop.style.position = 'absolute';
+    nodeRightTop.style.right = '0';
+    nodeRightTop.style.top = '0';
+    container.appendChild(nodeRightTop);
+
+    let nodeBottomLeft = noda.cloneNode();
+    nodeBottomLeft.style.position = 'absolute';
+    nodeBottomLeft.style.bottom = '0';
+    nodeBottomLeft.style.left = '0';
+    container.appendChild(nodeBottomLeft);
+
+    let nodeBottomRight = noda.cloneNode();
+    nodeBottomRight.style.position = 'absolute';
+    nodeBottomRight.style.bottom = '0';
+    nodeBottomRight.style.right = '0';
+    container.appendChild(nodeBottomRight);
+</script>
 </body>
 </html>

@@ -22,8 +22,16 @@
     
    -->
   <script>
-
-
+let myList = document.getElementById('list');
+let arr = ['Бананы', 'Черника', 'Малина'];
+arr.forEach(value => {
+  let li = document.createElement("li");
+  li.textContent = value;
+  myList.append(li);
+});
+for (let i = 0; i<myList.childElementCount; i++)
+  if (i%2==0)
+    myList.children[i].style.background = 'red';
   </script>
 </body>
 </html>
