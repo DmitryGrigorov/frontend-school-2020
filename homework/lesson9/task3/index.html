@@ -30,6 +30,61 @@
     4. Кнопка "Remove last item" должна удалять элемент в конце списка
   -->
   <script>
+    let addFirstButton    = document.querySelector('#add-first-item');
+    let removeFirstButton = document.querySelector('#remove-first-item');
+    let addLastButton     = document.querySelector('#add-last-item');
+    let removeLastButton  = document.querySelector('#remove-last-item');
+
+    let list              = document.querySelector('#list');
+
+    addFirstButton.addEventListener('click', () => addListItems('first'));
+    addLastButton.addEventListener('click', () => addListItems('last'));
+
+    removeFirstButton.addEventListener('click', () => removeListItems('first'));
+    removeLastButton.addEventListener('click', () => removeListItems('last'));
+
+    //функция удаления элементов списка
+    function removeListItems(type = 'first') {
+      let items = list.getElementsByTagName('li');
+      switch(type){
+        case 'last':
+          list.removeChild(items[items.length-1]);
+          break;
+        case 'first':
+        default:
+          list.removeChild(items[0]);
+          break;
+      }
+    }
+
+    //функция добавления элементов списка
+    function addListItems(type = 'first') {
+      let item = document.createElement('li'); 
+      item.textContent = 'item '+ getListItemTextIndex(type);
+
+      switch(type){
+        case 'last':
+          list.append(item);
+          break;
+        case 'first':
+        default:
+          list.prepend(item);
+          break;
+      }
+    }
+
+    //вычисляем индекс нового элемента для подписи 
+    function getListItemTextIndex(type = 'first') {
+      let items = list.getElementsByTagName('li');
+
+      let index = (type == 'first') ? 0 : items.length - 1;
+
+      let text = items[index].textContent.split(' ');
+
+      let newIndex = (type == 'first') ? --text[1] : ++text[1];
+
+      return newIndex;
+    }
   </script>
 
 </body>
