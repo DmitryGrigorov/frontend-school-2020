@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 2: Centered block</title>
+  <style>
+      .container {
+          width: 300px;
+          height: 300px;
+          border: 10px solid black;
+          background-color: #efd5ff;
+      }
+    .element {
+      width: 50px;
+      height: 50px;
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="element"></div>
+  </div>
+
+<!-- 
+  1. Склонировать элемент (ноду) и расположить его по центру контейнера
+  2. Склонировать элемент (ноду) и расположить его в правый верхний угол контейнера
+  3. Склонировать элемент (ноду) и расположить его в правый нижний угол контейнера
+  4. Склонировать элемент (ноду) и расположить его в левый нижний угол контейнера
+-->
+
+  <script>
+    let container = document.querySelector('.container');
+
+    container.style.display = 'grid';
+    container.style.gridTemplateRows = '50px 50px 25px 50px 25px 50px 50px ';
+    container.style.gridTemplateColumns = '50px 50px 25px 50px 25px 50px 50px';
+
+    let elem = document.querySelector('.element');
+    
+    let centerElem = elem.cloneNode();
+    centerElem.style.gridArea = '4/4/4/4';
+    container.append(centerElem);
+
+    let rightUpElem = elem.cloneNode();
+    rightUpElem.style.gridArea = '7/7/1/1';
+    container.append(rightUpElem);
+
+    let rightBottomElem = elem.cloneNode();
+    rightBottomElem.style.gridArea = '7/7/7/7';
+    container.append(rightBottomElem);
+
+    let leftBottomElem = elem.cloneNode();
+    leftBottomElem.style.gridArea = '7/1/7/1';
+    container.append(leftBottomElem);
+
+
+  </script>
+</body>
+</html>
