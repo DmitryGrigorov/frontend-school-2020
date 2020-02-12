@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Todo-list</title>
+</head>
+<body>
+  <ul id="list">
+    <li class="item">item 1</li>
+    <li class="item">item 2</li>
+    <li class="item">item 3</li>
+    <li class="item">item 4</li>
+    <li class="item">item 5</li>
+  </ul>
+  <button id="remove-first-child">Remove first child</button>
+  <button id="add-first-child">Add first child</button>
+  <button id="remove-last-child">Remove last child</button>
+  <button id="add-last-child">Add last child</button>
+
+  <script>
+    let list  = document.getElementById('list');
+
+    let removeFirst = document.getElementById('remove-first-child');
+    let addFirst = document.getElementById('add-first-child');
+    let removeLast = document.getElementById('remove-last-child');
+    let addLast = document.getElementById('add-last-child');
+
+    removeFirst.addEventListener('click', function() {
+      list.firstElementChild.remove()
+    });
+
+    removeLast.addEventListener('click', function() {
+      list.lastElementChild.remove()
+    });
+
+    addFirst.addEventListener('click', function() {
+      let newEl = document.createElement('li');
+      newEl.textContent = 'New Item';
+      list.prepend(newEl);
+    });
+
+    addLast.addEventListener('click', function() {
+      let newEl = document.createElement('li');
+      newEl.textContent = 'New Item';
+      list.append(newEl);
+    })
+
+    
+  </script>
+</body>
+</html>
