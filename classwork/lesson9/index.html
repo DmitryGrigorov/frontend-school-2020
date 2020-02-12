@@ -8,14 +8,19 @@
 </head>
 <body>
 
+<<<<<<< HEAD
   <ul id=ulList class="list">
     <li>item 1</li>
+=======
+  <ul id='ullist' class="list">
+    <li id='item1'>item 1</li>
+>>>>>>> 3d88bab79ce479401ddc213829d816ad1791b73b
     <li>item 2</li>
     <li>item 3</li>
-    <li>item 4</li>
-    <li>item 5</li>
-    <li>item 6</li>
-    <li>item 7</li>
+    <li id='item4' value='asd'>item 4</li>
+    <li description="title">item 5</li>
+    <li description="title">item 6</li>
+    <li description="title">item 7</li>
     <li>item 8</li>
     <li>item 9</li>
     <li>item 10</li>
@@ -23,6 +28,7 @@
 
 
 <script>
+<<<<<<< HEAD
 // let list = document.getElementsByClassName('List')
 let item4 = document.getElementById('ulList');
 
@@ -30,6 +36,31 @@ console.log(List.firstElementChild)
 
 list.style.background = 'red';
 console.log(list.style.background)
+=======
+  let list = document.getElementById('ullist');
+  // let list = document.getElementsByClassName('list');
+  // let list = document.getElementsByTagName('ul');
+  // let list = document.querySelector('li[description]');
+  let item4 = document.getElementById('item4');
+  let item1 = document.querySelector('#item1');
+  
+
+  console.log(item4.parentElement);
+
+  // list.style.background = 'red';
+  // console.log(list[0].style.background)
+
+  //  Создание элемента
+  let h1 = document.createElement('h1');
+  h1.innerHTML = '<i>Head</i>line';
+
+  // list.prepend(h1);
+
+  // item1.remove();
+  // h1.remove();
+
+  list.replaceChild(h1, item4);
+>>>>>>> 3d88bab79ce479401ddc213829d816ad1791b73b
 </script>
 
 </body>
