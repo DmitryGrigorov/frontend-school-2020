@@ -24,7 +24,18 @@
   </button>
 
   <script>
+    let scroll = document.querySelector('#scroll');
+    let button = document.querySelector('#button-scroll');
 
+    button.addEventListener('click', function(){
+      scroll.scrollTo({
+        top: scroll.scrollTop +200,
+        behavior: 'smooth'
+      });
+    });
+
+    let buttonUp = document.querySelector('#up');
+    buttonUp =//top:0 в scroll to
   </script>
 </body>
 </html>
