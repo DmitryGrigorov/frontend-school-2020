@@ -23,6 +23,22 @@
    -->
   <script>
 
+    let list = document.querySelector('#list');
+    let arr = ['Бананы', 'Черника', 'Малина'];
+
+    arr.forEach(item => {
+      let newLi = document.createElement('li');
+      newLi.textContent = `${item}`;
+      list.append(newLi);
+    });
+
+    for( let i = 0; i < list.children.length; i++) {
+      (i % 2 == 0) 
+      ?
+      list.children[i].style.background = 'red'
+      :
+      list.children[i];
+    }
 
   </script>
 </body>
