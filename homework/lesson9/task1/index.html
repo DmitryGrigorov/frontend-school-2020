@@ -32,11 +32,11 @@
     });
 
     let listElements = document.querySelectorAll('ul > li');
-    for(let i = 0, size = listElements.length; i < size; i++){
-      if((i + 1) % 2 !== 0){
-        listElements[i].style.background = 'red';
+    listElements.forEach( (element, index) => {
+      if((index + 1) % 2 !== 0){
+        element.style.background = 'red';
       }
-    }
+	  });
     
   </script>
 </body>
