@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Task 1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task 1</title>
 </head>
 <body>
-  <ul id="list">
+<ul id="list">
     <li>Арбуз</li>
     <li>Апельсин</li>
     <li>Авокадо</li>
     <li>Ананас</li>
     <li>Абрикос</li>
-  </ul>
+</ul>
 
-  <!--
-    1. Получить элемент c id="list"
-    2. Добавить в конец списка массив фруктов ['Бананы', 'Черника', 'Малина'] и вывести на страницу
-    3. Окрасить каждый нечетный элемент в красный цвет (elem.style.background = 'red')
-    
-   -->
-  <script>
+<!--
+  1. Получить элемент c id="list"
+  2. Добавить в конец списка массив фруктов ['Бананы', 'Черника', 'Малина'] и вывести на страницу
+  3. Окрасить каждый нечетный элемент в красный цвет (elem.style.background = 'red')
 
+ -->
+<script>
+    let list = document.querySelector('#list');
+    let fruits = ['Бананы', 'Черника', 'Малина'];
+    fruits.forEach(function (item) {
+        let someElem = document.createElement('li');
+        someElem.textContent = item;
+        list.append(someElem);
+    })
 
-  </script>
+    Array.from(list.children).forEach(function (item, id) {
+        if (id % 2 === 0) item.style.background = 'red';
+    })
+</script>
 </body>
 </html>
