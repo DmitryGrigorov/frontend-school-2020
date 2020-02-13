@@ -22,6 +22,28 @@
     
    -->
   <script>
+    const list = document.getElementById('list');
+
+    ['Бананы', 'Черника', 'Малина'].forEach(function(item) {
+        let li = document.createElement('li');
+        li.innerHTML = item;
+        list.append(li);
+    });
+
+    // 1 способ
+    Array.prototype.forEach.call(list.children, function(item, i) {
+        if (i % 2 === 0) {
+          item.style.background = 'red'
+        }
+    });
+
+    // 2 способ
+    // const mass = Array.from(list.children);
+    // for (let i = 0; i < list.children.length; i++) {
+    //   if (i % 2 === 0) { // красим нечетные элементы, начиная с 0 ..
+    //     list.children[i].style.background = 'red'
+    //   }
+    // }
 
 
   </script>

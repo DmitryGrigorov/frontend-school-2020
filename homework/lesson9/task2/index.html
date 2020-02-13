@@ -8,18 +8,20 @@
       height: 300px;
       border: 10px solid black;
       background-color: #efd5ff;
+      position: relative;
     }
 
     .element {
       width: 50px;
       height: 50px;
       background-color: yellowgreen;
+      position: absolute;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="element"></div>
+  <div id="container" class="container">
+    <div id="element" class="element"></div>
   </div>
 
 <!-- 
@@ -30,6 +32,53 @@
 -->
 
   <script>
+
+    /* 1 вариант решения через массив */
+
+    const element = document.getElementById('element');
+    const container = document.getElementById('container');
+
+    const arr = new Array(4);
+    for (let i = 0; i < arr.length; i++) {
+      arr[i] = element.cloneNode(true);
+    }
+
+    container.append(...arr);
+
+    arr[0].style.top = container.clientHeight / 2 - element.offsetHeight / 2 + 'px';
+    arr[0].style.left = container.clientWidth / 2 - element.offsetWidth / 2 + 'px';
+
+    arr[1].style.left = container.clientWidth - element.offsetWidth + 'px';
+    
+    arr[2].style.top = container.clientHeight - element.offsetHeight + 'px';
+    arr[2].style.left = container.clientWidth - element.offsetWidth + 'px';
+
+    arr[3].style.top = container.clientHeight - element.offsetHeight + 'px';
+
+
+    /* 2 вариант решения создаем каждый элемент отднльно*/
+
+    // const element = document.getElementById('element');
+    // const container = document.getElementById('container');
+
+    // const element_1= element.cloneNode(true);
+    // container.append(element_1);
+    
+    // element_1.style.top = container.clientHeight/2 - element.offsetHeight / 2 + 'px';
+    // element_1.style.left = container.clientWidth/2 - element.offsetWidth / 2 + 'px';
+
+    // const element_2= element.cloneNode(true);
+    // container.append(element_2);
+    // element_2.style.left = container.clientWidth - element.offsetWidth + 'px';
+
+    // const element_3= element.cloneNode(true);
+    // container.append(element_3);
+    // element_3.style.top = container.clientHeight - element.offsetHeight + 'px';
+    // element_3.style.left = container.clientWidth - element.offsetWidth + 'px';
+
+    // const element_4= element.cloneNode(true);
+    // container.append(element_4);
+    // element_4.style.top = container.clientHeight - element.offsetHeight + 'px';
 
   </script>
 </body>
