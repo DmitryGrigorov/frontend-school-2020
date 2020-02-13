@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Task 2: Centered block</title>
-  <style>
-    .container {
-      width: 300px;
-      height: 300px;
-      border: 10px solid black;
-      background-color: #efd5ff;
-    }
+    <title>Task 2: Centered block</title>
+    <style>
+        .container {
+            width: 300px;
+            height: 300px;
+            border: 10px solid black;
+            background-color: #efd5ff;
+        }
 
-    .element {
-      width: 50px;
-      height: 50px;
-      background-color: yellowgreen;
-    }
-  </style>
+        .element {
+            width: 50px;
+            height: 50px;
+            background-color: yellowgreen;
+            justify-self: ;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
+<div class="container">
     <div class="element"></div>
-  </div>
+</div>
 
 <!-- 
   1. Склонировать элемент (ноду) и расположить его по центру контейнера
@@ -29,8 +30,36 @@
   4. Склонировать элемент (ноду) и расположить его в левый нижний угол контейнера
 -->
 
-  <script>
+<script>
+    container = document.querySelector('.container');
+    container.style.position = 'relative';
+    let elem = document.querySelector('.element');
+    let cloneElem = elem.cloneNode();
+    let cloneElem1 = elem.cloneNode();
+    let cloneElem2 = elem.cloneNode();
+    let cloneElem3 = elem.cloneNode();
+    container.appendChild(cloneElem);
+    container.appendChild(cloneElem1);
+    container.appendChild(cloneElem2);
+    container.appendChild(cloneElem3);
+    Array.from(container.children).forEach(item => item.style.position = 'absolute');
+    elemMetric = elem.getBoundingClientRect();
 
-  </script>
+    // справа сверху
+    cloneElem.style.right = 0;
+    cloneElem.style.top = 0;
+
+    // слева снизу
+    cloneElem1.style.bottom = 0;
+
+    // справа снизу
+    cloneElem2.style.right = 0;
+    cloneElem2.style.bottom = 0;
+
+    //по центру
+    cloneElem3.style.left = (container.clientWidth-elemMetric.width)/2+'px';
+    cloneElem3.style.top = (container.clientHeight-elemMetric.height)/2+'px';
+
+</script>
 </body>
 </html>
