@@ -46,6 +46,7 @@
     border-radius: 100%;
     width: 40px;
     height: 40px;
+    transition: 1s all;
 }
 
 .messages_list_item {
@@ -64,4 +65,12 @@
 .messages_list_item_message {
     font-size: 14px;
     color: maroon;
+}
+
+.menu_highlight_list {
+    border: 1px solid black;
+}
+
+.menu_highlight_list--active {
+    background-color: chartreuse;
 }
