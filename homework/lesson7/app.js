@@ -19,6 +19,34 @@
     cat.meow(); // выводит в консоль "murzik: meow"
  */
 
+class Cat
+{
+  constructor(name)
+  {
+    this.name = name;
+    this.state='lying'
+  }
+  meow(){
+    console.log(this.name+':meow');
+  }
+  up()
+  {
+    this.state = 'standing';
+  }
+  down(){
+    this.state = 'lying';
+  }
+}
+
+const cat = new Cat('murzik');
+console.log(cat); // 'murzik'
+console.log(cat.state); // 'lying'
+cat.up();
+console.log(cat.state); // 'standing'
+cat.down();
+console.log(cat.state); // 'lying'
+cat.meow(); // выводит в консоль "murzik: meow"
+
  /*
     2)
 
@@ -32,6 +60,27 @@
     Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
  */
 
+class Animal
+{
+  constructor(options){
+  
+    this.movingType = options.movingType;
+    this.color = options.color;
+  }
+}
+const someAnimal = new Animal('walking', 'black');
+class Dog extends Animal
+{
+  constructor(options)
+  {
+    super(options);
+    this.name = options.name;
+    this.age = options.age;
+    this.weight = options.weight;
+  }
+}
+const someDog = new Dog('walking', 'black', 'tuzik', 4, 10);
+console.log(someDog);
  /*
     3)
 
@@ -50,6 +99,28 @@
     console.log(someCar.run()); // 'running'
     console.log(someCar.stop()); // 'stopped'
  */
+class Transport
+{
+  constructor()
+  {
+    this.status='stopped';
+  }
+  run()
+  {
+    this.status ='running';
+  }
+  stop()
+  {
+    this.stop='stopped';
+  }
+}
+class Car extends Transport
+{
+  constructor()
+  {
+    super();
+  }
+}
 
 /*
    4)
@@ -77,3 +148,48 @@
      которые смогут отсортировать массив по именам (в алфавитном порядке)
      или росту (по убыванию роста). Вызовите только функцию сортировки по росту.
 */
+
+class Human
+{
+  constructor(name, age, height)
+  {
+    this.name = name;
+    this.age = age;
+    this.height = height;
+  }
+  setfirstName(newName)
+  {
+    this.name = newName;
+  }
+  getfirstName()
+  {
+    return this.name;
+  }
+  getInfo()
+  {
+    console.log([this.name, this.age, this.height].join(", "));
+  }
+}
+let humans=[];
+ humans.push(new Human('Коля', 23, 180));
+ humans.push(new Human('Даша', 19, 170));
+ humans.push(new Human('Ваня', 18, 192));
+ humans.push(new Human('Петя', 45, 178));
+ humans.push(new Human('Вася', 34, 197));
+ humans.push(new Human('Джони', 40, 168));
+ humans.push(new Human('Катя', 37, 160));
+ humans.push(new Human('Петя', 29, 200));
+ humans.push(new Human('Соня', 21, 172));
+ humans.push(new Human('Женя', 25, 175));
+
+ function SortByName(array)
+ {
+    array.sort((a,b)=>a.name>b.name?1:-1);
+ }
+ function sortByHeight(array)
+ {
+  array.sort((a,b)=>a.height<b.height?1:-1);
+ }
+ sortByHeight(humans);
+ for(let i of humans)
+  console.log(i);
