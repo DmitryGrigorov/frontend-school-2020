@@ -52,8 +52,16 @@
 //
 //
 //  ** ПОДСКАЗКА для задачи №1 обратите внимание, что после вызова delay мы сразу пишем .then, (delay должна вернуть promise)
-
-
+function delay(ms)
+{
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+delay(1000)
+  .then(() => console.log('delay callback 1'))
+   .then(() => delay(2000))
+  .then(() => console.log('delay callback 2'))
+  .then(() => delay(3000))
+  .then(() => console.log('delay callback 3'));
 
 // 2
 // Переделайте запрос на сервер при помощи метода fetch
@@ -113,7 +121,16 @@
 //
 // ** ПОДСКАЗКА для задачи №2 метод fetch возвращает промис
 // обратите внимание, что после вызова новой функции request в первый же "then" нам попадает уже тело ответа от сервера, а не заголовки ответа
-
+function request(url)
+{
+    return fetch(url)
+    .then((response) => {
+        return response.json();
+          });
+}
+const someUrl = 'http://echo.jsontest.com/id/qwerty3/name/kolya';
+request(someUrl)
+   .then(data => console.log(data));
 
 // 3*
 // Есть массив (колличество элементов может быть любым):
@@ -171,4 +188,17 @@
 //
 // ** ПОДСКАЗКА для задачи №3 с помощью метода массива .map() -> переделайте массив строк в массив промисов
 // во второй задаче есть подстказка как url превращяется в промис
+let urls = [
+     'http://echo.jsontest.com/id/qwerty1/name/petya',
+     'http://echo.jsontest.com/id/qwerty2/name/vasya',
+     'http://echo.jsontest.com/id/qwerty3/name/kolya'
+ ];
+let result=[];
+let requests = urls.map(url => fetch(url));
 
+Promise.all(requests)
+.then(resp => Promise.all(resp.map(r => r.json())))
+.then(res => {console.log(res)})
+.catch((error) => {
+  console.error('Error:', error)});
+  
