@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+}
+
+.exercise {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form_button {
+    padding: 8px 14px;
+    background: black;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 3px;
+}
+
+.message {
+    margin-top: 10px;
+}
+
+.conditions {
+    background: #eee;
+    padding: 10px 15px;
+}
+
+.football {
+    margin-top: 10px;
+}
+
+.football_field {
+    background: #06ff00;
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.football_field_ball {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: white;
+    border: 1px solid black;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+}
+
+.messages_list_item {
+    position: relative;
+    padding: 10px 15px;
+    border: 1px solid maroon;
+    background: #b3ffb1;
+}
+
+.messages_list_item_title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.messages_list_item_message {
+    font-size: 14px;
+    color: maroon;
+}
+
+.message_list_item_close_button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.menu_highlight_item {
+    border: 1px solid black;
+}
+
+.menu_highlight_item--active {
+    background: red;
+}
