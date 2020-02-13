@@ -19,6 +19,37 @@
     cat.meow(); // выводит в консоль "murzik: meow"
  */
 
+   class Cat {
+      constructor(name) {
+         this.name = name,
+         this.state = 'walking'
+      }
+
+      meow() {
+         console.log(this.name +' : meow');
+      }
+
+      up() {
+         this.state = 'standing';
+      }
+
+      down() {
+         this.state = 'lying';
+      }
+   }
+
+   const cat = new Cat('murzik');
+   console.group('Exercise №1 :')
+   console.log(cat.name); // 'murzik'
+   console.log(cat.state); // 'lying'
+   cat.up();
+   console.log(cat.state); // 'standing'
+   cat.down();
+   console.log(cat.state); // 'lying'
+   cat.meow(); // выводит в консоль "murzik: meow"
+   console.groupEnd();
+
+
  /*
     2)
 
@@ -32,6 +63,31 @@
     Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
  */
 
+   class Animal {
+      constructor(options) {
+         this.movingType = options.movingType,
+         this.color = options.color
+      }
+   }
+
+   const someAnimal = new Animal({movingType: 'walking', color: 'black'});
+   console.log(someAnimal);
+
+   class Dog extends Animal {
+      constructor(options) {
+         super(options),
+         this.name = options.name,
+         this.age = options.age,
+         this.weight = options.weight
+      }
+   }
+
+   const someDog = new Dog({name: 'tuzik', age: 4, weight: 10});
+   const someDog1 = new Dog({movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10});
+   console.group('Exercise №2: ')
+   console.log(someDog);
+   console.log(someDog1);   
+   console.groupEnd();
  /*
     3)
 
@@ -51,6 +107,43 @@
     console.log(someCar.stop()); // 'stopped'
  */
 
+   class Transport {
+
+      constructor() {
+         this.status = 'stopped'
+      }
+
+      run() {
+         this.status = 'running'
+      }
+
+      
+      stop() {
+         this.status = 'stopped'
+      }
+   }
+
+   class Car extends Transport {
+
+   }
+
+   const someTransport = new Transport();
+   console.group('Exercise №2: ')
+   console.log('someTransport:')
+   console.log(someTransport.status); // 'stopped'
+   someTransport.run(); 
+   console.log(someTransport.status); // 'running'
+   someTransport.stop();
+   console.log(someTransport.status); // 'stopped'
+
+   const someCar = new Car();
+   console.log('someCar:');
+   console.log(someCar.status); // 'stopped'
+   someCar.run(); 
+   console.log(someCar.status);// 'running'
+   someCar.stop();
+   console.log(someCar.status); // 'stopped'
+   console.groupEnd();
 /*
    4)
 
@@ -77,3 +170,62 @@
      которые смогут отсортировать массив по именам (в алфавитном порядке)
      или росту (по убыванию роста). Вызовите только функцию сортировки по росту.
 */
+
+   class Human {
+      constructor(name, age , height) {
+         this.name = name,
+         this.age = age,
+         this.height = height
+      }
+
+      getinfo() {
+         return `${this.name}, ${this.age}, ${this.height}`;
+      }
+
+      get firstname() {
+         return this.name;
+      }
+
+      set firstname(fname) {
+         return this.name = fname;
+      }
+   }
+
+   let arr = ['Коля', 23, 180,
+              'Даша', 19, 170,
+              'Ваня', 18, 192,
+              'Петя', 45, 178,
+              'Вася', 34, 197,
+              'Джони', 40, 168,
+              'Катя', 37, 160,
+              'Петя', 29, 200,
+              'Соня', 21, 172,
+              'Женя', 25, 175];
+
+   let humans = [];
+
+   for (let i = 0; i < arr.length; i+=3){
+      humans.push(new Human(arr[i], arr[i + 1], arr[i + 2]))
+   }
+
+
+   function sortByName(huumans) {
+      humans.sort((a, b) => {
+         if (a.name > b.name) {
+            return 1;
+         } else if (a.name < b.name) {
+            return -1;
+         } else {
+            return 0;
+         }
+      })
+   }
+
+   function sortByHeight(humans) {
+      humans.sort((a, b) => b.height - a.height)
+   };
+
+   console.group('Exercise №4: ');
+   console.log(humans);
+   sortByHeight(humans);
+   
