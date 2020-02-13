@@ -1,36 +1,66 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Task 2: Centered block</title>
-  <style>
-    .container {
-      width: 300px;
-      height: 300px;
-      border: 10px solid black;
-      background-color: #efd5ff;
-    }
+  <head>
+    <title>Task 2: Centered block</title>
+    <style>
+      .container {
+        width: 300px;
+        height: 300px;
+        border: 10px solid black;
+        background-color: #efd5ff;
+      }
 
-    .element {
-      width: 50px;
-      height: 50px;
-      background-color: yellowgreen;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="element"></div>
-  </div>
+      .element {
+        width: 50px;
+        height: 50px;
+        background-color: yellowgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="element"></div>
+    </div>
 
-<!-- 
+    <!-- 
   1. Склонировать элемент (ноду) и расположить его по центру контейнера
   2. Склонировать элемент (ноду) и расположить его в правый верхний угол контейнера
   3. Склонировать элемент (ноду) и расположить его в правый нижний угол контейнера
   4. Склонировать элемент (ноду) и расположить его в левый нижний угол контейнера
 -->
 
-  <script>
+    <script>
+      // Ответ:
 
-  </script>
-</body>
+      container = document.querySelector(".container");
+      container.style.position = "relative";
+
+      elem = document.querySelector(".element");
+      elem.style.position = "absolute";
+
+      elemRightTop = elem.cloneNode();
+      elemRightTop.style.top = 0;
+      elemRightTop.style.right = 0;
+      container.append(elemRightTop);
+
+      elemRightButton = elem.cloneNode();
+      elemRightButton.style.bottom = 0;
+      elemRightButton.style.right = 0;
+      container.append(elemRightButton);
+
+      elemLeftButton = elem.cloneNode();
+      elemLeftButton.style.bottom = 0;
+      elemLeftButton.style.left = 0;
+      container.append(elemLeftButton);
+
+      elemCenter = elem.cloneNode();
+      elemCenter.style.top = "50%";
+      elemCenter.style.left = "50%";
+      elemCenter.style.marginTop = "-25px";
+      elemCenter.style.marginLeft = "-25px";
+      container.append(elemCenter);
+
+      console.log(container);
+    </script>
+  </body>
 </html>
