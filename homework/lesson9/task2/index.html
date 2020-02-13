@@ -4,6 +4,7 @@
   <title>Task 2: Centered block</title>
   <style>
     .container {
+      position: relative;
       width: 300px;
       height: 300px;
       border: 10px solid black;
@@ -13,6 +14,7 @@
     .element {
       width: 50px;
       height: 50px;
+      position: absolute;
       background-color: yellowgreen;
     }
   </style>
@@ -30,7 +32,36 @@
 -->
 
   <script>
+  let container = document.querySelector(".container");
+  let elem = document.querySelector(".element");
+  const elemMetrics = elem.getBoundingClientRect();
+  let elem_center = elem.cloneNode(false);
+   elem_center.style.top = `${150 - elemMetrics.height/2}px`;
+   elem_center.style.left = `${150 - elemMetrics.width/2}px`;
 
+  let elem_right = elem.cloneNode(false);
+  elem_right.style.right = '0px';
+   
+  let elem_bt_right = elem.cloneNode(false);
+  elem_bt_right.style.right = '0px';
+  elem_bt_right.style.bottom = '0px';
+
+  let elem_bt_left = elem.cloneNode(false);
+  elem_bt_left.style.left = '0px';
+  elem_bt_left.style.bottom = '0px';
+
+  elem_center.style.backgroundColor='blue';
+  container.appendChild(elem_center);
+  container.appendChild(elem_right);
+  container.appendChild(elem_bt_right);
+  container.appendChild(elem_bt_left);
+  // function getCoords(elem) { 
+  // let box = elem.getBoundingClientRect();
+
+  //   return {
+  //   top: box.top,
+  //   left: box.left
+  // };}
   </script>
 </body>
 </html>

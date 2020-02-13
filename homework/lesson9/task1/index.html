@@ -5,7 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Task 1</title>
+  <style>
+     ul li:nth-child(odd)
+    {
+      background: red;
+    } 
+  </style>
 </head>
+
 <body>
   <ul id="list">
     <li>Арбуз</li>
@@ -22,8 +29,23 @@
     
    -->
   <script>
-
-
+  const fruits=['Бананы', 'Черника', 'Малина'];
+  let list = document.getElementById('list');
+  for(let fr of fruits)
+  {
+    let newEl = document.createElement('li');
+      newEl.textContent = fr;
+      list.append(newEl);
+  }
+  //без css
+  // let lis = document.getElementsByTagName('li');
+  // for(let l in lis)
+  // {
+  //   if(l%2 == 0)//нечетный в списке, но четный в индексах массива
+  //   {
+  //      lis[l].style.background = 'red';
+  //   }
+  // }
   </script>
 </body>
 </html>
