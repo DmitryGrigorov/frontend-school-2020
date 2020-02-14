@@ -138,7 +138,6 @@
           function slideToLeft() {
             const carouselItems = document.querySelectorAll(".carousel_list .carousel_list_item");
             const firstItem = carouselItems[0];
-            Array.from(carouselList.children).forEach(child => child.remove());
             const newCarousel = Array.from(carouselItems).map((item, index) => {
               index === carouselItems.length - 1
                 ? carouselList.append(firstItem)
@@ -150,7 +149,6 @@
           function slideToRight() {
             const carouselItems = document.querySelectorAll(".carousel_list .carousel_list_item");
             const lastItem = carouselItems[carouselItems.length - 1];
-            Array.from(carouselList.children).forEach(child => child.remove());
             const newCarousel = Array.from(carouselItems).map((item, index) => {
               index === 0
                 ? carouselList.append(lastItem)
