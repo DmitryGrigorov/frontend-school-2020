@@ -10,6 +10,7 @@
 // calculate('potato', 1, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // Такого товара у нас еще нет!
 // calculate('lemon', 2, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // Извините, товар закончился!
 // calculate('pear', 4, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // 2000
+console.log('1)');
 
 function calculate(name, number, prices) {
     if (!(name in prices)) {
@@ -18,9 +19,12 @@ function calculate(name, number, prices) {
     if (!(prices[name])) {
         return 'Извините, товар закончился';
     }
-    return number * prices[name]
+    return number * prices[name];
 }
 
+console.log(calculate('potato', 1, {apple: 100, pear: 500, melon: 400, lemon: undefined})); // Такого товара у нас еще нет!
+console.log(calculate('lemon', 2, {apple: 100, pear: 500, melon: 400, lemon: undefined})); // Извините, товар закончился!
+console.log(calculate('pear', 4, {apple: 100, pear: 500, melon: 400, lemon: undefined})); // 2000
 
 // 2)
 // напишите функцию deepClone глубокого клонирования объекта, которая создаёт глубокую копию объекта
@@ -31,11 +35,12 @@ function calculate(name, number, prices) {
 // cloneSomeObj -> { name: 'Petya', metrics: { weight: 80, height: 180 } }; // копия повторяет структуру первоначального объекта
 // cloneSomeObj === someObj // false при сравнении копия и первоначальный объект не равны
 // cloneSomeObj.metrics === someObj.metrics // false при сравнении вложенного объекта они тоже не равны
+console.log('2)');
 
 function deepClone(obj) {
     let clone = {};
     for (key in obj) {
-        if (typeof(obj[key]) === "object") {
+        if (typeof (obj[key]) === "object") {
             clone[key] = deepClone(obj[key]);
         } else {
             clone[key] = obj[key];
@@ -44,6 +49,10 @@ function deepClone(obj) {
     return clone;
 }
 
+let someObj = {name: 'Petya', metrics: {weight: 80, height: 180}};
+let cloneSomeObj = deepClone(someObj);
+console.log(cloneSomeObj === someObj);
+console.log(cloneSomeObj.metrics === someObj.metrics);
 
 
 // 3)
@@ -53,6 +62,7 @@ function deepClone(obj) {
 // Например:
 // let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
 // unionObject -> { name: 'Vasya', age: 45, isAdmin: true }
+console.log('3)');
 
 function merge() {
     let obj = {};
@@ -64,6 +74,7 @@ function merge() {
     return obj;
 }
 
+console.log(merge({id: 3}, {name: 'Vasya', lastname: 'Pupkin'}, {age: 45}, {isAdmin: true}));
 // 4)
 // Есть объект dog = { name: 'Bobik' };
 // "научите" данный объект подавать голос, например он должен выводить в консоль строку "{{Здесь имя собаки}}: bark";
@@ -74,10 +85,10 @@ function merge() {
 // Например:
 // dog.bark(4); // => "Bobik: bark bark bark bark"
 // dog.bark(); // => "Bobik: bark" если аргумент не передать - метод все равно сработает
-
-let dog = { name: 'Bobik' };
-dog.bark = function(number=1) {
-    console.log(this.name+":"+" bark".repeat(number));
+console.log('4)');
+let dog = {name: 'Bobik'};
+dog.bark = function (number = 1) {
+    console.log('При n = ' + number + ": " + this.name + ":" + " bark".repeat(number));
 };
 dog.bark(4);
 // 5)
@@ -86,15 +97,16 @@ dog.bark(4);
 // к строке возвращалась строка => "500$",
 // а при преобразовании к числе возвращалось просто 500
 // обратите внимание, что 500 и $ это значения полей самого объекта (если их поменять то это будет учитываться при последующих преобразованиях)
-
-let item = { label: 'phone', price: 500, currency: '$' };
-item.toString = function() {
+console.log('5)');
+let item = {label: 'phone', price: 500, currency: '$'};
+item.toString = function () {
     return this.price + this.currency;
-}
-item.valueOf = function() {
+};
+item.valueOf = function () {
     return this.price;
-}
-
+};
+console.log('toString: ' + item.toString());
+console.log('valueOf: ' + item.valueOf());
 // 6)
 // напишите конструктор Dog который создает объект со свойствами name, age, breed, weight, height, position, status
 // и методами:
@@ -107,6 +119,7 @@ item.valueOf = function() {
 // dog.down() => Меняет свойство status на строку 'lying';
 //
 // создайте массив с 25 объектами Dog
+console.log('6)');
 
 function Dog(name, age, breed, weight, height, position, status) {
     this.name = name;
@@ -116,29 +129,19 @@ function Dog(name, age, breed, weight, height, position, status) {
     this.height = height;
     this.position = position;
     this.status = status;
-    this.bark = function() {
-        return console.log(this.name + ": bark");
+    this.bark = function () {
+        console.log(this.name + ": bark");
     };
-    this.place = function() {
-        this.position = 'place';
-    };
-    this.come = function() {
-        this.position = 'here';
-    };
-    this.goOut = function() {
-        this.position = 'go out';
-    };
-    this.sit = function() {
-        this.status = 'sitting';
-    };
-    this.stand = function() {
-        this.status = 'standing';
-    };
-    this.down = function() {
-        this.status = 'lying';
-    };
+    this.place = () => this.position = 'place';
+    this.come = () => this.position = 'here';
+    this.goOut = () => this.position = 'go out';
+    this.sit = () => this.status = 'sitting';
+    this.stand = () => this.status = 'standing';
+    this.down = () => this.status = 'lying';
+
 }
-dog = new Array();
+
+dog = [];
 dog.push(new Dog("Rex", 6, 'Bulldog', 27, 37));
 dog.push(new Dog("Stefan", 2, 'Beagle', 10, 23));
 dog.push(new Dog("Max", 6, 'Dachshund', 17, 26));
@@ -164,3 +167,19 @@ dog.push(new Dog("Stefan", 9, 'Sloughi ', 16, 24));
 dog.push(new Dog("Rocky ", 9, 'Bulldog', 25, 35));
 dog.push(new Dog("Stefan", 4, 'Beagle', 16, 23));
 dog.push(new Dog("Luna", 5, 'Poodle', 10, 21));
+
+// dog.bark() => Выводит в консоль '{{имя собаки}}: bark';
+// dog.place() => Меняет свойство position на строку 'place';
+// dog.come() => Меняет свойство position на строку 'here';
+// dog.goOut() => Меняет свойство position на строку 'go out';
+// dog.sit() => Меняет свойство status на строку 'sitting';
+// dog.stand() => Меняет свойство status на строку 'standing';
+// dog.down() => Меняет свойство status на строку 'lying';
+
+dog[0].bark();
+console.log('place: ' + dog[0].place());
+console.log('goOut: ' + dog[0].goOut());
+console.log('come: ' + dog[0].come());
+console.log('sit: ' + dog[0].sit());
+console.log('stand: ' + dog[0].stand());
+console.log('down: ' + dog[0].down());
