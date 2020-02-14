@@ -57,6 +57,29 @@
       <script>
         const exercise1 = document.querySelector('#exercise_1');
         // ...решение здесь
+        // можно скрывать каждую li, но мне больше нравится вариант с контейнером для li
+        // сделал его через js
+        let toggleButtons = exercise1.querySelectorAll('.toggle-list_toggler_icon');
+        toggleButtons.forEach(function(toggler){
+          let toggleItemsContainer = document.createElement('div');
+          let toggleItemsULBlock   = toggler.closest('ul.toggle-list_list');
+
+          toggleItemsULBlock.append(toggleItemsContainer);
+
+          //оборачиваем li (контент, который будем скрывать в div)
+          toggleItemsULBlock.childNodes.forEach(function(child) {
+            if(child.tagName == 'LI')
+              toggleItemsContainer.append(child);
+          });
+
+          //добавляем событие click
+          toggler.addEventListener('click', function(event){
+            toggleItemsContainer.toggleAttribute('hidden');
+
+            event.target.innerText = (toggleItemsContainer.hasAttribute('hidden')) ? '-' : '+';
+          });
+        });
+        
       </script>
     </div>
   </div>
