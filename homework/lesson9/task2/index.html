@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Task 2: Centered block</title>
   <style>
@@ -8,29 +9,43 @@
       height: 300px;
       border: 10px solid black;
       background-color: #efd5ff;
+      position: relative;
     }
 
     .element {
       width: 50px;
       height: 50px;
       background-color: yellowgreen;
+      position: absolute;
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="element"></div>
   </div>
 
-<!-- 
-  1. Склонировать элемент (ноду) и расположить его по центру контейнера
-  2. Склонировать элемент (ноду) и расположить его в правый верхний угол контейнера
-  3. Склонировать элемент (ноду) и расположить его в правый нижний угол контейнера
-  4. Склонировать элемент (ноду) и расположить его в левый нижний угол контейнера
--->
-
   <script>
-
+    const elem = document.querySelector('.element');
+    const container = document.querySelector('.container');
+    // 1. Склонировать элемент (ноду) и расположить его по центру контейнера
+    const middleElem = elem.cloneNode(true);
+    middleElem.setAttribute("style", "top: calc(50% - 25px); left: calc(50% - 25px)");
+    container.append(middleElem);
+    // 2. Склонировать элемент (ноду) и расположить его в правый верхний угол контейнера
+    const rightTopElem = elem.cloneNode(true);
+    rightTopElem.setAttribute("style", "left: calc(100% - 50px)");
+    container.append(rightTopElem);
+    // 3. Склонировать элемент (ноду) и расположить его в правый нижний угол контейнера
+    const rightBottomElem = elem.cloneNode(true);
+    rightBottomElem.setAttribute("style", "top: calc(100% - 50px); left: calc(100% - 50px)");
+    container.append(rightBottomElem);
+    // 4. Склонировать элемент (ноду) и расположить его в левый нижний угол контейнера
+    const leftBottomElem = elem.cloneNode(true);
+    leftBottomElem.setAttribute("style", "top: calc(100% - 50px)");
+    container.append(leftBottomElem);
   </script>
 </body>
+
 </html>

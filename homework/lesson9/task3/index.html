@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Task 3</title>
 </head>
+
 <body>
   <ul id="list">
     <li>item 1</li>
@@ -22,15 +24,31 @@
   <button id="add-last-item">Add last item</button>
   <button id="remove-last-item">Remove last item</button>
 
-  <!-- 
-    Реализовать функционал для кнопок:
-    1. Кнопка "Add first item" должна добавлять новый item в начало списка (текст по желанию) 
-    2. Кнопка "Remove first item" должна удалять элемент в начале списка
-    3. Кнопка "Add last item" должна добавлять новый item в конец списка (текст по желанию) 
-    4. Кнопка "Remove last item" должна удалять элемент в конце списка
-  -->
   <script>
+    const addFirstItemBtn = document.getElementById('add-first-item');
+    const removeFirstItemBtn = document.getElementById('remove-first-item');
+    const addLastItemBtn = document.getElementById('add-last-item');
+    const removeLastItemBtn = document.getElementById('remove-last-item');
+
+    const list = document.getElementById('list');
+    // 1. Кнопка "Add first item" должна добавлять новый item в начало списка (текст по желанию)
+    addFirstItemBtn.onclick = () => {
+      const firstItem = document.createElement('li');
+      firstItem.textContent = "First item";
+      list.prepend(firstItem);
+    }
+    // 2. Кнопка "Remove first item" должна удалять элемент в начале списка
+    removeFirstItemBtn.onclick = () => list.firstElementChild.remove();
+    // 3. Кнопка "Add last item" должна добавлять новый item в конец списка (текст по желанию)
+    addLastItemBtn.onclick = () => {
+      const lastItem = document.createElement('li');
+      lastItem.textContent = "Last item";
+      list.append(lastItem);
+    }
+    // 4. Кнопка "Remove last item" должна удалять элемент в конце списка
+    removeLastItemBtn.onclick = () => list.lastElementChild.remove();
   </script>
 
 </body>
+
 </html>

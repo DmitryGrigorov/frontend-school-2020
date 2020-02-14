@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Task 1</title>
 </head>
+
 <body>
   <ul id="list">
     <li>Арбуз</li>
@@ -15,15 +17,20 @@
     <li>Абрикос</li>
   </ul>
 
-  <!--
-    1. Получить элемент c id="list"
-    2. Добавить в конец списка массив фруктов ['Бананы', 'Черника', 'Малина'] и вывести на страницу
-    3. Окрасить каждый нечетный элемент в красный цвет (elem.style.background = 'red')
-    
-   -->
   <script>
-
-
+    // 1. Получить элемент c id="list"
+    const list = document.getElementById('list');
+    // 2. Добавить в конец списка массив фруктов ['Бананы', 'Черника', 'Малина'] и вывести на страницу
+    const fruitsArray = ['Бананы', 'Черника', 'Малина'];
+    fruitsArray.map(fruit => {
+      const fruitElement = document.createElement('li');
+      fruitElement.textContent = fruit;
+      list.append(fruitElement);
+    })
+    // 3. Окрасить каждый нечетный элемент в красный цвет (elem.style.background = 'red')
+    const listElements = document.querySelectorAll('li');
+    listElements.forEach((value, index) => index % 2 !== 0 ? value : value.style.background = "red");
   </script>
 </body>
+
 </html>
