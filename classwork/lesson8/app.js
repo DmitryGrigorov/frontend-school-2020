@@ -34,25 +34,25 @@
 //     });
 // });
 
-function getRequestPromise(url) {
-    const promise = new Promise(function(resolve, reject) {
-        let xhr = new XMLHttpRequest();
-        // GET, POST, PUT, DELETE, OPTIONS
-        xhr.open('GET', url);
-        xhr.send();
-        xhr.responseType = 'json';
+// function getRequestPromise(url) {
+//     const promise = new Promise(function(resolve, reject) {
+//         let xhr = new XMLHttpRequest();
+//         // GET, POST, PUT, DELETE, OPTIONS
+//         xhr.open('GET', url);
+//         xhr.send();
+//         xhr.responseType = 'json';
 
-        xhr.onload = function() {
-            resolve(xhr.response);
-        }
+//         xhr.onload = function() {
+//             resolve(xhr.response);
+//         }
 
-        xhr.onerror = function() {
-            reject();
-        }
-    });
+//         xhr.onerror = function() {
+//             reject();
+//         }
+//     });
 
-    return promise;
-}
+//     return promise;
+// }
 
 // class Application {
 //     user = null;
@@ -187,3 +187,5 @@ function getRequestPromise(url) {
 // } catch (error) {
 
 // }
+
+
