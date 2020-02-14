@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Task 1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task 1</title>
 </head>
 <body>
-  <ul id="list">
+<ul id="list">
     <li>Арбуз</li>
     <li>Апельсин</li>
     <li>Авокадо</li>
     <li>Ананас</li>
     <li>Абрикос</li>
-  </ul>
+</ul>
 
-  <!--
-    1. Получить элемент c id="list"
-    2. Добавить в конец списка массив фруктов ['Бананы', 'Черника', 'Малина'] и вывести на страницу
-    3. Окрасить каждый нечетный элемент в красный цвет (elem.style.background = 'red')
-    
-   -->
-  <script>
+<!--
+  1. Получить элемент c id="list"
+  2. Добавить в конец списка массив фруктов ['Бананы', 'Черника', 'Малина'] и вывести на страницу
+  3. Окрасить каждый нечетный элемент в красный цвет (elem.style.background = 'red')
 
+ -->
+<script>
+    let fruits = document.getElementById('list');
+    let newFruits = ['Бананы', 'Черника', 'Малина'];
 
-  </script>
+    for (let i=0; i<newFruits.length; i++){
+        let el=document.createElement('li');
+        el.textContent=newFruits[i];
+      fruits.append(el);
+
+    }
+
+</script>
 </body>
 </html>
