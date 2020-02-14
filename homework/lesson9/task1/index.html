@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Task 1</title>
+</head>
+<body>
+  <ul id="list">
+    <li>Арбуз</li>
+    <li>Апельсин</li>
+    <li>Авокадо</li>
+    <li>Ананас</li>
+    <li>Абрикос</li>
+  </ul>
+
+  <!--
+    1. Получить элемент c id="list"
+    2. Добавить в конец списка массив фруктов ['Бананы', 'Черника', 'Малина'] и вывести на страницу
+    3. Окрасить каждый нечетный элемент в красный цвет (elem.style.background = 'red')
+    
+   -->
+  <script>
+    let list = document.getElementById('list');
+    let fruits = ['Бананы', 'Черника', 'Малина'];
+    
+    fruits.forEach((el) => {
+      let elem = document.createElement('li');
+      elem.innerText = el;
+
+      list.append(elem);
+    });
+
+    let litems = list.getElementsByTagName('li');
+   
+    [].forEach.call(litems, (el, i) => {
+        //нечетные элементы, так как индекс массива начинается с 0, то проверяем 0 остаток от деления на 2 - 
+        // для пользователя это будут нечетные элементы
+        if(i % 2 == 0){
+          el.style.background = 'red';
+        }
+    });
+
+  </script>
+</body>
+</html>

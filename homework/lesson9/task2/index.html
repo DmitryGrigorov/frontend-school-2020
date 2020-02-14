@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 2: Centered block</title>
+  <style>
+    .container {
+      width: 300px;
+      height: 300px;
+      border: 10px solid black;
+      background-color: #efd5ff;
+    }
+
+    .element {
+      width: 50px;
+      height: 50px;
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="element"></div>
+  </div>
+
+<!-- 
+  1. Склонировать элемент (ноду) и расположить его по центру контейнера
+  2. Склонировать элемент (ноду) и расположить его в правый верхний угол контейнера
+  3. Склонировать элемент (ноду) и расположить его в правый нижний угол контейнера
+  4. Склонировать элемент (ноду) и расположить его в левый нижний угол контейнера
+-->
+
+  <script>
+      let elem = document.querySelector('.element');
+      let container = document.querySelector('.container');
+      let cloneCounter = 0;
+
+      container.style.position = 'relative';
+
+      // 1. Склонировать элемент (ноду) и расположить его по центру контейнера
+      let firstClone = cloneElem(elem);
+      // ставим top/left без учета границ контейнера
+      firstClone.style.top  = (container.clientHeight/2 - firstClone.clientHeight/2) + 'px';
+      firstClone.style.left = (container.clientWidth/2 - firstClone.clientWidth/2) + 'px';
+      
+      // 2. Склонировать элемент (ноду) и расположить его в правый верхний угол контейнера
+      let secondClone = cloneElem(elem);
+      // ставим top/left без учета границ контейнера
+      secondClone.style.top  = '0px';
+      secondClone.style.left = (container.clientWidth - secondClone.clientWidth) + 'px';
+
+      // 3. Склонировать элемент (ноду) и расположить его в правый нижний угол контейнера
+      let thirdClone = cloneElem(elem);
+      // ставим top/left без учета границ контейнера
+      thirdClone.style.top  = (container.clientHeight - thirdClone.clientHeight) + 'px';
+      thirdClone.style.left = (container.clientWidth - thirdClone.clientWidth) + 'px';
+
+      // 4. Склонировать элемент (ноду) и расположить его в левый нижний угол контейнера
+      let fourthClone = cloneElem(elem);
+      // ставим top/left без учета границ контейнера
+      fourthClone.style.top  = (container.clientHeight - fourthClone.clientHeight) + 'px';
+      fourthClone.style.left = '0px';
+      
+      
+      function cloneElem(elem){
+        let clone = elem.cloneNode();
+        cloneCounter++;
+
+        clone.style.position = 'absolute';
+        
+        clone.style.textAlign = 'center';
+        clone.style.font = '40px bold';
+        
+        clone.innerText = cloneCounter;
+
+        container.append(clone);
+
+        return clone;
+      }
+      
+  </script>
+</body>
+</html>
