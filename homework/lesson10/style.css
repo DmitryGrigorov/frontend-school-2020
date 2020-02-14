@@ -100,3 +100,21 @@
 }
 
 /* Конец задачи №2 карусель */
+
+/* Начало задача №3 тултип */
+
+.hasTooltip {
+    position: relative;
+}
+
+.tooltip {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    bottom: 30px;
+    border-radius: 8px;
+    color: white;
+    background: black;
+}
+
+/* Конец задачи №3 тултип */

@@ -56,7 +56,18 @@
       </div>
       <script>
         const exercise1 = document.querySelector('#exercise_1');
-        // ...решение здесь
+        const toggleListTitles = document.querySelectorAll('.toggle-list_toggler');
+        toggleListTitles.forEach(title => title.addEventListener('click', toggleList));
+
+        function toggleList() {
+          const listOfChildren = this.closest('ul').children;
+          Array.prototype.map.call(listOfChildren, child => {
+            child.tagName === "LI"
+              ? child.hidden = !child.hidden
+              : this.firstElementChild.innerHTML =
+              this.firstElementChild.innerHTML === "+" ? "-" : "+";
+          });
+        }
       </script>
     </div>
   </div>
@@ -117,7 +128,35 @@
         </div>
         <script>
           const exercise2 = document.querySelector('#exercise_2');
-          // ...решение здесь
+          const leftButton = document.querySelector(".carousel .carousel_button_prev");
+          const rightButton = document.querySelector(".carousel .carousel_button_next");
+          const carouselList = document.querySelector(".carousel_list");
+
+          leftButton.addEventListener("click", slideToLeft);
+          rightButton.addEventListener("click", slideToRight);
+
+          function slideToLeft() {
+            const carouselItems = document.querySelectorAll(".carousel_list .carousel_list_item");
+            const firstItem = carouselItems[0];
+            Array.from(carouselList.children).forEach(child => child.remove());
+            const newCarousel = Array.from(carouselItems).map((item, index) => {
+              index === carouselItems.length - 1
+                ? carouselList.append(firstItem)
+                : carouselList.append(carouselItems[index + 1]);
+              
+            });
+          }
+
+          function slideToRight() {
+            const carouselItems = document.querySelectorAll(".carousel_list .carousel_list_item");
+            const lastItem = carouselItems[carouselItems.length - 1];
+            Array.from(carouselList.children).forEach(child => child.remove());
+            const newCarousel = Array.from(carouselItems).map((item, index) => {
+              index === 0
+                ? carouselList.append(lastItem)
+                : carouselList.append(carouselItems[index - 1]);
+            });
+          }
         </script>
       </div>
     </div>
@@ -138,7 +177,31 @@
       </div>
       <script>
         const exercise3 = document.querySelector('#exercise_3');
-        // ...решение здесь
+        document.addEventListener("mouseover", showTooltip);
+          document.addEventListener("mouseout", hideTooltip);
+
+          function showTooltip(event) {
+            if (event.target.dataset.tooltip) {
+              // Изи мод
+              // event.target.setAttribute('title', event.target.dataset.tooltip);
+
+              const tooltip = document.createElement("span");
+              tooltip.innerHTML = event.target.dataset.tooltip;
+              event.target.classList.add("hasTooltip");
+              tooltip.classList.add("tooltip");
+              event.target.append(tooltip);
+            }
+          }
+
+          function hideTooltip(event) {
+            if (event.target.dataset.tooltip) {
+              event.target.classList.remove("hasTooltip");
+              const elementChildren = event.target.children;
+              Array.from(elementChildren).forEach(element => {
+                if (element.className === "tooltip") element.remove();
+              });
+            }
+          }
       </script>
     </div>
 </div>
@@ -175,7 +238,53 @@
       </div>
       <script>
         const exercise4 = document.querySelector('#exercise_4');
-        // ...решение здесь
+        const links = document.querySelectorAll("a");
+
+        Array.from(links).map(link => {
+          switch (link.href) {
+            case "https://yandex.ru/":
+              link.addEventListener("contextmenu", openYandex);
+              link.addEventListener("click", disableCommonBehavior);
+              break;
+            case "https://google.ru/":
+              link.addEventListener("dblclick", openGoogle);
+              link.addEventListener("click", disableCommonBehavior);
+              break;
+            case "https://mail.ru/":
+              link.addEventListener("click", openMail);
+              break;
+          }
+        });
+
+        function disableCommonBehavior(event) {
+          if (event.target.tagName !== "A") {
+            event.preventDefault();
+            event.target = event.target.closest("a");
+          }
+          if (event.target.tagName === "A") {
+            event.preventDefault();
+          }
+        }
+
+        function openYandex(event) {
+          event.preventDefault();
+          const link = event.target.href;
+          window.open(link);
+        }
+
+        function openGoogle(event) {
+          event.preventDefault();
+          const link = event.target.closest("a").href;
+          window.open(link);
+        }
+
+        function openMail(event) {
+          event.preventDefault();
+          const link = event.target.closest("a").href;
+          if (event.shiftKey) {
+            window.open(link);
+          }
+        }
       </script>
     </div>
   </div>
