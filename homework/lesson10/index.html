@@ -89,11 +89,11 @@
                 transform: scaleY(0);
                 transform-origin: 0 0;
                 opacity: 0;
-              max-height: 0px;
+                max-height: 0px;
             }
 
             li.show {
-              max-height: 100%;
+                max-height: 100%;
                 opacity: 1;
                 transform: scaleY(1);
                 transition: all 1s;
@@ -197,19 +197,19 @@
         <div class="menu_highlight">
             <ul class="menu_highlight_list">
                 <li class="menu_highlight_item">
-                    <a href="https://yandex.ru">
+                    <a href="https://yandex.ru" data-action="right">
                         Переход на yandex только при клике правой кнопкой мыши
                     </a>
                 </li>
                 <li class="menu_highlight_item">
-                    <a href="https://google.ru">
+                    <a href="https://google.ru" data-action="double">
                         <strong>
                             Переход на google только при двойном клике
                         </strong>
                     </a>
                 </li>
                 <li class="menu_highlight_item">
-                    <a href="https://mail.ru">
+                    <a href="https://mail.ru" data-action="shift">
                         <em>
                             Переход на mail только при клике с нажатой кнопкой 'Shift'
                         </em>
@@ -219,7 +219,31 @@
         </div>
         <script>
             const exercise4 = document.querySelector('#exercise_4');
-            // ...решение здесь
+
+            exercise4.addEventListener('contextmenu', function (event) {
+                let myTarget = event.target.closest('a');
+                if (myTarget.tagName == 'A' && myTarget.dataset.action == 'right') {
+                    event.preventDefault();
+                    document.location = event.target.href;
+                }
+            }, true);
+
+            exercise4.addEventListener('dblclick', function (event) {
+                let myTarget = event.target.closest('a');
+                if (myTarget.tagName == 'A' && myTarget.dataset.action != 'double') {
+                    event.preventDefault();
+                } else document.location = myTarget.href;
+            });
+
+            exercise4.addEventListener('click', function (event) {
+                let isShift = !!event.shiftKey;
+                let myTarget = event.target.closest('a');
+                if (myTarget.tagName == 'A' &&
+                    (myTarget.dataset.action == 'shift' && !isShift)
+                    || myTarget.dataset.action == 'right' || myTarget.dataset.action == 'double') {
+                    event.preventDefault();
+                }
+            });
         </script>
     </div>
 </div>
