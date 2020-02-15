@@ -30,7 +30,34 @@
 -->
 
   <script>
+    let nodeElement = document.querySelector('.element');
+    let nodeContainer = nodeElement.parentElement;
+    nodeContainer.style.position = 'absolute'; //Для корректного получения координат
 
+    function newNode(top, left, right, bottom){
+      let newNode = nodeElement.cloneNode();
+      newNode.style.position = 'absolute'; //'absolute' даёт право выравнивать по краям (аки захочется)
+      if(top != null) newNode.style.top = top;
+      if(left != null) newNode.style.left = left;
+      if(right != null) newNode.style.right = right;
+      if(bottom != null) newNode.style.bottom = bottom;
+      nodeContainer.appendChild(newNode);
+    }
+
+    //Расположение по центру контейнера
+    newNode(
+            (nodeContainer.clientWidth / 2 - nodeElement.clientWidth / 2) + 'px',
+            (nodeContainer.clientHeight / 2 - nodeElement.clientHeight / 2) + 'px',
+            null, null);
+
+    //Расположение в правом верхнем углу контейнера
+    newNode('0', null, '0', null);
+
+    //Расположение в правом нижнем углу контейнера
+    newNode(null, null, '0', '0');
+
+    //Расположение в левом нижем углу контейнера
+    newNode(null, '0', null, '0');
   </script>
 </body>
 </html>
