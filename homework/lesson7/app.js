@@ -19,6 +19,38 @@
     cat.meow(); // выводит в консоль "murzik: meow"
  */
 
+// Решение 1
+
+// class Cat {
+//   constructor(name) {
+//     this.name = name;
+//     this.state = "lying";
+//   }
+
+//   meow () {
+//     console.log(this.name + ': meow');
+//   };
+
+//   up () {
+//     this.state = 'standing';
+//   }
+    
+//   down () {
+//     this.state = 'lying';
+//   }
+// };
+
+// const cat = new Cat('murzik');
+// console.log(cat.name); // 'murzik'
+// console.log(cat.state); // 'lying'
+// cat.up();
+// console.log(cat.state); // 'standing'
+// cat.down();
+// console.log(cat.state); // 'lying'
+// cat.meow(); // выводит в консоль "murzik: meow"
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
  /*
     2)
 
@@ -32,7 +64,33 @@
     Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
  */
 
- /*
+// Решение 2
+
+// class Animal {
+//   constructor(movingType, color) {
+//     this.movingType = movingType;
+//     this.color = color;
+//   }
+// }
+
+// const someAnimal = new Animal('walking', 'black'); 
+// console.log(someAnimal);
+
+// class Dog extends Animal {
+//   constructor(movingType, color, name, age, weight) {
+//     super(movingType, color);
+//     this.name = name;
+//     this.age = age;
+//     this.weight = weight;
+//   }
+// }
+
+// const someDog = new Dog('walking', 'black', 'tuzik', 4, 10);
+// console.log(someDog);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
     3)
 
     Создайте два класса Transport и Car
@@ -49,7 +107,43 @@
     console.log(someCar.status); // 'stopped'
     console.log(someCar.run()); // 'running'
     console.log(someCar.stop()); // 'stopped'
- */
+*/
+
+// Решение 3
+
+// class Transport {
+//   constructor (status) {
+//     this.status = 'stopped';
+//   }
+
+//   run() {
+//     this.status = 'running';
+//   }
+
+//   stop() {
+//     this.status = 'stopped';
+//   }
+// }
+
+// // const someTransport = new Transport();
+// // console.log(someTransport.status); // 'stopped'
+// // someTransport.run()
+// // console.log(someTransport.status); // 'running'
+// // someTransport.stop()
+// // console.log(someTransport.status); // 'stopped'
+
+// class Car extends Transport {
+
+// }
+
+// // const someCar = new Car();
+// // console.log(someCar.status); // 'stopped'
+// // someCar.run()
+// // console.log(someCar.status); // 'running'
+// // someCar.stop()
+// // console.log(someCar.status); // 'stopped'
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
    4)
@@ -77,3 +171,81 @@
      которые смогут отсортировать массив по именам (в алфавитном порядке)
      или росту (по убыванию роста). Вызовите только функцию сортировки по росту.
 */
+// Решение 4
+
+// class Human {
+//   constructor(name, age, height) {
+//     this.name = name;
+//     this.age = age;
+//     this.height = height;
+//   }
+
+//   getInfo() {
+//     return `${this.name}, ${this.age}, ${this.height}`;
+//   }
+
+//   get firstname() {
+//     return `${this.name}`;
+//   }
+
+//   set firstname(value) {
+//     this.name = value;
+//   }
+// }
+
+// // let x = new Human('Женя', 25, 175);
+// // console.log(x);
+
+// let arr = [
+//   ['Коля', 23, 180],
+//   ['Даша', 19, 170],
+//   ['Ваня', 18, 192],
+//   ['Петя', 45, 178],
+//   ['Вася', 34, 197],
+//   ['Джони', 40, 168],
+//   ['Катя', 37, 160],
+//   ['Петя', 29, 200],
+//   ['Соня', 21, 172],
+//   ['Женя', 25, 175]
+// ];
+
+// function createNewObject (name, age, height) {
+//   let newObject = new Human(name, age, height);
+//   return newObject;
+// }
+
+// function pushNewObject (array, newArr) {
+//   let name = array[0];
+//   let age = array[1];
+//   let height = array[2];
+
+//   let obj = createNewObject(name, age, height);
+//   newArr.push(obj);
+// }
+
+// function createArr (arr) {
+//   let newArr = [];
+
+//   arr.forEach(function (item) {
+//     let obj = item;
+//     pushNewObject(obj, newArr);
+//   });
+
+//   return newArr;
+// }
+
+// let arrayHuman = createArr(arr);
+// console.log(arrayHuman);
+
+// function sortByHeight(arr) {
+//   let array = arr.slice();
+//   return array.sort((a, b) => a.height > b.height ? -1 : 1);
+// }
+
+// function sortByName(arr) {
+//   let array = arr.slice();
+//   return array.sort((a, b) => a.name > b.name ? 1 : -1);
+// }
+
+// let sortArr = sortByHeight(arrayHuman);
+// console.log(sortArr);
