@@ -122,16 +122,15 @@ delay(1000)
 // ** ПОДСКАЗКА для задачи №2 метод fetch возвращает промис
 // обратите внимание, что после вызова новой функции request в первый же "then" нам попадает уже тело ответа от сервера, а не заголовки ответа
 
-
-function request(url){
-    return fetch(url)
-        .then(function (response) {
-            return response.json();
-        })
-}
 let url = 'http://echo.jsontest.com/id/qwerty/name/petya';
-request(url)
-    .then(data=>console.log(data));
+fetch(url)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data)
+    })
+
 
 // 3*
 // Есть массив (колличество элементов может быть любым):

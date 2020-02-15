@@ -8,9 +8,17 @@
   sumTo(3) = 3 + 2 + 1 = 6
   sumTo(4) = 4 + 3 + 2 + 1 = 10
 */
+console.log('\n1)');
+
 function sumTo(n) {
     return (n === 1) ? n : n + sumTo(n - 1);
 }
+
+console.log(sumTo(1));
+console.log(sumTo(2));
+console.log(sumTo(3));
+console.log(sumTo(4));
+
 
 /*
   2)
@@ -29,9 +37,14 @@ function sumTo(n) {
   alert(fib(7)); // 13
   alert(fib(77)); // 5527939700884757
 */
+console.log('\n2)');
+
 function fib(n) {
     return (n === 1 || n === 2) ? 1 : fib(n - 1) + fib(n - 2);
 }
+
+console.log(fib(3));
+console.log(fib(7));
 
 /*
   3) Следующая функция вычисляет сумму передаваемых ей аргументов,
@@ -55,10 +68,15 @@ function fib(n) {
 
   Используя rest-операторы, перепишите эту функцию так, чтобы не использовать arguments.
 */
+console.log('\n3)');
+
 function sum(...args) {
     return args.reduce(((sum, current) => sum + current), 0);
 }
 
+console.log(sum(1, 2, 3));
+console.log(sum(5, 5));
+console.log(sum(10, 20, 3, 7));
 
 /*
   4) Напишите функцию add, которая работает, как на примере:
@@ -66,10 +84,14 @@ function sum(...args) {
   add(2, 5) // 7
   add(2)(5) // 7
 */
+console.log('\n4)');
+
 function add(...args) {
     return (args.length === 2) ? args[0] + args[1] : (a2) => args[0] + a2;
 }
 
+console.log(add(2, 5));
+console.log(add(2)(5));
 /*
   5)
   Написать функцию sortOdd(), которая сортирует только четные числа в массиве:
@@ -77,9 +99,23 @@ function add(...args) {
   // Examples:
   sort([9, 8, 7, 6, 5, 4, 3, 2, 1]) // [9, 2, 7, 4, 5, 6, 3, 8, 1]
 */
+console.log('\n5)');
+
 function sortOdd(arr) {
-    return arr.sort((a, b) => (a % 2 == 0 && b % 2 == 0) ? a - b : 0);
+    let someArr = [];
+    let indexArr = [];
+    arr.forEach(function (item, index) {
+        if (item % 2 === 0) {
+            someArr.push(item);
+            indexArr.push(index);
+        }
+    });
+    someArr.sort((a, b) => a - b);
+    let s = 0;
+    return arr.map((item, index) => (index === indexArr[s]) ? someArr[s++] : item);
 }
+console.log(sortOdd([9, 8, 7, 6, 5, 4, 3, 2, 1]));
+
 
 /*
   6)
@@ -89,10 +125,12 @@ function sortOdd(arr) {
   findMax(9, 8, 7, 6, 5, 4, 3, 2, 1) // 9
   findMax(0, 2, 12, 4, 5) // 12
 */
+console.log('\n6)');
 function findMax(...args) {
     return Math.max.apply(null, args);
 }
-
+console.log(findMax(9, 8, 7, 6, 5, 4, 3, 2, 1));
+console.log(findMax(0, 2, 12, 4, 5)); // 12
 /*
   7)
   Написать функцию findMin(), которая найдет минимальный элемент из аргументов:
@@ -101,10 +139,12 @@ function findMax(...args) {
   findMin(9, 8, 7, 6, 5, 4, 3, 2, 1) // 1
   findMin(0, 2, 12, 4, 5) // 0
 */
+console.log('\n7)');
 function findMin(...args) {
     return Math.min.apply(null, args);
 }
-
+console.log(findMin(9, 8, 7, 6, 5, 4, 3, 2, 1));
+console.log(findMin(0, 2, 12, 4, 5));
 /*
   8)
   Написать функцию pushZeros(), которая сдвигает все элементы со значением '0' в конец массива:
@@ -113,7 +153,10 @@ function findMin(...args) {
   pushZeros([0, 9, 0, 8, 7, 0, 6, 5, 4, 3, 2, 1]) // [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 0, 0]
   pushZeros([0, 2, 12, 4, 5]) // [2, 12, 4, 5, 0]
 */
-
+console.log('\n8)');
 function pushZeros(arr) {
-    return arr.sort((a, b) => (a === 0 || b === 0) ? b - a : 0);
+    return arr.sort((a, b) => (b === 0) ? b - a : 0);
 }
+
+console.log(pushZeros([0, 9, 0, 8, 7, 0, 6, 5, 4, 3, 2, 1]));
+console.log(pushZeros([0, 2, 12, 4, 5]));
