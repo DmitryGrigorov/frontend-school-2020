@@ -56,7 +56,28 @@
       </div>
       <script>
         const exercise1 = document.querySelector('#exercise_1');
-        // ...решение здесь
+        let divLvl1 = exercise1.querySelectorAll('.toggle-list_toggler');
+        //Создание переключателя для каждого div первого уровня
+        for(let divLvl1Item of divLvl1) {
+          divLvl1Item.addEventListener('click', () => {
+            let li = null;
+            switch (divLvl1Item.children[0].textContent) {
+              case '+':
+                divLvl1Item.children[0].textContent = '-';
+                li = divLvl1Item.parentElement.children;
+                for (let itemLi of li){
+                  itemLi.hidden = true;
+                }
+                break;
+              case '-':
+                divLvl1Item.children[0].textContent = '+';
+                li = divLvl1Item.parentElement.children;
+                for (let itemLi of li){
+                  itemLi.hidden = false;
+                }
+            }
+          })
+        }
       </script>
     </div>
   </div>
