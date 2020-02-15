@@ -49,6 +49,7 @@
 }
 
 .messages_list_item {
+    position: relative;
     padding: 10px 15px;
     border: 1px solid maroon;
     background: #b3ffb1;
@@ -64,4 +65,19 @@
 .messages_list_item_message {
     font-size: 14px;
     color: maroon;
+}
+
+.message_list_item_close_button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.menu_highlight_item {
+    border: 1px solid black;
+}
+
+.menu_highlight_item--active {
+    background: red;
 }
