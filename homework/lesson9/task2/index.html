@@ -30,7 +30,46 @@
 -->
 
   <script>
+    let container = document.querySelector('.container');
+    container.style.position = 'relative';
+    let originElement = document.querySelector('.element');
 
+    function copyElem (number, originElem, section) {
+      for (let i = 1; i <= number; i++) {
+        let elem = originElem.cloneNode(true);
+        elem.id = 'element№' + i;
+        elem.style.position = 'absolute';
+        section.appendChild(elem);
+      }
+    }
+
+    copyElem(4, originElement, container);
+
+    let elemHeight = 50;
+    let elemWidth = 50;
+    let containerHeight = 300;
+    let containerWidth = 300;
+
+    let elem1 = document.querySelector('#element№1');
+    elem1.style.top = containerHeight / 2 - elemHeight / 2 + 'px';
+    elem1.style.right = containerWidth / 2 - elemWidth / 2 + 'px';;
+
+    let elem2 = document.querySelector('#element№2');
+    elem2.style.top ='0';
+    elem2.style.right = '0';
+
+    let elem3 = document.querySelector('#element№3');
+    elem3.style.bottom ='0';
+    elem3.style.right = '0';
+
+    let elem4 = document.querySelector('#element№4');
+    elem4.style.bottom ='0';
+    elem4.style.left = '0';
+  
+
+    // P.S. Такой вариант решения мне нравится тем, что можно менять размер контейнера и
+    // размер квадратиков-элементов, но код при этом все равно будет работать, достаточно внести новые размеры в css 
+    // и в переменные в 48, 49, 50, 51 строчках кода. 
   </script>
 </body>
 </html>

@@ -30,7 +30,53 @@
     4. Кнопка "Remove last item" должна удалять элемент в конце списка
   -->
   <script>
-  </script>
+    let list = document.querySelector('#list');
+    let buttonAddFirstItem = document.querySelector('#add-first-item');
+    let buttonRemoveFirstItem = document.querySelector('#remove-first-item');
+    let buttonAddLastItem = document.querySelector('#add-last-item');
+    let buttonRemoveLastItem = document.querySelector('#remove-last-item');
+    
+    buttonAddFirstItem.addEventListener('click', addFirstItem);
+    buttonRemoveFirstItem.addEventListener('click', removeFirstItem);
+    buttonAddLastItem.addEventListener('click', addLastItem);
+    buttonRemoveLastItem.addEventListener('click', removeLastItem);
 
+    function addFirstItem () {
+      let itemText = prompt('Введите текст для пункта списка');
+      if (itemText) {
+        list.insertAdjacentHTML('afterbegin', '<li>'+ itemText + '</li>');
+      } else {
+        alert ('Действие отменено, пункт не будет добавлен в список');
+      }
+    }
+
+    function addLastItem () {
+      let itemText = prompt('Введите текст для пункта списка');
+      if (itemText) {
+        list.insertAdjacentHTML('beforeend', '<li>'+ itemText + '</li>');
+      } else {
+        alert ('Действие отменено, пункт не будет добавлен в список');
+      }
+    }
+
+    function removeFirstItem () {
+      let items = document.querySelectorAll('li');
+      if (items[0]) {
+        list.removeChild(items[0]);
+      } else {
+        alert ('Список пуст, удалять нечего');
+      }
+    }
+
+    function removeLastItem () {
+      let items = document.querySelectorAll('li');
+      if (items[0]) {
+        list.removeChild(items[items.length-1]);
+      } else {
+        alert ('Список пуст, удалять нечего');
+      }
+    }
+
+  </script>
 </body>
 </html>
