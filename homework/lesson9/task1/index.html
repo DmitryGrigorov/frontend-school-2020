@@ -14,7 +14,7 @@
     <li>Ананас</li>
     <li>Абрикос</li>
   </ul>
-
+  <button id="add-last">Add new elements</button>
   <!--
     1. Получить элемент c id="list"
     2. Добавить в конец списка массив фруктов ['Бананы', 'Черника', 'Малина'] и вывести на страницу
@@ -22,6 +22,34 @@
     
    -->
   <script>
+    let arr = [];
+    let fruits = prompt('Введите фрукты через запятую');
+    arr = fruits.split(',');
+    let list  = document.getElementById('list');
+    let addLast = document.getElementById('add-last');
+
+    addLast.addEventListener('click', function() {
+      arr.forEach(
+        function (item) {
+          let newEl = document.createElement('li');
+          newEl.textContent = `${item}`;
+          list.append(newEl);
+        }
+      );
+
+      function assignRed(color) {
+        let x = document.querySelectorAll('li');
+        for (let i = 0; i < x.length; i = i+2) {
+          x[i].style.background = color;
+        }
+      }
+      assignRed('Red');
+
+
+
+    });
+
+
 
 
   </script>
