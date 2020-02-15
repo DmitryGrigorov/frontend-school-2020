@@ -31,6 +31,32 @@
 
   <script>
 
+    let elem = document.querySelector('.element');
+    let container = document.querySelector('.container')
+
+    container.style.position = 'relative';
+    elem.style.position = 'absolute';
+
+    let centerElem = elem.cloneNode();
+    centerElem.style.left = (container.clientWidth / 2 - elem.clientWidth / 2) + 'px';
+    centerElem.style.top = (container.clientHeight / 2 - elem.clientHeight / 2) +'px';
+    container.append(centerElem);
+
+    let rightTopElem = elem.cloneNode();
+    rightTopElem.style.right = '0';
+    rightTopElem.style.top = '0';
+    container.append(rightTopElem);
+
+    let rightBottomElem = elem.cloneNode();
+    rightBottomElem.style.right = '0';
+    rightBottomElem.style.bottom = '0';
+    container.append(rightBottomElem);
+
+    let leftBottomElem = elem.cloneNode();
+    leftBottomElem.style.left = '0';
+    leftBottomElem.style.bottom = '0';
+    container.append(leftBottomElem);
+
   </script>
 </body>
 </html>
