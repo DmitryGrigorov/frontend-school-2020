@@ -17,10 +17,10 @@
     <li>item 7</li>
   </ul>
 
-  <button id="add-first-item">Add first item</button>
-  <button id="remove-first-item">Remove first item</button>
-  <button id="add-last-item">Add last item</button>
-  <button id="remove-last-item">Remove last item</button>
+  <button id="add-first-item" class="add-first-item">Add first item</button>
+  <button id="remove-first-item" class="remove-first-item">Remove first item</button>
+  <button id="add-last-item" class="add-last-item">Add last item</button>
+  <button id="remove-last-item" class="remove-last-item">Remove last item</button>
 
   <!-- 
     Реализовать функционал для кнопок:
@@ -30,20 +30,75 @@
     4. Кнопка "Remove last item" должна удалять элемент в конце списка
   -->
   <script>
-    const addFirst = document.getElementById('add-first-item');
-    const removeFirst = document.getElementById('remove-first-item');
-    const addLast = document.getElementById('add-last-item');
-    const removeLast = document.getElementById('remove-last-item');
+    // const list = document.getElementById('list');
+    // const addFirst = document.getElementById('add-first-item');
+    // const removeFirst = document.getElementById('remove-first-item');
+    // const addLast = document.getElementById('add-last-item');
+    // const removeLast = document.getElementById('remove-last-item');
+    //
+    // function addFirstEl() {
+    //   const elem = document.createElement('LI');
+    //   let arrLi = document.querySelectorAll('LI');
+    //   elem.insertAdjacentText('afterbegin', `item ${arrLi.length + 1}`);
+    //   list.prepend(elem);
+    // }
+    //
+    // function removeFirstEl() {
+    //   let arrLi = document.querySelectorAll('LI');
+    //   if(arrLi.length === 0) {
+    //     alert('Ошибка. Все элементы уже удалены');
+    //     return;
+    //   }
+    //   let elem = list.firstElementChild;
+    //   elem.remove();
+    // }
+    //
+    // function addLastEl() {
+    //   const elem = document.createElement('LI');
+    //   let arrLi = document.querySelectorAll('LI');
+    //   elem.insertAdjacentText('afterbegin', `item ${arrLi.length + 1}`);
+    //   list.append(elem);
+    // }
+    //
+    // function removeLastEl() {
+    //   let arrLi = document.querySelectorAll('LI');
+    //   if(arrLi.length === 0) {
+    //     alert('Ошибка. Все элементы уже удалены');
+    //     return;
+    //   }
+    //   let elem = list.lastElementChild;
+    //   elem.remove();
+    // }
+    //
+    //
+    // addFirst.addEventListener('click', addFirstEl);
+    // removeFirst.addEventListener('click', removeFirstEl);
+    // addLast.addEventListener('click', addLastEl);
+    // removeLast.addEventListener('click', removeLastEl);
 
-    function addFirstEl() {
-
-    }
+    // Рабочий вариант, но не оптимальный, за счет повторения переменных и констант.
 
     document.addEventListener('click', event => {
-      if (event.target) {
+      const list = document.getElementById('list');
+      const elem = document.createElement('LI');
+      let arrLi = document.querySelectorAll('LI');
+      elem.insertAdjacentText('afterbegin', `item ${arrLi.length + 1}`);
 
+      if (event.target.classList.contains('add-first-item')) {
+        list.prepend(elem);
+
+      }  else if (event.target.classList.contains('remove-first-item')) {
+        return (arrLi.length === 0) ?  alert('Ошибка. Элементы уже удалены') : list.firstElementChild.remove();
+
+      } else if (event.target.classList.contains('add-last-item')) {
+        list.append(elem);
+
+      } else if (event.target.classList.contains('remove-last-item')) {
+        return (arrLi.length === 0) ?  alert('Ошибка. Элементы уже удалены') : list.lastElementChild.remove();
       }
     });
+
+    // Более оптимальный вариант
   </script>
 
 </body>
