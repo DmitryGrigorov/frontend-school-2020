@@ -22,7 +22,21 @@
     
    -->
   <script>
+    
+    let list = document.getElementById('list');
+    let arr = ['Бананы', 'Черника', 'Малина'];
+    
+    for (let i = 0; i < arr.length; i++) {
+      let newItem = document.createElement('li');
+      newItem.innerHTML = arr[i];
+      list.append(newItem);
+    }
 
+    let selectors = document.querySelectorAll('li');
+
+    for (let j = 0; j < selectors.length; j+=2) {
+      selectors[j].style.background = 'red';
+    };
 
   </script>
 </body>
