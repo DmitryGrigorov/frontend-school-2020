@@ -141,6 +141,59 @@
         <script>
           const exercise2 = document.querySelector('#exercise_2');
           // ...решение здесь
+          let prevButton = exercise2.querySelector('.carousel_button_prev');
+          let nextButton = exercise2.querySelector('.carousel_button_next');
+
+          let carouselWrapper = exercise2.querySelector('.carousel_list_wrapper');
+          let carouselItems = carouselWrapper.querySelectorAll('li.carousel_list_item');
+
+          let carouselVisibleWidth = carouselWrapper.getBoundingClientRect().width;
+          let carouselItemsWidths = new Array();
+          let carouselLastVisibleItem = 0;
+
+          // находим ширину, всех элементов в карусели
+          carouselItems.forEach((el, index) => {
+            carouselItemsWidths[index] = el.getBoundingClientRect().width;
+            
+            // находим индекс, последнего видимого элемента
+            if(carouselVisibleWidth > 0) {
+              carouselVisibleWidth = carouselVisibleWidth - carouselItemsWidths[index];
+              carouselLastVisibleItem = index; 
+            }
+          });
+
+          // находим количество видимых элементов в карусели
+          const countVisibleItems  = carouselLastVisibleItem + 1;
+          
+          nextButton.addEventListener('click', nextCarouselItem);
+          prevButton.addEventListener('click', prevCarouselItem);
+
+          // функция прокрутки "вправо"
+          function nextCarouselItem(event) {
+            if( carouselLastVisibleItem + 1  < carouselItems.length ){
+              carouselWrapper.scrollTo({
+                left: carouselWrapper.scrollLeft + carouselItemsWidths[carouselLastVisibleItem+1],
+                behavior: 'smooth'
+              });
+
+              carouselLastVisibleItem++;
+              // console.log(carouselLastVisibleItem);
+            }
+          }
+          
+          // функция прокрутки "влево"
+          function prevCarouselItem(event) {
+            if( carouselLastVisibleItem - 1  >= countVisibleItems){
+              carouselWrapper.scrollTo({
+                left: carouselWrapper.scrollLeft - carouselItemsWidths[carouselLastVisibleItem-1],
+                behavior: 'smooth'
+              });
+
+              carouselLastVisibleItem--;
+              // console.log(carouselLastVisibleItem);
+            }
+          }
+
         </script>
       </div>
     </div>
