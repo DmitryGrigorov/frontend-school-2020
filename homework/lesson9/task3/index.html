@@ -30,6 +30,42 @@
     4. Кнопка "Remove last item" должна удалять элемент в конце списка
   -->
   <script>
+
+    let buttonAddFirst = document.querySelector('#add-first-item');
+    let buttonRemoveFirst = document.querySelector('#remove-first-item');
+    let buttonAddLast = document.querySelector('#add-last-item');
+    let buttonRemoveLast = document.querySelector('#remove-last-item');
+
+    buttonAddFirst.addEventListener('click', () => {
+      let newItem = document.createElement('li');
+      let list = document.querySelector('#list');
+
+      newItem.appendChild(document.createTextNode('first one'));
+      list.prepend(newItem);
+    });
+
+    buttonAddLast.addEventListener('click', () => {
+      let newItem = document.createElement('li');
+      let list = document.querySelector('#list');
+
+      newItem.appendChild(document.createTextNode('last one'));
+      list.append(newItem);
+    });
+
+    buttonRemoveFirst.addEventListener('click', () => {
+
+      let list = document.querySelector('#list');
+      if (list.children.length) list.firstElementChild.remove();
+
+    });
+
+    buttonRemoveLast.addEventListener('click', () => {
+
+      let list = document.querySelector('#list');
+      if (list.children.length) list.lastElementChild.remove();
+
+    });
+
   </script>
 
 </body>
