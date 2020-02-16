@@ -22,7 +22,19 @@
     
    -->
   <script>
-
+    const list = document.querySelector('#list');
+    ['Бананы', 'Черника', 'Малина'].forEach((item) =>{
+      const element = document.createElement('li');
+      element.innerText = item;
+      list.appendChild(element);
+    });
+    const lis = document.querySelectorAll('#list>li')
+    lis.forEach((item, index) => {
+      console.log(index)
+      if((index%2)===0) { //т.к. первый элемент имеет нулевой индекс
+        item.style.backgroundColor = 'red';
+      }
+    })
 
   </script>
 </body>

@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Task 2: Centered block</title>
-  <style>
-    .container {
-      width: 300px;
-      height: 300px;
-      border: 10px solid black;
-      background-color: #efd5ff;
-    }
+    <title>Task 2: Centered block</title>
+    <style>
+        .container {
+            width: 300px;
+            height: 300px;
+            border: 10px solid black;
+            background-color: #efd5ff;
+        }
 
-    .element {
-      width: 50px;
-      height: 50px;
-      background-color: yellowgreen;
-    }
-  </style>
+        .element {
+            width: 50px;
+            height: 50px;
+            background-color: yellowgreen;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
+<div class="container">
     <div class="element"></div>
-  </div>
+</div>
 
 <!-- 
   1. Склонировать элемент (ноду) и расположить его по центру контейнера
@@ -29,8 +29,33 @@
   4. Склонировать элемент (ноду) и расположить его в левый нижний угол контейнера
 -->
 
-  <script>
+<script>
+    const node = document.querySelector('.container .element');
+    node.parentElement.style.position = 'relative';
+    const nodeCenter = node.cloneNode();
+    nodeCenter.style.position = 'absolute';
+    nodeCenter.style.top = "calc(50% - 25px)";
+    nodeCenter.style.left = "calc(50% - 25px)";
+    node.parentElement.appendChild(nodeCenter);
+    const nodeRightTop = node.cloneNode();
+    nodeRightTop.style.position = 'absolute';
+    nodeRightTop.style.right = '0';
+    nodeRightTop.style.top = '0';
+    node.parentElement.appendChild(nodeRightTop);
+    const nodeRightBottom = node.cloneNode();
+    nodeRightBottom.style.position = 'absolute';
+    nodeRightBottom.style.right = '0';
+    nodeRightBottom.style.bottom = '0';
+    node.parentElement.appendChild(nodeRightBottom);
+    const nodeLeftBottom = node.cloneNode();
+    nodeLeftBottom.style.position = 'absolute';
+    nodeLeftBottom.style.left = '0';
+    nodeLeftBottom.style.bottom = '0';
+    node.parentElement.appendChild(nodeLeftBottom);
 
-  </script>
+
+
+
+</script>
 </body>
 </html>
