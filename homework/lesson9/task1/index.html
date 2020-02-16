@@ -32,6 +32,11 @@
       newItem.appendChild(document.createTextNode(item));
       list.appendChild(newItem);
     })
+
+    Array.from(list.children).forEach((item, index) => {
+      if (index% 2 == 1) { item.style.background = 'red' }
+    })
+    
   </script>
 </body>
 </html>

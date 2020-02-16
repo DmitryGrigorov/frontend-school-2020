@@ -30,6 +30,16 @@
 -->
 
   <script>
+    let elem = document.querySelector('.element')
+
+    // clone nodes
+    let upperRight = elem.cloneNode();
+    let bottomRight = elem.cloneNode();
+    let bottomLeft = elem.cloneNode();
+
+    //move clones
+    upperRight.style = ({'position':'absolute','top':'50%'});
+
 
   </script>
 </body>
