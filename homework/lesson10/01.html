@@ -54,8 +54,15 @@
             </ul>
         </div>
         <script>
-            const exercise1 = document.querySelector('#exercise_1');
-            // ...решение здесь
+            const toggleListTitles = document.querySelectorAll('.toggle-list_toggler');
+            toggleListTitles.forEach(title => title.addEventListener('click', toggleList));
+
+            function toggleList() {
+                const сhildren = this.closest('ul').children;
+                Array.prototype.map.call(сhildren, child => {
+                    child.tagName === "LI" ? child.hidden = !child.hidden : this.firstElementChild.innerHTML = this.firstElementChild.innerHTML === "+" ? "-" : "+";
+                });
+            }
         </script>
     </div>
 </div>
