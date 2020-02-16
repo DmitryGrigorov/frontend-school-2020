@@ -55,8 +55,25 @@
         </ul>
       </div>
       <script>
-        const exercise1 = document.querySelector('#exercise_1');
-        // ...решение здесь
+        const exercise1 = document.querySelector('#exercise_1 #toggle-list');
+        
+        exercise1.addEventListener('click', closeOpen);
+
+        function closeOpen(event) {
+          let target = event.target;
+
+          if (target.classList.contains('toggle-list_toggler_label') || target.classList.contains('toggle-list_toggler_icon')) {
+            target = target.closest('.toggle-list_list');
+            let arr = target.querySelectorAll('li');
+            let icon = target.querySelector('.toggle-list_toggler_icon');
+            (icon.textContent === '+') ? icon.textContent = '-' : icon.textContent = '+';
+            Array.from(arr).forEach(function(item) {
+              item.hidden = !item.hidden;
+              //item.classList.toggle('close');   // или так
+            });
+          }
+        }
+
       </script>
     </div>
   </div>
@@ -116,8 +133,46 @@
           </div>
         </div>
         <script>
-          const exercise2 = document.querySelector('#exercise_2');
-          // ...решение здесь
+
+          let slideIndex = 3,
+              slides = document.querySelectorAll('.carousel_list_item'),
+              prev = document.querySelector('.carousel_button_prev'),
+              next = document.querySelector('.carousel_button_next');         
+
+          showSlides(slideIndex);
+
+          function showSlides(n) {
+
+            if (n > slides.length) {
+              slideIndex = 10;
+              //console.log('n>slides.length  ' + n);
+            }
+            if (n < 3) {
+              slideIndex = 3;
+              //console.log('n<3  ' + n);
+            }
+            if (n <= slides.length) {
+              //console.log('next  ' + n);
+              slides.forEach((item) => item.style.display = 'none');
+              slides[slideIndex - 1].style.display = 'block';
+              slides[slideIndex - 2].style.display = 'block';
+              slides[slideIndex - 3].style.display = 'block';
+            }
+
+          }
+
+          function plusSlides(n) {
+            showSlides(slideIndex += n); 
+          }
+
+          prev.addEventListener('click', function() {
+            plusSlides(-1);
+          });
+
+          next.addEventListener('click', function() {
+            plusSlides(1);
+          });
+
         </script>
       </div>
     </div>
@@ -138,7 +193,43 @@
       </div>
       <script>
         const exercise3 = document.querySelector('#exercise_3');
-        // ...решение здесь
+        const button = exercise3.querySelector('button');
+
+        let hint = null;
+
+        exercise3.addEventListener('mouseover', function(event) {
+          target = event.target;
+
+          if (target.tagName ==='BUTTON') {
+            hint = document.createElement('div');
+            hint.innerHTML = target.dataset.tooltip;
+            hint.classList.add('hint');
+            //hint.className = 'hint';
+            target.before(hint);
+            //document.body.append(hint);
+            
+
+            let coords = target.getBoundingClientRect();
+
+            let left = coords.left + (target.offsetWidth - hint.offsetWidth) / 2;
+            if (left < 0) left = 0; // не заезжать за левый край окна
+
+            let top = coords.top - hint.offsetHeight - 5;
+
+            hint.style.left = left + 'px';
+            hint.style.top = top + 'px';
+
+          }
+          
+        });
+
+        exercise3.addEventListener('mouseout', function(event) {
+          if (hint) {
+            hint.remove();
+            hint = null;
+          }
+        });
+        
       </script>
     </div>
 </div>
@@ -158,14 +249,14 @@
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://google.ru">
+              <a id="google" href="https://google.ru">
                 <strong>
                   Переход на google только при двойном клике
                 </strong>
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://mail.ru">
+              <a id="mail" href="https://mail.ru">
                 <em>
                   Переход на mail только при клике с нажатой кнопкой 'Shift'
                 </em>
@@ -174,8 +265,74 @@
         </ul>
       </div>
       <script>
-        const exercise4 = document.querySelector('#exercise_4');
-        // ...решение здесь
+        //onclick="event.preventDefault()" можно добавить атрибут в каждый тег <а>, в место функции clickDefault
+
+        const exercise4 = document.querySelector('#exercise_4 .menu_highlight_list');
+        const tagsA = exercise4.querySelectorAll('a');
+
+          // менее гибкий способ
+          // tagsA[0].addEventListener('click', clickDefault);
+          // tagsA[0].addEventListener('contextmenu', yandex);
+          // tagsA[1].addEventListener('click', clickDefault);
+          // tagsA[1].addEventListener('dblclick', google);
+          // tagsA[2].addEventListener('click', clickDefault);
+          // tagsA[2].addEventListener('click', mail);
+
+
+        Array.from(tagsA).forEach((item) => {
+          switch((item.href)) {
+            case"https://yandex.ru/": 
+              //console.log('hello 1');
+              item.addEventListener('click', clickDefault);
+              item.addEventListener('contextmenu', yandex);
+              break;
+            case"https://google.ru/": 
+              //console.log('hello 2');
+              item.addEventListener('click', clickDefault);
+              item.addEventListener('dblclick', google);
+              break;
+            case"https://mail.ru/": 
+              //console.log('hello 3');
+              exercise4.addEventListener('click', clickDefault);
+              item.addEventListener('click', mail);
+              break;
+          }
+        });
+        
+        function clickDefault(event) {
+          const target = event.target;
+
+          if (target.closest('A')) {
+            event.preventDefault();
+            console.log('click');
+          }
+        };
+
+        function yandex(event) {
+        
+          event.preventDefault();
+          const link = event.target.href;
+          window.open(link);
+        
+        };
+
+        function google(event) {
+
+          event.preventDefault();
+          const link = event.target.closest('A').href;
+          window.open(link);
+      
+        };
+
+        function mail(event) {
+
+          const link = event.target.closest('A').href;
+          if (event.shiftKey) {
+            window.open(link);
+          }
+
+        };
+
       </script>
     </div>
   </div>

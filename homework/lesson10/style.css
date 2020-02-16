@@ -46,6 +46,10 @@
     list-style: none;
     margin-left: 25px;
 }
+
+.close {
+    display: none;
+}
 /* Конец задачи №1 список элементов */
 
 
@@ -99,4 +103,15 @@
     height: 130px;
 }
 
+
 /* Конец задачи №2 карусель */
+
+.hint {
+    position: fixed;
+    padding: 10px;
+    border: 1px solid #b3c9ce;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 12px;
+    background: #fff;
+}
