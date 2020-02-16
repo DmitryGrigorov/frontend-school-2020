@@ -30,33 +30,7 @@
 -->
 
   <script>
-    let container = document.querySelector('.container');
-    container.style.position = 'relative';
-    let element = document.querySelector('.element');
 
-    let newElementCenter = element.cloneNode(true);
-    container.append(newElementCenter);
-    newElementCenter.style.position = 'absolute';
-    newElementCenter.style.top = container.clientHeight/2 - element.clientHeight/2 + 'px';
-    newElementCenter.style.left = container.clientWidth/2 - element.clientWidth/2 + 'px';
-
-    let newElementRightUp = element.cloneNode(true);
-    container.append(newElementRightUp);
-    newElementRightUp.style.position = 'absolute';
-    newElementRightUp.style.top = '0px';
-    newElementRightUp.style.left = container.clientWidth - element.clientWidth + 'px';
-
-    let newElementRightDown = element.cloneNode(true);
-    container.append(newElementRightDown);
-    newElementRightDown.style.position = 'absolute';
-    newElementRightDown.style.top = container.clientHeight - element.clientHeight + 'px';
-    newElementRightDown.style.left = container.clientWidth - element.clientWidth + 'px';
-
-    let newElementLeftDown = element.cloneNode(true);
-    container.append(newElementLeftDown);
-    newElementLeftDown.style.position = 'absolute';
-    newElementLeftDown.style.top = container.clientHeight - element.clientHeight + 'px';
-    newElementLeftDown.style.left = '0px';
   </script>
 </body>
 </html>
