@@ -174,19 +174,19 @@
       <div class="menu_highlight">
         <ul class="menu_highlight_list">
             <li class="menu_highlight_item">
-              <a href="https://yandex.ru">
+              <a href="https://yandex.ru" data-click = "contextmenu">
                   Переход на yandex только при клике правой кнопкой мыши
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://google.ru">
+              <a href="https://google.ru" data-click = "dblclick">
                 <strong>
                   Переход на google только при двойном клике
                 </strong>
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://mail.ru">
+              <a href="https://mail.ru" data-click = "shiftKey">
                 <em>
                   Переход на mail только при клике с нажатой кнопкой 'Shift'
                 </em>
@@ -196,7 +196,40 @@
       </div>
       <script>
         const exercise4 = document.querySelector('#exercise_4');
-        // ...решение здесь
+
+        exercise4.addEventListener('click', (event) => goToHref(event.type, event) );
+
+        exercise4.addEventListener('contextmenu', (event) => goToHref(event.type, event) );
+
+        exercise4.addEventListener('dblclick', (event) => goToHref(event.type, event) );
+
+        function goToHref(e, event) {
+          let target = event.target;
+          if (target.closest('a')){ //Исключение ошибки в случае, если у элемента нет <A>
+            target = target.closest('a');
+            let href = target.closest('a').href;
+            let dataset = target.dataset.click;
+            event.preventDefault();
+
+            switch (dataset) { //Проверка дополнительного атрибута
+              case 'contextmenu':
+                if(e === 'contextmenu') {
+                  document.location = href;
+                }
+                break;
+              case 'dblclick':
+                if(e === 'dblclick'){
+                  document.location = href;
+                }
+                break;
+              case 'shiftKey':
+                if(event.shiftKey === true){
+                  document.location = href;
+                }
+                break;
+            }
+          }
+        }
       </script>
     </div>
   </div>
