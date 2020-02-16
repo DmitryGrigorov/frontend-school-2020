@@ -23,7 +23,15 @@
    -->
   <script>
 
+    let list  = document.querySelector('#list');
+    let arr = ['Бананы', 'Черника', 'Малина']; 
 
+    arr.forEach(item => {
+      let newItem = document.createElement('li');
+
+      newItem.appendChild(document.createTextNode(item));
+      list.appendChild(newItem);
+    })
   </script>
 </body>
 </html>
