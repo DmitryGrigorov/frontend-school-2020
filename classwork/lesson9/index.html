@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Урок 8: DOM</title>
+</head>
+<body>
+
+  <ul id='ullist' class="list">
+    <li id='item1'>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+    <li id='item4' value='asd'>item 4</li>
+    <li description="title">item 5</li>
+    <li description="title">item 6</li>
+    <li description="title">item 7</li>
+    <li>item 8</li>
+    <li>item 9</li>
+    <li>item 10</li>
+  </ul>
+
+
+<script>
+  let list = document.getElementById('ullist');
+  // let list = document.getElementsByClassName('list');
+  // let list = document.getElementsByTagName('ul');
+  // let list = document.querySelector('li[description]');
+  let item4 = document.getElementById('item4');
+  let item1 = document.querySelector('#item1');
+  
+
+  console.log(item4.parentElement);
+
+  // list.style.background = 'red';
+  // console.log(list[0].style.background)
+
+  //  Создание элемента
+  let h1 = document.createElement('h1');
+  h1.innerHTML = '<i>Head</i>line';
+
+  // list.prepend(h1);
+
+  // item1.remove();
+  // h1.remove();
+
+  list.replaceChild(h1, item4);
+</script>
+
+</body>
+</html>
