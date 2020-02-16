@@ -22,8 +22,19 @@
     
    -->
   <script>
-
-
+    let idList = document.querySelector('#list');
+    let array = ['Бананы', 'Черника', 'Малина'];
+    array.forEach((item) => {
+        let newLi = document.createElement('li');
+        newLi.textContent = item;
+        idList.append(newLi);
+    });
+    let listLi = idList.children;
+    for (let i = 0; i < listLi.length; i++) {
+      if (i % 2 == 0) {
+        listLi[i].setAttribute('style', 'background-color: red');
+      }
+    }
   </script>
 </body>
 </html>
