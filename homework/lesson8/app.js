@@ -91,7 +91,11 @@ function delay(time) {
 //
 
 function request(url) {
-  return fetch(url).then(urlData => urlData.json());
+  try {
+    return fetch(url).then(urlData => urlData.json());
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 //
@@ -186,6 +190,10 @@ function request(url) {
 // во второй задаче есть подстказка как url превращяется в промис
 
 function arrayRequest(urlArr) {
-  const promiseArr = urlArr.map(el => fetch(el));
-  return Promise.all(promiseArr);
+  try {
+    const promiseArr = urlArr.map(el => fetch(el));
+    return Promise.all(promiseArr);
+  } catch (error) {
+    console.log(error);
+  }
 }
