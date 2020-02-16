@@ -19,6 +19,34 @@
     cat.meow(); // выводит в консоль "murzik: meow"
  */
 
+class Cat {
+   constructor(name) {
+      this.name = name;
+      this.state = 'run';
+   }
+
+   meow() {
+      console.log(`${this.name}: meow`);
+   }
+
+   up() {
+      this.state = 'standing';
+   }
+  
+   down() {
+      this.state = 'lying';
+   }
+}
+
+let cat = new Cat('Murzik');
+console.log(cat.name); 
+console.log(cat.state); 
+cat.up();
+console.log(cat.state); 
+cat.down();
+console.log(cat.state); 
+cat.meow(); 
+
  /*
     2)
 
@@ -31,6 +59,27 @@
     так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
     Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
  */
+
+class Animal {
+   constructor(movingType, color) {
+      this.movingType = movingType;
+      this.color = color;
+   }
+}
+
+class Dog extends Animal {
+   constructor(name, age, weight, movingType, color) {
+      super(movingType, color);
+      this.name = name;
+      this.age = age;
+      this.weight = weight;
+   }
+}
+
+ const someAnimal = new Animal('walking', 'black');
+ const someDog = new Dog('tuzik', 4, 10, 'walking', 'black');
+ console.log(someAnimal);
+ console.log(someDog);
 
  /*
     3)
@@ -51,6 +100,37 @@
     console.log(someCar.stop()); // 'stopped'
  */
 
+class Transport {
+   constructor() {
+      this.status = 'stopped';
+   }
+   
+   run() {
+      this.status = 'running';
+   }
+   stop() {
+      this.status = 'stopped';
+   }
+}
+
+class Car extends Transport {
+
+}
+
+const someTransport = new Transport();
+console.log(someTransport.status); 
+someTransport.run();
+console.log(someTransport.status);
+someTransport.stop();
+console.log(someTransport.status);
+
+const someCar = new Car();
+console.log(someCar.status); 
+someCar.run();
+console.log(someCar.status);
+someCar.stop();
+console.log(someCar.status);
+
 /*
    4)
 
@@ -58,18 +138,18 @@
    age и height конструктор класса должен принимать одноимённые аргументы.
 
    — Создайте массив humans из десяти объектов на основе класса Human:
-   «Коля», 23, 180,
-   «Даша», 19, 170,
-   «Ваня», 18, 192,
-   «Петя», 45, 178,
-   «Вася», 34, 197,
-   «Джони», 40, 168,
-   «Катя», 37, 160,
-   «Петя», 29, 200,
-   «Соня», 21, 172,
-   «Женя», 25, 175
+   'Коля', 23, 180,
+   'Даша', 19, 170,
+   'Ваня', 18, 192,
+   'Петя', 45, 178,
+   'Вася', 34, 197,
+   'Джони', 40, 168,
+   'Катя', 37, 160,
+   'Петя', 29, 200,
+   'Соня', 21, 172,
+   'Женя', 25, 175
 
-   — Укажите классу метод getInfo (он должен возвращать строки вида «Коля, 23, 180»),
+   — Укажите классу метод getInfo (он должен возвращать строки вида 'Коля, 23, 180'),
    — Укажите метод геттер firstname ( он должен возвращать свойство name объекта)
    — Укажите метод сеттер firstname ( он должен настраивать свойство name объекта)
 
@@ -77,3 +157,60 @@
      которые смогут отсортировать массив по именам (в алфавитном порядке)
      или росту (по убыванию роста). Вызовите только функцию сортировки по росту.
 */
+<<<<<<< HEAD
+=======
+
+class Human {
+   constructor(name, age, height) {
+      this.name = name;
+      this.age = age;
+      this.height = height;
+   }
+
+   getInfo() {
+      console.log(`${this.name}, ${this.age}, ${this.height}`);
+   }
+
+   get firstname() {
+      return this.name;
+   }
+
+   set firstname(name) {
+      this.name = name;
+   }
+}
+
+function sortByName(arr) {
+   arr.sort((a, b) => {
+      if (a.name > b.name) return 1; 
+      if (a.name == b.name) return 0; 
+      if (a.name < b.name) return -1;
+   });
+   return arr;
+}
+
+function sortByHeight(arr) {
+   arr.sort((a, b) => {
+      return b.height - a.height;
+   });
+   return arr;
+}
+
+humans = [
+   ['Коля', 23, 180],
+   ['Даша', 19, 170],
+   ['Ваня', 18, 192],
+   ['Петя', 45, 178],
+   ['Вася', 34, 197],
+   ['Джони', 40, 168],
+   ['Катя', 37, 160],
+   ['Петя', 29, 200],
+   ['Соня', 21, 172],
+   ['Женя', 25, 175]
+];
+
+humans = humans.map(item => new Human(...item));
+
+//console.log(sortByName(humans));
+console.log(sortByHeight(humans));
+>>>>>>> KiryanovaIrina/lesson7
