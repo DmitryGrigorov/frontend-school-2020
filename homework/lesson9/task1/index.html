@@ -22,7 +22,15 @@
     
    -->
   <script>
-
+    let list = document.getElementById('list');
+    let arr = ['Бананы', 'Черника', 'Малина'];
+    arr.forEach(item => {
+      return list.insertAdjacentHTML("beforeend", `<li>${item}</li>`); //современная замена innerHTML;
+    });
+    let elem = document.querySelectorAll('li');
+    for (let i = 0; i < elem.length; i += 2) {
+      elem[i].style.background = 'red';
+    }
 
   </script>
 </body>
