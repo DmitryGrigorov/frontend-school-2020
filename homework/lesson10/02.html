@@ -60,8 +60,52 @@
             </div>
         </div>
         <script>
-            const exercise2 = document.querySelector('#exercise_2');
-            // ...решение здесь
+            // создаем переменные для кнопок и карусельки
+            const goLeft = document.querySelector(".carousel .carousel_button_prev");
+            const goRight = document.querySelector(".carousel .carousel_button_next");
+            const carousel = document.querySelector(".carousel_list");
+
+            // устанавливаем лиснер событий
+            goLeft.addEventListener("click", function () {
+                // функция-обработчик события клика на левую кнопку
+                // выбираем все элементы карусели
+                const items = document.querySelectorAll(".carousel_list .carousel_list_item");
+                // выбираем первый элемент карусели
+                const firstItem = items[0];
+                // используем методы массива на всех элементах
+                Array.from(items).map(
+                    function (item, index) {
+                        // если индекс элемента равен 0, тогда делаем его первым
+                        if (index === items.length - 1) {
+                            carousel.append(firstItem);
+                        } else {
+                            //иначе следующим
+                            carousel.append(items[index + 1]);
+                        }
+                    }
+                );
+
+            });
+            goRight.addEventListener("click", function () {
+                    // функция-обработчик события клика на левую кнопку
+                    // выбираем все элементы карусели
+                    const items = document.querySelectorAll(".carousel_list .carousel_list_item");
+                    // выбираем последний элемент карусели (длинна массив - 1, получаем индекс последнего элемента)
+                    const lastItem = items[items.length - 1];
+                    // используем методы массива на всех элементах
+                    Array.from(items).map(
+                        function (item, index) {
+                            if (index === 0) {
+                                carousel.append(lastItem);
+                            } else {
+                                carousel.append(items[index - 1]);
+                            }
+                        }
+                    )
+                });
+
+
+
         </script>
     </div>
 </div>
