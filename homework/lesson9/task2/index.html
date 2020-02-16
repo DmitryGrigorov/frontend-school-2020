@@ -31,15 +31,30 @@
 
   <script>
     let elem = document.querySelector('.element')
+    let container = document.querySelector('.container')
 
     // clone nodes
     let upperRight = elem.cloneNode();
     let bottomRight = elem.cloneNode();
     let bottomLeft = elem.cloneNode();
 
-    //move clones
-    upperRight.style = ({'position':'absolute','top':'50%'});
+    container.appendChild(upperRight);
+    container.appendChild(bottomRight);
+    container.appendChild(bottomLeft);
 
+    //move clones
+    container.style.position = 'relative';
+
+    upperRight.style.position = 'absolute';
+    upperRight.style.right = '0px';
+    upperRight.style.top = '0';
+
+    bottomRight.style.position = 'absolute';
+    bottomRight.style.right = '0px';
+    bottomRight.style.bottom = '0';
+
+    bottomLeft.style.position = 'absolute';
+    bottomLeft.style.bottom = '0';
 
   </script>
 </body>
