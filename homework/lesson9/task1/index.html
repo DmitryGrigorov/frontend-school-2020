@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Task 1</title>
-</head>
-<body>
-  <ul id="list">
-    <li>Арбуз</li>
-    <li>Апельсин</li>
-    <li>Авокадо</li>
-    <li>Ананас</li>
-    <li>Абрикос</li>
-  </ul>
 
-  <!--
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task 1</title>
+  </head>
+
+  <body>
+    <ul id="list">
+      <li>Арбуз</li>
+      <li>Апельсин</li>
+      <li>Авокадо</li>
+      <li>Ананас</li>
+      <li>Абрикос</li>
+    </ul>
+
+    <!--
     1. Получить элемент c id="list"
     2. Добавить в конец списка массив фруктов ['Бананы', 'Черника', 'Малина'] и вывести на страницу
     3. Окрасить каждый нечетный элемент в красный цвет (elem.style.background = 'red')
     
    -->
-  <script>
+    <script>
+      const list = document.getElementById("list");
 
+      const fruitsArr = ['Бананы', 'Черника', 'Малина'];
+      for (let i = 0; i < fruitsArr.length; i++) {
+        const elementToInsert = document.createElement('li');
+        elementToInsert.textContent = fruitsArr[i];
+        list.append(elementToInsert);
+      }
 
-  </script>
-</body>
+      Array.from(list.children).map((el, index) => {
+        if (index % 2 !== 0) el.style.background = 'red';
+      });
+
+    </script>
+  </body>
+
 </html>
