@@ -176,30 +176,30 @@
       <script>
         const exercise3 = document.querySelector('#exercise_3');
         document.addEventListener("mouseover", showTooltip);
-          document.addEventListener("mouseout", hideTooltip);
+        document.addEventListener("mouseout", hideTooltip);
 
-          function showTooltip(event) {
-            if (event.target.dataset.tooltip) {
-              // Изи мод
-              // event.target.setAttribute('title', event.target.dataset.tooltip);
+        function showTooltip(event) {
+          if (event.target.dataset.tooltip) {
+            // Изи мод
+            // event.target.setAttribute('title', event.target.dataset.tooltip);
 
-              const tooltip = document.createElement("span");
-              tooltip.innerHTML = event.target.dataset.tooltip;
-              event.target.classList.add("hasTooltip");
-              tooltip.classList.add("tooltip");
-              event.target.append(tooltip);
-            }
+            const tooltip = document.createElement("span");
+            tooltip.innerHTML = event.target.dataset.tooltip;
+            event.target.classList.add("hasTooltip");
+            tooltip.classList.add("tooltip");
+            event.target.append(tooltip);
           }
+        }
 
-          function hideTooltip(event) {
-            if (event.target.dataset.tooltip) {
-              event.target.classList.remove("hasTooltip");
-              const elementChildren = event.target.children;
-              Array.from(elementChildren).forEach(element => {
-                if (element.className === "tooltip") element.remove();
-              });
-            }
+        function hideTooltip(event) {
+          if (event.target.dataset.tooltip) {
+            event.target.classList.remove("hasTooltip");
+            const elementChildren = event.target.children;
+            Array.from(elementChildren).forEach(element => {
+              if (element.className === "tooltip") element.remove();
+            });
           }
+        }
       </script>
     </div>
 </div>
@@ -214,19 +214,19 @@
       <div class="menu_highlight">
         <ul class="menu_highlight_list">
             <li class="menu_highlight_item">
-              <a href="https://yandex.ru">
+              <a data-open-type="contextMenu" href="https://yandex.ru">
                   Переход на yandex только при клике правой кнопкой мыши
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://google.ru">
+              <a data-open-type="dblClick" href="https://google.ru">
                 <strong>
                   Переход на google только при двойном клике
                 </strong>
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://mail.ru">
+              <a data-open-type="shiftClick" href="https://mail.ru">
                 <em>
                   Переход на mail только при клике с нажатой кнопкой 'Shift'
                 </em>
@@ -236,51 +236,47 @@
       </div>
       <script>
         const exercise4 = document.querySelector('#exercise_4');
-        const links = document.querySelectorAll("a");
 
-        Array.from(links).map(link => {
-          switch (link.href) {
-            case "https://yandex.ru/":
-              link.addEventListener("contextmenu", openYandex);
-              link.addEventListener("click", disableCommonBehavior);
-              break;
-            case "https://google.ru/":
-              link.addEventListener("dblclick", openGoogle);
-              link.addEventListener("click", disableCommonBehavior);
-              break;
-            case "https://mail.ru/":
-              link.addEventListener("click", openMail);
-              break;
-          }
-        });
+        const linkList = document.querySelector("ul.menu_highlight_list");
 
-        function disableCommonBehavior(event) {
-          if (event.target.tagName !== "A") {
-            event.preventDefault();
-            event.target = event.target.closest("a");
-          }
-          if (event.target.tagName === "A") {
-            event.preventDefault();
+        linkList.addEventListener("contextmenu", openWithContextMenu);
+        linkList.addEventListener("dblclick", openWithDblClick);
+        linkList.addEventListener("click", openWithShiftClick);
+
+        function openWithContextMenu(event) {
+          event.preventDefault();
+          const link =
+            event.target.tagName !== "A"
+              ? event.target.closest("a")
+              : event.target;
+          if (link !== null && link.dataset.openType === "contextMenu") {
+            window.open(link.href);
           }
         }
 
-        function openYandex(event) {
+        function openWithDblClick(event) {
           event.preventDefault();
-          const link = event.target.href;
-          window.open(link);
+          const link =
+            event.target.tagName !== "A"
+              ? event.target.closest("a")
+              : event.target;
+          if (link !== null && link.dataset.openType === "dblClick") {
+            window.open(link.href);
+          }
         }
 
-        function openGoogle(event) {
+        function openWithShiftClick(event) {
           event.preventDefault();
-          const link = event.target.closest("a").href;
-          window.open(link);
-        }
-
-        function openMail(event) {
-          event.preventDefault();
-          const link = event.target.closest("a").href;
-          if (event.shiftKey) {
-            window.open(link);
+          const link =
+            event.target.tagName !== "A"
+              ? event.target.closest("a")
+              : event.target;
+          if (
+            link !== null &&
+            link.dataset.openType === "shiftClick" &&
+            event.shiftKey
+          ) {
+            window.open(link.href);
           }
         }
       </script>
