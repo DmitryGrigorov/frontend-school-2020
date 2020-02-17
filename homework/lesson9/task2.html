@@ -30,10 +30,58 @@
 -->
 
   <script>
-    let container = document.querySelector('.container');
-    let element = document.querySelector('.element');
+    //1 решение
+      let mainBox = document.querySelector('.container');
+      mainBox.style.position = 'absolute';
+      let getInfmainBox = getComputedStyle(mainBox, null);
+      let widthMainBox = parseInt(getInfmainBox.getPropertyValue('width'));
+      let heightMainBox = parseInt(getInfmainBox.getPropertyValue('height'));
+      let smallBox = document.querySelector('.element')
+      let getInfsmallBox = getComputedStyle(smallBox, null);
+      let widthSmallBox = parseInt(getInfsmallBox.getPropertyValue('width'));
+      let heightSmallBox = parseInt(getInfsmallBox.getPropertyValue('height'));
     
-    let divCenter = element.cloneNode(false);
+      let divCenter = smallBox.cloneNode();
+      divCenter = smallBox.appendChild(divCenter);
+
+      function getDivCenter(element){
+        divCenter.style.position = 'absolute';
+        divCenter.style.left = `${widthMainBox/2 - widthSmallBox/2}px`;
+        divCenter.style.top = `${heightMainBox/2 - heightSmallBox/2}px`;
+      }
+      getDivCenter(divCenter);
+    
+      let divRightTop = smallBox.cloneNode();
+      divRightTop = smallBox.appendChild(divRightTop);
+
+      function getDivRightTop(element){
+        divRightTop.style.position = 'absolute';
+        divRightTop.style.left = `${widthMainBox - widthSmallBox}px`;
+      }
+      getDivRightTop(divRightTop);
+
+     let divRightBottom = smallBox.cloneNode(false);
+     divRightBottom = smallBox.appendChild(divRightBottom);
+
+     function getDivRightBottom(element){
+        divRightBottom.style.position = 'absolute',
+        divRightBottom.style.left = `${widthMainBox - widthSmallBox}px`,
+        divRightBottom.style.top = `${heightMainBox - heightSmallBox}px`
+     }
+     getDivRightBottom(divRightBottom);
+
+     let divLeftBottom = smallBox.cloneNode(false);
+     divLeftBottom = smallBox.appendChild(divLeftBottom);
+
+      function getDivLeftBottom(element){
+        divLeftBottom.style.position = 'absolute',
+        divLeftBottom.style.top = `${heightMainBox - heightSmallBox}px`
+      }
+      getDivLeftBottom(divLeftBottom);
+
+    // }
+    //2 решение
+    /*let divCenter = element.cloneNode(false);
     divCenter = container.appendChild(divCenter);
 
     console.log(divCenter)
@@ -41,7 +89,7 @@
     const containerMetrix = container.getBoundingClientRect();
     const elementMetrix = element.getBoundingClientRect();
 
-    function getDivCenter(elem){
+    function getDivCenter(element){
       divCenter.style.position = 'absolute',
       divCenter.style.left = `${containerMetrix.width/2 - elementMetrix.width/2 + containerMetrix.left}px`,
       divCenter.style.top = `${containerMetrix.height/2 - elementMetrix.height/2 + containerMetrix.top}px`
@@ -53,9 +101,9 @@
 
     console.log(divRightTop)
 
-    function getDivRightTop(elem){
+    function getDivRightTop(element){
       divRightTop.style.position = 'absolute',
-      divRightTop.style.left = `${containerMetrix.width-elementMetrix.width -2}px`,
+      divRightTop.style.left = `${containerMetrix.width-elementMetrix.width - 2}px`,
       divRightTop.style.top = `${containerMetrix.top + 10}px`
     }
     getDivRightTop(divRightTop);
@@ -65,7 +113,7 @@
 
     console.log(divRightBottom)
 
-    function getDivRightBottom(elem){
+    function getDivRightBottom(element){
       divRightBottom.style.position = 'absolute',
       divRightBottom.style.left = `${containerMetrix.width-elementMetrix.width - 2}px`,
       divRightBottom.style.top = `${containerMetrix.bottom + elementMetrix.height - (containerMetrix.height/2 - elementMetrix.height)}px`
@@ -78,12 +126,12 @@
 
     console.log(divLeftBottom)
 
-    function getDivLeftBottom(elem){
+    function getDivLeftBottom(element){
       divLeftBottom.style.position = 'absolute',
       divLeftBottom.style.left = `${containerMetrix.right - containerMetrix.width/2 - 3*elementMetrix.width}px`,
       divLeftBottom.style.top = `${containerMetrix.bottom + elementMetrix.height - (containerMetrix.height/2 - elementMetrix.height)}px`
     }
-    getDivLeftBottom(divLeftBottom);
+    getDivLeftBottom(divLeftBottom);*/
   </script>
 </body>
 </html>
