@@ -238,10 +238,6 @@
       <script>
         const exercise4 = document.querySelector('#exercise_4');
 
-        exercise4.addEventListener('click', function(evt) {
-          evt.preventDefault();
-        });
-
         exercise4.addEventListener('contextmenu', function(evt) {
           evt.preventDefault();
           let target = evt.target.closest('a');
@@ -261,6 +257,7 @@
         });
         
         exercise4.addEventListener('click', function(evt) {
+          evt.preventDefault();
           if (evt.shiftKey) {
             evt.preventDefault();
             let target = evt.target.closest('a');
