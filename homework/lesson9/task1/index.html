@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Task 1</title>
+</head>
+
+<body>
+    <ul id="list">
+        <li>Арбуз</li>
+        <li>Апельсин</li>
+        <li>Авокадо</li>
+        <li>Ананас</li>
+        <li>Абрикос</li>
+    </ul>
+
+    <!--
+    1. Получить элемент c id="list"
+    2. Добавить в конец списка массив фруктов ['Бананы', 'Черника', 'Малина'] и вывести на страницу
+    3. Окрасить каждый нечетный элемент в красный цвет (elem.style.background = 'red')
+    
+   -->
+    <script>
+        let list = document.querySelector("#list");
+        let fruits = ['Бананы', 'Черника', 'Малина'];
+        
+        fruits.forEach(element => {
+            let li = document.createElement('li');
+            li.textContent = `${element}`;
+            list.append(li);
+        })
+        
+        let collection = list.querySelectorAll('li:nth-child(odd)');
+        
+        for (key of collection) {
+            key.style.backgroundColor = 'red';
+        }
+
+    </script>
+</body>
+
+</html>
