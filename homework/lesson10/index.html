@@ -56,7 +56,28 @@
       </div>
       <script>
         const exercise1 = document.querySelector('#exercise_1');
-        // ...решение здесь
+       
+        const list =  exercise1.querySelectorAll('.toggle-list_list');
+        const toggler = exercise1.querySelectorAll('.toggle-list_toggler');
+       
+        toggler.forEach( item=>item.addEventListener('click', openHideItem) );
+       
+        function openHideItem(){
+          let target = event.target; //заголовок, иконка или родительский див 
+          
+          if( target.classList.contains('toggle-list_toggler_label')){
+            target = target.closest('.toggle-list_toggler').querySelector('.toggle-list_toggler_icon');
+          }
+          if (target.classList.contains('toggle-list_toggler')){
+            target = target.querySelector('.toggle-list_toggler_icon');
+          }
+
+          target.innerHTML = target.innerHTML === '+' ? '-' :'+';
+          const listBody = target.closest('.toggle-list_list').querySelectorAll('.toggle-list_item');
+          listBody.forEach( item=>item.hidden = !item.hidden );
+
+        }
+        
       </script>
     </div>
   </div>
@@ -117,7 +138,50 @@
         </div>
         <script>
           const exercise2 = document.querySelector('#exercise_2');
-          // ...решение здесь
+          const carousel=  exercise2.querySelector('.carousel');
+          const next = carousel.querySelector(".carousel_button_next");
+          next.addEventListener('click', goNext);
+
+          const prev = carousel.querySelector(".carousel_button_prev");
+          prev.addEventListener('click', goPrev);
+
+          const carouselList = carousel.querySelector(".carousel_list");
+           const margin = carouselList.querySelector('.carousel_list_item img').clientWidth; //ширина картинки, допустим все одинаковые
+
+          const carouselLengthPx = carousel.querySelectorAll('.carousel_list_item').length * margin;
+          
+
+          function goNext(){
+            
+            let margin_left = carouselList.style.marginLeft;
+          
+            if(margin_left!='0px' && margin_left!=''){ //работает
+             
+              margin_left = margin_left.substr(0, margin_left.length-2);
+              margin_left = +margin_left + margin +'px';
+
+              carouselList.style.marginLeft = margin_left;
+            
+            }
+           
+
+          }
+          function goPrev(){
+            let margin_left = carouselList.style.marginLeft;
+         
+            if( margin_left != '-910px'){
+              //1300 - 3
+              
+              margin_left = margin_left.substr(0, margin_left.length-2);
+              margin_left = +margin_left - 130 +'px';
+
+              carouselList.style.marginLeft = margin_left;
+             
+            }
+          }
+          //почему обработчик работает на обеих кнопках
+
+
         </script>
       </div>
     </div>
@@ -135,10 +199,40 @@
         </p>
         <button data-tooltip="эта подсказка длиннее, чем элемент">Короткая кнопка</button>
         <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
+        <button data-tooltip="HTML<br>подсказка khjvglhjvglj kjblkbhj;kj ;lkj;jb;kjb;kj ">Ещё кнопка</button>
+        <button data-tooltip="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint odit qui neque velit, minus quis laboriosam corporis facere quam ratione veritatis ea eos recusandae ipsa quibusdam veniam. Quia optio, magnam sunt tempora eum odio deleniti corporis laudantium unde! Minus eum sed perspiciatis ratione tenetur, quae doloribus cum nisi error. Eaque quo eligendi obcaecati maiores laborum veritatis alias, sunt sapiente dolorum iure officia? Ex, maiores nesciunt? Tempore, sed veniam, exercitationem repellat delectus repudiandae provident quis maxime magni dignissimos harum unde iste reprehenderit minima animi explicabo enim perferendis sequi esse cumque voluptas accusantium corporis maiores dicta. Dicta nam mollitia tempore veniam necessitatibus!">Ещё кнопка</button>
+
       </div>
       <script>
         const exercise3 = document.querySelector('#exercise_3');
-        // ...решение здесь
+        const buttons = exercise3.querySelectorAll('button');
+        let tooltip = document.createElement('div');
+        buttons.forEach(function(btn){
+          btn.addEventListener('mouseenter', function(event){
+            if(event.target.hasAttribute('data-tooltip')){
+              tooltip.innerHTML = event.target.getAttribute('data-tooltip');
+              let rect = btn.getBoundingClientRect();
+              tooltip.style.position ='absolute';
+              
+             // tooltip.style.top = String(rect.top+window.pageYOffset)+'px';
+              tooltip.style.left = String(rect.left+window.pageXOffset)+'px';
+              
+              tooltip.style.background = 'lightblue';
+              tooltip.style.border='1px solid gray';
+
+              document.body.appendChild(tooltip);
+              
+              tooltip.style.top = String(rect.top+window.pageYOffset-tooltip.clientHeight - 3)+'px';
+              
+            }
+          });
+          btn.addEventListener('mouseleave', function(event){
+            if(event.target.hasAttribute('data-tooltip')){
+              document.body.removeChild(tooltip);
+            }
+          });
+        });
+        
       </script>
     </div>
 </div>
@@ -153,19 +247,19 @@
       <div class="menu_highlight">
         <ul class="menu_highlight_list">
             <li class="menu_highlight_item">
-              <a href="https://yandex.ru">
+              <a href="https://yandex.ru"  class='right-click'>
                   Переход на yandex только при клике правой кнопкой мыши
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://google.ru">
+              <a href="https://google.ru"  class='double-click' >
                 <strong>
                   Переход на google только при двойном клике
                 </strong>
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://mail.ru">
+              <a href="https://mail.ru"  class='shift-click'>
                 <em>
                   Переход на mail только при клике с нажатой кнопкой 'Shift'
                 </em>
@@ -175,7 +269,80 @@
       </div>
       <script>
         const exercise4 = document.querySelector('#exercise_4');
-        // ...решение здесь
+        
+        const menuItemsLinks = exercise4.querySelectorAll('.menu_highlight_item a');
+        menuItemsLinks.forEach(function(item){
+            item.addEventListener('click', function(event){
+              event.preventDefault();
+            });
+        });
+       const yandex = exercise4.querySelector('.menu_highlight_item .right-click');
+        
+        yandex.addEventListener('contextmenu', function(){
+         
+              let target = event.target; 
+              if(target.tagName !== 'A'){
+                target = target.closest('a');
+              } 
+              if(target.tagName === 'A'){ 
+                event.preventDefault(); //чтобы контекстное меню не вылезало
+                const href = target.getAttribute('href');
+                goLink(href);
+              }
+
+        });
+        const google = exercise4.querySelector('.menu_highlight .double-click');
+        
+        google.addEventListener('click', function(event){
+             
+
+              let target = event.target; 
+              if(target.classList.contains('clicked')){ //класс для проверки нажатия
+
+                target.classList.toggle('clicked');
+                if(target.tagName !== 'A'){
+                  target = target.closest('a');
+                } 
+                if(target.tagName === 'A'){ 
+                  const href = target.getAttribute('href');
+                  goLink(href);
+                }
+              } else {
+                target.classList.toggle('clicked');
+                 
+                setTimeout(function(){ //убираем класс - двойной клик только за небольшой промежуток должен работать
+                  target.classList.toggle('clicked');
+                }, 1000);
+              }
+              
+             
+
+        });
+        
+        const mail = exercise4.querySelector('.menu_highlight .shift-click');
+ 
+        mail.addEventListener('click', function(event){
+              
+  
+              let target = event.target; 
+              if(target.tagName !== 'A'){
+                target = target.closest('a');
+              } 
+              if(target.tagName === 'A'){ 
+                if(event.shiftKey){
+                  const href = target.getAttribute('href');
+                  goLink(href);
+                }
+                
+              }
+
+        });
+
+        function goLink(href){
+                  document.location.href = href;
+        }
+        
+
       </script>
     </div>
   </div>
