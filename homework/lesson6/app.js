@@ -81,7 +81,31 @@
 // 4
 // Напишите полифил для метода массива join
 
+Array.prototype.join = undefined;
+let a = [1, 2, 3];
+let b = [];
+let c = ['a', 'b', 'c'];
 
+// (function () {
+//     if (!Array.prototype.join) {
+//         Array.prototype.join = function (separator) {
+//             let result = '';
+//             if (separator) {
+//                 for (let i = 0; i < this.length - 1; i++) {
+//                     result += result ? separator + this[i] : this[i];
+//                 }
+//
+//             } else {
+//                 for (let i = 0; i < this.length - 1; i++) {
+//                     result += result ? ',' + this[i] : this[i];
+//                 }
+//
+//             }
+//             return result;
+//
+//         }
+//     }
+// });
 // 5 (наследование свойст без прототипов)
 // Создайте два конструктора Animal и Dog
 // У всех экземпляров класса Animal есть собственные (не наследуемые) свойства: { movingType, color }
@@ -121,8 +145,9 @@
 function Transport() {
 
 }
-Transport.prototype.status='stopped';
-Transport.prototype.run= function () {
+
+Transport.prototype.status = 'stopped';
+Transport.prototype.run = function () {
     this.status = 'running';
     return this.status;
 
@@ -140,7 +165,7 @@ function Car() {
 }
 
 Car.prototype = Object.create(Transport.prototype);
-Car.prototype.constructor=Car;
+Car.prototype.constructor = Car;
 // // Например:
 const someTransport = new Transport();
 console.log(someTransport.status); // 'stopped'
