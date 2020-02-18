@@ -100,3 +100,33 @@
 }
 
 /* Конец задачи №2 карусель */
+
+.tooltip {
+    position: absolute;    
+    bottom: 25px;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    border-radius: 5px;
+    background: yellowgreen;
+    border: 2px solid green;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    color: green;
+}
+
+.tooltip::after {
+    content:'';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 auto 0 15px;
+    width: 0;
+    height: 0;
+    border-top: solid 8px green;
+    border-left: solid 8px transparent;
+    border-right: solid 8px transparent;
+}
