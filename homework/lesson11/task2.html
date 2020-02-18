@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Task 2</title>
+  <link rel="stylesheet" href="style-task2.css">
 </head>
+
 <body>
+
   <!-- 
     По ссылке пример реализации TODO листа со стилями и прочим.
 
@@ -20,5 +21,137 @@
 
     P. S. Желательно делать и использовать стили css
    -->
+<div class="todo-wrapper">
+  <div class="todo-header">
+      <div class="todo-title">My To Do List</div>
+      <div class="todo-add">
+        <input class="todo-add-input" placeholder='Title...'></input>
+        <div class="todo-add-btn"><p>Add</p></div>
+      </div>
+  </div>
+<div class="todo-body">
+    <ul class='todo-body-list'>
+      <li class='todo-body-list-item'>
+        
+        <p>Lorem, ipsum dolor.</p>
+        <div class="todo-delete-btn">&times;</div>
+      </li>
+      <li class='todo-body-list-item'>
+        <p>Error, obcaecati impedit.</p>
+        <div class="todo-delete-btn">&times;</div>
+      </li>
+      <li class='todo-body-list-item'>
+        <p>Aliquid, impedit eaque!</p>
+        <div class="todo-delete-btn">&times;</div>
+      </li>
+      <li class='todo-body-list-item'>
+        <p>Repellendus, rerum ex?</p>
+        <div class="todo-delete-btn">&times;</div>
+      </li>
+      <li class='todo-body-list-item'>
+        <p>Numquam, quis aperiam.</p>
+        <div class="todo-delete-btn">&times;</div>
+      </li>
+      <li class='todo-body-list-item'>
+        <p>Quae, deleniti perferendis?</p>
+        <div class="todo-delete-btn">&times;</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const todoElement = document.querySelector('.todo-wrapper');
+  const list = todoElement.querySelector('.todo-body-list');
+  
+  //добавление элемента
+
+  const input = todoElement.querySelector('.todo-add-input');
+  const addBtn = todoElement.querySelector('.todo-add-btn');
+
+  
+
+  addBtn.addEventListener('click', addElFromInput);
+  input.addEventListener('keydown', (event)=>{
+    if(event.keyCode === 13){
+      addElFromInput();
+    }
+  });
+  
+
+  function addElFromInput(){
+    let text = input.value;
+    if(text!==''){
+      createNewLi(text);
+      input.value = '';
+    } else{
+      alert('type something');
+    }
+  }
+
+  function createNewLi(text){
+    //клонируем существующий элемент
+    let existingNode = list.querySelectorAll('.todo-body-list-item')[0];
+    if(existingNode){
+      let newNode = existingNode.cloneNode(true);
+      newNode.querySelector('p').textContent = text;
+      if(newNode.classList.contains('todo-checked')){
+        newNode.classList.remove('todo-checked'); //чтобы не скопировался зачеркнутый
+      }
+
+      list.appendChild(newNode);
+
+    }
+    else{ //либо создаем новый
+      
+      //элемент списка
+      let newLi = document.createElement('li');
+      newLi.classList.add('todo-body-list-item');
+
+      //текст внутри
+      let newLiP =  document.createElement('p');
+      newLiP.textContent = text;
+      
+      //кнопка удалить
+      let newDel = document.createElement('div');
+      newDel.classList.add('todo-delete-btn');
+      newDel.textContent = 'x';
+      //вставка
+      list.appendChild(newLi);
+      newLi.appendChild(newLiP);
+      newLi.appendChild(newDel);
+    }
+
+
+    
+  };
+  //удаление элемента
+  
+  function deleteElement(target){
+    let item = target.closest('.todo-body-list-item');
+    list.removeChild(item);
+  }
+
+  //элемент выполнен
+  function checkElement(target){
+    if(target.tagName === 'P'){
+      let newTarget = target.closest('.todo-body-list-item');
+      target = newTarget;
+    }
+    target.classList.toggle('todo-checked');
+  }
+ //обработчик на клик по элементу
+  list.addEventListener('click', ()=>{
+    if(event.target.classList.contains('todo-delete-btn')){
+      deleteElement(event.target);
+    }else{
+      checkElement(event.target);
+    }
+    
+  });
+  
+  
+  
+</script>
 </body>
 </html>
