@@ -41,8 +41,8 @@
 
     let field = document.getElementById('field');
     field.addEventListener('keydown', (event)=>{
-      if(event.which === 13){ 
-        console.log(13);
+      if(event.which === 13 && field.value!==''){ 
+        
         let newLi  = document.createElement('li');
         newLi.textContent = field.value;
         field.value = '';
