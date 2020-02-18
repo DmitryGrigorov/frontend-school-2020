@@ -18,11 +18,42 @@
 
   <!-- 
     Задания для списка:
-    1. По клику по элементу списка (li) делать background:red
-    2. При зажатой кнопке Alt и клику делать background:blue;
-    3. При нажатой кнопке Alt+Shift удалять элемента независимо от того, есть ли у него background
-    4. Если у item-a уже есть "background: red;", удалять его из списка;
+    1. По клику по элементу списка (li) делать background:red +
+    2. При зажатой кнопке Alt и клику делать background:blue; +
+    3. При нажатой кнопке Alt+Shift удалять элемента независимо от того, есть ли у него background +
+    4. Если у item-a уже есть "background: red;", удалять его из списка; +
     5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
    -->
+
+   <script>
+    
+    let list = document.getElementById('list');
+    list.addEventListener('click', (event)=>{
+      if(event.target.tagName === 'LI'){
+
+        if(event.target.style.background === 'red'&& !event.altKey || event.altKey&&event.shiftKey){
+            list.removeChild(event.target);
+        }else{
+          event.target.style.background = event.altKey? 'blue' : 'red';
+        }
+      }
+    });
+
+    let field = document.getElementById('field');
+    field.addEventListener('keydown', (event)=>{
+      if(event.which === 13){ 
+        console.log(13);
+        let newLi  = document.createElement('li');
+        newLi.textContent = field.value;
+        field.value = '';
+        list.append(newLi);
+
+      }
+    });
+
+    
+
+
+   </script>
 </body>
 </html>
