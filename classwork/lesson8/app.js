@@ -109,7 +109,7 @@ function getRequestPromise(url) {
 // const app = new Application();
 
 
-// get USER
+//get USER
 // getRequestPromise(urlUser)
 //     .then(function(userResponse) {
 //         // get SETTINGS
@@ -187,3 +187,26 @@ function getRequestPromise(url) {
 // } catch (error) {
 
 // }
+
+
+//new
+//  let a = 7;
+
+//  setTimeout(()=>{
+//      a=99; //операция присвоения через 2с
+//  },2000)
+//  //как сделать чтобы выводилось новое значение?
+//  console.log(a); //7
+
+ let a = 7;
+
+
+
+ let promise = new Promise(function(resolve, reject){
+    setTimeout(()=>{
+        resolve(a=99); 
+    },2000);
+ });
+
+ promise.then(function(){console.log(a)});
+
