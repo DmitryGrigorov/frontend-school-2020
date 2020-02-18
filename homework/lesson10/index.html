@@ -215,6 +215,77 @@
       <script>
         const exercise3 = document.querySelector('#exercise_3');
         // ...решение здесь
+        
+        // если вся страница, то ищем по документу, если только задание №3, то внутри #exercize_3
+
+        let tippedItems = exercise3.querySelectorAll('[data-tooltip]');
+
+        // есть несколько вариантв решения: 
+        // 1. всем элементам создать сразу элементы с подсказками
+        // 2. создать отдельный справочник с подсказками 
+        // 3. создавать подсказку динамически при наведении
+        // я выбираю вариант 3 - создавать/удалять подсказку динамически при наведении
+
+
+        tippedItems.forEach(function(el) {
+            el.addEventListener('mouseover', addTip);
+            el.addEventListener('mouseout', removeTip);
+
+        });
+
+        // функция отображения подсказки
+        function addTip(event) {
+          let el  = event.target;
+
+          //для связи элемента и его подсказки используем id элемента, если его нет, то задаем сами
+          if(!el.hasAttribute('id')){  
+            el.setAttribute('id', 'tipped-' + Math.random());
+          }
+
+          elId = el.getAttribute('id');
+
+          // если у нас уже есть подсказка, не пытаемся создать ее заново
+          if(document.getElementById('tip-'+elId))
+            return false;
+
+          // иначе создаем элемент с подсказкой
+          let tip = document.createElement('div');
+
+          tip.setAttribute('id', 'tip-' + elId);
+
+          // в классе tooltip-active задан position:absolute
+          tip.classList.add('tooltip-active');
+          tip.innerHTML = el.getAttribute('data-tooltip');
+
+          // добавляем его в body, что бы позиционировать его независимо от родителя элемента с подсказкой
+          document.body.append(tip);
+          
+          // позиуионируем подсказку сверху элемента, имеющего её 
+          tip.style.top = (el.getBoundingClientRect().top - tip.getBoundingClientRect().height + window.scrollY) + 'px';
+          tip.style.left = (el.getBoundingClientRect().left + window.scrollX) + 'px';
+
+          // добавляем событие на удаление подсказки с самой подсказки (см removeTip)
+          tip.addEventListener('mouseout', removeTip);
+          
+        }
+
+        // функция скрытия/удаления подсказки
+        function removeTip(event) {
+          let el  = event.target;
+          
+          // определяем id элемента подсказки 
+          let tipId = (el.classList.contains('tooltip-active')) ? el.getAttribute('id') 
+                                                                : 'tip-'+el.getAttribute('id');
+
+          let tip = document.getElementById(tipId);
+
+          if(tip){
+            // если мы переходим с элемента на подсказку то ее не удаляем, удаляем в случае ухода с подсказки или с элемента не на подсказку
+            if(event.relatedTarget !== tip){
+              tip.remove();
+            }
+          }
+        }
       </script>
     </div>
 </div>
