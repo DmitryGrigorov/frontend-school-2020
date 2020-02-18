@@ -214,15 +214,15 @@
               let rect = btn.getBoundingClientRect();
               tooltip.style.position ='absolute';
               
-             // tooltip.style.top = String(rect.top+window.pageYOffset)+'px';
-              tooltip.style.left = String(rect.left+window.pageXOffset)+'px';
+         
+              tooltip.style.left = rect.left + window.pageXOffset +'px';
               
               tooltip.style.background = 'lightblue';
               tooltip.style.border='1px solid gray';
 
               document.body.appendChild(tooltip);
               
-              tooltip.style.top = String(rect.top+window.pageYOffset-tooltip.clientHeight - 3)+'px';
+              tooltip.style.top = rect.top+window.pageYOffset-tooltip.clientHeight - 3 +'px';
               
             }
           });
