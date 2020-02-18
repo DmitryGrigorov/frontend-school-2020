@@ -30,7 +30,12 @@
   </div>
 
   <script>
-    
+    const block = document.querySelector('.block');
+
+    block.addEventListener('dblclick', function() {
+      block.classList.toggle('active');
+    });
+
   </script>
 </body>
 </html>
