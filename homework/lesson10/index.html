@@ -55,8 +55,20 @@
         </ul>
       </div>
       <script>
-        const exercise1 = document.querySelector('#exercise_1');
+        const toggle_list = document.querySelectorAll('#exercise_1 .toggle-list_list');
+        for(let elem of toggle_list)
+        {
+          elem.addEventListener('click',function(){
+          const list = elem.children;
+          console.log(elem);
+          list.forEach(e => {e.hidden = true;}) // переключаем класс .hidden. Заметим, что изначально у одной из стрелок класс уже существует
+          //ul.classList.toggle('hidden')
+          });
+        }
         // ...решение здесь
+       
+        
+
       </script>
     </div>
   </div>
