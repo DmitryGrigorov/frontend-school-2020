@@ -55,8 +55,20 @@
         </ul>
       </div>
       <script>
-        const exercise1 = document.querySelector('#exercise_1');
-        // ...решение здесь
+const exercise1 = document.querySelector('#exercise_1');
+exercise1.querySelectorAll('Div.toggle-list_toggler').forEach((v) => {
+ v.addEventListener('click', (e) => {
+  let aNeighbors = e.target.closest('Ul.toggle-list_list').children
+  Array.from(aNeighbors).forEach((v) => {
+   if(v.tagName === 'DIV'){
+     let A = v.querySelector('.toggle-list_toggler_icon')
+     A.textContent = (A.textContent === '+') ? '-' : '+'
+   } else if(v.tagName === 'LI'){
+     v.hidden = !v.hidden
+   }
+  })
+ })
+})
       </script>
     </div>
   </div>
@@ -116,8 +128,43 @@
           </div>
         </div>
         <script>
-          const exercise2 = document.querySelector('#exercise_2');
-          // ...решение здесь
+const exercise2 = document.querySelector('#exercise_2')
+
+let idOfFirstVisible = 0
+const countOfVisibleSlides = 3
+const countOfSlides = exercise2.querySelector('.carousel_list').children.length
+const slides = exercise2.querySelector('.carousel_list').children
+
+function toNext(){
+ if(idOfFirstVisible < countOfSlides - countOfVisibleSlides){
+  idOfFirstVisible++
+  move(idOfFirstVisible)
+ }
+}
+
+function toPrev(){
+ if(idOfFirstVisible > 0){
+   idOfFirstVisible--
+   move(idOfFirstVisible)
+  }
+ }
+
+function move(id){ //console.log(id)
+ let j = 0
+ Array.from(slides).forEach((v, k) => {
+  if(k === id){ j = countOfVisibleSlides }
+  if(j > 0){
+   j--
+   v.hidden = false
+  } else{
+   v.hidden = true
+  }
+ })
+}
+move(idOfFirstVisible)
+
+exercise2.querySelector('.carousel_button_next').addEventListener('click', toNext)
+exercise2.querySelector('.carousel_button_prev').addEventListener('click', toPrev)
         </script>
       </div>
     </div>
@@ -137,8 +184,25 @@
         <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
       </div>
       <script>
-        const exercise3 = document.querySelector('#exercise_3');
-        // ...решение здесь
+const exercise3 = document.querySelector('#exercise_3')
+let tooltip = document.createElement('div')
+tooltip.style.position = 'absolute'
+tooltip.style.zIndex = 1
+tooltip.style.backgroundColor = 'yellow'
+tooltip.style.padding = '20px'
+exercise3.querySelectorAll('*[data-tooltip]').forEach((v) => {
+ v.addEventListener('mouseenter', (e) => {
+  tooltip.innerHTML = e.target.dataset.tooltip
+  e.target.before(tooltip)
+  let parent = e.target.parentElement
+  parent.style.position = 'relative'
+  tooltip.style.top = 0 - tooltip.offsetHeight + parent.querySelector('P').offsetHeight + 'px'
+
+  let coordinates = e.target.getBoundingClientRect() 
+  tooltip.style.left = coordinates.left + 'px'
+ })
+ v.addEventListener('mouseout', (e) => { tooltip.remove() })
+})
       </script>
     </div>
 </div>
@@ -174,8 +238,25 @@
         </ul>
       </div>
       <script>
-        const exercise4 = document.querySelector('#exercise_4');
-        // ...решение здесь
+const exercise4 = document.querySelector('#exercise_4');
+
+Array.from(exercise4.querySelectorAll('A')).forEach((v) => {
+ v.addEventListener('click', (e) => {
+  e.preventDefault()
+ })
+})
+
+exercise4.querySelector('.menu_highlight_list Li:nth-of-type(1) > A').addEventListener('contextmenu', function(e){
+ document.location.href = e.target.href
+})
+
+exercise4.querySelector('.menu_highlight_list Li:nth-of-type(2) > A').addEventListener('dblclick', function(e){
+ document.location.href = e.target.parentElement.href
+})
+
+exercise4.querySelector('.menu_highlight_list Li:nth-of-type(3) > A').addEventListener('click', function(e){
+ if(e.shiftKey){ document.location.href = e.target.parentElement.href }
+})
       </script>
     </div>
   </div>
