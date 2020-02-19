@@ -13,6 +13,10 @@
 
     button.onclick = function(event) {
       // попробуем проверить нажаты ли event.altKey && event.shiftKey
+
+      if(event.altKey && event.shiftKey) {
+        alert('Alt & shift pressed succesfully')
+      }
     };
   </script>
 </body>
