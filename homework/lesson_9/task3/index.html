@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Task 3</title>
+</head>
+<body>
+  <ul id="list">
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+    <li>item 4</li>
+    <li>item 5</li>
+    <li>item 6</li>
+    <li>item 7</li>
+  </ul>
+
+  <button id="add-first-item">Add first item</button>
+  <button id="remove-first-item">Remove first item</button>
+  <button id="add-last-item">Add last item</button>
+  <button id="remove-last-item">Remove last item</button>
+
+  <!-- 
+    Реализовать функционал для кнопок:
+    1. Кнопка "Add first item" должна добавлять новый item в начало списка (текст по желанию) 
+    2. Кнопка "Remove first item" должна удалять элемент в начале списка
+    3. Кнопка "Add last item" должна добавлять новый item в конец списка (текст по желанию) 
+    4. Кнопка "Remove last item" должна удалять элемент в конце списка
+  -->
+  <script>
+
+  let list  = document.getElementById('list');
+
+  let addFirstItem = document.getElementById('add-first-item');
+  let removeFirstItem = document.getElementById('remove-first-item');
+  let addLastItem = document.getElementById('add-last-item');
+  let removeLastItem = document.getElementById('remove-last-item');
+
+  addFirstItem.addEventListener('click', function() {
+    let newEl = document.createElement('li');
+    newEl.textContent = 'item NEW';
+    list.prepend(newEl);
+  });
+
+  removeFirstItem.addEventListener('click', function() {
+    list.firstElementChild.remove()
+  });
+
+  addLastItem.addEventListener('click', function() {
+    let newEl = document.createElement('li');
+    newEl.textContent = 'item NEW';
+    list.append(newEl);
+  });
+
+  removeLastItem.addEventListener('click', function() {
+    list.lastElementChild.remove()
+  });
+  </script>
+
+</body>
+</html>

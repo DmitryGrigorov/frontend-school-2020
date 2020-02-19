@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 2: Centered block</title>
+  <style>
+    .container {
+      width: 300px;
+      height: 300px;
+      border: 10px solid black;
+      background-color: #efd5ff;
+    }
+
+    .element {
+      width: 50px;
+      height: 50px;
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="element"></div>
+  </div>
+
+<!-- 
+  1. Склонировать элемент (ноду) и расположить его по центру контейнера
+  2. Склонировать элемент (ноду) и расположить его в правый верхний угол контейнера
+  3. Склонировать элемент (ноду) и расположить его в правый нижний угол контейнера
+  4. Склонировать элемент (ноду) и расположить его в левый нижний угол контейнера
+-->
+
+  <script>
+  
+  let elem = document.querySelector('.element');
+    let cloneElement1 = elem.cloneNode(true);
+    let parentElem = document.querySelector('.container');
+    //let square = elem.getBoundingClientRect();
+    parentElem.style.position = "relative";
+    cloneElement1.style.position = "absolute";
+    cloneElement1.style.left = (parentElem.clientWidth/2 - elem.offsetWidth/2) + "px";
+    cloneElement1.style.top = (parentElem.clientHeight/2 - elem.offsetHeight/2) + "px";
+    //console.log(parentElem.clientHeight/2);
+    //console.log(parentElem.offsetWidth/2);
+    //console.log(cloneElement);
+    parentElem.append(cloneElement1);
+
+    let cloneElement2 = cloneElement1.cloneNode(true);
+    cloneElement2.style.left = (parentElem.clientWidth - elem.offsetWidth) + "px";
+    cloneElement2.style.top = "0px";
+    parentElem.append(cloneElement2);
+
+    let cloneElement3 = cloneElement2.cloneNode(true);
+    cloneElement3.style.left = (parentElem.clientWidth - elem.offsetWidth) + "px";
+    cloneElement3.style.top = (parentElem.clientWidth - elem.offsetWidth) + "px";
+    parentElem.append(cloneElement3);
+
+    let cloneElement4 = cloneElement3.cloneNode(true);
+    cloneElement4.style.left = "0px";
+    cloneElement4.style.top = (parentElem.clientWidth - elem.offsetWidth) + "px";
+    parentElem.append(cloneElement4);
+
+  </script>
+</body>
+</html>
