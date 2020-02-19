@@ -2,97 +2,126 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <title>Lesson 12 homework</title>
-  <style>
-    td select,
-    td input {
-      width: 150px;
-    }
+    <meta charset="utf-8">
+    <title>Lesson 12 homework</title>
+    <style>
+        td select,
+        td input {
+            width: 150px;
+        }
 
-    #diagram td {
-      vertical-align: bottom;
-      text-align: center;
-      padding: 10px;
-    }
+        #diagram td {
+            vertical-align: bottom;
+            text-align: center;
+            padding: 10px;
+        }
 
-    #diagram div {
-      margin: auto;
-    }
-  </style>
+        #diagram div {
+            margin: auto;
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- Создайте интерфейс, позволяющий ввести сумму банковского вклада и процент,
-  а затем рассчитать, какая это будет сумма через заданный промежуток времени. -->
+<!-- Создайте интерфейс, позволяющий ввести сумму банковского вклада и процент,
+а затем рассчитать, какая это будет сумма через заданный промежуток времени. -->
 
-  Депозитный калькулятор.
+Депозитный калькулятор.
 
-  <form name="calculator">
+<form name="calculator">
     <table>
-      <tr>
-        <td>Первоначальный депозит</td>
-        <td>
-          <input name="money" type="number" value="10000" required>
-        </td>
-      </tr>
-      <tr>
-        <td>Срок вклада?</td>
-        <td>
-          <select name="months">
-            <option value="3">3 (минимум)</option>
-            <option value="6">6 (полгода)</option>
-            <option value="12" selected>12 (год)</option>
-            <option value="18">18 (1.5 года)</option>
-            <option value="24">24 (2 года)</option>
-            <option value="30">30 (2.5 года)</option>
-            <option value="36">36 (3 года)</option>
-            <option value="60">60 (5 лет)</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td>Годовая процентная ставка?</td>
-        <td>
-          <input name="interest" type="number" value="5" required>
-        </td>
-      </tr>
+        <tr>
+            <td>Первоначальный депозит</td>
+            <td>
+                <input name="money" type="number" value="10000" required>
+            </td>
+        </tr>
+        <tr>
+            <td>Срок вклада?</td>
+            <td>
+                <select name="months">
+                    <option value="3">3 (минимум)</option>
+                    <option value="6">6 (полгода)</option>
+                    <option value="12" selected>12 (год)</option>
+                    <option value="18">18 (1.5 года)</option>
+                    <option value="24">24 (2 года)</option>
+                    <option value="30">30 (2.5 года)</option>
+                    <option value="36">36 (3 года)</option>
+                    <option value="60">60 (5 лет)</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Годовая процентная ставка?</td>
+            <td>
+                <input name="interest" type="number" value="5" required>
+            </td>
+        </tr>
     </table>
 
 
-  </form>
+</form>
 
 
-  <table id="diagram">
+<table id="diagram">
     <tr>
-      <th>Было:</th>
-      <th>Станет:</th>
+        <th>Было:</th>
+        <th>Станет:</th>
     </tr>
     <tr>
-      <th id="money-before"></th>
-      <th id="money-after"></th>
+        <th id="money-before"></th>
+        <th id="money-after"></th>
     </tr>
     <td>
-      <div style="background: red;width:40px;height:100px"></div>
+        <div style="background: red;width:40px;height:100px" id="height-before"></div>
     </td>
     <td>
-      <div style="background: green;width:40px;height:0" id="height-after"></div>
+        <div style="background: green;width:40px;height:0" id="height-after"></div>
     </td>
-  </table>
+</table>
 
-  <script>
-
+<script>
     let form = document.forms.calculator;
+    let money = form.querySelector('[name="money"');
+    let interestField = form.querySelector('[name="interest"');
+    let months = form.querySelector('[name="months"');
+    let beforeTextField = document.querySelector('#money-before');
+    let afterTextField = document.querySelector('#money-after');
+    let beforeDiv = document.querySelector('#height-before');
+    let afterDiv = document.querySelector('#height-after');
 
-    // ваш код
-
-    // Формула
-    // initial: начальная сумма денег
-    // interest: проценты, например, 0.05 означает 5% в год
-    // years: сколько лет ждать
-    // let result = Math.round(initial * (1 + interest * years));
-  </script>
+    function findResult() {
+        let initial = money.value;
+        let years = months.options[months.selectedIndex].value / 12.0;
+        let interest = interestField.value / 100;
+        // Формула
+        // initial: начальная сумма денег
+        // interest: проценты, например, 0.05 означает 5% в год
+        // years: сколько лет ждать
+        let result = Math.round(initial * (1 + interest * years));
+        beforeTextField.textContent = initial;
+        afterTextField.textContent = result;
+        if (initial > result) {         // Обработка отрицательных процентов
+            let percent = result / initial * 100;
+            afterDiv.style.height = percent + 'px';
+            afterDiv.style.backgroundColor = 'red';
+            beforeDiv.style.backgroundColor = 'green';
+        } else {                           // Обработка положительных процентов
+            let percent = initial / result * 100;
+            beforeDiv.style.height = percent + 'px';
+            beforeDiv.style.backgroundColor = 'red';
+            afterDiv.style.backgroundColor = 'green';
+            afterDiv.style.height = '100px';
+        }
+    };
+    money.addEventListener('input', findResult);
+    interestField.addEventListener('input', findResult);
+    months.addEventListener('input', findResult);
+    interestField.addEventListener('wheel', (event) => {
+        interestField.value = +interestField.value - (event.deltaY > 0 ? 1 : 0);
+    });
+</script>
 
 
 </body>
