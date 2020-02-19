@@ -1,78 +1,106 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Lesson 10 homework</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  <!--Задача №1 "Создать скрывающееся/рвскрывающееся меню"-->
-  <div id="exercise_1" class="exercise">
-    <div class="conditions">
-      При помощи 1 обработчика сделайте (скрытие/раскрытие) пунктов списка
-      при сворачивании списка, знак "плюс" должен меняться на "минус"
-    </div>
-    <div class="solution">
-      <div id="toggle-list" class="toggle-list">
-        <ul class="toggle-list_list">
-          <div class="toggle-list_toggler">
-            <div class="toggle-list_toggler_icon">+</div>
-            <div class="toggle-list_toggler_label">Страны</div>
-          </div>
-          <li class="toggle-list_item">
-            <ul class="toggle-list_list">
-              <div class="toggle-list_toggler">
-                <div class="toggle-list_toggler_icon">+</div>
-                <div class="toggle-list_toggler_label">Россия</div>
-              </div>
-              <li class="toggle-list_item">Москва</li>
-              <li class="toggle-list_item">Питер</li>
-              <li class="toggle-list_item">Омск</li>
-            </ul>
-          </li>
-          <li class="toggle-list_item">
-            <ul class="toggle-list_list">
-              <div class="toggle-list_toggler">
-                <div class="toggle-list_toggler_icon">+</div>
-                <div class="toggle-list_toggler_label">Америка</div>
-              </div>
-              <li class="toggle-list_item">Нью-Йорк</li>
-              <li class="toggle-list_item">Лос-Анджелес</li>
-              <li class="toggle-list_item">Чикаго</li>
-            </ul>
-          </li>
-          <li class="toggle-list_item">
-            <ul class="toggle-list_list">
-              <div class="toggle-list_toggler">
-                <div class="toggle-list_toggler_icon">+</div>
-                <div class="toggle-list_toggler_label">Китай</div>
-              </div>
-              <li class="toggle-list_item">Шанхай</li>
-              <li class="toggle-list_item">Пекин</li>
-              <li class="toggle-list_item">Тяньцзинь</li>
-            </ul>
-          </li>
-        </ul>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!--Задача №1 "Создать скрывающееся/рвскрывающееся меню"-->
+    <div id="exercise_1" class="exercise">
+      <div class="conditions">
+        При помощи 1 обработчика сделайте (скрытие/раскрытие) пунктов списка при
+        сворачивании списка, знак "плюс" должен меняться на "минус"
       </div>
-      <script>
-        const exercise1 = document.querySelector('#exercise_1');
-        // ...решение здесь
-      </script>
+      <div class="solution">
+        <div id="toggle-list" class="toggle-list">
+          <ul class="toggle-list_list">
+            <div class="toggle-list_toggler">
+              <div class="toggle-list_toggler_icon">+</div>
+              <div class="toggle-list_toggler_label">Страны</div>
+            </div>
+            <li class="toggle-list_item">
+              <ul class="toggle-list_list">
+                <div class="toggle-list_toggler">
+                  <div class="toggle-list_toggler_icon">+</div>
+                  <div class="toggle-list_toggler_label">Россия</div>
+                </div>
+                <li class="toggle-list_item">Москва</li>
+                <li class="toggle-list_item">Питер</li>
+                <li class="toggle-list_item">Омск</li>
+              </ul>
+            </li>
+            <li class="toggle-list_item">
+              <ul class="toggle-list_list">
+                <div class="toggle-list_toggler">
+                  <div class="toggle-list_toggler_icon">+</div>
+                  <div class="toggle-list_toggler_label">Америка</div>
+                </div>
+                <li class="toggle-list_item">Нью-Йорк</li>
+                <li class="toggle-list_item">Лос-Анджелес</li>
+                <li class="toggle-list_item">Чикаго</li>
+              </ul>
+            </li>
+            <li class="toggle-list_item">
+              <ul class="toggle-list_list">
+                <div class="toggle-list_toggler">
+                  <div class="toggle-list_toggler_icon">+</div>
+                  <div class="toggle-list_toggler_label">Китай</div>
+                </div>
+                <li class="toggle-list_item">Шанхай</li>
+                <li class="toggle-list_item">Пекин</li>
+                <li class="toggle-list_item">Тяньцзинь</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <script>
+          // 1)Ответ:
+
+          const exercise1 = document.querySelector("#exercise_1 .toggle-list_list");
+
+          exercise1.addEventListener("click", clickMenu);
+
+          function clickMenu(event) {
+            let target = event.target;
+            if (target.className !== "DIV") {
+              target = target.closest(".toggle-list_toggler");
+            }
+            if (target == null) return;
+
+            const parent = target.parentNode.querySelectorAll(".toggle-list_item");
+            const icon = target.parentNode.querySelector(".toggle-list_toggler_icon");
+            const item = target.parentNode.querySelector("li");
+
+            if (icon.innerHTML == "+") {
+              icon.innerHTML = "-";
+            } else icon.innerHTML = "+";
+
+            parent.forEach(li => {
+              if (li.className == "toggle-list_item") {
+                li.hidden = !li.hidden;
+              }
+            });
+          }
+        </script>
+      </div>
     </div>
-  </div>
 
     <!--Задача №2 "Оживить карусель"-->
     <div id="exercise_2" class="exercise">
       <div class="conditions">
         <p>
-          При клике на синюю кнопку, карусель должна прокрутиться на 1 элемент вправо (если мы не достигли конца)
+          При клике на синюю кнопку, карусель должна прокрутиться на 1 элемент
+          вправо (если мы не достигли конца)
         </p>
         <p>
-          При клике на красную кнопку карусель должна прокрутиться на 1 элемент влево (если мы не достигли начала)
+          При клике на красную кнопку карусель должна прокрутиться на 1 элемент
+          влево (если мы не достигли начала)
         </p>
         <p>
           <em>
-            Постарайтесь написать свою разметку html, чтобы понять принцип работы карусели
+            Постарайтесь написать свою разметку html, чтобы понять принцип
+            работы карусели
           </em>
         </p>
       </div>
@@ -83,78 +111,117 @@
           <div class="carousel_list_wrapper">
             <ul class="carousel_list">
               <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/1.png" alt="smile-1">
+                <img src="https://ru.js.cx/carousel/1.png" alt="smile-1" />
               </li>
               <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/2.png" alt="smile-2">
+                <img src="https://ru.js.cx/carousel/2.png" alt="smile-2" />
               </li>
               <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/3.png" alt="smile-3">
+                <img src="https://ru.js.cx/carousel/3.png" alt="smile-3" />
               </li>
               <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/4.png" alt="smile-4">
+                <img src="https://ru.js.cx/carousel/4.png" alt="smile-4" />
               </li>
               <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/5.png" alt="">
+                <img src="https://ru.js.cx/carousel/5.png" alt="" />
               </li>
               <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/6.png" alt="">
+                <img src="https://ru.js.cx/carousel/6.png" alt="" />
               </li>
               <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/7.png" alt="">
+                <img src="https://ru.js.cx/carousel/7.png" alt="" />
               </li>
               <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/8.png" alt="">
+                <img src="https://ru.js.cx/carousel/8.png" alt="" />
               </li>
               <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/9.png" alt="">
+                <img src="https://ru.js.cx/carousel/9.png" alt="" />
               </li>
               <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/10.png" alt="">
+                <img src="https://ru.js.cx/carousel/10.png" alt="" />
               </li>
             </ul>
           </div>
         </div>
         <script>
-          const exercise2 = document.querySelector('#exercise_2');
-          // ...решение здесь
+          // 2)Ответ:
+
+          const list = document.querySelector("#exercise_2 .carousel_list");
+          const prev = document.querySelector("#exercise_2 .carousel_button_prev");
+          const next = document.querySelector("#exercise_2 .carousel_button_next");
+          let i = 0;
+          next.addEventListener("click", function() {
+            if (i !== list.children.length - 3)
+              list.children[i++].hidden = true;
+          });
+          prev.addEventListener("click", function() {
+            if (i !== 0) list.children[--i].hidden = false;
+          });
         </script>
       </div>
     </div>
 
-  <!--Задача №3 "Поведение подсказка"-->
-  <div id="exercise_3" class="exercise">
-    <div class="conditions">
-        При наведении мыши на элемент <em>(количество таких элементов на странице может быть любым)</em> с атрибутом data-tooltip,
-        над ним должна показываться подсказка и скрываться при переходе на другой элемент.
-    </div>
-    <div class="solution">
-      <div class="article">
-        <p>
-            Товарищи! сложившаяся структура организации представляет собой интересный эксперимент проверки направлений прогрессивного развития. С другой стороны рамки и место обучения кадров способствует подготовки и реализации модели развития.
-        </p>
-        <button data-tooltip="эта подсказка длиннее, чем элемент">Короткая кнопка</button>
-        <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
+    <!--Задача №3 "Поведение подсказка"-->
+    <div id="exercise_3" class="exercise">
+      <div class="conditions">
+        При наведении мыши на элемент
+        <em>(количество таких элементов на странице может быть любым)</em> с
+        атрибутом data-tooltip, над ним должна показываться подсказка и
+        скрываться при переходе на другой элемент.
       </div>
-      <script>
-        const exercise3 = document.querySelector('#exercise_3');
-        // ...решение здесь
-      </script>
-    </div>
-</div>
+      <div class="solution">
+        <div class="article">
+          <p>
+            Товарищи! сложившаяся структура организации представляет собой
+            интересный эксперимент проверки направлений прогрессивного развития.
+            С другой стороны рамки и место обучения кадров способствует
+            подготовки и реализации модели развития.
+          </p>
+          <button data-tooltip="эта подсказка длиннее, чем элемент">
+            Короткая кнопка
+          </button>
+          <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
+        </div>
+        <script>
 
-<!--Задача №4 Самостоятельно: "Отмена действия по умолчанию"-->
-  <div id="exercise_4" class="exercise">
-    <div class="conditions">
-      Решить при помощи делегирования
-      Можно добавить в html любые атрибуты
+          // 3)Ответ:
+
+          const exercise3 = document.querySelector("#exercise_3");
+
+          exercise3.onmouseover = overMause;
+          exercise3.onmouseout = outMause;
+          function overMause(event) {
+            let target = event.target;
+            let span = document.createElement("span");
+            span.style.position = "absolute";
+            span.style.background = "tomato";
+            span.style.padding = "5px";
+            if (target.dataset.tooltip) {
+              span.innerHTML = target.dataset.tooltip;
+              target.prepend(span);
+              span.style.marginTop =-span.getBoundingClientRect().height - 5 + "px";
+            }
+          }
+          function outMause(event) {
+            let target = event.target;
+            let span = target.parentNode.querySelector("span");
+            span && span.remove();
+          }
+        </script>
+      </div>
     </div>
-    <div class="solution">
-      <div class="menu_highlight">
-        <ul class="menu_highlight_list">
+
+    <!--Задача №4 Самостоятельно: "Отмена действия по умолчанию"-->
+    <div id="exercise_4" class="exercise">
+      <div class="conditions">
+        Решить при помощи делегирования Можно добавить в html любые атрибуты
+      </div>
+      <div class="solution">
+        <div class="menu_highlight">
+          <ul class="menu_highlight_list">
             <li class="menu_highlight_item">
               <a href="https://yandex.ru">
-                  Переход на yandex только при клике правой кнопкой мыши
+                Переход на yandex только при клике правой кнопкой мыши
               </a>
             </li>
             <li class="menu_highlight_item">
@@ -171,13 +238,45 @@
                 </em>
               </a>
             </li>
-        </ul>
+          </ul>
+        </div>
+        <script>
+
+          // 4)Ответ:
+          const exercise4 = document.querySelector("#exercise_4 .menu_highlight_list");
+          //отмена обычного клика и клик с зажатой клавишей shift
+          exercise4.addEventListener("click", event => {
+            let target = event.target;
+            if (target.className !== "A") {
+              target = target.closest("a");
+              event.preventDefault();
+            }
+            if (event.shiftKey) {
+              document.location.href = target.href;
+            }
+          });
+          exercise4.addEventListener("contextmenu", contextmenuFun);
+          exercise4.addEventListener("dblclick", dblclickFun);
+          // переход по правой кнопке мыши
+          function contextmenuFun(event) {
+            let target = event.target;
+            if (target.tagName === "A") {
+              if (target.childNodes.length) {
+                document.location.href = target.href;
+                event.preventDefault();
+              }
+            }
+          }
+          //переход по двойному клику
+          function dblclickFun(event) {
+            let target = event.target;
+            const strong = target.parentNode.querySelector("strong");
+            if (strong) {
+              document.location.href = target.parentNode.href;
+            }
+          }
+        </script>
       </div>
-      <script>
-        const exercise4 = document.querySelector('#exercise_4');
-        // ...решение здесь
-      </script>
     </div>
-  </div>
-</body>
+  </body>
 </html>
