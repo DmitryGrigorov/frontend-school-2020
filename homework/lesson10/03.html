@@ -20,8 +20,35 @@
             <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
         </div>
         <script>
-            const exercise3 = document.querySelector('#exercise_3');
-            // ...решение здесь
+            let tooltipItem;
+            document.onmouseover = function (event) {
+                let target = event.target;
+                let tooltipContent = target.dataset.tooltip;
+                if (!tooltipContent) return;
+
+                tooltipItem = document.createElement('div');
+                tooltipItem.className = 'tooltip';
+                tooltipItem.innerHTML = tooltipContent;
+                document.body.append(tooltipItem);
+                let dimentions = target.getBoundingClientRect();
+                let left = dimentions.left + (target.offsetWidth - tooltipItem.offsetWidth) / 2;
+                if (left < 0) left = 0;
+                let top = dimentions.top - tooltipItem.offsetHeight - 5;
+                if (top < 0) {
+                    top = dimentions.top + target.offsetHeight + 5;
+                }
+                tooltipItem.style.left = left + 'px';
+                tooltipItem.style.top = top + 'px';
+
+            };
+
+            document.onmouseout = function(e) {
+
+                if (tooltipItem) {
+                    tooltipItem.remove();
+                    tooltipItem = null;
+                }
+            };
         </script>
     </div>
 </div>
