@@ -66,6 +66,7 @@
         (e.altKey ? ' altKey' : '') +
         (e.metaKey ? ' metaKey' : '') +
         (e.repeat ? ' (repeat)' : '') +
+        (e.which ? ' which ' + e.which: '') +
         "\n";
 
       if (area.value && Date.now() - lastTime > 250) {

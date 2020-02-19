@@ -6,12 +6,14 @@
   <title>dblclick</title>
   <style>
     .block {
-      width: 200px;
-      height: 200px;
+      width: 100px;
+      height: 100px;
       border: 5px solid black;
       background:yellowgreen;
       transition: all .5s;
       border-radius: 50%;
+      user-select: none;
+      font-size: 8px;
 
       display: flex;
       justify-content: center;
@@ -19,8 +21,8 @@
     }
 
     .active {
-      width: 400px;
-      height: 400px;
+      width: 200px;
+      height: 200px;
     }
   </style>
 </head>
@@ -30,7 +32,11 @@
   </div>
 
   <script>
-    
+    const block = document.querySelector('.block');
+
+    block.addEventListener('dblclick', function(event) {
+      event.target.classList.toggle('active');
+    });
   </script>
 </body>
 </html>
