@@ -16,13 +16,38 @@
     <li class="list-item">item 6</li>
   </ul>
 
-  <!-- 
-    Задания для списка:
-    1. По клику по элементу списка (li) делать background:red
-    2. При зажатой кнопке Alt и клику делать background:blue;
-    3. При нажатой кнопке Alt+Shift удалять элемента независимо от того, есть ли у него background
-    4. Если у item-a уже есть "background: red;", удалять его из списка;
-    5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
-   -->
+  <script>
+    const itemsList = document.getElementById("list");
+    const inputField = document.getElementById("field");
+
+    itemsList.addEventListener("click", changeColor);
+
+    function changeColor(event) {
+      if (event.target.tagName === "LI") {
+        const liElement = event.target;
+        // При нажатой кнопке Alt+Shift удалять элемента независимо от того, есть ли у него background
+        if (event.altKey && event.shiftKey) liElement.remove();
+        // При зажатой кнопке Alt и клику делать background:blue;
+        else if (event.altKey) liElement.style.background = "blue";
+        // Если у item-a уже есть "background: red;", удалять его из списка;
+        else if (liElement.style.background === "red") liElement.remove();
+        // По клику по элементу списка (li) делать background:red
+        else liElement.style.background = "red";
+      }
+    }
+
+    // При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
+
+    inputField.addEventListener("keydown", addItem);
+
+    function addItem(event) {
+      if (event.which === 13) {
+        const li = document.createElement("li");
+        li.innerHTML = event.target.value;
+        itemsList.append(li);
+        event.target.value = '';
+      }
+    }
+  </script>
 </body>
 </html>
