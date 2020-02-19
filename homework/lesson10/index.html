@@ -142,30 +142,36 @@
             const next = exercise2.querySelector('.carousel_button_next');
             prev.addEventListener('click', previous);
             next.addEventListener('click', nextious);
-            let left = document.querySelector('.carousel_list').firstElementChild;
-            alert(left);
-            let center = left.nextElementSibling;
-            let right = center.nextElementSibling;
+            let carousel = document.querySelector('.carousel_list');
+            let images = Array.from(carousel.children);
+            images.forEach(function (item, idx) {
+                if (idx > 2)
+                    item.hidden = true;
+            });
+            let counter = 0;
 
             function previous(event) {
 
-              if (right.nextElementSibling) {
-                left.hidden = true;
-                left = center;
-                center = right;
-                right=right.nextElementSibling;
-                right.hidden=false;
-              }
 
+                if (counter < (images.length - 2) && counter > 0) {
+
+                    images[counter - 1].hidden = false;
+                    images[counter + 2].hidden = true;
+                    counter--;
+
+                }
             }
+
             function nextious(event) {
-              if (left.previousElementSibling){
-                right.hidden=true;
-                right=center;
-                center=left;
-                left=left.previousElementSibling;
-                left.hidden=false;
-              }
+
+                if (counter < images.length - 3) {
+
+                    images[counter].hidden = true;
+                    images[counter + 3].hidden = false;
+                    counter++;
+
+
+                }
 
             }
 
@@ -193,6 +199,31 @@
         </div>
         <script>
             const exercise3 = document.querySelector('#exercise_3');
+            let tools = exercise3.querySelectorAll('[data-tooltip]');
+            tools.forEach(function (item) {
+                item.addEventListener('mouseover', tool);
+                item.addEventListener('mouseout', removeTool)
+            });
+
+            function tool(event) {
+                let tooltip = event.target.dataset.tooltip;
+                let toolBody = document.createElement('div');
+                toolBody.className = 'tooltip';
+                toolBody.innerHTML = tooltip;
+                document.body.append(toolBody);
+
+                let coords = event.target.getBoundingClientRect();
+                toolBody.style = coords.y + 5 + 'px';
+
+
+
+            }
+
+            function removeTool(event) {
+
+            }
+
+
             // ...решение здесь
         </script>
     </div>
