@@ -218,44 +218,34 @@
         
         // если вся страница, то ищем по документу, если только задание №3, то внутри #exercize_3
 
-        let tippedItems = exercise3.querySelectorAll('[data-tooltip]');
-
-        // есть несколько вариантв решения: 
-        // 1. всем элементам создать сразу элементы с подсказками
-        // 2. создать отдельный справочник с подсказками 
-        // 3. создавать подсказку динамически при наведении
-        // я выбираю вариант 3 - создавать/удалять подсказку динамически при наведении
-
-
-        tippedItems.forEach(function(el) {
-            el.addEventListener('mouseover', addTip);
-            el.addEventListener('mouseout', removeTip);
-
-        });
+        document.addEventListener('mouseover', addTip);
+        document.addEventListener('mouseout', removeTip);
 
         // функция отображения подсказки
         function addTip(event) {
           let el  = event.target;
+          
+          // если у элемента нет подсказки, ничего не делаем
+          if(!el.dataset.tooltip)
+            return;
 
           //для связи элемента и его подсказки используем id элемента, если его нет, то задаем сами
+          //можно этого не делать, если мы уверены, что у нас всегда отображется одна подсказка в момент времени
           if(!el.hasAttribute('id')){  
             el.setAttribute('id', 'tipped-' + Math.random());
           }
 
           elId = el.getAttribute('id');
 
-          // если у нас уже есть подсказка, не пытаемся создать ее заново
-          if(document.getElementById('tip-'+elId))
-            return false;
-
-          // иначе создаем элемент с подсказкой
+          // создаем элемент с подсказкой
           let tip = document.createElement('div');
 
           tip.setAttribute('id', 'tip-' + elId);
 
           // в классе tooltip-active задан position:absolute
           tip.classList.add('tooltip-active');
-          tip.innerHTML = el.getAttribute('data-tooltip');
+          tip.innerHTML = el.dataset.tooltip;
+          tip.dataset.istip = true;
 
           // добавляем его в body, что бы позиционировать его независимо от родителя элемента с подсказкой
           document.body.append(tip);
@@ -273,9 +263,12 @@
         function removeTip(event) {
           let el  = event.target;
           
+          //если это не елемент с подсказкой или не сама подсказка, то ничего не делаем
+          if(!el.dataset.tooltip && !el.dataset.istip)
+            return false;
+
           // определяем id элемента подсказки 
-          let tipId = (el.classList.contains('tooltip-active')) ? el.getAttribute('id') 
-                                                                : 'tip-'+el.getAttribute('id');
+          let tipId = (el.dataset.istip) ? el.getAttribute('id') : 'tip-'+el.getAttribute('id');
 
           let tip = document.getElementById(tipId);
 
@@ -323,6 +316,57 @@
       <script>
         const exercise4 = document.querySelector('#exercise_4');
         // ...решение здесь
+
+        let listItems = exercise4.querySelectorAll('li.menu_highlight_item');
+
+        listItems.forEach(function(el){
+
+          el.addEventListener('contextmenu', function(event){
+            let link = getLink(event, el);
+
+            event.preventDefault();
+            if(link && link.indexOf('yandex.ru') != -1){
+              el.fireEvent('click');
+            }
+            
+          });
+
+          el.addEventListener('click', function(event){
+            let link = getLink(event, el);
+            console.log('click');
+            //if(!link || link.indexOf('mail.ru') == -1){
+              event.preventDefault();
+            //}
+            
+          });
+
+          el.addEventListener('dblclick', function(event){
+            let link = getLink(event, el);
+
+            console.log('dblclick');
+            console.log(link);
+            console.log(link.indexOf('google.ru'));
+            if(!link || link.indexOf('google.ru') == -1){
+              event.preventDefault();
+            }
+            
+          });
+
+        });
+
+        function getLink(event, el){
+          let target = event.target.closest('a');
+
+          if(target && el.contains(target))
+            return target.getAttribute('href');
+
+          return;
+        }
+
+        function preventDefault(event){
+          event.preventDefault();
+        }
+        // console.log(listItems);
       </script>
     </div>
   </div>
