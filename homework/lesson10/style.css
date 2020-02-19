@@ -82,12 +82,14 @@
 .carousel_list_wrapper {
     width: 390px;
     overflow: hidden;
+    position: relative;
 }
 
 .carousel_list {
     display: flex;
     flex-direction: row;
     margin-left: 0px;
+    
 }
 
 .carousel_list_item {
@@ -100,3 +102,9 @@
 }
 
 /* Конец задачи №2 карусель */
+
+.hint {
+    position: absolute;
+    border: 1px solid black;
+    background-color: silver;
+}

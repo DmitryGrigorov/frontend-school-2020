@@ -55,8 +55,49 @@
         </ul>
       </div>
       <script>
-        const exercise1 = document.querySelector('#exercise_1');
-        // ...решение здесь
+
+        //Решение задачи № 1============================================
+
+        const exercise1 = document.querySelector('#exercise_1 .toggle-list_list');
+        
+        exercise1.addEventListener('click', closeBlock);
+          
+          function closeBlock(event) {
+            
+            let target = event.target;
+
+            if (target.parentElement.parentElement.children[1].hidden == true) {
+              
+              target.parentElement.firstElementChild.textContent = "+";
+              Array.from(target.parentElement.parentElement.children).forEach(function(child) {
+                
+                console.log(child);
+                console.log(child.tagName);
+                if (child.tagName == 'LI') {
+                  child.hidden = false;
+                }
+              });
+            } else {
+            //console.log( target.parentElement.parentElement);
+            //console.log(target.parentElement.parentElement.children[1].hidden);
+            target.parentElement.firstElementChild.textContent = "-";
+          
+            if(target.classList.contains('toggle-list_toggler_label')) {
+              
+              let newTarget = target.parentElement.parentElement;
+              
+              Array.from(newTarget.children).forEach(function(child) {
+                
+                //console.log(child);
+                //console.log(child.tagName);
+                if (child.tagName == 'LI') {
+                  child.hidden = true;
+                }
+              });
+            }
+            //console.log(target.parentElement.parentElement.children[1].hidden);
+        };
+      }
       </script>
     </div>
   </div>
@@ -116,8 +157,40 @@
           </div>
         </div>
         <script>
-          const exercise2 = document.querySelector('#exercise_2');
-          // ...решение здесь
+
+          //Решение задачи № 2============================================
+
+          const exercise2 = document.querySelector('#exercise_2 .carousel');
+          let counter = 0;
+          exercise2.addEventListener('click', move);
+
+          function move(event) {
+            let target = event.target;
+    
+            let polosa = document.querySelector('#exercise_2 .carousel_list_wrapper');
+            
+            if (target.classList[1] == "carousel_button_prev") {
+              if (counter === 0){
+              alert("Слева смайликов уже нет");
+              } else {
+              //alert("Влево");
+              //console.log(polosa.firstElementChild.children[counter]);
+              counter--;
+              polosa.firstElementChild.children[counter].hidden = false;
+              //console.log(counter);
+              }
+            } else if (target.classList[1] == "carousel_button_next") {
+              
+              if (counter !== polosa.firstElementChild.children.length-3) {
+              console.log(polosa.firstElementChild.children.length-3);
+              polosa.firstElementChild.children[counter].hidden = true;
+              counter++;
+              //console.log(counter);
+              } else {
+                alert("Справа смайликов уже нет");
+              }
+            };
+          }
         </script>
       </div>
     </div>
@@ -137,8 +210,53 @@
         <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
       </div>
       <script>
-        const exercise3 = document.querySelector('#exercise_3');
-        // ...решение здесь
+
+        //Решение задачи № 3 ============================================
+
+        const exercise3 = document.querySelectorAll('#exercise_3 button');
+        
+        const point = document.querySelector('#exercise_3');
+        //console.log(point);
+        let newDiv = document.createElement('div');
+        newDiv.className = 'hint';
+        point.appendChild(newDiv);
+        var div = document.querySelector('.hint');
+        let divCoordinations = point.getBoundingClientRect();
+
+
+        exercise3.forEach(function(element) {
+          element.onmouseover = function(event) {
+          if (newDiv.hidden = true) {
+            newDiv.hidden = false;
+          }
+          let target = event.target;
+          //console.log(target);
+
+          let buttonCoordinations = target.getBoundingClientRect();
+          
+          // console.log(buttonCoordinations.height);
+          // console.log(divCoordinations.height);
+
+          // console.log(buttonCoordinations.width);
+          // console.log(divCoordinations.width);
+
+          // console.log(parseFloat(buttonCoordinations.left));
+          // console.log(parseFloat(buttonCoordinations.top));
+
+          div.style.top = (divCoordinations.height - buttonCoordinations.height*4) +"px";
+          div.style.left = buttonCoordinations.left + "px";
+          //console.log(div.style.top);
+          let tooltip = target.dataset.tooltip;
+          //console.log(tooltip);
+          newDiv.innerHTML = tooltip;
+          //newDiv.style.top = tooltip;
+          
+          }
+          element.onmouseout = function(event) {
+          newDiv.hidden = true;
+          }
+        });
+        
       </script>
     </div>
 </div>
@@ -153,19 +271,19 @@
       <div class="menu_highlight">
         <ul class="menu_highlight_list">
             <li class="menu_highlight_item">
-              <a href="https://yandex.ru">
+              <a href="https://yandex.ru" data-action = "pressRight">
                   Переход на yandex только при клике правой кнопкой мыши
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://google.ru">
+              <a href="https://google.ru" data-action = "doubleClick">
                 <strong>
                   Переход на google только при двойном клике
                 </strong>
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://mail.ru">
+              <a href="https://mail.ru" data-action = "pressShift">
                 <em>
                   Переход на mail только при клике с нажатой кнопкой 'Shift'
                 </em>
@@ -174,8 +292,42 @@
         </ul>
       </div>
       <script>
-        const exercise4 = document.querySelector('#exercise_4');
-        // ...решение здесь
+
+        //Решение задачи № 4 ============================================
+
+        const exercise4 = document.querySelector('#exercise_4 .menu_highlight');
+        const buttoms = exercise4.firstElementChild.children;
+        
+        Array.from(buttoms).forEach(function (element) {
+          
+          element.addEventListener('click', function(event) {
+              const target = event.target;
+              if (target.tagName === 'A') {
+                event.preventDefault();
+              }
+            });
+
+          if (element.firstElementChild.dataset.action === "doubleClick")  {
+            element.addEventListener('dblclick',function(event) {
+              window.location.href = event.target.href;
+            })
+          }
+          if (element.firstElementChild.dataset.action === "pressShift")  {
+            element.addEventListener('click',function(event) {
+              if (event.shiftKey) {
+                window.location.href = event.target.href;
+              }
+            });
+          }
+          if (element.firstElementChild.dataset.action === "pressRight") {
+            element.addEventListener("mousedown", function(event) {
+              if (event.which == 3) {
+                window.location.href = event.target.href;
+              }
+            });
+          } 
+        });
+      
       </script>
     </div>
   </div>
