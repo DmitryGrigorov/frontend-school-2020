@@ -100,3 +100,14 @@
 }
 
 /* Конец задачи №2 карусель */
+
+#btnTestLeft{
+    position: absolute; 
+    top: 20px; 
+    right:0;
+}
+#btnTestLeft2{
+    position: absolute; 
+    top: 600px; 
+    right:0;
+}

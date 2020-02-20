@@ -187,6 +187,8 @@
     </div>
 
   <!--Задача №3 "Поведение подсказка"-->
+  <button id='btnTestLeft' data-tooltip="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint odit qui neque velit, minus quis laboriosam corporis facere quam ratione veritatis ea eos recusandae ipsa quibusdam veniam. Quia optio, magnam sunt tempora eum odio deleniti corporis laudantium unde! Minus eum sed perspiciatis ratione tenetur, quae doloribus cum nisi error. Eaque quo eligendi obcaecati maiores laborum veritatis alias, sunt sapiente dolorum iure officia? Ex, maiores nesciunt? Tempore, sed veniam, exercitationem repellat delectus repudiandae provident quis maxime magni dignissimos harum unde iste reprehenderit minima animi explicabo enim perferendis sequi esse cumque voluptas accusantium corporis maiores dicta. Dicta nam mollitia tempore veniam necessitatibus!">btn</button>
+  <button id='btnTestLeft2' data-tooltip="HTML<br>подсказка Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, vitae.">btn</button>
   <div id="exercise_3" class="exercise">
     <div class="conditions">
         При наведении мыши на элемент <em>(количество таких элементов на странице может быть любым)</em> с атрибутом data-tooltip,
@@ -201,37 +203,51 @@
         <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
         <button data-tooltip="HTML<br>подсказка khjvglhjvglj kjblkbhj;kj ;lkj;jb;kjb;kj ">Ещё кнопка</button>
         <button data-tooltip="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint odit qui neque velit, minus quis laboriosam corporis facere quam ratione veritatis ea eos recusandae ipsa quibusdam veniam. Quia optio, magnam sunt tempora eum odio deleniti corporis laudantium unde! Minus eum sed perspiciatis ratione tenetur, quae doloribus cum nisi error. Eaque quo eligendi obcaecati maiores laborum veritatis alias, sunt sapiente dolorum iure officia? Ex, maiores nesciunt? Tempore, sed veniam, exercitationem repellat delectus repudiandae provident quis maxime magni dignissimos harum unde iste reprehenderit minima animi explicabo enim perferendis sequi esse cumque voluptas accusantium corporis maiores dicta. Dicta nam mollitia tempore veniam necessitatibus!">Ещё кнопка</button>
-
+       
+        
       </div>
+     
       <script>
         const exercise3 = document.querySelector('#exercise_3');
-        const buttons = exercise3.querySelectorAll('button');
+        
+        const elemsWithTooltips = document.querySelectorAll('[data-tooltip]');
         let tooltip = document.createElement('div');
-        buttons.forEach(function(btn){
-          btn.addEventListener('mouseenter', function(event){
-            if(event.target.hasAttribute('data-tooltip')){
-              tooltip.innerHTML = event.target.getAttribute('data-tooltip');
-              let rect = btn.getBoundingClientRect();
-              tooltip.style.position ='absolute';
-              
+        elemsWithTooltips.forEach(function(elem){
+        elem.addEventListener('mouseenter', function(event){
+            
          
-              tooltip.style.left = rect.left + window.pageXOffset +'px';
-              
-              tooltip.style.background = 'lightblue';
-              tooltip.style.border='1px solid gray';
+          tooltip.innerHTML = event.target.dataset.tooltip;
+          //console.log(tooltip.innerHTML);
+          let rect = elem.getBoundingClientRect();
+          console.log('rect.left '+rect.left+', rect.top '+rect.top)
+          tooltip.style.position ='absolute';
 
-              document.body.appendChild(tooltip);
-              
-              tooltip.style.top = rect.top+window.pageYOffset-tooltip.clientHeight - 3 +'px';
-              
-            }
-          });
-          btn.addEventListener('mouseleave', function(event){
-            if(event.target.hasAttribute('data-tooltip')){
-              document.body.removeChild(tooltip);
-            }
-          });
+
+          tooltip.style.left = rect.left + window.pageXOffset +'px';
+        
+          tooltip.style.background = 'lightblue';
+          tooltip.style.border='1px solid gray';
+
+          document.body.appendChild(tooltip);
+          //если большая подсказка сильно сжалась по ширине
+          //(хотя бы в 2 раза высота больше - уже тяжело читать)
+          //немного ее расширяем
+          if(tooltip.clientHeight>2*tooltip.clientWidth){ 
+            tooltip.style.left = rect.left + window.pageXOffset - 2*tooltip.clientWidth +'px';
+            
+          }
+          if(rect.top<tooltip.clientHeight){ //показать подсказку внизу, если кнопка сверху
+            tooltip.style.top = window.pageYOffset+rect.bottom +3 +'px';
+            
+          }else{
+            tooltip.style.top = rect.top + window.pageYOffset-tooltip.clientHeight - 3 +'px';
+          }
+         
         });
+        elem.addEventListener('mouseleave', function(event){
+            document.body.removeChild(tooltip);
+        });
+      });
         
       </script>
     </div>
