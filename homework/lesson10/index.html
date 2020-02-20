@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <!--Задача №1 "Создать скрывающееся/рвскрывающееся меню"-->
+  <!--Задача №1 "Создать скрывающееся/раскрывающееся меню"-->
   <div id="exercise_1" class="exercise">
     <div class="conditions">
       При помощи 1 обработчика сделайте (скрытие/раскрытие) пунктов списка
@@ -55,8 +55,30 @@
         </ul>
       </div>
       <script>
-        const exercise1 = document.querySelector('#exercise_1');
-        // ...решение здесь
+        // const exercise1 = document.querySelector('#exercise_1');
+        const toggleButton = document.querySelectorAll('#exercise_1 .toggle-list_toggler');
+
+        toggleButton.forEach(el => {
+          const parent = el.parentElement;
+          const toggleIco = el.firstElementChild;
+          let child = parent.querySelectorAll('.toggle-list_item');
+
+          el.addEventListener('click', () => {
+            if (toggleIco.innerText !== '-') {
+              toggleIco.innerText = '-';
+            } else {
+              toggleIco.innerText = '+';
+            }
+
+            child.forEach(el => {
+              if(el.hidden === true) {
+                el.hidden = false;
+              } else {
+                el.hidden = true;
+              }
+            })
+          })
+        });
       </script>
     </div>
   </div>
@@ -116,8 +138,25 @@
           </div>
         </div>
         <script>
-          const exercise2 = document.querySelector('#exercise_2');
-          // ...решение здесь
+          // const exercise2 = document.querySelector('#exercise_2');
+          let count = 0;
+          document.addEventListener('click', event => {
+            let lenghtLi = document.querySelectorAll('#exercise_2 .carousel_list_item').length - 3;
+            const carusel = document.querySelector('#exercise_2 .carousel_list');
+            carusel.style.transition = '0.3s';
+            if (event.target.classList.contains('carousel_button_prev')) {
+              if (count <= lenghtLi && count > 0) {
+                --count;
+                carusel.style.marginLeft = `-${130 * count}px`;
+
+              }
+            } else if (event.target.classList.contains('carousel_button_next')) {
+              if (count <= lenghtLi - 1) {
+                ++count;
+                carusel.style.marginLeft = `-${130 * count}px`;
+              }
+            }
+          })
         </script>
       </div>
     </div>
@@ -133,12 +172,41 @@
         <p>
             Товарищи! сложившаяся структура организации представляет собой интересный эксперимент проверки направлений прогрессивного развития. С другой стороны рамки и место обучения кадров способствует подготовки и реализации модели развития.
         </p>
-        <button data-tooltip="эта подсказка длиннее, чем элемент">Короткая кнопка</button>
+        <button data-tooltip="эта подсказка длиннее, чем элемент">Короткая кнопка </button>
         <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
       </div>
       <script>
         const exercise3 = document.querySelector('#exercise_3');
-        // ...решение здесь
+
+        class Tooltip {
+          handleEvent(event) {
+            switch (event.type) {
+              case 'mouseover':
+                //фукнция
+                event.target.style.position = 'relative';
+                const tooltip = document.createElement('SPAN');
+                tooltip.style.position = 'absolute';
+                tooltip.style.display = 'inline-block';
+                tooltip.style.bottom = '1.5em';
+                tooltip.style.backgroundColor = 'yellow';
+                tooltip.insertAdjacentHTML('beforeend', event.target.dataset.tooltip );
+                event.target.prepend(tooltip);
+                event.stopPropagation();
+                break;
+              case 'mouseout':
+                const elemTooltip = exercise3.querySelector('SPAN');
+                elemTooltip.remove();
+                break;
+            }
+          }
+        }
+
+        let tooltip = new Tooltip();
+        let arrTooltip = exercise3.querySelectorAll('[data-tooltip]');
+        arrTooltip.forEach(el => {
+          el.addEventListener('mouseover', tooltip);
+          el.addEventListener('mouseout', tooltip);
+        });
       </script>
     </div>
 </div>
@@ -175,7 +243,10 @@
       </div>
       <script>
         const exercise4 = document.querySelector('#exercise_4');
-        // ...решение здесь
+        const link = exercise4.querySelectorAll('menu_highlight_item');
+        link.forEach(el => {
+          el.addEventListener('')
+        })
       </script>
     </div>
   </div>
