@@ -238,13 +238,9 @@ exercise3.querySelectorAll('*[data-tooltip]').forEach((v) => {
         </ul>
       </div>
       <script>
-const exercise4 = document.querySelector('#exercise_4');
+const exercise4 = document.querySelector('#exercise_4')
 
-Array.from(exercise4.querySelectorAll('A')).forEach((v) => {
- v.addEventListener('click', (e) => {
-  e.preventDefault()
- })
-})
+Array.from(exercise4.querySelectorAll('A')).forEach((v) => { v.addEventListener('click', (e) => { e.preventDefault() }) })
 
 exercise4.querySelector('.menu_highlight_list Li:nth-of-type(1) > A').addEventListener('contextmenu', function(e){
  document.location.href = e.target.href

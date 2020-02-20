@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head>
+ <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>task1</title>
-</head>
-<body>
+ </head>
+ <body>
   <input id="field" type="text">
   <ul id="list">
     <li class="list-item">item 1</li>
@@ -24,5 +24,26 @@
     4. Если у item-a уже есть "background: red;", удалять его из списка;
     5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
    -->
-</body>
+  <script>
+const Ul = document.querySelector('Ul#list')
+
+Ul.querySelectorAll('.list-item').forEach((v) => {
+ v.addEventListener('click', (e) => {
+  if(
+   (e.altKey && e.shiftKey) ||
+   e.target.style.backgroundColor === 'tomato'
+  ){ v.remove() }
+  else if(e.altKey){ v.style.backgroundColor = 'lightBlue' }
+  else{ v.style.backgroundColor = 'tomato' }
+ })
+})
+document.addEventListener('keydown', (e) => {
+ if(e.code === 'Enter'){
+  let newLi = document.createElement('LI')
+  newLi.textContent = document.querySelector('#field').value
+  Ul.append(newLi)
+ }
+})
+  </script>
+ </body>
 </html>
