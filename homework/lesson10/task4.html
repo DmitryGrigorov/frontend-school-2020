@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 10 homework</title>
+</head>
+<body>
+  <!--Задача №4 Самостоятельно: "Отмена действия по умолчанию"-->
+  <div id="exercise_4" class="exercise">
+    <div class="conditions">
+      Решить при помощи делегирования
+      Можно добавить в html любые атрибуты
+    </div>
+    <div class="solution">
+      <div class="menu_highlight">
+        <ul class="menu_highlight_list">
+            <li class="menu_highlight_item">
+              <a id = 'yandex' href="https://yandex.ru">
+                  Переход на yandex только при клике правой кнопкой мыши
+              </a>
+            </li>
+            <li class="menu_highlight_item">
+              <a id = 'google' href="https://google.ru">
+                <strong>
+                  Переход на google только при двойном клике
+                </strong>
+              </a>
+            </li>
+            <li class="menu_highlight_item">
+              <a id="mail" href="https://mail.ru">
+                <em>
+                  Переход на mail только при клике с нажатой кнопкой 'Shift'
+                </em>
+              </a>
+            </li>
+        </ul>
+      </div>
+      <script>
+        
+        listLinks = document.querySelector('.menu_highlight_list').addEventListener('click', function(e){
+          e.preventDefault();
+        })
+
+        document.querySelector('#mail').addEventListener('click', function(e){
+          if(e.shiftKey){
+            document.location.href = 'https://mail.ru'
+          }
+        })
+
+        document.querySelector('#google').addEventListener('dblclick', function(e){
+            document.location.href = 'https://google.ru'
+        })
+
+        document.querySelector('#yandex').addEventListener('contextmenu', function(e){
+            document.location.href = "https://yandex.ru"
+        })
+
+      </script>
+    </div>
+  </div>
+</body>
+</html>
+</body>
+</html>
+

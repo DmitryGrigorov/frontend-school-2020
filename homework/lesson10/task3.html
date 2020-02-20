@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 10 homework</title>
+</head>
+<body>
+  <div id="exercise_3" class="exercise">
+    <div class="conditions">
+        При наведении мыши на элемент <em>(количество таких элементов на странице может быть любым)</em> с атрибутом data-tooltip,
+        над ним должна показываться подсказка и скрываться при переходе на другой элемент.
+    </div>
+    <div class="solution">
+      <div class="article">
+        <p>
+            Товарищи! сложившаяся структура организации представляет собой интересный эксперимент проверки направлений прогрессивного развития. С другой стороны рамки и место обучения кадров способствует подготовки и реализации модели развития.
+        </p>
+        <button data-tooltip="эта подсказка длиннее, чем элемент">Короткая кнопка</button>
+        <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button> 
+      </div>
+      <script>
+    
+      let button = document.querySelectorAll('button');
+
+       for (let i = 0; i < button.length; i++){
+          const currentButton = button[i];
+          const tooltip = currentButton.attributes['data-tooltip'].value;
+          let tootltipBlock = document.createElement('div');
+         button[i].addEventListener('mouseenter', function(event){
+    
+          tootltipBlock.style.cssText = `display: block;
+          background: linear-gradient(to top left, powderblue, pink);
+          padding: 5px 10px;
+          position: absolute;
+          border-radius: 5px;
+          font-family: 'Prosto One';
+          font-size: 1em;
+          color: white;
+          text-shadow: 1px 1px #732372, 1px -1px #732372, -1px 1px #732372, -1px -1px #732372, 3px 3px 6px rgba(0,0,0,.5);
+          `;
+
+          tootltipBlock.style.left = event.clientX + button[i].style.width + 'px';
+          tootltipBlock.style.top = event.clientY + button[i].style.height + 'px';
+          
+          tootltipBlock.innerHTML = tooltip;
+          document.body.append(tootltipBlock);
+         })
+         button[i].addEventListener('mouseleave', function() {
+           tootltipBlock.remove()
+         })
+       }
+
+      </script>
+    </div>
+</div>
+</body>
+</html>
