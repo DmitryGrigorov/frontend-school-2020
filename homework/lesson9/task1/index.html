@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Task 1</title>
+</head>
+<body>
+  <ul id="list">
+    <li>Арбуз</li>
+    <li>Апельсин</li>
+    <li>Авокадо</li>
+    <li>Ананас</li>
+    <li>Абрикос</li>
+  </ul>
+  <style>
+    ul li {
+      width: 100px;
+    }
+  </style>
+  <!--
+    1. Получить элемент c id="list"
+    2. Добавить в конец списка массив фруктов ['Бананы', 'Черника', 'Малина'] и вывести на страницу
+    3. Окрасить каждый нечетный элемент в красный цвет (elem.style.background = 'red')
+    
+   -->
+  <script>
+  
+  function addNewTags (array) {
+      let list = document.getElementById('list');
+      array.forEach(element => {
+        let newLi = document.createElement('li');
+        newLi.textContent = element;
+        list.append(newLi);
+      });
+  }
+  let array = ['Бананы', 'Черника', 'Малина','Морошка','Княжевика','Выживика'];
+  addNewTags (array);
+  
+  //console.log(list);
+  //console.log(list.childNodes[0]);
+
+  function paintLi(colour) {
+      let count = document.querySelectorAll('li');
+      for (let i = 0; i < count.length; i = i+2) {
+        count[i].style.background = colour;
+      }
+  }
+  paintLi('Red');
+
+  </script>
+</body>
+</html>
