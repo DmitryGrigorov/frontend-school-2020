@@ -15,7 +15,6 @@
     <li class="list-item">item 5</li>
     <li class="list-item">item 6</li>
   </ul>
-
   <!-- 
     Задания для списка:
     1. По клику по элементу списка (li) делать background:red
@@ -24,5 +23,22 @@
     4. Если у item-a уже есть "background: red;", удалять его из списка;
     5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
    -->
+    <script>
+      const items = document.querySelector('#list');
+
+      items.addEventListener('click', function (event) {
+        const target = event.target;
+        if (event.altKey) {
+          target.style.background = 'blue';
+        }
+        else if (target.style.background === "red" || event.altKey && event.shiftKey) {
+          target.remove();
+        }
+        else {
+          target.style.background = 'red';
+        }
+      });
+
+    </script>
 </body>
 </html>
