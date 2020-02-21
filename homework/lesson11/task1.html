@@ -39,6 +39,16 @@
         }
       });
 
+      const field = document.getElementById('field');
+      field.addEventListener('keydown', function (event) {
+        if (event.which === 13) {
+          let newItem  = document.createElement('li');
+          newItem.textContent = field.value;
+          field.value = '';
+          list.append(newItem);
+        }
+      });
+
     </script>
 </body>
 </html>
