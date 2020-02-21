@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+ <head>
   <meta charset="utf-8">
   <title>Lesson 12 homework</title>
   <style>
@@ -19,15 +19,28 @@
     #diagram div {
       margin: auto;
     }
-  </style>
-</head>
 
-<body>
+HTML{
+  background-color: white;
+  display: flex; justify-content: center; align-items: center;
+  font-family: monospace; font-size: 16px;
+  min-height: 100vh
+}
+
+Body{
+  background-color: rgba(0, 0, 0, 0.02);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  padding: 20px
+}
+  </style>
+ </head>
+
+ <body>
 
   <!-- Создайте интерфейс, позволяющий ввести сумму банковского вклада и процент,
   а затем рассчитать, какая это будет сумма через заданный промежуток времени. -->
 
-  Депозитный калькулятор.
+  <h1>Депозитный калькулятор</h1>
 
   <form name="calculator">
     <table>
@@ -59,8 +72,6 @@
         </td>
       </tr>
     </table>
-
-
   </form>
 
 
@@ -82,18 +93,28 @@
   </table>
 
   <script>
+const form = document.forms.calculator
 
-    let form = document.forms.calculator;
+form.querySelectorAll('[name]').forEach((v) => { v.addEventListener('change', update) })
 
-    // ваш код
+function update(){
+ const initial = form.money.value
+ const interest = form.interest.value / 100
+ const years = form.months.value / 12
+ //+
+ let result = Math.round(initial * (1 + interest * years))
 
+ document.querySelector('#money-before').innerText = initial
+ document.querySelector('#money-after').innerText = result
+
+ document.querySelector('#height-after').style.height = (result / initial) * document.querySelector('#diagram Div').offsetHeight + 'px'
+}
+update()
     // Формула
     // initial: начальная сумма денег
     // interest: проценты, например, 0.05 означает 5% в год
     // years: сколько лет ждать
     // let result = Math.round(initial * (1 + interest * years));
   </script>
-
-
-</body>
+ </body>
 </html>
