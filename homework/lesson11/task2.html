@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+ <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task 2</title>
-</head>
-<body>
+ </head>
+ <body>
   <!-- 
     По ссылке пример реализации TODO листа со стилями и прочим.
 
@@ -20,5 +20,109 @@
 
     P. S. Желательно делать и использовать стили css
    -->
-</body>
+  <main>
+   <style>
+*{ box-sizing: border-box }
+
+Body{
+  display: flex; justify-content: center;
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+  width: 100%; height: 100vh
+}
+
+Main{
+  background-color: rgba(160, 80, 0, 0.08);
+  padding: 20px;
+  width: 640px
+}
+
+Form{ position: relative }
+
+Input{
+  border: 1px solid grey;
+  padding: 10px 40px 10px 10px;
+  width: 100%
+}
+
+Button{
+  border: 1px solid grey; border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  padding: 4px 7px 2px 7px;
+  position: absolute; top: 8px; right: 8px; z-index: 1;
+  transition: All 400ms
+}
+Button:hover{
+  background-color: rgba(0, 160, 0, 0.4);
+  cursor: pointer;
+}
+
+Div > Div{
+  background-color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  margin-top: 2px;
+  padding: 10px;
+  position: relative
+}
+Div > Button{
+  border: 1px solid red;
+  border-radius: 50%;
+  color: red;
+  cursor: pointer;
+  padding: 4px 7px 2px 7px;
+  position: absolute; top: 4px; right: 8px; z-index: 1;
+  transform: rotate(45deg)
+}
+
+.lineThrough{
+  opacity: 0.6;
+  text-decoration: line-through
+}
+   </style>
+
+   <form>
+    <input />
+    <button>+</button>
+    <div></div>
+   </form>
+
+   <script>
+const div = document.querySelector('Form > Div')
+const input = document.querySelector('Form > Input')
+const button = document.querySelector('Form > Button')
+
+const createTask = (innerText) => {
+ const div = document.createElement('div')
+ const button = document.createElement('button')
+
+ button.innerText = '+'
+ div.innerText = innerText
+ div.append(button)
+
+ div.addEventListener('click', (e) => {
+  const classList = e.target.classList
+  if(classList.contains('lineThrough')){
+    classList.remove('lineThrough')
+  } else{
+    classList.add('lineThrough')
+  }
+ })
+ button.addEventListener('click', (e) => { e.target.parentElement.remove() })
+
+
+ return div
+}
+
+button.addEventListener('click', (e) => {
+ e.preventDefault()
+ if(input.value !== ''){
+  div.prepend(createTask(input.value))
+
+ }
+})
+   </script>
+  </main>
+ </body>
 </html>
