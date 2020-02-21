@@ -1,0 +1,99 @@
+/* Спецификация */
+body, ul, li, h1 {
+  margin: 0;
+  padding: 0;
+}
+ul, li {
+  display: block;
+}
+h1, ul, li, div, input, button, span {
+  box-sizing: border-box;
+}
+input:hover, input:focus, button:focus {
+  outline: none;
+}
+  /* TO DO LIST BEGIN */
+
+.todo-list {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.todo-list__header {
+    background: tomato;
+    padding: 50px 30px;
+}
+.todo-list__title {
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+}
+.todo-list__title span {
+  text-transform: uppercase;
+  margin-left: 10px;  
+}
+.todo-list__input-block {
+  margin-top: 10px;
+  padding: 5px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 80% 1fr;
+
+}
+.todo-list__input {
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+}
+.todo-list__button {
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  transition: all 0.5s ease;
+}
+.todo-list__button:hover {
+  background: #a7a6a6;
+}
+.todo-list__item {
+  cursor: pointer;
+  width: 100%;
+  background: #c4c4c4;
+  display: grid;
+  grid-template-columns: 30px 1fr 40px;
+  transition: all 0.5s ease;
+}
+li:hover {
+  background: #727272;
+}
+.todo-list__item span {
+  padding: 10px 0 10px 5px;
+  height: 50px;
+}
+.clear {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 12px;
+  transition: all 0.5s ease;
+}
+.clear:hover {
+  background: #f34c4c;
+}
+.done {
+  width: 30px;
+  text-align: center;
+  color: #fff;
+}
+.none {
+  display: none;
+}
+
+/* Добавляемые классы*/
+.bg {
+  background: #e0e0e0;
+}
+.text-decoration {
+ text-decoration: line-through;
+ color: #fff;
+}
+.bg_two {
+  background: #727272;
+}
