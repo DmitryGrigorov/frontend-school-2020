@@ -25,25 +25,33 @@
     5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
    -->
   <script>
-const Ul = document.querySelector('Ul#list')
+let Ul = document.querySelector('Ul#list')
 
-Ul.querySelectorAll('.list-item').forEach((v) => {
- v.addEventListener('click', (e) => {
-  if(
-   (e.altKey && e.shiftKey) ||
-   e.target.style.backgroundColor === 'tomato'
-  ){ v.remove() }
-  else if(e.altKey){ v.style.backgroundColor = 'lightBlue' }
-  else{ v.style.backgroundColor = 'tomato' }
- })
-})
 document.addEventListener('keydown', (e) => {
  if(e.code === 'Enter'){
   let newLi = document.createElement('LI')
   newLi.textContent = document.querySelector('#field').value
   Ul.append(newLi)
+  f()
  }
 })
+
+function f(){
+ Ul.querySelectorAll('#list > Li').forEach((v) => {
+  v.removeEventListener('click', coloring)
+  v.addEventListener('click', coloring)
+ })
+}
+f()
+
+function coloring(e){
+ if(
+  (e.altKey && e.shiftKey) ||
+  e.target.style.backgroundColor === 'tomato'
+ ){ e.target.remove() }
+ else if(e.altKey){ e.target.style.backgroundColor = 'lightBlue' }
+ else{ e.target.style.backgroundColor = 'tomato' }
+}
   </script>
  </body>
 </html>
