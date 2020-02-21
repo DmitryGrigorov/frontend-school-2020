@@ -15,19 +15,19 @@
         <div class="menu_highlight">
             <ul class="menu_highlight_list">
                 <li class="menu_highlight_item">
-                    <a href="https://yandex.ru">
+                    <a id="yandex" href="https://yandex.ru">
                         Переход на yandex только при клике правой кнопкой мыши
                     </a>
                 </li>
                 <li class="menu_highlight_item">
-                    <a href="https://google.ru">
+                    <a id="google" href="https://google.ru">
                         <strong>
                             Переход на google только при двойном клике
                         </strong>
                     </a>
                 </li>
                 <li class="menu_highlight_item">
-                    <a href="https://mail.ru">
+                    <a id="mail" href="https://mail.ru">
                         <em>
                             Переход на mail только при клике с нажатой кнопкой 'Shift'
                         </em>
@@ -36,8 +36,36 @@
             </ul>
         </div>
         <script>
-            const exercise4 = document.querySelector('#exercise_4');
-            // ...решение здесь
+            const yandexLink = document.querySelector('#yandex');
+            const googleLink = document.querySelector('#google');
+            const mailLink = document.querySelector('#mail');
+
+            yandexLink.addEventListener('click', function (event) {
+                event.preventDefault();
+            });
+            yandexLink.addEventListener('contextmenu', function (event) {
+                event.preventDefault();
+                const link = yandexLink.getAttribute('href');
+                window.open(link);
+            });
+
+            googleLink.addEventListener('click', function (event) {
+                event.preventDefault();
+            });
+            googleLink.addEventListener('dblclick', function (event) {
+                event.preventDefault();
+                const link = googleLink.getAttribute('href');
+                window.open(link);
+            });
+
+            mailLink.addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = mailLink.getAttribute('href');
+                if (event.shiftKey) {
+                    window.open(link);
+                }
+            });
+
         </script>
     </div>
 </div>
