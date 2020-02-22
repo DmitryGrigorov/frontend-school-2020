@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mouseover/Mouseout</title>
+
+  <style>
+    #block1 > div {
+      display: inline-block;
+      border: 5px solid black;
+      background: yellowgreen;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="block1">
+    <div id="from">#FROM</div>
+    <div id="to">#TO</div>
+  </div>
+  <div id="info1">
+    <p>event.type: <span id="event-type"></span></p>
+    <p>target id: <span id="target"></span></p>
+    <p>relatedTarget id: <span id="related-target"></span> </p>
+  </div>
+
+  <script>
+    const block = document.getElementById('block1');
+    // info
+    const eventType = document.getElementById('event-type');
+    const target = document.getElementById('target');
+    const relatedTarget = document.getElementById('related-target');
+
+    block1.onmouseenter = block1.onmouseleave = handler;
+
+    function handler(event) {
+      console.log(event.target, event.relatedTarget, event.type);
+      eventType.textContent = event.type
+      target.textContent = event.target.id;
+      relatedTarget.textContent = event.relatedTarget.id;
+    }
+
+  </script>
+</body>
+</html>
