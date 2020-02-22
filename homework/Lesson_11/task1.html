@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>task1</title>
+</head>
+<body>
+  <input id="field" type="text" placeholder="Введите элемент">
+  <ul id="list">
+    <li class="list-item">item 1</li>
+    <li class="list-item">item 2</li>
+    <li class="list-item">item 3</li>
+    <li class="list-item">item 4</li>
+    <li class="list-item">item 5</li>
+    <li class="list-item">item 6</li>
+  </ul>
+
+  <!-- 
+    Задания для списка:
+    1. По клику по элементу списка (li) делать background:red
+    2. При зажатой кнопке Alt и клику делать background:blue;
+    3. При нажатой кнопке Alt+Shift удалять элемента независимо от того, есть ли у него background
+    4. Если у item-a уже есть "background: red;", удалять его из списка;
+    5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
+   -->
+   <script> 
+    
+   // Решение задач № 1, 2, 3, 4
+  let list = document.body.querySelectorAll('.list-item');
+    //console.log(list); // Проверка получения массива
+  list.forEach(addClicks);
+
+  function addClicks(element) {
+      element.addEventListener('click', function(event) {
+        if (event.target.style.backgroundColor == "red" && !event.altKey) {
+          element.remove();
+        }
+        if (event.target.style.backgroundColor = " ") {
+          event.target.style.backgroundColor = "red";
+        };
+        if (event.altKey) {
+          event.target.style.backgroundColor = "blue";
+        };
+        if (event.altKey && event.shiftKey) {
+          element.remove();
+        };
+      });      
+  }
+
+  // Добавление новых элементов
+
+  document.querySelector('input').addEventListener('keydown', function(event) {
+    if (event.keyCode === 13 && this.value !== "") {
+      //console.log(this.value); //проверка передачи текста
+      let listMain = document.querySelector('#list');
+      //console.log(listMain); //проверка получения родительского элемента
+      let newLi = document.createElement('li');
+      newLi.className = 'list-item';
+      //console.log(newLi) //проверка создания элемента
+      newLi.textContent = this.value;
+      listMain.append(newLi);
+      document.querySelector('input').value = "" ;
+      addClicks(newLi);
+    }
+  });
+
+   </script>
+
+</body>
+</html>

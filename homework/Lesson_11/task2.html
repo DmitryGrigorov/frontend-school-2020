@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Lato', sans-serif;
+    }
+    .slider {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .slider__header {
+      background-color: #78866b;
+      width: 100%;
+      height: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .slider__name {
+      margin-top: 30px;
+      margin-bottom: 7px;
+      color: lightgray;
+      font-family: 'Merriweather';
+    }
+    .slider__button {
+      width: 600px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+    }
+    .slider__input {
+      background-color: whitesmoke;
+      font-size: 18px;
+      height: 100%;
+      width: 70%;
+      border-style: none;
+      padding: 0px 15px;
+      border-radius: 12px 0px 0px 12px;
+    }
+    .buttom {
+      height: 100%;
+      width: 30%;
+      background-color: darksalmon;
+      font-size: 18px;
+      color: slategrey;
+      font-weight: 600;
+      border: 2px solid darksalmon;
+      border-radius: 0px 12px 12px 0px;
+      transition-delay: 0.5s;
+      outline: none;
+    }
+    a:active, a:focus { 
+      outline: none; 
+    }
+    input, textarea {
+      outline:none;
+    }
+    input:active, textarea:active {
+      outline:none;
+    }
+  
+    .buttom:active {
+    background: red;
+    box-shadow: 0 3px red inset;
+    border: 2px solid red;
+    color: white;
+    }
+    .buttom:hover {
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      outline: none;
+      transition: 0.3s;
+      font-size: 22px;
+      color: white;
+    }
+    #list {
+      height: 100%;
+      width: 100%;
+    }
+    .list-item {
+      height: 40px;
+    }
+    .task {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      background-color: #f2ededc6;
+      color: #78866b;
+      
+    }
+    .task:hover {
+      background-color: darkgrey !important;
+    }
+
+    .task__block {
+      width: 95%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-size: 22px;
+      line-height: 40px;
+    }
+    .task__mark {
+      width: 5%;
+      height: 100%;
+      text-align: center;
+      font-style: italic;
+      font-size: 30px;
+      line-height: 40px;
+      margin-left: 10px;
+    }
+    span {
+      display: none;
+    }
+    .task__text {
+      width: 95%;
+      height: 100%;
+      margin-left: 40px;
+    }
+    .task__close {
+      width: 5%;
+      height: 100%;
+      font-weight: bold;
+      font-size: 22px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s;
+      line-height: 40px;
+    }
+    .task__close:active {
+    background: red;
+    box-shadow: 0 3px red inset;
+    }
+    .task__close:hover {
+      box-shadow: 0 0 10px dimgray;
+      outline: none;
+      transition-delay: 0.5ms;
+      color: white;
+      transition: 1s;
+      font-size: 30px;
+    }
+    
+ </style>
+</head>
+<body>
+  <div class="slider">
+
+    <div class="slider__header">
+      <h1 class="slider__name">Todo list</h1>
+      <div class="slider__button">
+        <input class="slider__input" id="field" type="text" placeholder="Enter your task">
+        <button class='buttom'>ADD</button>
+      </div>
+    </div>
+
+    <ul id="list">
+    </ul>
+
+  </div>
+  <!-- 
+    По ссылке пример реализации TODO листа со стилями и прочим.
+
+    Задача: Реализовать что-то похожее.
+
+    Требования:
+    1. Должен быть инпут с кнопкой "добавить", где в инпут мы вводим значения, а по кнопке "добавить" добавляем, то что ввели.
+    2. Добавленный элементы мы можем перечеркнуть по клику (или как);
+    3. У элементов списка есть кнопка крестика, которая удаляет элемент.
+
+    Пример функционала есть по ссылке https://codepen.io/Grigorov/full/qBdZgwb
+
+    P. S. Желательно делать и использовать стили css
+    -->
+    <script>
+    
+    let counter = 0;
+    let listMain = document.querySelector('#list');
+    let buttom = document.querySelector('.buttom');
+    buttom.addEventListener('click', function(event) {
+      let input = document.querySelector('#field').value;
+      counter++;
+
+      if (input !== "") {
+        //let listMain = document.querySelector('#list');
+      
+        let newLi = document.createElement('li');
+        newLi.className = 'list-item';
+        newLi.innerHTML = `<div class="task">
+                            <div class="task__block">
+                              <div class="task__mark"><span>v<span></div>
+                              <div class="task__text">${input}</div>
+                            </div>
+                            <buttom class="task__close">&times;</buttom>
+                          </div>`;
+        listMain.append(newLi);
+        document.querySelector('#field').value = "";
+        
+        newLi.style.cursor = "pointer";
+        let block = newLi.firstElementChild.firstElementChild;
+
+        let closeBlock = newLi.firstElementChild.lastElementChild;
+        closeBlock.addEventListener('click', function (event) {
+        newLi.remove();
+        });
+
+        if (counter%2 === 0) {  
+          newLi.firstElementChild.dataset.backcolour = 'light';
+          newLi.firstElementChild.style['background-color'] = '#e1dedec6';
+          newLi.firstElementChild.firstElementChild.firstElementChild.style.color ='#e1dedec6';
+        }
+        if (counter%2 === 1) {  
+          newLi.firstElementChild.dataset.backcolour = 'dark';
+          newLi.firstElementChild.style['background-color'] = '#bfcbcbc6';
+          newLi.firstElementChild.firstElementChild.firstElementChild.style.color ='#bfcbcbc6';
+        }
+      }
+    });
+
+    if (listMain) {
+
+      listMain.addEventListener('click', paintDark);
+      function paintDark(event) {
+        //event.preventDefault();
+        let item = event.target.closest('li').firstElementChild;
+        let mark = item.firstElementChild.firstElementChild.firstElementChild;
+        //console.log(item);
+        if (item.dataset.backcolour === 'light') {
+          if (item.style['background-color'] === "darkgrey") {
+            item.style['background-color'] = "#e1dedec6";
+            mark.style.display = "none";
+            item.style.color = "#78866b";
+            item.firstElementChild.lastElementChild.style['text-decoration'] = "";
+          } else {
+            item.style['background-color'] = "darkgrey";
+            item.style.color = "white";
+            mark.style.display = "block";
+            mark.style.color = "white";
+            item.firstElementChild.lastElementChild.style['text-decoration'] = "line-through"; 
+          }
+        } else if (item.dataset.backcolour === 'dark') {
+          if (item.style['background-color'] === "darkgrey") {
+            item.style['background-color'] = "#bfcbcbc6";
+            mark.style.display = "none";
+            item.style.color = "#78866b";
+            item.firstElementChild.lastElementChild.style['text-decoration'] = "";
+          } else {
+            item.style['background-color'] = "darkgrey";
+            item.style.color = "white";
+            mark.style.display = "block";
+            mark.style.color = "white";
+            item.firstElementChild.lastElementChild.style['text-decoration'] = "line-through";
+          }
+        }      
+      }
+    }
+  
+    </script>
+
+</body>
+</html>
