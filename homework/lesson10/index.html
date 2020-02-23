@@ -150,7 +150,7 @@
             });
             let counter = 0;
 
-            function previous(event) {
+            function previous() {
 
 
                 if (counter < (images.length - 2) && counter > 0) {
@@ -162,7 +162,7 @@
                 }
             }
 
-            function nextious(event) {
+            function nextious() {
 
                 if (counter < images.length - 3) {
 
@@ -175,7 +175,7 @@
 
             }
 
-            // ...решение здесь
+
         </script>
     </div>
 </div>
@@ -204,27 +204,29 @@
                 item.addEventListener('mouseover', tool);
                 item.addEventListener('mouseout', removeTool)
             });
+            let toolBlock;
 
             function tool(event) {
-                let tooltip = event.target.dataset.tooltip;
-                let toolBody = document.createElement('div');
-                toolBody.className = 'tooltip';
-                toolBody.innerHTML = tooltip;
-                document.body.append(toolBody);
 
-                let coords = event.target.getBoundingClientRect();
-                toolBody.style = coords.y + 5 + 'px';
+                let tooltip = event.target;
+                toolBlock = document.createElement('div');
+                toolBlock.classList.add('tooltip');
+                toolBlock.innerHTML = tooltip.dataset.tooltip;
+                tooltip.append(toolBlock);
 
-
-
-            }
-
-            function removeTool(event) {
+                let coords = tooltip.getBoundingClientRect();
+                let left = coords.left;
+                let bottom = coords.height;
+                toolBlock.style.left = left + 1 + 'px';
+                toolBlock.style.bottom = bottom + 1 + 'px';
 
             }
 
+            function removeTool() {
+                if (toolBlock)
+                    toolBlock.remove();
+            }
 
-            // ...решение здесь
         </script>
     </div>
 </div>
@@ -239,12 +241,12 @@
         <div class="menu_highlight">
             <ul class="menu_highlight_list">
                 <li class="menu_highlight_item">
-                    <a href="https://yandex.ru">
+                    <a href="https://yandex.ru" onclick="return false">
                         Переход на yandex только при клике правой кнопкой мыши
                     </a>
                 </li>
                 <li class="menu_highlight_item">
-                    <a href="https://google.ru">
+                    <a href="https://google.ru" onclick="return false">
                         <strong>
                             Переход на google только при двойном клике
                         </strong>
@@ -261,7 +263,44 @@
         </div>
         <script>
             const exercise4 = document.querySelector('#exercise_4');
-            // ...решение здесь
+            let list = exercise4.querySelector('ul');
+            let elems = Array.from(list.children);
+            let flag = false;
+            elems[0].addEventListener('contextmenu', yandex);
+            elems[1].addEventListener('dblclick', google);
+            elems[2].addEventListener('click', mail);
+            document.addEventListener('keydown', shift);
+            document.addEventListener('keyup', unshift);
+
+            function shift(event) {
+                if (event.key === 'Shift')
+                    flag = true;
+            }
+
+            function unshift() {
+                if (flag)
+                    flag = false;
+            }
+
+            function yandex(event) {
+                event.preventDefault();
+                event.target.
+                window.open("https://yandex.ru");
+            }
+
+            function google(event) {
+                event.preventDefault();
+                window.open("https://google.ru");
+            }
+
+            function mail(event) {
+                event.preventDefault();
+                if (flag) {
+                    window.open("https://mail.ru");
+                    flag = false;
+                }
+            }
+
         </script>
     </div>
 </div>
