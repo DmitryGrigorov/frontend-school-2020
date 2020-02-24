@@ -1,28 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>task1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task1</title>
 </head>
 <body>
-  <input id="field" type="text">
-  <ul id="list">
+<input id="field" type="text">
+<ul id="list">
     <li class="list-item">item 1</li>
     <li class="list-item">item 2</li>
     <li class="list-item">item 3</li>
     <li class="list-item">item 4</li>
     <li class="list-item">item 5</li>
     <li class="list-item">item 6</li>
-  </ul>
+</ul>
+<script>
+    const listItems = document.querySelector('#list');
+    listItems.addEventListener('click', red);
+    document.addEventListener('keyup', ent);
 
-  <!-- 
-    Задания для списка:
-    1. По клику по элементу списка (li) делать background:red
-    2. При зажатой кнопке Alt и клику делать background:blue;
-    3. При нажатой кнопке Alt+Shift удалять элемента независимо от того, есть ли у него background
-    4. Если у item-a уже есть "background: red;", удалять его из списка;
-    5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
-   -->
+
+    function red(event) {
+
+        let target = event.target;
+        if (target.tagName !== 'LI') {
+            return;
+        }
+
+        if (target.style.background === 'red' || (event.altKey && event.shiftKey)) {
+            target.remove();
+        }
+        if (event.altKey) {
+            target.style.background = 'blue';
+        } else
+            target.style.background = 'red';
+
+    }
+
+    function ent(event) {
+
+        if (event.key === 'Enter') {
+
+            let text = document.getElementById('field').value;
+            let newItem = document.createElement('li');
+            newItem.innerHTML = text;
+            listItems.append(newItem);
+
+        }
+
+    }
+
+</script>
+<!--
+  Задания для списка:
+  1. По клику по элементу списка (li) делать background:red
+  2. При зажатой кнопке Alt и клику делать background:blue;
+  3. При нажатой кнопке Alt+Shift удалять элемента независимо от того, есть ли у него background
+  4. Если у item-a уже есть "background: red;", удалять его из списка;
+  5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
+ -->
 </body>
 </html>
