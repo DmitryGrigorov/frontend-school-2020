@@ -268,7 +268,7 @@
             let flag = false;
             elems[0].addEventListener('contextmenu', yandex);
             elems[1].addEventListener('dblclick', google);
-            elems[2].addEventListener('click', mail);
+            list.addEventListener('click', mail);
             document.addEventListener('keydown', shift);
             document.addEventListener('keyup', unshift);
 
@@ -284,8 +284,7 @@
 
             function yandex(event) {
                 event.preventDefault();
-                event.target.
-                window.open("https://yandex.ru");
+                event.target.window.open("https://yandex.ru");
             }
 
             function google(event) {
@@ -294,6 +293,12 @@
             }
 
             function mail(event) {
+                let target = event.target;
+                if (target.tagName !== 'li') {
+                    target = target.closest('li');
+                }
+                if (target !== elems[2])
+                    return;
                 event.preventDefault();
                 if (flag) {
                     window.open("https://mail.ru");
