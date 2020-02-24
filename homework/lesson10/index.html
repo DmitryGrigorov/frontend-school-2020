@@ -182,7 +182,34 @@
         </div>
         <script>
             const exercise3 = document.querySelector('#exercise_3');
-            // ...решение здесь
+            exercise3.addEventListener('mouseover', function (event) {
+                let target3 = event.target;
+                if (target3.dataset.tooltip) {
+                    let divToolTip = document.getElementById('tooltip');
+                    if (!divToolTip) {
+                        divToolTip = document.createElement('div');
+                        divToolTip.id = 'tooltip';
+                        divToolTip.style.border = '1px dotted black';
+                        divToolTip.style.backgroundColor = 'white';
+                        divToolTip.style.zIndex = 100;
+                        divToolTip.style.padding = '5px';
+                        divToolTip.style.position = 'absolute';
+                        document.body.appendChild(divToolTip);
+                    }
+                    divToolTip.hidden = false;
+                    divToolTip.innerHTML = target3.dataset.tooltip;
+                    let t = target3.getBoundingClientRect();
+                    divToolTip.style.left = t.left + "px";
+                    divToolTip.style.top = pageYOffset + t.top - divToolTip.clientHeight-2 + "px";
+                }
+            });
+            exercise3.addEventListener('mouseout', function (event) {
+                let target3 = event.target;
+                if (target3.dataset.tooltip) {
+                    let divToolTip = document.getElementById('tooltip');
+                    divToolTip.hidden = true;
+                }
+            });
         </script>
     </div>
 </div>
