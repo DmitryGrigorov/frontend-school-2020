@@ -16,7 +16,7 @@
 //     xhr.send();
 //     xhr.responseType = 'json';
 
-//     xhr.onload = function() {
+    // xhr.onload = function() {
 //         successCallback && successCallback(xhr.response);
 //     }
 
@@ -25,7 +25,8 @@
 //     }
 // }
 
-// const url = 'http://echo.jsontest.com/id/qwerty1/name/vasya';
+const url = 'http://echo.jsontest.com/id/qwerty1/name/vasya';
+
 // const urlSettings = 'http://echo.jsontest.com/id/qwerty22222';
 
 // getRequest(url, function(user) {
@@ -45,7 +46,6 @@ function getRequestPromise(url) {
         xhr.onload = function() {
             resolve(xhr.response);
         }
-
         xhr.onerror = function() {
             reject();
         }
@@ -169,21 +169,21 @@ function getRequestPromise(url) {
 
 // foo();
 
-// fetch(url)
-//     .then((response) => {
-//         return response.json();
-//     })
-//     .then((jsonData) => {
-//         console.log(jsonData);
-//     });
+fetch(url)
+    .then((response) => {
+        return response.json();
+    })
+    .then((jsonData) => {
+        console.log(jsonData);
+    });
 
 // try {
-//     Promise.all([
-//         new Promise((rsolve) => rsolve(12)),
-//         new Promise((rsolve) => rsolve(3333))
-//     ]).then((data) => {
-//         console.log(data);
-//     });
+    Promise.all([
+        new Promise((rsolve) => rsolve(12)),
+        new Promise((rsolve) => rsolve(3333))
+    ]).then((data) => {
+        console.log(data);
+    });
 // } catch (error) {
 
 // }

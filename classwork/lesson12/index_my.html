@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 12</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div>
+    <div tabindex="1" id="wrapper" hidden>
+      <label for="message">message</label>
+      <input type="text" id="message" name="message">
+    </div>
+  </div>
+  <div class="container" >
+    <form class="form" name="registration">
+      <div class="form_title">
+        Регистрация
+      </div>
+      <div class="form_row">
+        <div class="form_row_cell">
+          <label class="form_row_label" for="name">Имя</label>
+          <input class="form_row_input" type="text" name="name" data-constraint='required'/>
+        </div>
+      </div>
+      <div class="form_row">
+        <div class="form_row_cell">
+          <label class="form_row_label" for="lastname">Фамилия</label>
+          <input class="form_row_input" type="text" name="lastname" data-constraint='required'/>
+        </div>
+      </div>
+      <div class="form_row">
+        <div class="form_row_cell">
+          <label class="form_row_label" for="email">Email</label>
+          <input class="form_row_input" type="text" name="email"/>
+        </div>
+      </div>
+      <div class="form_row">
+        <div class="form_row_cell">
+          <label class="form_row_label" for="phone">Телефон</label>
+          <input class="form_row_input" type="text" name="phone"/>
+        </div>
+      </div>
+      <div class="form_row">
+        <div class="form_row_cell">
+          <button class="form_button form_button_cancel">Отмена</button>
+        </div>
+        <div class="form_row_cell">
+          <input class="form_button form_button_submit" type="submit" value="Отправить" />
+        </div>
+      </div>
+    </form>
+  </div>
+  <script>
+
+
+    const registrForm = document.forms.registration;
+    const elems = registrForm.elements;
+    const constFields = target.querySelectorAll('[data-constraint]');
+    registrForm.addEventListener('submit', onSubmit);
+
+    function onSubmit (event) {
+      event.preventDefault();
+     
+   const fieldErroes = registrForm.map(function(field){
+
+      const constraint = field.dataset.constraint;
+      const value = field.value;
+
+      const error = validateSubmit(constraint, value);
+
+      return error;
+    });
+
+    if(fieldErroes.some(error => error)) {
+      console.log('from is ins');
+
+    } else {
+      console.log('form is submit')
+    }
+
+
+    console.log('submit')
+    }
+
+    function validateSubmit (constraint, value) {
+      switch (constraint) {
+        case'required':
+        return !value ? 'Поле обязательно для заплнения' : null;
+        default: null;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    // const message = document.querySelector('#message');
+
+    // message.addEventListener('input', function (event) {
+    //   const target = event.target;
+
+
+    //   // console.log(target.value);
+    // });
+
+    // message.addEventListener('change', function (event) {
+    //   const target = event.target;
+
+    //   // console.log(target.value);
+    // });
+    // message.addEventListener('focus', function (event) {
+    //   const target = event.target;
+
+    //   // console.log(target.value);
+    // });
+    // message.addEventListener('blur', function (event) {
+    //   const target = event.target;
+
+    //   // console.log(target.value);
+    // });
+    // message.addEventListener('submit', function (event) {
+    //   const target = event.target;
+
+    //   // console.log(target.value);
+    // });
+
+    // message.focus();
+
+
+
+
+
+
+    // input
+    // change
+    // focus
+    // blur
+    // cut, copy, paste
+    // submit
+
+  </script>
+</body>
+</html>
