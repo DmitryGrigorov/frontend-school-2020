@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Task 1</title>
-</head>
-<body>
-  <ul id="list">
-    <li>Арбуз</li>
-    <li>Апельсин</li>
-    <li>Авокадо</li>
-    <li>Ананас</li>
-    <li>Абрикос</li>
-  </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Task 1</title>
+  </head>
+  <body>
+    <ul id="list">
+      <li>Арбуз</li>
+      <li>Апельсин</li>
+      <li>Авокадо</li>
+      <li>Ананас</li>
+      <li>Абрикос</li>
+    </ul>
 
-  <!--
+    <!--
     1. Получить элемент c id="list"
     2. Добавить в конец списка массив фруктов ['Бананы', 'Черника', 'Малина'] и вывести на страницу
-    3. Окрасить каждый нечетный элемент в красный цвет (elem.style.background = 'red')
-    
+    3. Окрасить каждый нечетный элемент в красный цвет (elem.style.background = 'red'
    -->
-  <script>
 
+    <script>
+      // Ответ:
 
-  </script>
-</body>
+      const elem = document.querySelector("#list");
+      mass = ["Бананы", "Черника", "Малина"];
+
+      for (let j = 0; j < mass.length; j++) {
+        let li = document.createElement("li");
+        li.innerHTML = mass[j];
+        elem.append(li);
+      }
+
+      for (let i = 0; i < elem.children.length; i++) {
+        if (i % 2 == 0) {
+          elem.children[i].style.background = "red";
+        }
+      }
+    </script>
+  </body>
 </html>

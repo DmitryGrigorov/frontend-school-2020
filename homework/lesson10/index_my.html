@@ -122,6 +122,7 @@
       </div>
     </div>
 
+<<<<<<< HEAD
   <!--Задача №3 "Поведение подсказка"-->
   <div id="exercise_3" class="exercise">
     <div class="conditions">
@@ -135,6 +136,54 @@
         </p>
         <button data-tooltip="эта подсказка длиннее, чем элемент">Короткая кнопка</button>
         <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
+=======
+    <!--Задача №3 "Поведение подсказка"-->
+    <div id="exercise_3" class="exercise">
+      <div class="conditions">
+        При наведении мыши на элемент
+        <em>(количество таких элементов на странице может быть любым)</em> с
+        атрибутом data-tooltip, над ним должна показываться подсказка и
+        скрываться при переходе на другой элемент.
+      </div>
+      <div class="solution">
+        <div class="article">
+          <p>
+            Товарищи! сложившаяся структура организации представляет собой
+            интересный эксперимент проверки направлений прогрессивного развития.
+            С другой стороны рамки и место обучения кадров способствует
+            подготовки и реализации модели развития.
+          </p>
+          <button data-tooltip="эта подсказка длиннее, чем элемент">
+            Короткая кнопка
+          </button>
+          <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
+        </div>
+        <script>
+
+          // 3)Ответ:
+          const exercise3 = document.querySelector("#exercise_3");
+
+          exercise3.onmouseover = overMause;
+          exercise3.onmouseout = outMause;
+          function overMause(event) {
+            let target = event.target;
+            let span = document.createElement("span");
+            span.style.position = "absolute";
+            span.style.background = "tomato";
+            span.style.padding = "5px";
+            if (target.dataset.tooltip) {
+              span.innerHTML = target.dataset.tooltip;
+              target.prepend(span);
+              span.style.marginTop =-span.getBoundingClientRect().height - 5 + "px";
+            }
+          }
+          function outMause(event) {
+            let target = event.target;
+            let span = target.parentNode.querySelector("span");
+            span && span.remove();
+          }
+        </script>
+>>>>>>> 2323eddcf218d7e8c846e6108f5cc690c3253221
       </div>
       <script>
         const exercise3 = document.querySelector('#exercise_3');
