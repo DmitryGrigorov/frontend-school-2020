@@ -15,7 +15,31 @@
     <li class="list-item">item 5</li>
     <li class="list-item">item 6</li>
   </ul>
+  <script>
+    let list = document.querySelector('#list');
+    list.addEventListener('click', (event) => {
+      let target = event.target;
 
+      if (target.style.background === "red" || event.altKey && event.shiftKey){
+        target.remove();
+      }
+      
+      target.style.background = 'red';
+      if(event.altKey) {
+        target.style.background = 'blue';
+      }
+    })
+
+  let field = document.querySelector('#field');
+  field.addEventListener('keydown', (event) => {
+    if (event.which === 13 && this.value !== '') {
+          let newItem  = document.createElement('li');
+          newItem.textContent = field.value;
+          list.append(newItem);
+          field.value = '';
+    }
+  })
+  </script>
   <!-- 
     Задания для списка:
     1. По клику по элементу списка (li) делать background:red
