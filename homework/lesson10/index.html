@@ -138,7 +138,38 @@
         </div>
         <script>
           const exercise2 = document.querySelector('#exercise_2');
-          // ...решение здесь
+          /* этот код помечает картинки, для удобства разработки
+          let i = 1;
+          for(let li of exercise2.querySelectorAll('li')) {
+            li.style.position = 'relative';
+            li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
+            i++;
+          }*/
+
+          /* конфигурация */
+          let width = exercise2.querySelector('.carousel_list_item').clientWidth // ширина смайла (130)
+          let count = 1; // видимое количество изображений
+
+          let list = exercise2.querySelector('ul');
+          let listElems = exercise2.querySelectorAll('li');
+
+          let position = 0; // положение ленты прокрутки
+
+          exercise2.querySelector('.carousel_button_prev').onclick = function() {
+            // сдвиг влево
+            position += width * count;
+            // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
+            position = Math.min(position, 0)
+            list.style.marginLeft = position + 'px';
+          };
+
+          exercise2.querySelector('.carousel_button_next').onclick = function() {
+            // сдвиг вправо
+            position -= width * count;
+            // при последнем передвижении вправо показываются три элемента в блоке
+            position = Math.max(position, -width * (listElems.length - 3));
+            list.style.marginLeft = position + 'px';
+          };
         </script>
       </div>
     </div>
