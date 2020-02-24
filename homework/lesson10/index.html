@@ -158,7 +158,22 @@
         </div>
         <script>
             const exercise2 = document.querySelector('#exercise_2');
-            // ...решение здесь
+            let width = 130; // ширина фотки
+            let list = exercise2.querySelector('ul');
+            let listElements = exercise2.querySelectorAll('li');
+            let margin = 0;
+
+            exercise2.querySelector('.carousel_button_prev').onclick = function() {
+                margin += width; // Прокрутка на 1 элемент влево
+                margin = margin > 0 ? 0 : margin;
+                list.style.marginLeft = margin + 'px';
+            };
+
+            exercise2.querySelector('.carousel_button_next').onclick = function() {
+                margin -= width; // Прокрутка на 1 элемент вправо
+                margin = Math.max(margin, -width * (listElements.length - 1));
+                list.style.marginLeft = margin + 'px';
+            };
         </script>
     </div>
 </div>
@@ -191,6 +206,7 @@
                         divToolTip.id = 'tooltip';
                         divToolTip.style.border = '1px dotted black';
                         divToolTip.style.backgroundColor = 'white';
+                        divToolTip.style.boxShadow = '-2px -2px 10px black'
                         divToolTip.style.zIndex = 100;
                         divToolTip.style.padding = '5px';
                         divToolTip.style.position = 'absolute';
