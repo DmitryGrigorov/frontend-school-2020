@@ -82,8 +82,31 @@
   </table>
 
   <script>
+    // Ответ:
 
     let form = document.forms.calculator;
+    let money = form.money;
+    let months = form.months;
+    let inter = form.interest;
+    let heightAfter = document.getElementById('height-after');
+
+    calculator();
+
+    money.addEventListener('input', calculator);
+    months.addEventListener('input', calculator);
+    inter.addEventListener('input', calculator);
+
+    function calculator() {
+
+      let years = months.value / 12;
+      let interest = inter.value / 100;
+      let initial = money.value;
+
+      let result = Math.round(initial * (1 + interest * years));    //Расчет результата
+      let resultHeait = (result * 100) / initial;                  //Пропорция относительно столбца было
+      heightAfter.style.height = resultHeait + 'px';
+
+    }
 
     // ваш код
 
@@ -92,8 +115,10 @@
     // interest: проценты, например, 0.05 означает 5% в год
     // years: сколько лет ждать
     // let result = Math.round(initial * (1 + interest * years));
+
   </script>
 
 
 </body>
+
 </html>
