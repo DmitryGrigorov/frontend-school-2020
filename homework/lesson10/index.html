@@ -167,38 +167,33 @@
       </div>
       <script>
         const exercise3 = document.querySelector('#exercise_3');
-      //   exercise3.addEventListener('mouseover', (event) => {
-      //     const target = event.target;
-      //     const tooltip = target.dataset.tooltip;
-      //     if (!tooltip) return;
-      //     if (tooltip) {
-      //       let hint = document.createElement('div');
-      //       hint.innerHTML = tooltip;
-      //       hint.className = 'hint';
-      //       document.body.append(hint);
+        exercise3.querySelectorAll('[data-tooltip]').forEach(function (item) {
+                item.addEventListener('mouseover', tooltipOver);
+                item.addEventListener('mouseout', tooltipOut)
+            });
+            let elemTooltip;
+            function tooltipOver(event) {
+              const target = event.target;
+              let buttonCoords = target.getBoundingClientRect();
+              let tooltipText = target.dataset.tooltip;
+              if (!tooltipText) return;
 
-      //       let coords = target.getBoundingClientRect();
-      //       let left = coords.left + (target.offsetWidth - tooltip.offsetWidth) / 2;
-      //       if (left < 0) left = 0;
+              elemTooltip = document.createElement('div');
+              elemTooltip.className = 'tooltip';
+              elemTooltip.innerHTML = tooltipText;
+              exercise3.append(elemTooltip);
 
-      //       let top = coords.top - tooltip.offsetHeight - 5;
-      //       if (top < 0) {
-      //         top = coords.top + target.offsetHeight + 5;
-      //       }
-
-      //       hint.style.left = left + 'px';
-      //       hint.style.top = top + 'px';
-      //     }
-      // },
-      // exercise3.addEventListener('mouseout', (event) => {
-      //   const target = event.target;
-      //     const tooltip = target.dataset.tooltip;
-      //   if (!tooltip) {
-      //   tooltip.remove();
-      //   tooltip = null;
-      //   }
-      // })
-        </script>
+              let coords = target.getBoundingClientRect();
+              elemTooltip.style.top = (coords.height - buttonCoords.height*4) +"px";
+              elemTooltip.style.left = buttonCoords.left + "px";
+            }
+            function tooltipOut(event) {
+              if (elemTooltip) {
+              elemTooltip.remove();
+              elemTooltip = null;
+            }
+        }
+      </script>
     </div>
 </div>
 
@@ -257,7 +252,6 @@
             window.open(target.href);
           }
         })
-        
       </script>
     </div>
   </div>
