@@ -55,8 +55,19 @@
         </ul>
       </div>
       <script>
-        const exercise1 = document.querySelector('#exercise_1');
-        // ...решение здесь
+        const exercise1 = document.querySelector('#exercise1, .toggle-list');
+        exercise1.addEventListener('click', (event) => {
+            let target = event.target;
+          if (target.classList.contains('toggle-list_toggler_icon') || target.classList.contains('toggle-list_toggler_label')) {
+            target = target.closest('.toggle-list_list');
+            let allLi = target.querySelectorAll('li');
+            let icon = target.querySelector('.toggle-list_toggler_icon');
+            (icon.textContent === '+') ? icon.textContent = '-' : icon.textContent = '+';
+            Array.from(allLi).forEach((item) => {
+              item.hidden = !item.hidden;
+            })
+          }
+        })
       </script>
     </div>
   </div>
@@ -117,7 +128,25 @@
         </div>
         <script>
           const exercise2 = document.querySelector('#exercise_2');
-          // ...решение здесь
+          const carousel = exercise2.querySelector('ul');
+          const list = exercise2.querySelectorAll('li');
+
+          const width = 130;
+          let position = 0;
+          let maxWidthItem = width * list.length;
+
+          document.querySelector('.carousel_button_prev').addEventListener('click', (event) => {
+            if (position < 0) {
+              position += width;
+              carousel.style.marginLeft = position + 'px';
+            }
+          })
+          document.querySelector('.carousel_button_next').addEventListener('click', (event) => {
+            if ( (width * 3 - maxWidthItem) < position) {
+              position -= width;
+              carousel.style.marginLeft = position + 'px';
+            }
+          })
         </script>
       </div>
     </div>
@@ -138,7 +167,32 @@
       </div>
       <script>
         const exercise3 = document.querySelector('#exercise_3');
-        // ...решение здесь
+        exercise3.querySelectorAll('[data-tooltip]').forEach(function (item) {
+                item.addEventListener('mouseover', tooltipOver);
+                item.addEventListener('mouseout', tooltipOut)
+            });
+            let elemTooltip;
+            function tooltipOver(event) {
+              const target = event.target;
+              let buttonCoords = target.getBoundingClientRect();
+              let tooltipText = target.dataset.tooltip;
+              if (!tooltipText) return;
+
+              elemTooltip = document.createElement('div');
+              elemTooltip.className = 'tooltip';
+              elemTooltip.innerHTML = tooltipText;
+              exercise3.append(elemTooltip);
+
+              let coords = target.getBoundingClientRect();
+              elemTooltip.style.top = (coords.height - buttonCoords.height*4) +"px";
+              elemTooltip.style.left = buttonCoords.left + "px";
+            }
+            function tooltipOut(event) {
+              if (elemTooltip) {
+              elemTooltip.remove();
+              elemTooltip = null;
+            }
+        }
       </script>
     </div>
 </div>
@@ -175,7 +229,29 @@
       </div>
       <script>
         const exercise4 = document.querySelector('#exercise_4');
-        // ...решение здесь
+        let listExercise4 = exercise4.querySelector('.menu_highlight_list')
+
+        listExercise4.addEventListener('contextmenu', (event) => {
+          event.preventDefault();
+          let target = event.target.closest('a');
+          if (target.hostname === 'yandex.ru'){
+            window.open(target.href);
+          }
+        })
+        listExercise4.addEventListener('dblclick', (event) => {
+          event.preventDefault();
+          let target = event.target.closest('a');
+          if (target.hostname === 'google.ru'){
+            window.open(target.href);
+          }
+        })
+        listExercise4.addEventListener('click', (event) => {
+          event.preventDefault();
+          let target = event.target.closest('a');
+          if (event.shiftKey && target.hostname === 'mail.ru'){
+            window.open(target.href);
+          }
+        })
       </script>
     </div>
   </div>

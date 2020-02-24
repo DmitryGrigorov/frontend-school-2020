@@ -100,3 +100,14 @@
 }
 
 /* Конец задачи №2 карусель */
+
+.tooltip {
+    position: absolute;
+    line-height: 44px;
+    background: gray;
+    color: black;
+    font-size: 10px;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+    text-align: center;
+}
