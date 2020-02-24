@@ -159,7 +159,29 @@
       </div>
       <script>
         const exercise3 = document.querySelector('#exercise_3');
-        // ...решение здесь
+        exercise3.addEventListener('mouseover', (event) => {
+          let target = event.target;
+          if (target.dataset.tooltip) {
+            let tooltip = document.getElementById('tooltip');
+            if (!tooltip) {
+              tooltip = document.createElement('div');
+              tooltip.id = 'tooltip'
+              tooltip.style.border = '1px solid LightGray';
+              tooltip.style.backgroundColor = 'LightYellow';
+              tooltip.style.zIndex = '1';
+              tooltip.style.padding = '5px';
+              tooltip.style.position = 'absolute';
+              tooltip.style.fontSize = '8pt';
+              tooltip.style.fontFamily = 'Arial';
+              document.body.appendChild(tooltip);
+            }
+            tooltip.hidden = false;
+            tooltip.innerHTML = target.dataset.tooltip;
+            let rect = target.getBoundingClientRect();
+            tooltip.style.left = rect.left + 'px';
+            tooltip.style.top = pageYOffset = rect.top - tooltip.clientHeight - 2 + 'px';
+          }
+        })
       </script>
     </div>
 </div>
