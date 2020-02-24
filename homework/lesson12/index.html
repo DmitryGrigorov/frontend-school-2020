@@ -86,7 +86,17 @@
     let form = document.forms.calculator;
 
     // ваш код
-
+    const calculate = () => {
+      const moneyBefore = Number(form.money.value);
+      const result = Math.round(moneyBefore*(1+Number(form.interest.value)*0.01*Number(form.months.value)/12))
+      const before = document.getElementById('money-before');
+      const after = document.getElementById('money-after');
+      before.innerText = form.money.value;
+      after.innerText = result;
+      document.getElementById('height-after').style.height = `${result/moneyBefore*100}px`
+    }
+    calculate();
+    form.addEventListener('change', calculate);
     // Формула
     // initial: начальная сумма денег
     // interest: проценты, например, 0.05 означает 5% в год
