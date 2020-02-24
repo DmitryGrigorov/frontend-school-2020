@@ -31,6 +31,37 @@
 
   <script>
 
+    let element = document.querySelector('.element');
+    let container = document.querySelector('.container')
+    let div1 = element.cloneNode();
+    let div2 = element.cloneNode();
+    let div3 = element.cloneNode();
+    let div4 = element.cloneNode();
+
+    container.style.position = 'relative';
+
+    container.append(div1);
+    container.append(div2);
+    container.append(div3);
+    container.append(div4);
+
+    div1.style.position = 'absolute';
+    div1.style.left = (container.clientWidth / 2 - div1.clientWidth / 2) + 'px';
+    div1.style.top = (container.clientHeight / 2 - div1.clientHeight / 2) +'px';
+
+    div2.style.position = 'absolute';
+    div2.style.right = '0';
+    div2.style.top = '0';
+
+    div3.style.position = 'absolute';
+    div3.style.right = '0';
+    div3.style.bottom = '0';
+
+    div4.style.position = 'absolute';
+    div4.style.left = '0';
+    div4.style.bottom = '0';
+
+
   </script>
 </body>
 </html>
