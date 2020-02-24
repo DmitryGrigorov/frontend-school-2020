@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+  <link href="style.css" rel="stylesheet">
+  <title>To Do List</title>
+</head>
+<body>
+  <header class="page-header">
+    <div class="page-header__wrapper">
+      <h1 class="page-header__title">My To Do List</h1>
+      <div class="page-header__bottom-column">
+        <input class="page-header__input" type="text" placeholder="Название задачи">
+        <label class="page-header__lebel visually-hidden">Поле для ввода задачи</label>
+        <button class="page-header__button">Добавить</button>
+      </div>
+    </div>
+  </header>
+  <main class="page-main">
+    <ul class="page-main__list">
+      <li class="page-main__item">Пересадить фикус</li>
+      <li class="page-main__item">Закончить вышивку</li>
+      <li class="page-main__item">Сделать домашнее задание №11</li>
+      <li class="page-main__item">Почитать про достопримечательности Тулы</li>
+      <li class="page-main__item">Распечатать ноты</li>
+    </ul>
+  </main>
+  <script>
+    let list = document.querySelector('.page-main__list');
+    let items = list.querySelectorAll('.page-main__item');
+    let button = document.querySelector('.page-header__button');
+    let input = document.querySelector('.page-header__input');
+
+    addCloseButton(items);
+
+    button.addEventListener('click', function () {
+      let newItem = document.createElement('li');
+      newItem.classList.add('page-main__item');
+      let value = input.value;
+      if (value) {
+        newItem.textContent = value;
+        input.value = '';
+        createCloseButton(newItem);
+        list.append(newItem);
+      } else {
+        alert('Введите название задачи в поле ввода');
+      }
+    });
+    
+    list.addEventListener ('click', evt => {
+      let target = evt.target;
+      if (target.tagName === 'LI') {
+        target.classList.toggle('checked');
+      }
+    });
+
+    function addCloseButton (items) {    
+      items.forEach((item) => createCloseButton(item));
+    }
+
+    function createCloseButton (item) {
+      let closeButton = document.createElement('button');
+      closeButton.classList.add('page-main__item-button');
+      closeButton.innerHTML = 'X';
+
+      closeButton.addEventListener('click', function() {
+        item.hidden = true;
+      });
+
+      return item.append(closeButton);
+    }
+
+  </script>
+  <!-- 
+    По ссылке пример реализации TODO листа со стилями и прочим.
+
+    Задача: Реализовать что-то похожее.
+
+    Требования:
+    1. Должен быть инпут с кнопкой "добавить", где в инпут мы вводим значения, а по кнопке "добавить" добавляем, то что ввели.
+    2. Добавленный элементы мы можем перечеркнуть по клику (или как);
+    3. У элементов списка есть кнопка крестика, которая удаляет элемент.
+
+    Пример функционала есть по ссылке https://codepen.io/Grigorov/full/qBdZgwb
+
+    P. S. Желательно делать и использовать стили css
+   -->
+</body>
+</html>

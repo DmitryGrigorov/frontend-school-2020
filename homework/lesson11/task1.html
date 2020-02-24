@@ -16,13 +16,58 @@
     <li class="list-item">item 6</li>
   </ul>
 
-  <!-- 
-    Задания для списка:
-    1. По клику по элементу списка (li) делать background:red
-    2. При зажатой кнопке Alt и клику делать background:blue;
-    3. При нажатой кнопке Alt+Shift удалять элемента независимо от того, есть ли у него background
-    4. Если у item-a уже есть "background: red;", удалять его из списка;
-    5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
-   -->
+  <!-- 1. По клику по элементу списка (li) делать background:red
+  2. При зажатой кнопке Alt и клику делать background:blue;
+  3. При нажатой кнопке Alt+Shift удалять элемента независимо от того, есть ли у него background
+  4. Если у item-a уже есть "background: red;", удалять его из списка;
+  5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута -->
+  
+  <script>
+    let field = document.querySelector('#field');
+
+    document.addEventListener('click', function(evt) {
+      evt.preventDefault();
+      let target = evt.target;
+      if (target.classList == 'list-item') {
+        if (target.style.background == 'red') {
+          target.remove();
+        } else {
+          target.style.background = 'red';
+        }
+      }
+    });
+
+    document.addEventListener('click', function(evt) {
+      evt.preventDefault();
+      if (evt.altKey) {
+      let target = evt.target;
+        if(target.classList == 'list-item') {
+          target.style.background = 'blue';
+        }
+      }
+    });
+
+    document.addEventListener('click', function(evt) {
+      evt.preventDefault();
+      if (evt.altKey && evt.shiftKey) {
+      let target = evt.target;
+        if(target.classList == 'list-item') {
+          target.remove();
+        }
+      }
+    });
+
+    field.addEventListener('keydown', (evt) => {
+      if (evt.keyCode === 13) {
+        let newElement = document.createElement('li');
+        let value = field.value;
+        newElement.textContent = value;
+        field.value = '';
+        newElement.classList.add('list-item');
+        list.append(newElement);
+      }
+    })
+
+  </script>
 </body>
 </html>
