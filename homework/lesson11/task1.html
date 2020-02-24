@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>task1</title>
-</head>
-<body>
-  <input id="field" type="text">
-  <ul id="list">
-    <li class="list-item">item 1</li>
-    <li class="list-item">item 2</li>
-    <li class="list-item">item 3</li>
-    <li class="list-item">item 4</li>
-    <li class="list-item">item 5</li>
-    <li class="list-item">item 6</li>
-  </ul>
 
-  <!-- 
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task1</title>
+    <style>
+      li {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <input id="field" type="text">
+    <ul id="list">
+      <li class="list-item">item 1</li>
+      <li class="list-item">item 2</li>
+      <li class="list-item">item 3</li>
+      <li class="list-item">item 4</li>
+      <li class="list-item">item 5</li>
+      <li class="list-item">item 6</li>
+    </ul>
+
+    <!-- 
     Задания для списка:
     1. По клику по элементу списка (li) делать background:red
     2. При зажатой кнопке Alt и клику делать background:blue;
@@ -24,5 +31,39 @@
     4. Если у item-a уже есть "background: red;", удалять его из списка;
     5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
    -->
-</body>
+
+    <script>
+      const list = document.getElementById("list");
+      const field = document.getElementById("field");
+
+      list.addEventListener("click", (event) => {
+        const element = event.target;
+
+        if (element.tagName === "LI" && element.style.backgroundColor === "red") element.remove();
+
+        if (element.tagName === "LI") {
+          element.style.backgroundColor = "red";
+        }
+
+        if (element.tagName === "LI" && event.altKey) {
+          element.style.backgroundColor = "blue";
+        }
+
+        if (element.tagName === "LI" && event.altKey && event.shiftKey) {
+          element.remove();
+        }
+      });
+
+      field.addEventListener("keydown", (event) => {
+        if (event.code === "Enter" && field.value !== "") {
+          const newElement = document.createElement("li");
+          newElement.textContent = field.value;
+          newElement.classList.add("list-item");
+          list.append(newElement);
+          field.value = "";
+        }
+      })
+    </script>
+  </body>
+
 </html>
