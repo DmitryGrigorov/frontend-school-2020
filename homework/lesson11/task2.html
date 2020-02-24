@@ -3,9 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./task2.css">
   <title>Task 2</title>
 </head>
 <body>
+  <div class="header">
+    <h2>My To Do List</h2>
+    <input type="text" id="Input" placeholder="Title...">
+    <button class="addItem">Add</button>
+    
+  </div>
+  <ul id="list">
+    <li>Hit the gym</li>
+    <li>Pay bills</li>
+    <li>Meet George</li>
+    <li>Buy eggs</li>
+    <li>Read a book</li>
+    <li>Organize office</li>
+    </ul>
+  <script>
+
+function addSpan (item) {
+  let span = document.createElement("SPAN");
+  let close = document.createTextNode("\u00D7");
+  span.className = 'close';
+  span.appendChild(close);
+  item.appendChild(span);
+}
+
+function close (item) {
+  item.addEventListener('click', (event) => {
+    event.target.parentNode.style.display = 'none';
+  })
+}
+
+function checked (item) {
+  item.addEventListener('click', (event) => {
+    event.target.classList.toggle('checked')
+  }, false);
+}
+
+document.querySelectorAll('li').forEach(item => addSpan(item));
+document.querySelectorAll('.close').forEach(item => close(item));
+document.querySelectorAll('li').forEach(item => checked(item));
+ 
+document.querySelector('.addItem').addEventListener('click', newItem);
+document.querySelector('#Input').addEventListener('keydown', (event) => {
+  if (event.keyCode === 13) 
+    newItem();
+});
+
+function newItem() {
+
+  if (document.getElementById("Input").value === '') {
+    alert("You must write something!");
+    return;
+  }
+
+  let newLi = document.createElement("li");
+  newLi.textContent = document.getElementById("Input").value;
+  document.querySelector('#list').appendChild(newLi);
+
+  let span = document.createElement("SPAN");
+  let close = document.createTextNode("\u00D7");
+  span.className = 'close';
+  span.appendChild(close);
+  newLi.appendChild(span);
+
+  newLi.addEventListener('click', (event) => {
+    event.target.classList.toggle('checked')
+  }, false);
+
+  span.addEventListener('click', (event) => {
+    let parent = event.target.parentNode;
+    parent.style.display = 'none';
+  })
+
+  document.getElementById("Input").value = '';
+  document.getElementById("Input").focus();
+};
+  </script>
   <!-- 
     По ссылке пример реализации TODO листа со стилями и прочим.
 
