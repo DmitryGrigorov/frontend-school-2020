@@ -138,9 +138,9 @@
           </div>
         </div>
         <script>
-          // const exercise2 = document.querySelector('#exercise_2');
+          const exercise2 = document.querySelector('#exercise_2');
           let count = 0;
-          document.addEventListener('click', event => {
+          exercise2.addEventListener('click', event => {
             let lenghtLi = document.querySelectorAll('#exercise_2 .carousel_list_item').length - 3;
             const carusel = document.querySelector('#exercise_2 .carousel_list');
             carusel.style.transition = '0.3s';
@@ -182,7 +182,6 @@
           handleEvent(event) {
             switch (event.type) {
               case 'mouseover':
-                //фукнция
                 event.target.style.position = 'relative';
                 const tooltip = document.createElement('SPAN');
                 tooltip.style.position = 'absolute';
@@ -221,19 +220,19 @@
       <div class="menu_highlight">
         <ul class="menu_highlight_list">
             <li class="menu_highlight_item">
-              <a href="https://yandex.ru">
+              <a href="https://yandex.ru" data-link="yandex">
                   Переход на yandex только при клике правой кнопкой мыши
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://google.ru">
+              <a href="https://google.ru" data-link="google">
                 <strong>
                   Переход на google только при двойном клике
                 </strong>
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://mail.ru">
+              <a href="https://mail.ru" data-link="mail">
                 <em>
                   Переход на mail только при клике с нажатой кнопкой 'Shift'
                 </em>
@@ -243,11 +242,47 @@
       </div>
       <script>
         const exercise4 = document.querySelector('#exercise_4');
-        const link = exercise4.querySelectorAll('menu_highlight_item');
+        const link = exercise4.querySelectorAll('.menu_highlight_item');
+
+        class OnActiveLink {
+          handleEvent(event) {
+            let target;
+            if(event.target.tagName === 'A') {
+              target = event.target;
+            } else {
+              target = event.target.closest('A');
+            }
+            switch (event.type) {
+              case 'click':
+                event.preventDefault();
+                if (target.dataset.link === 'mail' && event.shiftKey) {
+                  window.location = target.href;
+                }
+                break;
+              case 'dblclick':
+                if (target.dataset.link === 'google') {
+                  window.location = target.href;
+                  }
+                break;
+              case 'contextmenu':
+                if (target.dataset.link === 'yandex') {
+                  event.preventDefault();
+                  window.location = target.href;
+                }
+                break;
+            }
+          }
+        }
+
+        let onLink = new OnActiveLink();
+
         link.forEach(el => {
-          el.addEventListener('')
+          el.addEventListener('click', onLink);
+          el.addEventListener('dblclick', onLink);
+          el.addEventListener('contextmenu', onLink);
         })
-      </script>
+
+        </script>
     </div>
   </div>
 </body>
