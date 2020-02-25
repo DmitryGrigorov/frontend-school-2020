@@ -56,21 +56,24 @@
         </div>
         <script>
             const exercise1 = document.querySelector('#exercise_1');
-            exercise1.addEventListener('click', (event)=>{
+            exercise1.addEventListener('click', (event) => {
                 const target = event.target;
-                if(target.closest('.toggle-list_toggler')) {
-                    const list = target.closest('.toggle-list_list')
-                    const iconContainer = list.querySelector('.toggle-list_toggler_icon')
-                    if(iconContainer.innerText==='+') {
-                        list.querySelectorAll('li').forEach((item) => {if(item.parentNode===list) item.hidden=true})
-                        iconContainer.innerText='-'
-                    }
-                    else {
-                        list.querySelectorAll('li').forEach((item) => {if(item.parentNode===list) item.hidden=false})
-                        iconContainer.innerText='+'
+                if (target.closest('.toggle-list_toggler')) {
+                    const list = target.closest('.toggle-list_list');
+                    const iconContainer = list.querySelector('.toggle-list_toggler_icon');
+                    if (iconContainer.innerText === '+') {
+                        list.querySelectorAll('li').forEach((item) => {
+                            if (item.parentNode === list) item.hidden = true
+                        })
+                        iconContainer.innerText = '-';
+                    } else {
+                        list.querySelectorAll('li').forEach((item) => {
+                            if (item.parentNode === list) item.hidden = false;
+                        })
+                        iconContainer.innerText = '+';
                     }
                 }
-            })
+            });
         </script>
     </div>
 </div>
@@ -137,16 +140,11 @@
             const list = exercise2.querySelector('.carousel_list');
             const pictCount = exercise2.querySelectorAll('.carousel_list .carousel_list_item').length;
             exercise2.addEventListener('click', (event) => {
-              if(event.target.classList.contains('carousel_button_next')){
-                  pic++
-              }
-                if(event.target.classList.contains('carousel_button_prev')){
-                    pic--
-                }
-                if(pic<0) pic=0;
-                if(pic>(pictCount-3)) pic=pictCount-3
-                list.style.transition = 'margin-left 0.5s ease-in 0.1s'
-                list.style.marginLeft = `${-pic*130}px`;
+                if (event.target.classList.contains('carousel_button_next')) pic++;
+                if (event.target.classList.contains('carousel_button_prev')) pic--;
+                if (pic < 0) pic = 0;
+                if (pic > (pictCount - 3)) pic = pictCount - 3;
+                list.style.marginLeft = `${-pic * 130}px`;
             })
         </script>
     </div>
@@ -173,22 +171,20 @@
             const exercise3 = document.querySelector('#exercise_3');
             exercise3.addEventListener('mouseover', (event) => {
                 const message = event.target.dataset['tooltip'];
-                if(message) {
+                if (message) {
                     const tooltip = document.createElement('div');
                     tooltip.setAttribute('id', 'tooltip');
+                    tooltip.className = 'tooltip';
                     tooltip.innerText = message;
-                    tooltip.style.position = 'absolute';
-                    tooltip.style.left = event.pageX+'px';
-                    tooltip.style.top = event.pageY+'px';
-                    tooltip.style.border = '1px solid black';
-                    tooltip.style.backgroundColor = 'red'
+                    tooltip.style.left = event.pageX + 'px';
+                    tooltip.style.top = event.pageY + 'px';
                     document.body.appendChild(tooltip);
                 }
-            })
+            });
             exercise3.addEventListener('mouseout', () => {
                 const tooltip = document.getElementById('tooltip');
-                if(tooltip) document.body.removeChild(tooltip);
-            })
+                if (tooltip) document.body.removeChild(tooltip);
+            });
         </script>
     </div>
 </div>
@@ -227,10 +223,10 @@
             const exercise4 = document.querySelector('#exercise_4');
             const clickHandler = (event) => {
                 let target = event.target;
-               target=target.closest('a');
-                if (target.tagName === "A"){
+                target = target.closest('a');
+                if (target.tagName === 'A') {
                     if (target.href.includes('yandex')) {
-                        if (event.type === "contextmenu") {
+                        if (event.type === 'contextmenu') {
                             window.location = target.href;
                         }
                         event.preventDefault();
@@ -243,15 +239,15 @@
                     }
                     if (target.href.includes('mail')) {
                         if (event.type === "click" && event.shiftKey) {
-                           window.location = target.href;
+                            window.location = target.href;
                         }
                         event.preventDefault();
                     }
                 }
-            }
+            };
             exercise4.addEventListener('click', clickHandler);
-            exercise4.addEventListener('contextmenu', clickHandler)
-            exercise4.addEventListener('dblclick', clickHandler)
+            exercise4.addEventListener('contextmenu', clickHandler);
+            exercise4.addEventListener('dblclick', clickHandler);
         </script>
     </div>
 </div>
