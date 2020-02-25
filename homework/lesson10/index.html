@@ -316,57 +316,79 @@
       <script>
         const exercise4 = document.querySelector('#exercise_4');
         // ...решение здесь
-
-        let listItems = exercise4.querySelectorAll('li.menu_highlight_item');
-
-        listItems.forEach(function(el){
-
-          el.addEventListener('contextmenu', function(event){
-            let link = getLink(event, el);
-
-            event.preventDefault();
-            if(link && link.indexOf('yandex.ru') != -1){
-              el.fireEvent('click');
-            }
-            
-          });
-
-          el.addEventListener('click', function(event){
-            let link = getLink(event, el);
-            console.log('click');
-            //if(!link || link.indexOf('mail.ru') == -1){
-              event.preventDefault();
-            //}
-            
-          });
-
-          el.addEventListener('dblclick', function(event){
-            let link = getLink(event, el);
-
-            console.log('dblclick');
-            console.log(link);
-            console.log(link.indexOf('google.ru'));
-            if(!link || link.indexOf('google.ru') == -1){
-              event.preventDefault();
-            }
-            
-          });
-
-        });
-
-        function getLink(event, el){
-          let target = event.target.closest('a');
-
-          if(target && el.contains(target))
-            return target.getAttribute('href');
-
-          return;
+        
+        //разрешаем проход по ссылке
+        function runLink(event){
+          return true;
         }
-
-        function preventDefault(event){
+        //запрещаем проход по ссылке
+        function stopLink(event){
           event.preventDefault();
         }
-        // console.log(listItems);
+
+        //запрещаем всем ссылкам внутри exercise4 переход по ссылкам
+        exercise4.addEventListener('click', stopLink);
+        exercise4.addEventListener('dblclick', stopLink);
+        exercise4.addEventListener('contextmenu', stopLink);
+
+        //счетчик нажатий для распознования dblclick
+        let clickCount = 0;
+
+        exercise4.addEventListener('mouseup', function(event){
+          //снимаем ссылкам возможность перехода
+          exercise4.removeEventListener('click', runLink);
+          exercise4.removeEventListener('dblclick', runLink);
+          exercise4.removeEventListener('contextmenu', runLink);
+          //закрываем ссылкам возможность перехода
+          exercise4.addEventListener('click', stopLink);
+          exercise4.addEventListener('dblclick', stopLink);
+          exercise4.addEventListener('contextmenu', stopLink);
+
+          //получаем ссылку
+          let link = getLink(event);
+
+          //если нет ссылки, ничего не делаем
+          if(!link)
+            return;
+
+          clickCount++;
+
+          switch(event.which){
+            case 1:
+              //переход на mail по клику и нажатому Shift
+              if(link.indexOf('mail.ru') >= 0 && event.shiftKey){
+                exercise4.removeEventListener('click', stopLink);
+                exercise4.addEventListener('click', runLink);
+              } 
+              //переход на гугл по двойному клику
+              else if(link.indexOf('google.ru') >= 0){
+                if(clickCount === 2){
+                  exercise4.removeEventListener('click', stopLink);
+                  exercise4.addEventListener('click', runLink);
+                }
+              }
+              break;
+            case 3:
+              //переход на yandex по правой кнопке мыши
+              if(link.indexOf('yandex.ru') >= 0){
+                //как без объекта window решить переход по правой кнопки мыши не знаю
+                window.location = link;
+              }
+              break;
+          }
+          //сбрасываем счетчик кликов через 0,5 сек - для проверки dblclick;
+          setTimeout(() => clickCount = 0, 500);
+          
+        });
+
+        //функция получения ссылки
+        function getLink(event){
+          let aElem = event.target.closest('A');
+          
+          if(exercise4.contains(aElem))
+            return aElem.getAttribute('href');
+        }
+
       </script>
     </div>
   </div>
