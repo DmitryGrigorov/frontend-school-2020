@@ -56,7 +56,28 @@
       </div>
       <script>
         const exercise1 = document.querySelector('#exercise_1');
-        // ...решение здесь
+        let divLvl1 = exercise1.querySelectorAll('.toggle-list_toggler');
+        //Создание переключателя для каждого div первого уровня
+        for(let divLvl1Item of divLvl1) {
+          divLvl1Item.addEventListener('click', () => {
+            let li = null;
+            switch (divLvl1Item.children[0].textContent) {
+              case '+':
+                divLvl1Item.children[0].textContent = '-';
+                li = divLvl1Item.parentElement.children;
+                for (let itemLi of li){
+                  itemLi.hidden = true;
+                }
+                break;
+              case '-':
+                divLvl1Item.children[0].textContent = '+';
+                li = divLvl1Item.parentElement.children;
+                for (let itemLi of li){
+                  itemLi.hidden = false;
+                }
+            }
+          })
+        }
       </script>
     </div>
   </div>
@@ -117,7 +138,38 @@
         </div>
         <script>
           const exercise2 = document.querySelector('#exercise_2');
-          // ...решение здесь
+          /* этот код помечает картинки, для удобства разработки
+          let i = 1;
+          for(let li of exercise2.querySelectorAll('li')) {
+            li.style.position = 'relative';
+            li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
+            i++;
+          }*/
+
+          /* конфигурация */
+          let width = exercise2.querySelector('.carousel_list_item').clientWidth // ширина смайла (130)
+          let count = 1; // видимое количество изображений
+
+          let list = exercise2.querySelector('ul');
+          let listElems = exercise2.querySelectorAll('li');
+
+          let position = 0; // положение ленты прокрутки
+
+          exercise2.querySelector('.carousel_button_prev').onclick = function() {
+            // сдвиг влево
+            position += width * count;
+            // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
+            position = Math.min(position, 0)
+            list.style.marginLeft = position + 'px';
+          };
+
+          exercise2.querySelector('.carousel_button_next').onclick = function() {
+            // сдвиг вправо
+            position -= width * count;
+            // при последнем передвижении вправо показываются три элемента в блоке
+            position = Math.max(position, -width * (listElems.length - 3));
+            list.style.marginLeft = position + 'px';
+          };
         </script>
       </div>
     </div>
@@ -138,7 +190,29 @@
       </div>
       <script>
         const exercise3 = document.querySelector('#exercise_3');
-        // ...решение здесь
+        exercise3.addEventListener('mouseover', (event) => {
+          let target = event.target;
+          if (target.dataset.tooltip) {
+            let tooltip = document.getElementById('tooltip');
+            if (!tooltip) {
+              tooltip = document.createElement('div');
+              tooltip.id = 'tooltip'
+              tooltip.style.border = '1px solid LightGray';
+              tooltip.style.backgroundColor = 'LightYellow';
+              tooltip.style.zIndex = '1';
+              tooltip.style.padding = '5px';
+              tooltip.style.position = 'absolute';
+              tooltip.style.fontSize = '8pt';
+              tooltip.style.fontFamily = 'Arial';
+              document.body.appendChild(tooltip);
+            }
+            tooltip.hidden = false;
+            tooltip.innerHTML = target.dataset.tooltip;
+            let rect = target.getBoundingClientRect();
+            tooltip.style.left = rect.left + 'px';
+            tooltip.style.top = pageYOffset = rect.top - tooltip.clientHeight - 2 + 'px';
+          }
+        })
       </script>
     </div>
 </div>
@@ -153,19 +227,19 @@
       <div class="menu_highlight">
         <ul class="menu_highlight_list">
             <li class="menu_highlight_item">
-              <a href="https://yandex.ru">
+              <a href="https://yandex.ru" data-click = "contextmenu">
                   Переход на yandex только при клике правой кнопкой мыши
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://google.ru">
+              <a href="https://google.ru" data-click = "dblclick">
                 <strong>
                   Переход на google только при двойном клике
                 </strong>
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://mail.ru">
+              <a href="https://mail.ru" data-click = "shiftKey">
                 <em>
                   Переход на mail только при клике с нажатой кнопкой 'Shift'
                 </em>
@@ -175,7 +249,40 @@
       </div>
       <script>
         const exercise4 = document.querySelector('#exercise_4');
-        // ...решение здесь
+
+        exercise4.addEventListener('click', (event) => goToHref(event.type, event) );
+
+        exercise4.addEventListener('contextmenu', (event) => goToHref(event.type, event) );
+
+        exercise4.addEventListener('dblclick', (event) => goToHref(event.type, event) );
+
+        function goToHref(e, event) {
+          let target = event.target;
+          if (target.closest('a')){ //Исключение ошибки в случае, если у элемента нет <A>
+            target = target.closest('a');
+            let href = target.closest('a').href;
+            let dataset = target.dataset.click;
+            event.preventDefault();
+
+            switch (dataset) { //Проверка дополнительного атрибута
+              case 'contextmenu':
+                if(e === 'contextmenu') {
+                  document.location = href;
+                }
+                break;
+              case 'dblclick':
+                if(e === 'dblclick'){
+                  document.location = href;
+                }
+                break;
+              case 'shiftKey':
+                if(event.shiftKey === true){
+                  document.location = href;
+                }
+                break;
+            }
+          }
+        }
       </script>
     </div>
   </div>
