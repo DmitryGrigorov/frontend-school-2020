@@ -37,6 +37,14 @@
     color: red;
     padding: 0 5px;
 }
+.toggle-list_toggler_icon::before{
+    content:"+";
+    padding: 0 5px;
+}
+.toggle-list_toggler_icon-closed::before{
+     content:"-";
+     padding: 0 5px;
+}
 
 .toggle-list_list {
     display: block;
@@ -99,6 +107,20 @@
 .carousel_list_item img {
     width: 130px;
     height: 130px;
+    display:block;
 }
 
 /* Конец задачи №2 карусель */
+ .tooltip 
+ {
+      position: fixed;
+      z-index: 100;
+      text-align: center;
+      color: black;
+      background: white;
+      padding: 10px 20px;
+      border: 1px solid #b3c9ce;
+      font: italic 14px/1.3 sans-serif;
+      color: #333;
+      box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+ }
