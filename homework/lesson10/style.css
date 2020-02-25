@@ -88,6 +88,7 @@
     display: flex;
     flex-direction: row;
     margin-left: 0px;
+    transition: margin-left 0.5s ease-in 0.1s;
 }
 
 .carousel_list_item {
@@ -100,3 +101,9 @@
 }
 
 /* Конец задачи №2 карусель */
+
+.tooltip {
+    position: absolute;
+    border: 1px solid black;
+    background-color: red;
+}
