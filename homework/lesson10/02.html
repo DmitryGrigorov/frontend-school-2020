@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 10: task 2</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div id="exercise_2" class="exercise">
+    <div class="conditions">
+        <p>
+            При клике на синюю кнопку, карусель должна прокрутиться на 1 элемент вправо (если мы не достигли конца)
+        </p>
+        <p>
+            При клике на красную кнопку карусель должна прокрутиться на 1 элемент влево (если мы не достигли начала)
+        </p>
+        <p>
+            <em>
+                Постарайтесь написать свою разметку html, чтобы понять принцип работы карусели
+            </em>
+        </p>
+    </div>
+    <div class="solution">
+        <div class="carousel">
+            <div class="carousel_button carousel_button_prev"></div>
+            <div class="carousel_button carousel_button_next"></div>
+            <div class="carousel_list_wrapper">
+                <ul class="carousel_list">
+                    <li class="carousel_list_item">
+                        <img src="https://ru.js.cx/carousel/1.png" alt="smile-1">
+                    </li>
+                    <li class="carousel_list_item">
+                        <img src="https://ru.js.cx/carousel/2.png" alt="smile-2">
+                    </li>
+                    <li class="carousel_list_item">
+                        <img src="https://ru.js.cx/carousel/3.png" alt="smile-3">
+                    </li>
+                    <li class="carousel_list_item">
+                        <img src="https://ru.js.cx/carousel/4.png" alt="smile-4">
+                    </li>
+                    <li class="carousel_list_item">
+                        <img src="https://ru.js.cx/carousel/5.png" alt="">
+                    </li>
+                    <li class="carousel_list_item">
+                        <img src="https://ru.js.cx/carousel/6.png" alt="">
+                    </li>
+                    <li class="carousel_list_item">
+                        <img src="https://ru.js.cx/carousel/7.png" alt="">
+                    </li>
+                    <li class="carousel_list_item">
+                        <img src="https://ru.js.cx/carousel/8.png" alt="">
+                    </li>
+                    <li class="carousel_list_item">
+                        <img src="https://ru.js.cx/carousel/9.png" alt="">
+                    </li>
+                    <li class="carousel_list_item">
+                        <img src="https://ru.js.cx/carousel/10.png" alt="">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            // создаем переменные для кнопок и карусельки
+            const goLeft = document.querySelector(".carousel .carousel_button_prev");
+            const goRight = document.querySelector(".carousel .carousel_button_next");
+            const carousel = document.querySelector(".carousel_list");
+
+            // устанавливаем лиснер событий
+            goLeft.addEventListener("click", function () {
+                // функция-обработчик события клика на левую кнопку
+                // выбираем все элементы карусели
+                const items = document.querySelectorAll(".carousel_list .carousel_list_item");
+                // выбираем первый элемент карусели
+                const firstItem = items[0];
+                // используем методы массива на всех элементах
+                Array.from(items).map(
+                    function (item, index) {
+                        // если индекс элемента равен 0, тогда делаем его первым
+                        if (index === items.length - 1) {
+                            carousel.append(firstItem);
+                        } else {
+                            //иначе следующим
+                            carousel.append(items[index + 1]);
+                        }
+                    }
+                );
+
+            });
+            goRight.addEventListener("click", function () {
+                    // функция-обработчик события клика на левую кнопку
+                    // выбираем все элементы карусели
+                    const items = document.querySelectorAll(".carousel_list .carousel_list_item");
+                    // выбираем последний элемент карусели (длинна массив - 1, получаем индекс последнего элемента)
+                    const lastItem = items[items.length - 1];
+                    // используем методы массива на всех элементах
+                    Array.from(items).map(
+                        function (item, index) {
+                            if (index === 0) {
+                                carousel.append(lastItem);
+                            } else {
+                                carousel.append(items[index - 1]);
+                            }
+                        }
+                    )
+                });
+
+
+
+        </script>
+    </div>
+</div>
+</body>
+</html>

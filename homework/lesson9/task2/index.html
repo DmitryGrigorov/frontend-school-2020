@@ -22,6 +22,11 @@
     <div class="element"></div>
   </div>
 
+  <button id="button-c">Clone to center</button>
+  <button id="button-rt">Clone to right and top</button>
+  <button id="button-rb">Clone to right and bottom</button>
+  <button id="button-lb">Clone to left and bottom</button>
+
 <!-- 
   1. Склонировать элемент (ноду) и расположить его по центру контейнера
   2. Склонировать элемент (ноду) и расположить его в правый верхний угол контейнера
@@ -30,6 +35,57 @@
 -->
 
   <script>
+    const bigBox = document.querySelector('.container');
+    const smallBox = document.querySelector('.element');
+    bigBox.style.position = "relative";
+
+    let buttonC = document.getElementById('button-c');
+    let buttonRt = document.getElementById('button-rt');
+    let buttonRb = document.getElementById('button-rb');
+    let buttonLb = document.getElementById('button-lb');
+
+
+
+    buttonC.addEventListener('click', function () {
+      let clone1 = smallBox.cloneNode(true);
+      bigBox.append(clone1);
+      clone1.textContent = "1";
+      clone1.style.position = "absolute";
+      clone1.style.top  = (bigBox.clientHeight/2 - clone1.clientHeight/2) + 'px';
+      clone1.style.left = (bigBox.clientWidth/2 - clone1.clientWidth/2) + 'px';
+      buttonC.hidden = true;
+    });
+
+    buttonRt.addEventListener('click', function () {
+      let clone2 = smallBox.cloneNode(true);
+      bigBox.append(clone2);
+      clone2.textContent = "2";
+      clone2.style.position = "absolute";
+      clone2.style.top  = '0px';
+      clone2.style.left = (bigBox.clientWidth - clone2.clientWidth) + 'px';
+      buttonRt.hidden = true;
+    });
+
+    buttonRb.addEventListener('click', function () {
+      let clone3 = smallBox.cloneNode(true);
+      bigBox.append(clone3);
+      clone3.textContent = "3";
+      clone3.style.position = "absolute";
+      clone3.style.top  = (bigBox.clientHeight - clone3.clientHeight) + 'px';
+      clone3.style.left = (bigBox.clientWidth - clone3.clientWidth) + 'px';
+      buttonRb.hidden = true;
+    });
+
+    buttonLb.addEventListener('click', function () {
+      let clone4 = smallBox.cloneNode(true);
+      bigBox.append(clone4);
+      clone4.textContent = "4";
+      clone4.style.position = "absolute";
+      clone4.style.top  = (bigBox.clientHeight - clone4.clientHeight) + 'px';
+      clone4.style.left = '0px';
+      buttonLb.hidden = true;
+    });
+
 
   </script>
 </body>

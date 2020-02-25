@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 10: task 3</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div id="exercise_3" class="exercise">
+    <div class="conditions">
+        При наведении мыши на элемент <em>(количество таких элементов на странице может быть любым)</em> с атрибутом data-tooltip,
+        над ним должна показываться подсказка и скрываться при переходе на другой элемент.
+    </div>
+    <div class="solution">
+        <div class="article">
+            <p>
+                Товарищи! сложившаяся структура организации представляет собой интересный эксперимент проверки направлений прогрессивного развития. С другой стороны рамки и место обучения кадров способствует подготовки и реализации модели развития.
+            </p>
+            <button data-tooltip="эта подсказка длиннее, чем элемент">Короткая кнопка</button>
+            <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
+        </div>
+        <script>
+            let tooltipItem;
+            document.onmouseover = function (event) {
+                let target = event.target;
+                let tooltipContent = target.dataset.tooltip;
+                if (!tooltipContent) return;
+
+                tooltipItem = document.createElement('div');
+                tooltipItem.className = 'tooltip';
+                tooltipItem.innerHTML = tooltipContent;
+                document.body.append(tooltipItem);
+                let dimentions = target.getBoundingClientRect();
+                let left = dimentions.left + (target.offsetWidth - tooltipItem.offsetWidth) / 2;
+                if (left < 0) left = 0;
+                let top = dimentions.top - tooltipItem.offsetHeight - 5;
+                if (top < 0) {
+                    top = dimentions.top + target.offsetHeight + 5;
+                }
+                tooltipItem.style.left = left + 'px';
+                tooltipItem.style.top = top + 'px';
+
+            };
+
+            document.onmouseout = function(e) {
+
+                if (tooltipItem) {
+                    tooltipItem.remove();
+                    tooltipItem = null;
+                }
+            };
+        </script>
+    </div>
+</div>
+</body>
+</html>

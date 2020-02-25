@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 10: task 4</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div id="exercise_4" class="exercise">
+    <div class="conditions">
+        Решить при помощи делегирования
+        Можно добавить в html любые атрибуты
+    </div>
+    <div class="solution">
+        <div class="menu_highlight">
+            <ul class="menu_highlight_list">
+                <li class="menu_highlight_item">
+                    <a id="yandex" href="https://yandex.ru">
+                        Переход на yandex только при клике правой кнопкой мыши
+                    </a>
+                </li>
+                <li class="menu_highlight_item">
+                    <a id="google" href="https://google.ru">
+                        <strong>
+                            Переход на google только при двойном клике
+                        </strong>
+                    </a>
+                </li>
+                <li class="menu_highlight_item">
+                    <a id="mail" href="https://mail.ru">
+                        <em>
+                            Переход на mail только при клике с нажатой кнопкой 'Shift'
+                        </em>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <script>
+            const yandexLink = document.querySelector('#yandex');
+            const googleLink = document.querySelector('#google');
+            const mailLink = document.querySelector('#mail');
+
+            yandexLink.addEventListener('click', function (event) {
+                event.preventDefault();
+            });
+            yandexLink.addEventListener('contextmenu', function (event) {
+                event.preventDefault();
+                const link = yandexLink.getAttribute('href');
+                window.open(link);
+            });
+
+            googleLink.addEventListener('click', function (event) {
+                event.preventDefault();
+            });
+            googleLink.addEventListener('dblclick', function (event) {
+                event.preventDefault();
+                const link = googleLink.getAttribute('href');
+                window.open(link);
+            });
+
+            mailLink.addEventListener('click', function (event) {
+                event.preventDefault();
+                const link = mailLink.getAttribute('href');
+                if (event.shiftKey) {
+                    window.open(link);
+                }
+            });
+
+        </script>
+    </div>
+</div>
+</body>
+</html>
