@@ -19,37 +19,136 @@
     cat.meow(); // выводит в консоль "murzik: meow"
  */
 
- /*
-    2)
+class Cat {
+    name;
+    state = 'lying';
 
-    Создайте два класса Animal и Dog
-    У всех экземпляров класса Animal есть собственные (не наследуемые) свойства: { movingType, color }
-    Например: const someAnimal = new Animal('walking', 'black'); // { movingType: 'walking', color: 'black' };
-    А у экземпляров класса Dog есть собственные свойства: { name, age, weight }
-    Например: const someDog = new Dog('tuzik', 4, 10); // { name: 'tuzik', age: 4, weight: 10 };
-    Реализуйте наследование класса Animal классом Dog,
-    так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
-    Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
- */
+    constructor(name) {
+        this.name = name;
+    }
 
- /*
-    3)
+    meow() {
+        console.log(`${this.name}: meow`)
+    };
 
-    Создайте два класса Transport и Car
-    Эклемпляры класса Transport имеют свойтсво status и методы run и stop,
-    которые меняют свойсто status на 'running' и 'stopped' соответсвтенно.
-    Унаследуйте эти методы и свойство классом Car
-    
-    Например:
-    const someTransport = new Transport();
-    console.log(someTransport.status); // 'stopped'
-    console.log(someTransport.run()); // 'running'
-    console.log(someTransport.stop()); // 'stopped'
-    const someCar = new Car();
-    console.log(someCar.status); // 'stopped'
-    console.log(someCar.run()); // 'running'
-    console.log(someCar.stop()); // 'stopped'
- */
+    up() {
+        this.state = 'standing';
+    };
+
+    down() {
+        this.state = 'lying';
+    };
+}
+
+const cat = new Cat('murzik'); // Конструктор
+console.log('#1):')
+console.log(`cat.name: ${cat.name}`); // 'cat.name: murzik
+console.log(`cat.state: ${cat.state}`); // 'cat.state: lying'
+cat.up();
+console.log(`cat.state: ${cat.state}`); // 'cat.state: standing'
+cat.down();
+console.log(`cat.state: ${cat.state}`); // 'cat.state: lying'
+cat.meow(); // выводит в консоль "murzik: meow"
+
+
+/*
+   2)
+
+   Создайте два класса Animal и Dog
+   У всех экземпляров класса Animal есть собственные (не наследуемые) свойства: { movingType, color }
+   Например: const someAnimal = new Animal('walking', 'black'); // { movingType: 'walking', color: 'black' };
+   А у экземпляров класса Dog есть собственные свойства: { name, age, weight }
+   Например: const someDog = new Dog('tuzik', 4, 10); // { name: 'tuzik', age: 4, weight: 10 };
+   Реализуйте наследование класса Animal классом Dog,
+   так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
+   Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
+*/
+
+class Animal {
+    movingType = 'lying';
+    color = 'transparent';
+
+    constructor(movingType, color) {
+        if (movingType != undefined) this.movingType = movingType;
+        if (color != undefined) this.color = color;
+    }
+}
+
+class Dog extends Animal {
+    name;
+    age;
+    weight;
+
+    constructor(...args) {
+        if (args.length == 3) {
+            super(); //Берутся значения по умолчанию из Animal
+            this.name = args[0]
+            this.age = args[1]
+            this.weight = args[2]
+        } else {
+            super(args[0], args[1])
+            this.name = args[2]
+            this.age = args[3]
+            this.weight = args[4]
+        }
+    }
+}
+
+console.log('\n#2):');
+const someAnimal = new Animal('walking', 'black');
+console.log(someAnimal)
+const someDog1 = new Dog('tuzik', 4, 10);
+console.log(someDog1)
+const someDog2 = new Dog('walking', 'black', 'tuzik', 4, 10)
+console.log(someDog2)
+
+
+/*
+   3)
+
+   Создайте два класса Transport и Car
+   Эклемпляры класса Transport имеют свойтсво status и методы run и stop,
+   которые меняют свойсто status на 'running' и 'stopped' соответсвтенно.
+   Унаследуйте эти методы и свойство классом Car
+
+   Например:
+   const someTransport = new Transport();
+   console.log(someTransport.status); // 'stopped'
+   console.log(someTransport.run()); // 'running'
+   console.log(someTransport.stop()); // 'stopped'
+   const someCar = new Car();
+   console.log(someCar.status); // 'stopped'
+   console.log(someCar.run()); // 'running'
+   console.log(someCar.stop()); // 'stopped'
+*/
+
+class Transport {
+    status = 'stopped';
+
+    run() {
+        return this.status = 'running';
+    }
+
+    stop() {
+        return this.status = 'stopped'
+    }
+}
+
+class Car extends Transport {
+}
+
+console.log('\n#3):')
+const someTransport = new Transport();
+console.log(someTransport)
+console.log(someTransport.status); // 'stopped'
+console.log(someTransport.run()); // 'running'
+console.log(someTransport.stop()); // 'stopped'
+const someCar = new Car();
+console.log(someCar)
+console.log(someCar.status); // 'stopped'
+console.log(someCar.run()); // 'running'
+console.log(someCar.stop()); // 'stopped'
+
 
 /*
    4)
@@ -77,3 +176,60 @@
      которые смогут отсортировать массив по именам (в алфавитном порядке)
      или росту (по убыванию роста). Вызовите только функцию сортировки по росту.
 */
+
+class Human {
+    name;
+    age;
+    height;
+
+    constructor(name, age, height) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
+    }
+
+    getInfo() {
+        console.log(`${this.name}, ${this.age}, ${this.height}`)
+    }
+
+    get firstname() {
+        return this.name;
+    }
+
+    set firstname(name) {
+        this.name = name;
+    }
+}
+
+function sortByName(humans) {
+    return humans.sort((a, b) => {
+        if (a.name > b.name) return 1; // если первое значение больше второго
+        if (a.name == b.name) return 0; // если равны
+        if (a.name < b.name) return -1; // если первое значение меньше второго
+    })
+}
+
+function sortByHeight() {
+    return humans.sort((a, b) => b.height - a.height)
+}
+
+let humans = [['Коля', 23, 180],
+    ['Даша', 19, 170],
+    ['Ваня', 18, 192],
+    ['Петя', 45, 178],
+    ['Вася', 34, 197],
+    ['Джони', 40, 168],
+    ['Катя', 37, 160],
+    ['Петя', 29, 200],
+    ['Соня', 21, 172],
+    ['Женя', 25, 175]
+];
+
+humans = humans.map(item => new Human(...item)); //Каждый элемент оборачивается в класс
+
+console.log('\n#4):')
+//console.log(humans);
+//humans[0].firstname = 'Коля';
+//console.log(humans[0].firstname);
+console.log('Вызов только функции сортировки по росту:')
+console.log(sortByHeight(humans))
