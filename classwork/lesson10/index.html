@@ -14,9 +14,15 @@
           Message - hello world!
         </div>
         <script>
+<<<<<<< HEAD
           const button = document.querySelector('#exercise_1.form_button');
 
           button.addEventListener("click", function() {
+=======
+          const button = document.querySelector('#exercise_1 .form_button');
+
+          button.addEventListener('click', function() {
+>>>>>>> ef27547653b1e74fd718d47f29bad2a06bfd7fac
             const message = document.getElementById('elem');
             message.hidden = true;
           });
@@ -36,6 +42,11 @@
           button2.removeEventListener("click", () => alert("1"));
 
           button2.onclick = () => alert(2);
+<<<<<<< HEAD
+=======
+          button2.onclick = () => alert(3);
+          button2.onclick = () => alert(4);
+>>>>>>> ef27547653b1e74fd718d47f29bad2a06bfd7fac
         </script>
       </div>
     </div>
@@ -59,6 +70,7 @@
           </div>
         </div>
         <script>
+<<<<<<< HEAD
          const field = document.querySelector('#exercise_3.football_field');
          const ball = document.querySelector('#exercise_3.football_field_ball');
 
@@ -79,6 +91,26 @@
            ball.style.left = clickX - ballMetrics.width / 2 + 'px';
 
          }
+=======
+          const field = document.querySelector('#exercise_3 .football_field');
+          const ball = document.querySelector('#exercise_3 .football_field_ball');
+
+          field.addEventListener('click', moveBall);
+
+          function moveBall(event) {
+            const cursorX = event.clientX;
+            const cursorY = event.clientY;
+
+            const fieldMetrict = field.getBoundingClientRect();
+            const ballMetrics = ball.getBoundingClientRect();
+
+            const clickX = cursorX - fieldMetrict.left;
+            const clickY = cursorY - fieldMetrict.top;
+
+            ball.style.top = `${clickY - ballMetrics.height / 2}px`;
+            ball.style.left = clickX - ballMetrics.width / 2 + 'px';
+          }
+>>>>>>> ef27547653b1e74fd718d47f29bad2a06bfd7fac
         </script>
     </div>
 
@@ -101,6 +133,21 @@
                 <div class="messages_list_item_message">Welcome! This site allows you to generate text fonts that you can copy and paste into your Instagram bio. It's useful for generating Instagram bio symbols to make your profile stand out and have a little bit of individuality. After typing some text into the input box</div>
             </div>
           </div>
+          <script>
+            const messageItems = document.querySelectorAll('#exercise_4 .messages_list_item');
+
+            messageItems.forEach(function(messageItem) {
+              const closeButton = document.createElement('div');
+              closeButton.classList.add('message_list_item_close_button');
+              closeButton.innerHTML = 'X';
+
+              closeButton.addEventListener('click', function() {
+                messageItem.hidden = true;
+              });
+
+              messageItem.append(closeButton);
+            });
+          </script>
         </div>
     </div>
 
@@ -114,11 +161,31 @@
             <ul class="menu_highlight_list">
                 <li class="menu_highlight_item">Main</li>
                 <li class="menu_highlight_item">About</li>
+<<<<<<< HEAD
                 <li class="menu_highlight_item">Contact</li>
             </ul>
           </div>
           <script>
 
+=======
+                <li class="menu_highlight_item">Contacts</li>
+            </ul>
+          </div>
+          <script>
+            const menuList = document.querySelector('#exercise_5 .menu_highlight_list');
+
+            menuList.addEventListener('click', function(event) {
+              const target = event.target;
+
+              Array.from(menuList.children).forEach(function(child) {
+                child.classList.remove('menu_highlight_item--active');
+              });
+
+              // Array.prototype.forEach.call(menuList.children, );
+
+              target.classList.add('menu_highlight_item--active');
+            });
+>>>>>>> ef27547653b1e74fd718d47f29bad2a06bfd7fac
           </script>
         </div>
     </div>
@@ -131,11 +198,35 @@
         <div class="solution">
           <div class="menu_highlight">
             <ul class="menu_highlight_list">
+<<<<<<< HEAD
                 <li class="menu_highlight_item">Main<strong>wewe</strong></li>
                 <li class="menu_highlight_item">About</li>
                 <li class="menu_highlight_item">Contact</li>
+=======
+                <li class="menu_highlight_item">Main <strong>qwertyuio</strong></li>
+                <li class="menu_highlight_item">About</li>
+                <li class="menu_highlight_item">Contacts</li>
+>>>>>>> ef27547653b1e74fd718d47f29bad2a06bfd7fac
             </ul>
           </div>
+          <script>
+            const menuList2 = document.querySelector('#exercise_6 .menu_highlight_list');
+
+            menuList2.addEventListener('click', function(event) {
+              let target = event.target;
+
+              if (target.tagName !== 'LI') {
+                target = target.closest('li');
+              }
+
+              Array.from(menuList2.children).forEach(function(child) {
+                child.classList.remove('menu_highlight_item--active');
+              });
+
+
+              target.classList.add('menu_highlight_item--active');
+            });
+          </script>
         </div>
     </div>
 
@@ -152,6 +243,20 @@
                 <li class="menu_actions_item" data-action="search">Search</li>
             </ul>
           </div>
+          <script>
+            const actionsList = document.querySelector('#exercise_7 .menu_actions_list');
+
+            const actions = {
+              handleEvent(event) {
+                const target = event.target;
+                const action = target.dataset.action;
+
+                alert(action);
+              }
+            };
+
+            actionsList.addEventListener('click', actions);
+          </script>
         </div>
     </div>
 
@@ -162,12 +267,37 @@
         </div>
         <div class="solution">
           <div class="toggler">
-            <div class="toggler_button" data-toggle-id="subscription-form"></div>
+            <button
+             class="toggler_button"
+             data-toggle-id="subscription-form"
+            >скрыть</button>
+            <button
+             class="toggler_button"
+             data-toggle-id="subscription-form-2"
+            >скрыть</button>
             <form id="subscription-form" class="form">
                 <input id="subscription-form-email" name="email" type="text" class="form_input">
                 <button class="form_button">Подписаться</button>
             </form>
+            <form id="subscription-form-2" class="form">
+              <input id="subscription-form-email" name="email" type="text" class="form_input">
+              <button class="form_button">Подписаться</button>
+          </form>
           </div>
+          <script>
+            document.addEventListener('click', toggle);
+
+            function toggle(event) {
+              const target = event.target;
+              const id = target.dataset.toggleId;
+
+              if(id) {
+                const toggleElem = document.getElementById(id);
+
+                toggleElem.hidden = !toggleElem.hidden;
+              }
+            }
+          </script>  
         </div>
     </div>
 
@@ -177,22 +307,35 @@
         <div class="solution">
           <div class="messages_list">
             <div class="messages_list_item">
-                <div class="messages_list_item_close"></div>
-                <div class="messages_list_item_title"></div>
-                <div class="messages_list_item_message"></div>
+                <div class="message_list_item_close_button">X</div>
+                <div class="messages_list_item_title">Welcome! This site allows </div>
+                <div class="messages_list_item_message">Welcome! This site allows you to generate text fonts that you can copy and paste into your Instagram bio. It's useful for generating Instagram bio symbols to make your profile stand out and have a little bit of individuality. After typing some text into the input box, you can keep c</div>
             </div>
             <div class="messages_list_item">
-                <div class="messages_list_item_close"></div>
-                <div class="messages_list_item_title"></div>
-                <div class="messages_list_item_message"></div>
+                <div class="message_list_item_close_button">X</div>
+                <div class="messages_list_item_title">Our profile stand out and </div>
+                <div class="messages_list_item_message">to the input box, you can keep clicking the "show more fonts" button and it'll keep generating an infinite number of different Instagram font variations, or you can use one of the "tried and true" fonts like the cursive text, or the other stylish text fonts - i.e. the ones that are a bit "nea</div>
             </div>
             <div class="messages_list_item">
-                <div class="messages_list_item_close"></div>
-                <div class="messages_list_item_title"></div>
-                <div class="messages_list_item_message"></div>
+                <div class="message_list_item_close_button">X</div>
+                <div class="messages_list_item_title">The site works by generati</div>
+                <div class="messages_list_item_message">Welcome! This site allows you to generate text fonts that you can copy and paste into your Instagram bio. It's useful for generating Instagram bio symbols to make your profile stand out and have a little bit of individuality. After typing some text into the input box</div>
             </div>
           </div>
         </div>
+        <script>
+          const messageList9 = document.querySelector('#exercise_9 .messages_list');
+
+          messageList9.addEventListener('click', closeMessage);
+
+          function closeMessage(event) {
+            let target = event.target;
+
+            if(target.classList.contains('message_list_item_close_button')) {
+              target.closest('.messages_list_item').hidden = true;
+            }
+          }
+        </script>
     </div>
 
     <!--Задача №10 "Поведение подсказка"-->
@@ -220,11 +363,24 @@
         <div class="solution">
           <div class="menu_highlight">
             <ul class="menu_highlight_list">
-                <li class="menu_highlight_item"></li>
-                <li class="menu_highlight_item"></li>
-                <li class="menu_highlight_item"></li>
+                <li class="menu_highlight_item"><a href="https://yandex.ru">Main</a></li>
+                <li class="menu_highlight_item">Contacts</li>
+                <li class="menu_highlight_item">About</li>
             </ul>
           </div>
+          <script>
+            const menuList11 = document.querySelector('#exercise_11 .menu_highlight_list');
+
+            menuList11.addEventListener('click', function(event) {
+              const target = event.target;
+
+              if (target.tagName === 'A') {
+                event.preventDefault();
+              }
+
+              alert('Click!!');
+            })
+          </script>
         </div>
     </div>
 
