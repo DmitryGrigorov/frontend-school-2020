@@ -1,0 +1,80 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;      
+  }
+  body {
+    background-color: lightsteelblue;
+  }
+  .todoHeader {
+    text-align: center;
+    background-color: palevioletred;
+    padding: 15px 50px 25px 50px;
+    font-size: 24px;
+    font-weight: normal;
+  }
+  .header-text {
+    color: white;
+    padding: 10px 0;
+  }
+  .todoInput {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .field {
+    display: inline-block;
+    width: 25%;
+    height: 50px;
+    font-size: 22px;
+    padding: 5px;
+  }
+  .addTodo {
+    display: inline-block;
+    width: 50px;
+    border: 0;
+    height: auto;
+    font-size: 22px;
+    background-color: lightsteelblue;
+    color: white;
+    cursor: pointer;    
+  }
+  .todoBody {
+    height: 100%;    
+  }
+  .list-item {
+    list-style-type: none;
+    font-size: 22px;
+    word-break: break-all;
+    padding: 10px 50px;    
+    width: auto;
+    min-height: 60px;
+    height: auto;
+    color: white; 
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    background-color: lightslategray;
+    opacity: 0.5;
+  }
+  .list-item:nth-of-type(odd) {
+    background-color: lightseagreen;
+  }
+  .list-item:hover {
+    opacity: 1;
+    font-size: 22px;
+  }
+  .list-item-mark_as_resolved {
+    opacity: 1;
+    text-decoration: line-through;
+  }
+  .list-item_remove {    
+    width: auto;    
+    padding: 10px;
+    border: 0;
+    height: auto;
+    font-size: 22px;
+    background-color: lightsteelblue;
+    color: white;
+    cursor: pointer;    
+  }

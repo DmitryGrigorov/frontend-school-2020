@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>task1</title>
+  <style>
+    .list-item_clicked {
+      background: red;
+    }
+
+    .list-item_alt_clicked {
+      background: blue;
+    }
+  </style>
 </head>
 <body>
   <input id="field" type="text">
@@ -24,5 +33,44 @@
     4. Если у item-a уже есть "background: red;", удалять его из списка;
     5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
    -->
+   <script>
+     const field = document.querySelector('#field');
+     const list = document.querySelector('#list');
+
+     list.addEventListener('click', listItemOnClick);
+
+     function listItemOnClick(event) {
+      const target = event.target;
+
+      if(target.classList.contains('list-item')) {        
+        if(event.altKey  || target.classList.contains('list-item_clicked')) {
+          if(event.shiftKey || (target.classList.contains('list-item_clicked') && !event.altKey && !event.shiftKey)) {
+            target.remove();
+          }else{
+            target.classList.remove('list-item_clicked');
+            target.classList.toggle('list-item_alt_clicked');
+          }          
+        }else{
+          target.classList.remove('list-item_alt_clicked');
+          target.classList.toggle('list-item_clicked');
+        }        
+      }
+     }
+
+     field.addEventListener('keydown', fieldOnKeyDown);
+
+     function fieldOnKeyDown(event) {
+      const target = event.target;
+      const value = target.value;
+
+      if(value && event.which === 13){
+        const listItem = document.createElement('li');
+        listItem.classList.add("list-item");
+        listItem.textContent = value;
+        list.prepend(listItem)
+      }
+     }
+
+   </script>
 </body>
 </html>
