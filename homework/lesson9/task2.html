@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 2: Centered block</title>
+  <style>
+    .container {
+      width: 300px;
+      height: 300px;
+      border: 10px solid black;
+      background-color: #efd5ff;
+    }
+
+    .element {
+      width: 50px;
+      height: 50px;
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="element"></div>
+  </div>
+
+<!-- 
+  1. Склонировать элемент (ноду) и расположить его по центру контейнера //divCenter
+  2. Склонировать элемент (ноду) и расположить его в правый верхний угол контейнера //divRightTop
+  3. Склонировать элемент (ноду) и расположить его в правый нижний угол контейнера  //divRightBottom
+  4. Склонировать элемент (ноду) и расположить его в левый нижний угол контейнера //divLeftBottom
+-->
+
+  <script>
+    //1 решение
+      let mainBox = document.querySelector('.container');
+      mainBox.style.position = 'absolute';
+      let getInfmainBox = getComputedStyle(mainBox, null);
+      let widthMainBox = parseInt(getInfmainBox.getPropertyValue('width'));
+      let heightMainBox = parseInt(getInfmainBox.getPropertyValue('height'));
+      let smallBox = document.querySelector('.element')
+      let getInfsmallBox = getComputedStyle(smallBox, null);
+      let widthSmallBox = parseInt(getInfsmallBox.getPropertyValue('width'));
+      let heightSmallBox = parseInt(getInfsmallBox.getPropertyValue('height'));
+    
+      let divCenter = smallBox.cloneNode();
+      divCenter = smallBox.appendChild(divCenter);
+
+      function getDivCenter(element){
+        divCenter.style.position = 'absolute';
+        divCenter.style.left = `${widthMainBox/2 - widthSmallBox/2}px`;
+        divCenter.style.top = `${heightMainBox/2 - heightSmallBox/2}px`;
+      }
+      getDivCenter(divCenter);
+    
+      let divRightTop = smallBox.cloneNode();
+      divRightTop = smallBox.appendChild(divRightTop);
+
+      function getDivRightTop(element){
+        divRightTop.style.position = 'absolute';
+        divRightTop.style.left = `${widthMainBox - widthSmallBox}px`;
+      }
+      getDivRightTop(divRightTop);
+
+     let divRightBottom = smallBox.cloneNode(false);
+     divRightBottom = smallBox.appendChild(divRightBottom);
+
+     function getDivRightBottom(element){
+        divRightBottom.style.position = 'absolute',
+        divRightBottom.style.left = `${widthMainBox - widthSmallBox}px`,
+        divRightBottom.style.top = `${heightMainBox - heightSmallBox}px`
+     }
+     getDivRightBottom(divRightBottom);
+
+     let divLeftBottom = smallBox.cloneNode(false);
+     divLeftBottom = smallBox.appendChild(divLeftBottom);
+
+      function getDivLeftBottom(element){
+        divLeftBottom.style.position = 'absolute',
+        divLeftBottom.style.top = `${heightMainBox - heightSmallBox}px`
+      }
+      getDivLeftBottom(divLeftBottom);
+
+    // }
+    //2 решение
+    /*let divCenter = element.cloneNode(false);
+    divCenter = container.appendChild(divCenter);
+
+    console.log(divCenter)
+
+    const containerMetrix = container.getBoundingClientRect();
+    const elementMetrix = element.getBoundingClientRect();
+
+    function getDivCenter(element){
+      divCenter.style.position = 'absolute',
+      divCenter.style.left = `${containerMetrix.width/2 - elementMetrix.width/2 + containerMetrix.left}px`,
+      divCenter.style.top = `${containerMetrix.height/2 - elementMetrix.height/2 + containerMetrix.top}px`
+    }
+    getDivCenter(divCenter);
+
+    let divRightTop = element.cloneNode(false);
+    divRightTop = container.appendChild(divRightTop);
+
+    console.log(divRightTop)
+
+    function getDivRightTop(element){
+      divRightTop.style.position = 'absolute',
+      divRightTop.style.left = `${containerMetrix.width-elementMetrix.width - 2}px`,
+      divRightTop.style.top = `${containerMetrix.top + 10}px`
+    }
+    getDivRightTop(divRightTop);
+
+    let divRightBottom = element.cloneNode(false);
+    divRightBottom = container.appendChild(divRightBottom);
+
+    console.log(divRightBottom)
+
+    function getDivRightBottom(element){
+      divRightBottom.style.position = 'absolute',
+      divRightBottom.style.left = `${containerMetrix.width-elementMetrix.width - 2}px`,
+      divRightBottom.style.top = `${containerMetrix.bottom + elementMetrix.height - (containerMetrix.height/2 - elementMetrix.height)}px`
+  
+    }
+    getDivRightBottom(divRightBottom);
+
+    let divLeftBottom = element.cloneNode(false);
+    divLeftBottom = container.appendChild(divLeftBottom);
+
+    console.log(divLeftBottom)
+
+    function getDivLeftBottom(element){
+      divLeftBottom.style.position = 'absolute',
+      divLeftBottom.style.left = `${containerMetrix.right - containerMetrix.width/2 - 3*elementMetrix.width}px`,
+      divLeftBottom.style.top = `${containerMetrix.bottom + elementMetrix.height - (containerMetrix.height/2 - elementMetrix.height)}px`
+    }
+    getDivLeftBottom(divLeftBottom);*/
+  </script>
+</body>
+</html>

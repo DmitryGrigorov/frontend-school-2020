@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Task 3</title>
+</head>
+<body>
+  <h1>Serials</h1>
+  <hr>
+  <ul id="list">
+    <li>Silicon Valley</li>
+    <li>The X-Files</li>
+    <li>Sex and the City</li>
+    <li>How I Met Your Mother</li>
+    <li>House M.D.</li>
+    <li>Hannibal</li>
+    <li>Game of Thrones</li>
+  </ul>
+
+  <button id="add-first-item">Add first item</button>
+  <button id="remove-first-item">Remove first item</button>
+  <button id="add-last-item">Add last item</button>
+  <button id="remove-last-item">Remove last item</button>
+
+  <!-- 
+    Реализовать функционал для кнопок:
+    1. Кнопка "Add first item" должна добавлять новый item в начало списка (текст по желанию) 
+    2. Кнопка "Remove first item" должна удалять элемент в начале списка
+    3. Кнопка "Add last item" должна добавлять новый item в конец списка (текст по желанию) 
+    4. Кнопка "Remove last item" должна удалять элемент в конце списка
+  -->
+  <script>
+    let list = document.querySelector('#list');
+    let buttonAddFirstItem = document.querySelector('#add-first-item');
+
+    let serials = ['Black Mirror','Castle Rock','Sherlock','American Crime Story','Stranger Things','Dexter','The Twilight Zone','True Detective'];
+
+    buttonAddFirstItem.addEventListener('click', function(){
+      let items1 = document.createElement('li');
+      items1.textContent = serials[Math.floor(Math.random()* Math.floor(serials.length))];
+      list.prepend(items1);
+    })
+
+    let buttonRemoveFirstItem = document.querySelector('#remove-first-item');
+
+    buttonRemoveFirstItem.addEventListener('click', function(){
+      list.removeChild(list.firstElementChild);
+    })
+    
+    let buttonAddLastItem = document.querySelector('#add-last-item');
+
+    buttonAddLastItem.addEventListener('click', function(){
+      let items2 = document.createElement('li');
+      items2.textContent = serials[Math.floor(Math.random()* Math.floor(serials.length))];
+      list.append(items2);
+    })
+
+    let buttonRemoveLastItem = document.querySelector('#remove-last-item');
+
+    buttonRemoveLastItem.addEventListener('click', function(){
+      list.removeChild(list.lastElementChild);
+    })
+  </script>
+
+</body>
+</html>
