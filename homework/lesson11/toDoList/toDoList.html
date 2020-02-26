@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2</title>
+  <link rel="stylesheet" href="toDoList.css">
+</head>
+<body>
+  <div class="main">
+    <div class = "header">
+      <div class="nameOfHeader">
+        <h1>To Do List</h1> <p>by Elizaveta Puzina</p>
+      </div>
+        <h2>Hello, Dear Friend!</h2>
+    </div>
+    <div class="form">
+      <input id ='addNotes' class="colorText" type="text"  type="reset" placeholder="Добавить задачу...">
+      <button id = 'button' class="buttonAdd">Add task</button>
+    </div>
+    <hr>
+    <div class="allNotes">
+      <ul class="listNotes">
+
+      </ul>
+    </div>
+  </div>
+</body>
+<script>
+  const button = document.querySelector('#button')
+  const listNotes = document.querySelector('ul')
+  const input = document.getElementById('addNotes')
+  const initialStore = getNotes();
+  initialStore.forEach(function(note) {
+    createNoteElement(note);
+  });
+
+  function createNoteElement(text) {
+    let noteElement = document.createElement('li');
+    noteElement.textContent = text;
+    noteElement.classList = 'note';
+    listNotes.appendChild(noteElement);
+    let close = document.createElement('span')
+    close.classList = 'close'
+    close.addEventListener('click', function() {
+      const element = this.parentElement;
+      removeItem(element);
+    })
+    noteElement.appendChild(close);
+
+    noteElement.addEventListener('click', function(event){
+      if(event.target.tagName === 'LI'){
+        return event.target.classList.toggle('checkNote')
+      }
+    })
+  };
+
+  function getNotes() {
+    if (localStorage.getItem('notes')) {
+      return localStorage.getItem('notes').split(',')
+    }
+    return [];
+  };
+
+  function setItem(text) {
+    initialStore.push(text);
+    localStorage.setItem('notes', initialStore);
+  };
+
+  function removeItem(HTMLelement) {
+    const htmlArr = HTMLelement.parentElement.children;
+      const preparedArr = [];
+      for (let i = 0; i < htmlArr.length; i++) {
+        preparedArr.push(htmlArr[i]);
+      }
+      initialStore.splice(preparedArr.indexOf(HTMLelement), 1);
+      localStorage.setItem('notes', initialStore);
+      HTMLelement.closest('.note').remove();
+  };
+
+  button.addEventListener('click', function(){
+    let inputValue = input.value;
+    if (inputValue){
+      createNoteElement(inputValue)
+      setItem(inputValue);
+    } else {
+      alert('Добавьте заметку!')
+    }
+    input.value = '';
+  });
+
+</script>
+</html>
