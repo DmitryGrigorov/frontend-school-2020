@@ -82,10 +82,27 @@
   </table>
 
   <script>
-
     let form = document.forms.calculator;
+    let moneyBefore = document.querySelector('#money-before');
+    let moneyAfter = document.querySelector('#money-after');
 
-    // ваш код
+    calculate();
+    form.addEventListener('change', calculate);
+
+    function calculate () {
+      let initial = document.getElementsByName('money')[0].value;
+      let interest = 1 / 100 * document.getElementsByName('interest')[0].value;
+      let years = document.getElementsByName('months')[0].value / 12;
+      let height = document.querySelector('#height-after');
+
+      let result = Math.round(initial * (1 + interest * years));
+      moneyBefore.innerHTML = initial;
+      moneyAfter.innerHTML = result;
+
+      let onePercent = Math.round(initial / 100);
+      let heightAfter = result / onePercent;
+      height.style.height = heightAfter + 'px';
+    }
 
     // Формула
     // initial: начальная сумма денег
@@ -93,7 +110,5 @@
     // years: сколько лет ждать
     // let result = Math.round(initial * (1 + interest * years));
   </script>
-
-
 </body>
 </html>
