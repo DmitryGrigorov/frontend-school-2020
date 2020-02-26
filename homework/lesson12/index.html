@@ -116,6 +116,21 @@
         }
     };
     money.addEventListener('input', findResult);
+    money.addEventListener('input', function (event) {
+        if (money.value == '' || money.value <= 0) {
+            let errorDiv = document.querySelector('#errorMoney');
+            if (!errorDiv) {
+                errorDiv = document.createElement('div');
+                document.querySelector('[name="money"]').parentElement.appendChild(errorDiv);
+                errorDiv.id = 'errorMoney';
+                errorDiv.style.color = 'red';
+            }
+            errorDiv.textContent = 'Ошибка! Тут должно быть положительное число.';
+            errorDiv.hidden = false;
+            money.value = '0';
+        } else
+            document.querySelector('#errorMoney').hidden = true;
+    });
     interestField.addEventListener('input', findResult);
     months.addEventListener('input', findResult);
     interestField.addEventListener('wheel', (event) => {
@@ -124,7 +139,7 @@
 </script>
 <style>
 #height-before, #height-after {
-    transition: height ease-in-out 1s;
+    transition: height ease-in-out .5s;
 }
 </style>
 
