@@ -122,7 +122,11 @@
         interestField.value = +interestField.value - (event.deltaY > 0 ? 1 : 0);
     });
 </script>
-
+<style>
+#height-before, #height-after {
+    transition: height ease-in-out 1s;
+}
+</style>
 
 </body>
 </html>
