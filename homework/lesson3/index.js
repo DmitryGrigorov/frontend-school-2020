@@ -22,7 +22,7 @@ function lwTail (str) {
 */
 
 function palindrome (str) {
-    return str === str.split('').reverse().join('');
+    return str.toLowerCase() === str.split('').reverse().join('').toLowerCase();
 }
 
 /*
