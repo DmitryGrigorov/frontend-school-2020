@@ -4,9 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>task1</title>
+  <style>
+    /* сделано исключительно с целью не плодить лишних файлов
+    в остальных случаях разумеется подключаем отдельный css (и даже не один)
+     */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #373f48;
+    }
+
+    .search {
+      box-shadow: 0 1px 10px 0 #1a1919;
+      padding: 10px 20vw;
+      background: #373f48;
+    }
+
+    .search input {
+      width: 100%;
+      height: 35px;
+      border-radius: 15px;
+      text-align: center;
+      font-size: 1em;
+      font-style: italic;
+      border: 2px solid #cb9d81;
+      color: #cb9d81;
+      transition: .2s;
+    }
+
+    ul {
+      padding: 10px 20vw;
+      color: #cb9d81;
+    }
+
+    ul li {
+      padding-top: 10px;
+      border-bottom: 2px solid #cb9d81;
+      text-align: center;
+    }
+
+    .redback {
+      background: lightcoral;
+      color: #373f48;
+      transition: .2s;
+    }
+
+    .blueback {
+      background: lightblue;
+      color: #373f48;
+      transition: .2s;
+    }
+
+
+  </style>
 </head>
 <body>
-  <input id="field" type="text">
+<div class="search">
+  <input id="field" type="text" placeholder="...for text">
+</div>
   <ul id="list">
     <li class="list-item">item 1</li>
     <li class="list-item">item 2</li>
@@ -15,6 +75,41 @@
     <li class="list-item">item 5</li>
     <li class="list-item">item 6</li>
   </ul>
+  <script>
+
+
+    document.addEventListener('click', onClick);
+    document.addEventListener('keydown', onClick);
+    function onClick(event) {
+      switch (event.type) {
+        case 'click':
+          if (event.target.classList.contains('list-item')) {
+            if (event.altKey && event.shiftKey) {
+              event.target.remove();
+            } else if (event.altKey) {
+              event.target.classList.contains('redback') ? event.target.classList.replace('redback', 'blueback') : event.target.classList.add('blueback');
+              event.target.classList.add('blueback');
+            } else if (event.target.classList.contains('redback')) {
+              event.target.remove();
+            } else {
+              event.target.classList.contains('blueback') ? event.target.classList.replace('blueback','redback') : event.target.classList.add('redback');
+            }
+          }
+              break;
+        case 'keydown':
+          if (event.key === 'Enter') {
+            const li = document.createElement('LI');
+            li.classList.add('list-item');
+            const ul = document.getElementById('list');
+            const field = document.getElementById('field');
+            li.insertAdjacentText('beforeend', field.value);
+            ul.append(li);
+            field.value = '';
+          }
+          break
+      }
+    }
+  </script>
 
   <!-- 
     Задания для списка:
