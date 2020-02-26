@@ -19,6 +19,7 @@
     #diagram div {
       margin: auto;
     }
+    
   </style>
 </head>
 
@@ -84,14 +85,38 @@
   <script>
 
     let form = document.forms.calculator;
+    const elems = form.elements;
 
-    // ваш код
+    
+    const initialField = elems.money;
+    const interestField = elems.interest;
+    const monthsField = elems.months;
 
-    // Формула
-    // initial: начальная сумма денег
-    // interest: проценты, например, 0.05 означает 5% в год
-    // years: сколько лет ждать
-    // let result = Math.round(initial * (1 + interest * years));
+    const before = document.querySelector('#diagram #money-before');
+    const after = document.querySelector('#diagram #money-after');
+
+    Array.from(elems).forEach(function(elem){
+      elem.addEventListener('change', showResult);
+    })
+
+    showBefore(); 
+    showResult(); //чтобы просчитались значения, которые были в форме изначально
+    initialField.addEventListener('change', showBefore);
+    
+    //функции для расчета
+    function calculate(initial, interest, months){
+      let years = months/12;
+      return Math.round(initial * (1 + interest * years));
+    }
+
+    function showBefore(){
+      before.innerHTML = initialField.value;
+    }
+    function showResult(){
+      after.innerHTML = calculate(initialField.value, interestField.value, monthsField.value);
+    }
+
+    
   </script>
 
 
