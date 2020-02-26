@@ -7,12 +7,12 @@
 </head>
 <body>
   <div>
-    <div>
+    <div tabindex="0" id="wrapper" hidden>
       <label for="message">message</label>
       <input type="text" id="message" name="message">
     </div>
   </div>
-  <div class="container" hidden>
+  <div class="container">
     <form class="form" name="registration">
       <div class="form_title">
         Регистрация
@@ -20,25 +20,25 @@
       <div class="form_row">
         <div class="form_row_cell">
           <label class="form_row_label" for="name">Имя</label>
-          <input class="form_row_input" type="text" name="name"/>
+          <input class="form_row_input" type="text" name="name" data-constraint="required"/>
         </div>
       </div>
       <div class="form_row">
         <div class="form_row_cell">
           <label class="form_row_label" for="lastname">Фамилия</label>
-          <input class="form_row_input" type="text" name="lastname"/>
+          <input class="form_row_input" type="text" name="lastname" data-constraint="required&maxLength=3"/>
         </div>
       </div>
       <div class="form_row">
         <div class="form_row_cell">
           <label class="form_row_label" for="email">Email</label>
-          <input class="form_row_input" type="text" name="email"/>
+          <input class="form_row_input" type="text" name="email" data-constraint="email"/>
         </div>
       </div>
       <div class="form_row">
         <div class="form_row_cell">
           <label class="form_row_label" for="phone">Телефон</label>
-          <input class="form_row_input" type="text" name="phone"/>
+          <input class="form_row_input" type="text" name="phone" data-constraint="required&number"/>
         </div>
       </div>
       <div class="form_row">
@@ -52,6 +52,126 @@
     </form>
   </div>
   <script>
+    const registrationForm = document.forms.registration;
+    const elems = registrationForm.elements;
+    const constraintFields = registrationForm.querySelectorAll('[data-constraint]');
+
+    registrationForm.addEventListener('submit', onSubmit);
+
+    function onSubmit(event) {
+      event.preventDefault();
+
+      const fieldErrors = Array.from(constraintFields).map(function(field) {
+        const constraint = field.dataset.constraint;
+        const constraintArray = constraint.split('&');
+        const value = field.value;
+
+        const errorArray = constraintArray.map(item => {
+          return validateSubmit(item, value);
+        });
+        const error = errorArray.find(error => error);
+
+        if (error) {
+          field.parentElement.dataset.error = error;
+        } else {
+          delete field.parentElement.dataset.error;
+        }
+
+        return error;
+      });
+
+      if(fieldErrors.some(error => error)) {
+        console.log('form is invalid');
+      } else {
+        console.log('form is submiting...');
+      }
+    }
+
+    function validateSubmit(constraint, value) {
+      let [key, constraintValue] = constraintArray;
+
+      switch (key) {
+        case 'required':
+          return !value ? 'Поле обязательно для запролнения' : null;
+        case 'number':
+          return /\D/.test(value) ? 'Только цифры' : null;
+        case 'email':
+          return !/.+@.+/.test(value) ? 'Введите email' : null;
+        default:
+          return null;
+      }
+    }
+
+    constraintFields.forEach(field => {
+      field.addEventListener('input', onInput);
+    })
+
+    function onInput(event) {
+      const target = event.target;
+      const constraint = target.dataset.constraint;
+      const constraintArray = constraint.split('&');
+      const value = target.value;
+
+      const validValue = constraintArray.reduce((result, itemConstraint) => {
+        return validateInputValue(itemConstraint, result);
+      }, value);
+
+      target.value = validValue;
+    }
+
+    function validateInputValue(constraint, value) {
+      const constraintArray = constraint.split('=');
+      let [key, constraintValue] = constraintArray;
+
+      switch(key) {
+        case 'number':
+          return value.replace(/\D/g, '');
+        case 'maxLength':
+          return value.length > parseInt(constraintValue)
+           ? value.slice(0, -1)
+           : value;
+        default:
+          return value;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // const message = document.querySelector('#message');
+    // message.addEventListener('input', function(event) {
+    //   const target = event.target;
+    //   console.log('input: ', target.value);
+    // });
+
+    // message.addEventListener('change', function(event) {
+    //   const target = event.target;
+    //   console.log('change ', target.value);
+    // });
+
+    // message.addEventListener('focus', function(event) {
+    //   const target = event.target;
+    //   console.log('focus ', target.value);
+    // });
+
+    // message.addEventListener('blur', function(event) {
+    //   const target = event.target;
+    //   console.log('blur ', target.value);
+    // });
+
+    // message.addEventListener('paste', function(event) {
+    //   const target = event.target;
+    //   console.log('paste ', target.value);
+    // });
 
     // input
     // change
