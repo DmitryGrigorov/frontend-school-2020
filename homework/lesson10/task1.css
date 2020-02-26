@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.exercise {
+  max-width: 500px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.message {
+  margin-top: 10px;
+}
+
+.conditions {
+  background: #eee;
+  padding: 10px 15px;
+}
+
+/* Начало задачи №1 список элементов */
+.toggle-list {
+  background: #fff9c9;
+  width: 500px;
+}
+
+.toggle-list_toggler {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.toggle-list_toggler_icon {
+  color: red;
+  padding: 0 5px;
+}
+
+.toggle-list_list {
+  display: block;
+}
+
+.toggle-list_item {
+  list-style: none;
+  margin-left: 25px;
+}

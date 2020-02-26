@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 10 homework</title>
+  <link rel="stylesheet" href="task2.css">
+</head>
+<body>
+  <!--Задача №2 "Оживить карусель"-->
+  <div id="exercise_2" class="exercise">
+    <div class="conditions">
+      <p>
+        При клике на синюю кнопку, карусель должна прокрутиться на 1 элемент вправо (если мы не достигли конца)
+      </p>
+      <p>
+        При клике на красную кнопку карусель должна прокрутиться на 1 элемент влево (если мы не достигли начала)
+      </p>
+      <p>
+        <em>
+          Постарайтесь написать свою разметку html, чтобы понять принцип работы карусели
+        </em>
+      </p>
+    </div>
+    <div class="solution">
+      <div class="carousel">
+        <div class="carousel_button carousel_button_prev"></div>
+        <div class="carousel_button carousel_button_next"></div>
+        <div class="carousel_list_wrapper">
+          <ul class="carousel_list">
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/1.png" alt="smile-1">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/2.png" alt="smile-2">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/3.png" alt="smile-3">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/4.png" alt="smile-4">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/5.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/6.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/7.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/8.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/9.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/10.png" alt="">
+            </li>
+          </ul>
+        </div>
+      </div>
+      <script>
+        let pictures = document.querySelector('.carousel_list')
+        let blueButton = document.querySelector('.carousel_button_next')
+        let redButton = document.querySelector('.carousel_button_prev')
+        
+        let widthPicture = pictures.querySelector('img').naturalWidth;
+        let countPictures = pictures.childElementCount;
+
+        let coordX = 0;
+        let coordY = 0;
+        
+        blueButton.addEventListener('click', function(){
+          if(-coordX < (countPictures-3)*widthPicture){
+            coordX = coordX - widthPicture;
+            pictures.style.transform =`translate(${coordX}px,${coordY}px)`;
+          }
+        })
+
+        redButton.addEventListener('click', function(){
+          if(coordX <= -widthPicture){
+          console.log(coordX, widthPicture, countPictures)
+            coordX = coordX + widthPicture
+            pictures.style.transform =`translate(${coordX}px,${coordY}px)`;
+          }
+        })
+      </script>
+    </div>
+  </div>
+</body>
+</html>

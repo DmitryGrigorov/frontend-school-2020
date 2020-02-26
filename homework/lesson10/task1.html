@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 10 homework</title>
+    <link rel="stylesheet" href="task1.css">
+</head>
+<body>
+  <!--Задача №1 "Создать скрывающееся/рвскрывающееся меню"-->
+  <div id="exercise_1" class="exercise">
+    <div class="conditions">
+      <p>При помощи 1 обработчика сделайте (скрытие/раскрытие) пунктов списка
+        при сворачивании списка, знак "плюс" должен меняться на "минус"</p>
+    </div>
+    <div class="solution">
+      <div id="toggle-list" class="toggle-list">
+        <ul class="toggle-list_list">
+          <div class="toggle-list_toggler">
+            <div class="toggle-list_toggler_icon">+</div>
+            <div class="toggle-list_toggler_label">Страны</div>
+          </div>
+          <li class="toggle-list_item">
+            <ul class="toggle-list_list">
+              <div class="toggle-list_toggler">
+                <div class="toggle-list_toggler_icon">+</div>
+                <div class="toggle-list_toggler_label">Россия</div>
+              </div>
+              <li class="toggle-list_item">Москва</li>
+              <li class="toggle-list_item">Питер</li>
+              <li class="toggle-list_item">Омск</li>
+            </ul>
+          </li>
+          <li class="toggle-list_item">
+            <ul class="toggle-list_list">
+              <div class="toggle-list_toggler">
+                <div class="toggle-list_toggler_icon">+</div>
+                <div class="toggle-list_toggler_label">Америка</div>
+              </div>
+              <li class="toggle-list_item">Нью-Йорк</li>
+              <li class="toggle-list_item">Лос-Анджелес</li>
+              <li class="toggle-list_item">Чикаго</li>
+            </ul>
+          </li>
+          <li class="toggle-list_item">
+            <ul class="toggle-list_list">
+              <div class="toggle-list_toggler">
+                <div class="toggle-list_toggler_icon">+</div>
+                <div class="toggle-list_toggler_label">Китай</div>
+              </div>
+              <li class="toggle-list_item">Шанхай</li>
+              <li class="toggle-list_item">Пекин</li>
+              <li class="toggle-list_item">Тяньцзинь</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <script>
+        let icons = document.querySelectorAll('.toggle-list_toggler_icon');
+
+        for(let i = 0; i < icons.length; i++){
+          icons[i].addEventListener('click', function(event){
+            let sibling = event.target.parentNode.nextElementSibling;
+            if(event.target.textContent === '+'){
+              event.target.textContent = '-'
+
+              while(sibling){
+                sibling.hidden = true;
+                sibling = sibling.nextElementSibling;
+              }
+            } else {
+              event.target.textContent = '+'
+
+              while(sibling){
+                sibling.hidden = false;
+                sibling = sibling.nextElementSibling;
+              }
+            }
+          })
+
+        }
+      </script>
+    </div>
+  </div>
