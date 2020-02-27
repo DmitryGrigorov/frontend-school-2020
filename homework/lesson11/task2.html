@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Task 2</title>
 </head>
 <body>
@@ -20,5 +21,61 @@
 
     P. S. Желательно делать и использовать стили css
    -->
+   <div class="todoList">
+    <div class="todoHeader">
+      <h1 class="header-text">My todo list</h1>
+      <div class="todoInput">
+        <input class="field" type="text">
+        <button class="addTodo">Add</button>
+      </div>
+    </div>
+    <div class="todoBody">
+      <ul class="list"></ul>
+    </div>
+   </div>
+   <script>
+    const field = document.querySelector('.field');
+    const addButton = document.querySelector('.addTodo');
+    const list = document.querySelector('.list');
+    
+    field.addEventListener('keydown', addTodo);
+    addButton.addEventListener('click', addTodo);
+
+    function addTodo(event) {      
+      const target = event.target;            
+      if(event.which === 13 || event.which === 1) {        
+        const value = event.which === 13 ? target.value : field.value;
+        field.value = '';
+        if(value) {
+          const listItem = document.createElement('li');
+          listItem.classList.add("list-item");
+          listItem.textContent = value;
+
+          const btnWrapper = document.createElement('div'); //обертка для отмены на кнопке свойства text-decoration унаследованного при клике от li (зачеркнутый текст)
+          btnWrapper.style = "display: inline-block; text-decoration:none !important;";
+
+          const removeButton = document.createElement('button');
+          removeButton.classList.add("list-item_remove");
+          removeButton.textContent = 'Remove goal';
+          
+          btnWrapper.append(removeButton);
+          listItem.append(btnWrapper);
+
+          list.prepend(listItem)
+        }  
+      }          
+    }
+
+    list.addEventListener('click', todoOnClick);
+    function todoOnClick(event) {
+      const target = event.target;
+      if(target.classList.contains('list-item')){
+        target.classList.toggle('list-item-mark_as_resolved');
+      }else if(target.classList.contains('list-item_remove')){
+        target.parentNode.parentNode.remove();
+      }
+    }
+
+  </script>
 </body>
 </html>
