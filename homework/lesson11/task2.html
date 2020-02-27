@@ -4,8 +4,175 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task 2</title>
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: url("http://www.wallpaperfrom.com/wallpapers/floor-3d-view-minimalistic-wall-room-1440x1080.jpg") bottom fixed no-repeat;
+      background-size: cover;
+      font-family: 'Permanent Marker', sans-serif;
+    }
+    .search {
+      width: 100%;
+      background-color: rgba(20, 24, 27, 0.5);
+      text-align: center;
+      padding: 20px 0;
+      color: #e4d9c7;
+    }
+
+    #addTitle {
+      display: inline-block;
+      width: 50%;
+      height: 30px;
+      background: none;
+      border: 1px solid #e4d9c7;
+      text-align: center;
+      color: #e4d9c7;
+      font-family: 'Permanent Marker', sans-serif;
+      font-size: 1em;
+    }
+
+    #addButton {
+      width: 20%;
+      height: 30px;
+      background-color: #e4d9c7;
+      color: #14181b;
+      border: none;
+      font-weight: bold;
+      font-family: 'Permanent Marker', sans-serif;
+      vertical-align: bottom;
+      cursor: pointer;
+    }
+
+    .item-list {
+      width: 100%;
+      display: flex;
+      position: relative;
+      height: 30px;
+      align-items: center;
+    }
+
+    .target {
+      width: 15%;
+      text-align: right;
+      padding-right: 10px;
+      visibility: hidden;
+    }
+
+    .close {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 15%;
+      color: red;
+      text-align: center;
+      height: 100%;
+      transition: .2s;
+      cursor: pointer;
+    }
+
+    .item-list p {
+      width: 70%;
+    }
+
+    .item-list:nth-child(odd) {
+      background: #e4d9c7;
+      opacity: 0.3;
+      color: #14181b;
+    }
+
+    .item-list:nth-child(even) {
+      background: #14181b;
+      opacity: 0.3;
+      color: #e4d9c7;
+    }
+
+    .item-list:hover {
+      opacity: 0.5 !important;
+      transition: .2s;
+    }
+
+    .item-list:hover > .target {
+      transition: .2s;
+      visibility: visible;
+    }
+
+    .item-list:hover > .close {
+      background: red;
+      color: #14181b;
+      transition: .2s;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: rgba(20, 24, 27, 0.5);
+      text-align: center;
+      padding: 20px 0;
+      color: #e4d9c7;
+    }
+  </style>
 </head>
 <body>
+<div class="search">
+  <h1>To do List by DL^Larp</h1>
+  <input id="addTitle" type="text" placeholder="...title..."><button id="addButton">ADD</button>
+</div>
+<main>
+  <div class="item-list">
+    <div class="target"><i class="fas fa-crosshairs"></i></div>
+    <p>Shelby GT350 1967</p>
+    <div class="close"><i class="far fa-times-circle"></i></div>
+  </div>
+  <div class="item-list">
+    <div class="target"><i class="fas fa-crosshairs"></i></div>
+    <p>Shelby GT500 1967</p>
+    <div class="close"><i class="far fa-times-circle"></i></div>
+  </div>
+  <div class="item-list">
+    <div class="target"><i class="fas fa-crosshairs"></i></div>
+    <p>Shelby GT350 2005</p>
+    <div class="close"><i class="far fa-times-circle"></i></div>
+  </div>
+  <div class="item-list">
+    <div class="target"><i class="fas fa-crosshairs"></i></div>
+    <p>Shelby GT500 2005</p>
+    <div class="close"><i class="far fa-times-circle"></i></div>
+  </div>
+  <div class="item-list">
+    <div class="target"><i class="fas fa-crosshairs"></i></div>
+    <p>Shelby GT500 2013</p>
+    <div class="close"><i class="far fa-times-circle"></i></div>
+  </div>
+  <div class="item-list">
+    <div class="target"><i class="fas fa-crosshairs"></i></div>
+    <p>Shelby GT350 2016</p>
+    <div class="close"><i class="far fa-times-circle"></i></div>
+  </div>
+  <div class="item-list">
+    <div class="target"><i class="fas fa-crosshairs"></i></div>
+    <p>Shelby GT500 2020</p>
+    <div class="close"><i class="far fa-times-circle"></i></div>
+  </div>
+</main>
+<footer>
+  <p><i class="far fa-copyright"></i> 2020. All rights reserved.</p>
+</footer>
+<script>
+  let item = document.querySelector('.item-list');
+
+  item.addEventListener('mouseover', evt => {
+    item.classList.toggle('mouseover')
+  });
+</script>
+
   <!-- 
     По ссылке пример реализации TODO листа со стилями и прочим.
 
