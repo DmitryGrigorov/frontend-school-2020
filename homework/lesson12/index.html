@@ -146,13 +146,12 @@
     // interest: проценты, например, 0.05 означает 5% в год
     // years: сколько лет ждать
     // let result = Math.round(initial * (1 + interest * years));
-
-    const calcForm = document.forms.calculator;    
+    
     const diagramAfter = document.querySelector('#height-after');
     const moneyBeforeAmount = document.querySelector('#money-before');
     const moneyAfterAmount = document.querySelector('#money-after');
 
-    calcForm.addEventListener('submit', onSubmitCalcForm);
+    form.addEventListener('submit', onSubmitCalcForm);
 
     function onSubmitCalcForm(event) {
       event.preventDefault();
