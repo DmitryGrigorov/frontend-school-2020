@@ -5,6 +5,12 @@
     lwTail("ВАСЯ") == "Вася";
 */
 
+function lwTail(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+
+// console.log(lwTail("ВАСЯ"));
+
 /*
     2)
     Дана строка; нужно написать функцию, которая позволяет вернуть значение true,
@@ -16,6 +22,17 @@
     palindrome('table') === false
     palindrome('John') === false
 */
+
+function palindrome(str) {
+  return (
+    str
+      .split("")
+      .reverse()
+      .join("") === str
+  );
+}
+
+// console.log(palindrome("table"));
 
 /*
     3)
@@ -33,10 +50,9 @@
     // удаляем значения в старом массиве
     fruits.pop()
 
-    // что в fruits?
-    console.log( fruits.length ); // ?
+    // что в fruits?  -> "Яблоки", "Груша", "Апельсин", "Банан"
+    console.log( fruits.length ); // 4
 */
-
 
 /*
     4)
@@ -53,6 +69,15 @@
     потом переделайте всё как нужно и методом join соедините обратно.
 */
 
+function camelize(str) {
+  return str
+    .split("-")
+    .map((el, index) => (index === 0 ? el : lwTail(el)))
+    .join("");
+}
+
+// console.log(camelize("background-color"));
+// console.log(camelize("-webkit-transition"));
 
 /*
     5)
@@ -67,6 +92,18 @@
     alert( sorted ); // CSS, HTML, JavaScript
     alert( arr ); // HTML, JavaScript, CSS (без изменений)
 */
+let arr = ["HTML", "JavaScript", "CSS"];
+
+function copySorted(arr) {
+  const tmpArr = arr.slice();
+  return tmpArr.sort();
+}
+
+// console.log(arr);
+
+// let sorted = copySorted(arr);
+// console.log(sorted);
+// console.log(arr);
 
 /*
     6)
@@ -77,3 +114,12 @@
     sum(1, 2, 3, 4, 5) // 6
     sum(3, 8, 1, 40, 6) // 54
 */
+
+function sum(...arr) {
+  return arr
+    .filter(el => el % 2 === 0)
+    .reduce((prevValue, currValue) => prevValue + currValue);
+}
+
+// console.log(sum(1, 2, 3, 4, 5));
+// console.log(sum(3, 8, 1, 40, 6));
