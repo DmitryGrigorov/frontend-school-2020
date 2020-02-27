@@ -57,6 +57,23 @@
       <script>
         const exercise1 = document.querySelector('#exercise_1');
         // ...решение здесь
+        exercise1.addEventListener('click', toggle);
+        
+        function toggle (e) {
+          const target = e.target;          
+          if(target.classList.contains("toggle-list_toggler_label")){
+            let listItem = target.closest('.toggle-list_list');
+            
+            let iconElem = listItem.querySelector('.toggle-list_toggler_icon');
+            const iconSign = iconElem.textContent;
+            iconElem.textContent = iconSign === "+" ? '-' : '+';
+            
+            listItem = listItem.querySelectorAll('li');
+            listItem.forEach((elem) => {
+              elem.hidden = !elem.hidden;
+            });
+          }
+        }        
       </script>
     </div>
   </div>
@@ -118,6 +135,30 @@
         <script>
           const exercise2 = document.querySelector('#exercise_2');
           // ...решение здесь
+          
+          exercise2.addEventListener('click', moveCarousel);
+
+          function moveCarousel (e) {
+            const target = e.target;
+
+            if(target.classList.contains('carousel_button_prev')){              
+              let visibleItems = exercise2.querySelectorAll('.carousel_list .carousel_list_item[hidden]');
+
+              if(visibleItems.length > 0){
+                const lastIndex = visibleItems.length - 1;
+                visibleItems[lastIndex].hidden = false;
+              }              
+            }
+
+            if(target.classList.contains('carousel_button_next')){              
+              let visibleItems = exercise2.querySelectorAll('.carousel_list .carousel_list_item:not([hidden])');
+              
+              if(visibleItems.length > 3){
+                visibleItems[0].hidden = true;
+              }              
+            }
+
+          }
         </script>
       </div>
     </div>
@@ -139,6 +180,20 @@
       <script>
         const exercise3 = document.querySelector('#exercise_3');
         // ...решение здесь
+        exercise3.addEventListener('mouseover', setTooltip);
+
+        function setTooltip (e) {
+          const target = e.target;
+          let tooltips = exercise3.querySelectorAll('.tooltip');
+          tooltips.forEach(elem => elem.remove());
+
+          if(target.hasAttribute('data-tooltip')){            
+            let tooltip = document.createElement('div');
+            tooltip.innerHTML = target.getAttribute('data-tooltip');
+            tooltip.classList.add('tooltip');            
+            target.prepend(tooltip);             
+          }
+        }
       </script>
     </div>
 </div>
@@ -153,19 +208,19 @@
       <div class="menu_highlight">
         <ul class="menu_highlight_list">
             <li class="menu_highlight_item">
-              <a href="https://yandex.ru">
+              <a right="true" href="https://yandex.ru">
                   Переход на yandex только при клике правой кнопкой мыши
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://google.ru">
+              <a dbl="true" href="https://google.ru">
                 <strong>
                   Переход на google только при двойном клике
                 </strong>
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://mail.ru">
+              <a shift="true" href="https://mail.ru">
                 <em>
                   Переход на mail только при клике с нажатой кнопкой 'Shift'
                 </em>
@@ -175,7 +230,40 @@
       </div>
       <script>
         const exercise4 = document.querySelector('#exercise_4');
-        // ...решение здесь
+        // ...решение здесь        
+        exercise4.addEventListener('click', leftClick);
+
+        function leftClick (e) {          
+          const target = e.target;
+          const link = target.closest('a');
+          if(link){            
+            e.preventDefault();            
+            if(e.shiftKey && link.getAttribute('shift')){              
+              window.open(link.href, '_blank');
+            }
+          }
+        }
+
+        exercise4.addEventListener('dblclick', doubleClick);
+
+        function doubleClick (e) {
+          const target = e.target;
+          const link = target.closest('a');
+          if(link && link.getAttribute('dbl')){                        
+            window.open(link.href, '_blank');
+          }
+        }
+
+        exercise4.addEventListener('contextmenu', rightClick);
+
+        function rightClick (e) {
+          const target = e.target;
+          const link = target.closest('a');
+          if(link && link.getAttribute('right')){                        
+            e.preventDefault();
+            window.open(link.href, '_blank');
+          }
+        }
       </script>
     </div>
   </div>
