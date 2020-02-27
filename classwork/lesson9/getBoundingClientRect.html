@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Get Bounding Client Rect</title>
+</head>
+<style>
+    html, body{
+        height: 100%;
+    }
+    .main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .block{
+        width: 100px;
+        height: 100px;
+        border: 5px solid #000;
+        background-color: yellowgreen;
+    }
+    .wrapper{
+        display: flex;
+        justify-content: center;
+        border: 5px solid black;
+        height: 200px;
+        width: 100%;
+        align-items: center;
+    }
+</style>
+<body class='main'>
+    <div class="wrapper">
+        <div class="block"></div>
+    </div>
+    <script>
+    //    let rect =  document.querySelector('.block').getBoundingClientRect();
+    //     console.log(rect);
+
+    let block = document.querySelector('.block');
+
+    </script>
+</body>
+</html>
