@@ -26,7 +26,7 @@
       color: #e4d9c7;
     }
 
-    #addTitle {
+    .addTitle {
       display: inline-block;
       width: 50%;
       height: 30px;
@@ -38,7 +38,7 @@
       font-size: 1em;
     }
 
-    #addButton {
+    .addButton {
       width: 20%;
       height: 30px;
       background-color: #e4d9c7;
@@ -103,10 +103,23 @@
       visibility: visible;
     }
 
+    .item-list.active > .close,
     .item-list:hover > .close {
       background: red;
       color: #14181b;
       transition: .2s;
+    }
+
+    .item-list.active {
+      opacity: 1 !important;
+    }
+
+    .item-list.active > .target {
+      visibility: visible;
+    }
+
+    .item-list.active > p {
+      text-decoration: underline;
     }
 
     footer {
@@ -123,9 +136,9 @@
 <body>
 <div class="search">
   <h1>To do List by DL^Larp</h1>
-  <input id="addTitle" type="text" placeholder="...title..."><button id="addButton">ADD</button>
+  <input class="addTitle" type="text" placeholder="...title..."><button class="addButton">ADD</button>
 </div>
-<main>
+<main id="non-list">
   <div class="item-list">
     <div class="target"><i class="fas fa-crosshairs"></i></div>
     <p>Shelby GT350 1967</p>
@@ -168,11 +181,59 @@
 <script>
   let item = document.querySelector('.item-list');
 
-  item.addEventListener('mouseover', evt => {
-    item.classList.toggle('mouseover')
-  });
-</script>
+  document.addEventListener('click', onList);
+  document.addEventListener('keydown', onList);
 
+  function onList(event) {
+      switch (event.type) {
+        case 'keydown':
+          if (event.key === 'Enter')
+            if(event.target.classList.contains('addTitle')) {
+              newItem();
+
+            }
+          break;
+        case 'click':
+          const target = event.target;
+          if (event.target.classList.contains('addButton')) {
+            newItem();
+            break;
+          }
+          if (!target.classList.contains('.item-list') && !event.target.classList.contains('close')) {
+            if(target.closest('.close')) {
+              const elemTarget = target.closest('.close');
+              elemTarget.parentElement.remove();
+              break;
+            } else {
+              if(target.closest('.item-list')) {
+                const elemTarget = target.closest('.item-list');
+                elemTarget.classList.toggle('active');
+              }
+              break;
+            }
+          } else {
+            if(target.classList.contains('close')) {
+              target.parentElement.remove();
+            } else {
+              target.classList.toggle('active')
+            }
+            break;
+          }
+      }
+  }
+
+  function newItem() {
+    const addTitle = document.querySelector('.addTitle');
+    const list = document.getElementById('non-list');
+    const newItem = `<div class="item-list">
+                    <div class="target"><i class="fas fa-crosshairs"></i></div>
+                    <p>${addTitle.value}</p>
+                    <div class="close"><i class="far fa-times-circle"></i></div>
+                  </div>`;
+    list.insertAdjacentHTML('beforeEnd', newItem);
+    addTitle.value = '';
+  }
+</script>
   <!-- 
     По ссылке пример реализации TODO листа со стилями и прочим.
 
