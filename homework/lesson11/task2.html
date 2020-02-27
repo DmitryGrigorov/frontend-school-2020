@@ -1,12 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task 2</title>
-</head>
-<body>
-  <!-- 
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+      html {
+        font-family: 'Roboto', sans-serif;
+      }
+
+      body {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 15px;
+      }
+
+      li {
+        font-size: 18px;
+        background-color: aqua;
+        border: 1px solid black;
+        display: flex;
+        justify-content: space-between;
+        padding-left: 5px;
+        cursor: pointer;
+        height: 30px;
+        width: 100%;
+      }
+
+      div {
+        line-height: 30px;
+      }
+
+      li:not(:last-of-type) {
+        margin-bottom: 10px;
+      }
+
+      li:nth-of-type(2n) {
+        background-color: aquamarine;
+      }
+
+      li:hover {
+        background-color: blue;
+      }
+
+      .delete {
+        height: 100%;
+        width: 30px;
+        text-align: center;
+      }
+
+      .delete:hover {
+        background-color: red;
+      }
+
+      button {
+        font-size: 14px;
+        background-color: gray;
+        color: white;
+        border-radius: 5px;
+        border: 1px solid black;
+        height: 30px;
+        width: 100px;
+      }
+
+      button:hover {
+        background-color: blue;
+      }
+
+      input {
+        font-size: 14px;
+        width: 200px;
+        height: 25px;
+        padding-left: 5px;
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 
     По ссылке пример реализации TODO листа со стилями и прочим.
 
     Задача: Реализовать что-то похожее.
@@ -20,5 +110,71 @@
 
     P. S. Желательно делать и использовать стили css
    -->
-</body>
+    <div class="header">
+      <h1>Менеджер заданий</h1>
+      <div class="input-task">
+        <input type="text" id="task" placeholder="Введите задачу..." />
+        <button id="add">добавить</button>
+      </div>
+    </div>
+
+    <ul id="list">
+      <li>
+        <div class="description">Первое задание</div>
+        <div class="delete">x</div>
+      </li>
+      <li>
+        <div class="description">Второе задание</div>
+        <div class="delete">x</div>
+      </li>
+      <li>
+        <div class="description">Третье задание</div>
+        <div class="delete">x</div>
+      </li>
+    </ul>
+
+    <script>
+      const inputTask = document.getElementById("task");
+      const addButton = document.getElementById("add");
+      const taskList = document.getElementById("list");
+
+      taskList.addEventListener("click", (event) => {
+        const element = event.target;
+
+        if (element.matches("div.description") || element.tagName === "LI") {
+          const elementToCrossOut = element.children[0] || element;
+          elementToCrossOut.style.textDecoration = elementToCrossOut.style.textDecoration ? "" : "line-through";
+        }
+
+        if (element.matches("div.delete")) {
+          const elementToDelete = element.closest("li");
+          elementToDelete.remove();
+        }
+      });
+
+      inputTask.addEventListener("keydown", (event) => {
+        if (event.code === "Enter" && inputTask.value !== "") {
+          createNewListItem();
+        }
+      })
+
+      addButton.addEventListener("click", (event) => {
+        if (inputTask.value !== "") {
+          createNewListItem();
+        }
+      });
+
+      function createNewListItem() {
+        const newElement = document.createElement("li");
+        newElement.innerHTML = `<div class="description">${inputTask.value}</div>
+                                <div class="delete">x</div>`;
+        taskList.append(newElement);
+        inputTask.value = "";
+      }
+
+
+
+    </script>
+  </body>
+
 </html>
