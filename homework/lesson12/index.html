@@ -34,13 +34,13 @@
       <tr>
         <td>Первоначальный депозит</td>
         <td>
-          <input name="money" type="number" value="10000" required>
+          <input id="inputMoney" name="money" type="number" value="10000" required>
         </td>
       </tr>
       <tr>
         <td>Срок вклада?</td>
         <td>
-          <select name="months">
+          <select name="months" id="mounthInput">
             <option value="3">3 (минимум)</option>
             <option value="6">6 (полгода)</option>
             <option value="12" selected>12 (год)</option>
@@ -55,11 +55,11 @@
       <tr>
         <td>Годовая процентная ставка?</td>
         <td>
-          <input name="interest" type="number" value="5" required>
+          <input id="inputInterest" name="interest" type="number" value="5" required>
         </td>
       </tr>
     </table>
-
+    <input type="submit" name="calculate" value="Рассчитать" id="calc-button">
 
   </form>
 
@@ -70,28 +70,40 @@
       <th>Станет:</th>
     </tr>
     <tr>
-      <th id="money-before"></th>
-      <th id="money-after"></th>
+      <th id="money-before">0</th>
+      <th id="money-after">0</th>
     </tr>
     <td>
       <div style="background: red;width:40px;height:100px"></div>
     </td>
     <td>
-      <div style="background: green;width:40px;height:0" id="height-after"></div>
+      <div style="background: green;width:40px;" id="height-after"></div>
     </td>
   </table>
 
   <script>
+    const moneyBeforeHeader = document.querySelector('#money-before');
+    const moneyAfterHeader = document.querySelector('#money-after');
+    const initialValue = document.querySelector('#inputMoney');
+    const initialInterest = document.querySelector('#inputInterest');
+    const initialYears = document.querySelector('#mounthInput');
+    const afterDiagram = document.querySelector('#height-after');
+    const calcButton = document.querySelector('#calc-button');
 
-    let form = document.forms.calculator;
+    calcButton.addEventListener('click', makeCalculation);
 
-    // ваш код
+    function makeCalculation (event) {
+      event.preventDefault();
+      let initial = initialValue.value;
+      let interest = (initialInterest.value) / 100;
+      let years = (initialYears.value) / 12;
+      let result = Math.round(initial * (1 + interest * years));
+      let afterPercent = (result / initial)*100;
+      moneyBeforeHeader.textContent = initial;
+      moneyAfterHeader.textContent = result;
+      afterDiagram.style.height = afterPercent + 'px';
+    }
 
-    // Формула
-    // initial: начальная сумма денег
-    // interest: проценты, например, 0.05 означает 5% в год
-    // years: сколько лет ждать
-    // let result = Math.round(initial * (1 + interest * years));
   </script>
 
 
