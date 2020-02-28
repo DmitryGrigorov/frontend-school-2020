@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Lesson 10 homework</title>
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <title>Lesson 10 homework</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
   <!--Задача №1 "Создать скрывающееся/рвскрывающееся меню"-->
   <div id="exercise_1" class="exercise">
@@ -57,81 +59,142 @@
       <script>
         const exercise1 = document.querySelector('#exercise_1');
         // ...решение здесь
+
+        const listToggler = document.querySelectorAll('#exercise_1 .toggle-list_toggler');
+
+        listToggler.forEach((elem) => {
+          let isHidden = true;
+
+          elem.addEventListener('click', function () {
+            const siblings = elem.parentNode.querySelectorAll('li');
+            siblings.forEach(item => { item.hidden = isHidden; });
+
+            const icon = elem.children[0];
+            icon.innerHTML = isHidden ? '–' : '+';
+
+            isHidden = !isHidden;
+          })
+        });
+
       </script>
     </div>
   </div>
 
-    <!--Задача №2 "Оживить карусель"-->
-    <div id="exercise_2" class="exercise">
-      <div class="conditions">
-        <p>
-          При клике на синюю кнопку, карусель должна прокрутиться на 1 элемент вправо (если мы не достигли конца)
-        </p>
-        <p>
-          При клике на красную кнопку карусель должна прокрутиться на 1 элемент влево (если мы не достигли начала)
-        </p>
-        <p>
-          <em>
-            Постарайтесь написать свою разметку html, чтобы понять принцип работы карусели
-          </em>
-        </p>
-      </div>
-      <div class="solution">
-        <div class="carousel">
-          <div class="carousel_button carousel_button_prev"></div>
-          <div class="carousel_button carousel_button_next"></div>
-          <div class="carousel_list_wrapper">
-            <ul class="carousel_list">
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/1.png" alt="smile-1">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/2.png" alt="smile-2">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/3.png" alt="smile-3">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/4.png" alt="smile-4">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/5.png" alt="">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/6.png" alt="">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/7.png" alt="">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/8.png" alt="">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/9.png" alt="">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/10.png" alt="">
-              </li>
-            </ul>
-          </div>
-        </div>
-        <script>
-          const exercise2 = document.querySelector('#exercise_2');
-          // ...решение здесь
-        </script>
-      </div>
+  <!--Задача №2 "Оживить карусель"-->
+  <div id="exercise_2" class="exercise">
+    <div class="conditions">
+      <p>
+        При клике на синюю кнопку, карусель должна прокрутиться на 1 элемент вправо (если мы не достигли конца)
+      </p>
+      <p>
+        При клике на красную кнопку карусель должна прокрутиться на 1 элемент влево (если мы не достигли начала)
+      </p>
+      <p>
+        <em>
+          Постарайтесь написать свою разметку html, чтобы понять принцип работы карусели
+        </em>
+      </p>
     </div>
+    <div class="solution">
+      <div class="carousel">
+        <div class="carousel_button carousel_button_prev"></div>
+        <div class="carousel_button carousel_button_next"></div>
+        <div class="carousel_list_wrapper">
+          <ul class="carousel_list">
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/1.png" alt="smile-1">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/2.png" alt="smile-2">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/3.png" alt="smile-3">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/4.png" alt="smile-4">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/5.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/6.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/7.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/8.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/9.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/10.png" alt="">
+            </li>
+          </ul>
+        </div>
+      </div>
+      <script>
+        const exercise2 = document.querySelector('#exercise_2');
+        // ...решение здесь
+
+        const imgWidth = document.querySelector('img').clientWidth;
+        const n = 3; 
+
+        const image = document.querySelectorAll('.carousel li');
+        const images = document.querySelector('.carousel ul');
+        
+        const prevBtn = document.querySelector('.carousel_button_prev');
+        const nextBtn = document.querySelector('.carousel_button_next');
+
+        let position = 0;
+
+        prevBtn.addEventListener('click', function () {
+          
+          position += imgWidth * n;
+          position = position < 0 ? position : 0;
+
+          images.style.marginLeft = `${position}px`;
+
+        });
+
+        nextBtn.addEventListener('click', function () {
+          
+          const minMargin = - imgWidth * (image.length - n);
+
+          position -= imgWidth * n;
+          position = position >= minMargin ? position : minMargin;
+
+          images.style.marginLeft = `${position}px`;
+          
+        });
+
+        // document.querySelector('.carousel_button_next').onclick = function () {
+        //   // сдвиг вправо
+        //   position -= imgWidth * n;
+        //   // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
+        //   position = Math.max(position, -imgWidth * (image.length - n));
+        //   console.log(position);
+          
+        //   images.style.marginLeft = position + 'px';
+        // };
+      </script>
+    </div>
+  </div>
 
   <!--Задача №3 "Поведение подсказка"-->
   <div id="exercise_3" class="exercise">
     <div class="conditions">
-        При наведении мыши на элемент <em>(количество таких элементов на странице может быть любым)</em> с атрибутом data-tooltip,
-        над ним должна показываться подсказка и скрываться при переходе на другой элемент.
+      При наведении мыши на элемент <em>(количество таких элементов на странице может быть любым)</em> с атрибутом
+      data-tooltip,
+      над ним должна показываться подсказка и скрываться при переходе на другой элемент.
     </div>
     <div class="solution">
       <div class="article">
         <p>
-            Товарищи! сложившаяся структура организации представляет собой интересный эксперимент проверки направлений прогрессивного развития. С другой стороны рамки и место обучения кадров способствует подготовки и реализации модели развития.
+          Товарищи! сложившаяся структура организации представляет собой интересный эксперимент проверки направлений
+          прогрессивного развития. С другой стороны рамки и место обучения кадров способствует подготовки и реализации
+          модели развития.
         </p>
         <button data-tooltip="эта подсказка длиннее, чем элемент">Короткая кнопка</button>
         <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
@@ -141,9 +204,9 @@
         // ...решение здесь
       </script>
     </div>
-</div>
+  </div>
 
-<!--Задача №4 Самостоятельно: "Отмена действия по умолчанию"-->
+  <!--Задача №4 Самостоятельно: "Отмена действия по умолчанию"-->
   <div id="exercise_4" class="exercise">
     <div class="conditions">
       Решить при помощи делегирования
@@ -152,25 +215,25 @@
     <div class="solution">
       <div class="menu_highlight">
         <ul class="menu_highlight_list">
-            <li class="menu_highlight_item">
-              <a href="https://yandex.ru">
-                  Переход на yandex только при клике правой кнопкой мыши
-              </a>
-            </li>
-            <li class="menu_highlight_item">
-              <a href="https://google.ru">
-                <strong>
-                  Переход на google только при двойном клике
-                </strong>
-              </a>
-            </li>
-            <li class="menu_highlight_item">
-              <a href="https://mail.ru">
-                <em>
-                  Переход на mail только при клике с нажатой кнопкой 'Shift'
-                </em>
-              </a>
-            </li>
+          <li class="menu_highlight_item">
+            <a href="https://yandex.ru">
+              Переход на yandex только при клике правой кнопкой мыши
+            </a>
+          </li>
+          <li class="menu_highlight_item">
+            <a href="https://google.ru">
+              <strong>
+                Переход на google только при двойном клике
+              </strong>
+            </a>
+          </li>
+          <li class="menu_highlight_item">
+            <a href="https://mail.ru">
+              <em>
+                Переход на mail только при клике с нажатой кнопкой 'Shift'
+              </em>
+            </a>
+          </li>
         </ul>
       </div>
       <script>
@@ -180,4 +243,5 @@
     </div>
   </div>
 </body>
+
 </html>
