@@ -60,20 +60,21 @@
 
             function toggle(event) {
                 let target = event.target;
-                if (target.tagName !== 'ul') {
+                if (target.tagName !== 'UL') {
                     target = target.closest('ul');
                 }
-                let icon = target.firstElementChild.firstElementChild.textContent;
+                // let icon = target.firstElementChild.firstElementChild.textContent;
+                let icon = target.querySelector('.toggle-list_toggler_icon').textContent;
 
 
                 Array.from(target.children).forEach(function (child) {
                     child.hidden = !child.hidden;
                 });
                 if (icon === '+') {
-                    target.firstElementChild.firstElementChild.textContent = '-';
+                    target.querySelector('.toggle-list_toggler_icon').textContent = '-';
 
                 } else
-                    target.firstElementChild.firstElementChild.textContent = '+';
+                    target.querySelector('.toggle-list_toggler_icon').textContent = '+';
 
 
             }
@@ -264,27 +265,17 @@
         <script>
             const exercise4 = document.querySelector('#exercise_4');
             let list = exercise4.querySelector('ul');
-            let elems = Array.from(list.children);
-            let flag = false;
-            elems[0].addEventListener('contextmenu', yandex);
-            elems[1].addEventListener('dblclick', google);
+            //let elems = Array.from(list.children);
+
+            list.children[0].addEventListener('contextmenu', yandex);
+            list.children[1].addEventListener('dblclick', google);
             list.addEventListener('click', mail);
-            document.addEventListener('keydown', shift);
-            document.addEventListener('keyup', unshift);
 
-            function shift(event) {
-                if (event.key === 'Shift')
-                    flag = true;
-            }
 
-            function unshift() {
-                if (flag)
-                    flag = false;
-            }
 
             function yandex(event) {
                 event.preventDefault();
-                event.target.window.open("https://yandex.ru");
+                window.open("https://yandex.ru");
             }
 
             function google(event) {
@@ -294,16 +285,17 @@
 
             function mail(event) {
                 let target = event.target;
-                if (target.tagName !== 'li') {
+                if (target.tagName !== 'LI') {
                     target = target.closest('li');
                 }
-                if (target !== elems[2])
+                if (target !== list.children[2])
                     return;
                 event.preventDefault();
-                if (flag) {
+
+                if (event.shiftKey) {
                     window.open("https://mail.ru");
-                    flag = false;
                 }
+
             }
 
         </script>
