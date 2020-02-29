@@ -19,11 +19,18 @@
     1. Получить элемент c id="list"
     2. Добавить в конец списка массив фруктов ['Бананы', 'Черника', 'Малина'] и вывести на страницу
     3. Окрасить каждый нечетный элемент в красный цвет (elem.style.background = 'red')
-    
+
    -->
   <script>
-
-
+    let itemList = document.getElementById('list');
+    let arr = ['Бананы', 'Черника', 'Малина'];
+    arr.forEach(item => {
+      let newLi = document.createElement('li');
+      newLi.textContent = item;
+      itemList.append(newLi);
+    });
+    for (let i = 0; i < itemList.childElementCount; i++)
+      if (i % 2 == 0) itemList.children[i].style.background = 'red';
   </script>
 </body>
 </html>
