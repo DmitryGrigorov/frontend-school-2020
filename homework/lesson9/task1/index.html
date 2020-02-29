@@ -25,12 +25,29 @@
     let fruits = document.getElementById('list');
     let newFruits = ['Бананы', 'Черника', 'Малина'];
 
-    for (let i=0; i<newFruits.length; i++){
-        let el=document.createElement('li');
-        el.textContent=newFruits[i];
-      fruits.append(el);
+    let newElems = newFruits.map(function (item) {
+        let el = document.createElement('li');
+        el.innerHTML = item;
+        return el;
+    });
 
-    }
+
+    newElems.forEach(function (item) {
+        fruits.append(item);
+    });
+
+    Array.from(fruits.children).forEach(function (item, idx) {
+        if (idx % 2 !== 0) {
+            item.style.background = 'red';
+        }
+    })
+
+    // for (let i=0; i<newFruits.length; i++){
+    //     let el=document.createElement('li');
+    //     el.textContent=newFruits[i];
+    //   fruits.append(el);
+    //
+    // }
 
 </script>
 </body>
