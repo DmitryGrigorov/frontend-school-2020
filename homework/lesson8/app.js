@@ -53,6 +53,22 @@
 //
 //  ** ПОДСКАЗКА для задачи №1 обратите внимание, что после вызова delay мы сразу пишем .then, (delay должна вернуть promise)
 
+function delay(time) {
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve();
+        }, time);
+    });
+    return promise;
+}
+
+delay(1000)
+    .then(() => console.log('\n#1):')) //Вывод в консоль номера задачи
+    .then(() => console.log('delay callback 1'))
+    .then(() => delay(2000))
+    .then(() => console.log('delay callback 2'))
+    .then(() => delay(3000))
+    .then(() => console.log('delay callback 3'));
 
 
 // 2
@@ -114,6 +130,39 @@
 // ** ПОДСКАЗКА для задачи №2 метод fetch возвращает промис
 // обратите внимание, что после вызова новой функции request в первый же "then" нам попадает уже тело ответа от сервера, а не заголовки ответа
 
+const someUrl = 'http://jsonplaceholder.typicode.com/albums/1';
+
+/*** Способ 1 ***/
+function request(url) {
+    return new Promise(async (resolve, reject) => {
+        let response = await fetch(url);
+        if (response.ok) {
+            let text = await response.text();
+            resolve(text);
+        } else {
+            console.log(`Ошибка HTTP: ${response.status}`)
+        }
+    });
+}
+
+/*** Способ 2 ***/
+async function request2(url) {
+    return await fetch(url).then(x => x.text());
+}
+
+let url = someUrl;
+request(url)
+    .then(data => {
+        console.log('\n#2) Способ 1:')
+        console.log(data)
+    }); // выведет в консоль { "userId": 1, "id": 1, "title": "quidem molestiae enim" }
+
+request2(url)
+    .then(data => {
+        console.log('\n#2) Способ 2:')
+        console.log(data)
+    }); // выведет в консоль { "userId": 1, "id": 1, "title": "quidem molestiae enim" }
+
 
 // 3*
 // Есть массив (колличество элементов может быть любым):
@@ -172,3 +221,24 @@
 // ** ПОДСКАЗКА для задачи №3 с помощью метода массива .map() -> переделайте массив строк в массив промисов
 // во второй задаче есть подстказка как url превращяется в промис
 
+
+let urls = [
+    'http://jsonplaceholder.typicode.com/albums/3',
+    'http://jsonplaceholder.typicode.com/albums/4',
+    'http://jsonplaceholder.typicode.com/albums/5'
+];
+
+let newUrls = [];
+
+urls = urls.map(url => {
+        async function request(url) {
+            return await fetch(url).then(x => x.text());
+        }
+
+        request(url)
+            .then(data => newUrls.push(data));
+    }
+);
+
+console.log('\n#3) Массив значений url:');
+console.log(newUrls);
