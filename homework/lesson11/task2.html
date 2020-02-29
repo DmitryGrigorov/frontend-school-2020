@@ -4,6 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task 2</title>
+  <style>
+    .listApp {
+      display: flex;
+      flex-direction: column;
+      background-color: yellow;
+      height: auto;
+      width: 40vw;
+      border: 8px solid black;
+      border-radius: 10px;
+    }
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: blueviolet;
+    }
+    .shell {
+      display: flex;
+      flex-direction: row;
+    }
+    .listApp__addItem {
+      width: 6vw;
+      height: 21px;
+    }
+
+    .listApp__list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .listApp__item {
+      height: 30px;
+      list-style: none;
+      vertical-align: center;
+      padding-top: 12px;
+    }
+
+    .listApp__item:nth-child(2n) {
+      background-color: red;
+    }
+
+    .listApp__item:hover {
+      background-color: tomato;
+      cursor: pointer;
+    }
+
+    .listApp__item--delete {
+      background-color: #0000ff !important;
+      text-decoration-line: line-through;
+      list-style: square;
+    }
+
+  </style>
 </head>
 <body>
   <!-- 
@@ -20,5 +73,41 @@
 
     P. S. Желательно делать и использовать стили css
    -->
+
+   <div id="listApp" class="listApp">
+     <div class="wrapper">
+       <h1 class="caption">My To Do List</h1>
+       <div class="shell"><input type="text" placeholder="Что буду делать сегодня?" class="listApp__input"><button class="listApp__addItem">Добавить</button></div>
+     </div>
+     <ul class="listApp__list">
+       <li class="listApp__item">Спать</li>
+       <li class="listApp__item">Не спать</li>
+       <li class="listApp__item">Может поспать</li>
+     </ul>
+   </div>
+
+   <script>
+     
+     let listApp = document.querySelector('#listApp');
+     let input = document.querySelector(`.listApp__input`);
+     let btn = document.querySelector(`.listApp__addItem`);
+     let list = document.querySelector(`.listApp__list`);
+
+     btn.addEventListener('click', (evt) => {
+       debugger
+         let li = document.createElement('li');
+         li.classList.add('listApp__item');
+         li.textContent = input.value;
+         if(li.textContent === '') return;
+         list.append(li);
+     });
+
+     listApp.addEventListener('click', (evt) => {
+       debugger
+       if(evt.target.classList.contains('listApp__item')) {
+         evt.target.classList.toggle('listApp__item--delete');
+       }
+     });
+   </script>
 </body>
 </html>
