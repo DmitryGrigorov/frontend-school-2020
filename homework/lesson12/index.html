@@ -74,24 +74,91 @@
       <th id="money-after"></th>
     </tr>
     <td>
-      <div style="background: red;width:40px;height:100px"></div>
+      <div style="background: red;width:40px;height:100px" id="height-before"></div>
     </td>
     <td>
-      <div style="background: green;width:40px;height:0" id="height-after"></div>
+      <div style="background: green;width:40px;height:160px" id="height-after"></div>
     </td>
   </table>
 
   <script>
 
-    let form = document.forms.calculator;
+    //добавляю событие на диаграмму (рисую диаграмму);
 
     // ваш код
+
+    // переменные: доступ к формам
+
+    let form = document.forms.calculator;
+
+    let initialMoneyForm = form.money;
+
+    let percentForm = form.interest;
+
+    let yearsForm = form.months;
+
+    // переменные: доступ к значениям форм
+
+    let initialMoneyValue = form.money.value;
+
+    let percentValue = form.interest.value/100;
+
+    let yearsValue = form.months.value;
+
+    // переменные: доступ к диаграмме
+
+    let diagram = document.querySelector('#diagram');
+
+    //добавляю событие на страницу (событие = расчёт result)
+
+    const result = () => Math.round(initialMoneyValue * (1 + percentValue * yearsValue))
+
+    document.addEventListener('DOMContentLoaded', (evt) => {
+      debugger
+      diagram.querySelector('#money-before').textContent = form.money.value;
+      diagram.querySelector('#money-after').textContent = result();
+    });
+
+    //добавляю событие на форму
+
+    form.addEventListener('focusout', (evt) => {
+      debugger
+      let res = null;
+      switch (evt.target.name) {
+        case 'money':
+          initialMoneyValue = evt.target.value;
+          if (initialMoneyValue < 1000) {alert ('Иди зарабатывай, pogChamp'); return};
+          if (initialMoneyValue >= 1000000000) {alert ('Ага, coolStoryBob'); return};
+          res = result();
+          diagram.querySelector('#money-before').textContent = evt.target.value;
+          diagram.querySelector('#money-after').textContent = res;
+          diagram.querySelector('#height-before').style.height = `${initialMoneyValue/100}px`;
+          diagram.querySelector('#height-after').style.height = `${res/100}px`;
+          break;
+        case 'interest':
+          percentValue = evt.target.value/100;
+          res = result();
+          diagram.querySelector('#money-after').textContent = res;
+          diagram.querySelector('#height-after').style.height = `${res/100}px`;
+          break;
+        case 'months':
+          yearsValue = evt.target.value
+          res = result();
+          diagram.querySelector('#money-after').textContent = res;
+          diagram.querySelector('#height-after').style.height = `${res/100}px`;
+          break;
+        default: break;
+      }
+    });
 
     // Формула
     // initial: начальная сумма денег
     // interest: проценты, например, 0.05 означает 5% в год
     // years: сколько лет ждать
     // let result = Math.round(initial * (1 + interest * years));
+
+    // Вообщем, сделал задание, но столбцы, в диаграмме, при слишком больших значениях огромные, если уже проверили, то увы, если нет, то попробую доделать в ближайшие дни.
+
   </script>
 
 
