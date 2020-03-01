@@ -74,7 +74,7 @@
       <th id="money-after"></th>
     </tr>
     <td>
-      <div style="background: red;width:40px;height:100px"></div>
+      <div style="background: red;width:40px;height:100px" id="height-before"></div>
     </td>
     <td>
       <div style="background: green;width:40px;height:0" id="height-after"></div>
@@ -92,7 +92,63 @@
     // interest: проценты, например, 0.05 означает 5% в год
     // years: сколько лет ждать
     // let result = Math.round(initial * (1 + interest * years));
+
+    let fMoney = form.querySelector('[name="money"');
+    let fInterest = form.querySelector('[name="interest"');
+    let fMonths = form.querySelector('[name="months"');
+    let moneyBefore = document.querySelector('#money-before');
+    let moneyAfter = document.querySelector('#money-after');
+    let heightBefore = document.querySelector('#height-before');
+    let heightAfter = document.querySelector('#height-after');
+
+    function f() {
+      fMoney.value = Math.abs(fMoney.value); //Обработка отрицательного значения начального тела депозита
+      let initial = fMoney.value;
+      let interest = fInterest.value / 100;
+      let years = fMonths.options[fMonths.selectedIndex].value / 12;
+      let result = Math.round(initial * (1 + interest * years));
+
+      /* Высота графика на странице всегда статичная - 100 px за счёт следующей обработки.
+         Изменяется (уменьшается) только тот столбец, который станет меньше относительно другого.
+         Столбец же, который в итоге станет больше - всегда равен 100 px.
+       */
+      if (interest > 0) { // Положительные значения. Столбец "Станет" = 100px, столбец "Было" - пропорционально уменьшается.
+        let percent = initial / result * 100;
+        heightBefore.style.height = percent + 'px';
+        heightBefore.style.backgroundColor = 'red';
+        heightAfter.style.backgroundColor = 'green';
+        heightAfter.style.height = '100px';
+      } else { // Отрицательные значения. Столбец "Было" = 100px, столбец "Станет" пропорционально уменьшается.
+        let percent = result / initial * 100;
+        heightBefore.style.height = '100px';
+        heightBefore.style.backgroundColor = 'green'; //Замена цвета, т.к. изначально тело депозита было больше
+        heightAfter.style.height = percent + 'px';
+        heightAfter.style.backgroundColor = 'red';
+      }
+
+      //Вывод над графиком начального и итогового размера депозита
+      moneyBefore.textContent = initial;
+      moneyAfter.textContent = result;
+    }
+
+    document.addEventListener('input', f);
+
+    // Изменение значения в поле прокруткой колёсика мыши
+    document.addEventListener('wheel', (event) => {
+      let target = event.target
+      switch (target){
+        case fInterest:
+        case fMoney:
+          target.value = +target.value;
+      }
+    })
   </script>
+  <style>
+    #money-before, #money-after {
+      font-size: 12px;
+      font-weight: normal;
+    }
+  </style>
 
 
 </body>
