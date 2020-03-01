@@ -46,6 +46,7 @@
     list-style: none;
     margin-left: 25px;
 }
+
 /* Конец задачи №1 список элементов */
 
 
@@ -71,7 +72,7 @@
     position: absolute;
     height: 100%;
     width: 30px;
-    transition: all 200ms ease-out;
+    transition: all 200ms ease-out; 
     cursor: pointer;
 }
 
@@ -82,6 +83,7 @@
 .carousel_list_wrapper {
     width: 390px;
     overflow: hidden;
+    position: relative;
 }
 
 .carousel_list {
@@ -97,6 +99,25 @@
 .carousel_list_item img {
     width: 130px;
     height: 130px;
+}
+
+#box{
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    width: 910px;
+    height: 130px; 
+ }
+
+.btn_tip {
+    position: fixed;
+    padding: 10px 20px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    text-align: center;
+    font: italic 12px sans-serif;
+    color: black;
+    background: white;
 }
 
 /* Конец задачи №2 карусель */

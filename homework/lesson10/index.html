@@ -55,72 +55,139 @@
         </ul>
       </div>
       <script>
-        const exercise1 = document.querySelector('#exercise_1');
-        // ...решение здесь
+        document.onclick = function hideListItem(event) {
+          const target = event.target;
+          if (target.getAttribute('class') === 'toggle-list_toggler_icon') {
+            let arrNode = [...target.parentNode.parentNode.children];
+            if (target.innerHTML == '+') {
+              arrNode.filter((elem, index) => index != 0).map(elem => elem.hidden = true);
+              target.innerHTML = '-';
+            } else {
+              arrNode.filter((elem, index) => index != 0).map(elem => elem.hidden = false);
+              target.innerHTML = '+';
+            }
+          } else {
+            return false;
+          }
+        };
       </script>
     </div>
   </div>
 
     <!--Задача №2 "Оживить карусель"-->
-    <div id="exercise_2" class="exercise">
-      <div class="conditions">
-        <p>
-          При клике на синюю кнопку, карусель должна прокрутиться на 1 элемент вправо (если мы не достигли конца)
-        </p>
-        <p>
-          При клике на красную кнопку карусель должна прокрутиться на 1 элемент влево (если мы не достигли начала)
-        </p>
-        <p>
-          <em>
-            Постарайтесь написать свою разметку html, чтобы понять принцип работы карусели
-          </em>
-        </p>
-      </div>
-      <div class="solution">
-        <div class="carousel">
-          <div class="carousel_button carousel_button_prev"></div>
-          <div class="carousel_button carousel_button_next"></div>
-          <div class="carousel_list_wrapper">
-            <ul class="carousel_list">
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/1.png" alt="smile-1">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/2.png" alt="smile-2">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/3.png" alt="smile-3">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/4.png" alt="smile-4">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/5.png" alt="">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/6.png" alt="">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/7.png" alt="">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/8.png" alt="">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/9.png" alt="">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/10.png" alt="">
-              </li>
-            </ul>
-          </div>
-        </div>
-        <script>
-          const exercise2 = document.querySelector('#exercise_2');
-          // ...решение здесь
-        </script>
-      </div>
+  <div id="exercise_2" class="exercise">
+    <div class="conditions">
+      <p>
+        При клике на синюю кнопку, карусель должна прокрутиться на 1 элемент вправо (если мы не достигли конца)
+      </p>
+      <p>
+        При клике на красную кнопку карусель должна прокрутиться на 1 элемент влево (если мы не достигли начала)
+      </p>
+      <p>
+        <em>
+          Постарайтесь написать свою разметку html, чтобы понять принцип работы карусели
+        </em>
+      </p>
     </div>
+    <div class="solution">
+      <div class="carousel">
+        <div class="carousel_button carousel_button_prev"></div>
+        <div class="carousel_button carousel_button_next"></div>
+        <div class="carousel_list_wrapper">
+          <div id="box">
+          <ul class="carousel_list">
+            <li class="carousel_list_item">
+               <img src="https://ru.js.cx/carousel/1.png" alt="smile-1">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/2.png" alt="smile-2">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/3.png" alt="smile-3">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/4.png" alt="smile-4">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/5.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/6.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/7.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/8.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/9.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/10.png" alt="">
+            </li>
+          </ul>
+        </div>
+        </div>
+      </div>
+        <script>
+          const prevButton = document.querySelector('.carousel_button_prev');
+          const nextButton = document.querySelector('.carousel_button_next');
+          const box = document.querySelector("#box");
+
+          prevButton.addEventListener('click', moveRight);
+          nextButton.addEventListener("click", moveLeft);
+          
+          let left = 0;
+
+          function moveRight(e) {
+            left += 130;
+            if (left > 100){
+              left = 0
+            };
+            if (left == 0) {
+              left = -910;
+            };
+
+            box.style.left = left + 'px';
+            box.style.transition = 'all 0.5s ease'
+          };
+
+          function moveLeft(e) {
+            left -= 130;
+            if(left < -910){
+              left = 0;
+            }
+            box.style.left = left + 'px';
+            box.style.transition = 'left 0.5s ease';
+          };
+        
+        //второй вариант, подсмотрел на learnJavaScript))
+        /*
+          const list = document.querySelector('.carousel_list');
+          const listItems = document.querySelectorAll('#exercise_2 li');
+          const prevButton = document.querySelector('.carousel_button_prev');
+          const nextButton = document.querySelector('.carousel_button_next');
+          const width = 130;
+          let position = 0;
+
+          prevButton.addEventListener('click', () =>{
+            position += width;
+            position = Math.min(position, 0);
+            list.style.marginLeft = position + 'px';
+          });
+
+          nextButton.addEventListener('click', () => {
+            position -= width;
+            position = Math.max(position, -width * (listItems.length - 3));
+            list.style.marginLeft = position + 'px';
+          })
+        */
+      </script>
+    </div>
+  </div>
+
+
 
   <!--Задача №3 "Поведение подсказка"-->
   <div id="exercise_3" class="exercise">
@@ -137,8 +204,37 @@
         <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
       </div>
       <script>
+        
         const exercise3 = document.querySelector('#exercise_3');
-        // ...решение здесь
+        let tip;
+
+        exercise3.addEventListener('mouseover', showTip); 
+
+        function showTip(event) {
+          const target = event.target;
+          const tipText = target.dataset.tooltip;
+          if (!tipText) return;
+          tip = document.createElement('div');
+          tip.className = 'btn_tip';
+          tip.innerHTML = tipText;
+          exercise3.append(tip);          
+          
+          let coords = target.getBoundingClientRect();
+          let top = coords.top - tip.offsetHeight - 5;
+
+          tip.style.left = coords.left + 'px';
+          tip.style.top = top + 'px';
+        };
+
+        exercise3.addEventListener('mouseout', hideTip); 
+
+        function hideTip(e) {
+          if (tip) {
+            tip.remove();
+            tip = null;
+          }
+        };
+        
       </script>
     </div>
 </div>
@@ -153,19 +249,19 @@
       <div class="menu_highlight">
         <ul class="menu_highlight_list">
             <li class="menu_highlight_item">
-              <a href="https://yandex.ru">
+              <a href="https://yandex.ru"  data-event="rightClick">
                   Переход на yandex только при клике правой кнопкой мыши
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://google.ru">
+              <a href="https://google.ru"  data-event="dbClick">
                 <strong>
                   Переход на google только при двойном клике
                 </strong>
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://mail.ru">
+              <a href="https://mail.ru" data-event="pressShift">
                 <em>
                   Переход на mail только при клике с нажатой кнопкой 'Shift'
                 </em>
@@ -175,7 +271,35 @@
       </div>
       <script>
         const exercise4 = document.querySelector('#exercise_4');
-        // ...решение здесь
+        
+        exercise4.addEventListener('click', () => event.preventDefault());
+
+        exercise4.addEventListener('contextmenu', rightClick);
+        exercise4.addEventListener('dbclick', dbClick);
+        exercise4.addEventListener('click', pressShift);
+
+        function rightClick(event) {
+          event.preventDefault();
+          const target = event.target;
+          if (target.dataset.event === 'rightClick') {
+            window.location.href = target.href;
+          }
+        };
+
+        function dbClick(event) {
+          const target = event.target.closest('A');
+          if (target.dataset.event === 'dbClick') {
+            window.location.href = target.href;
+          }
+        };
+
+        function pressShift(event) {
+          const target = event.target.closest('A');
+          if (target.dataset.event === 'pressShift' && event.shiftKey === true) {
+            window.location.href = target.href;
+          }
+        };
+
       </script>
     </div>
   </div>
