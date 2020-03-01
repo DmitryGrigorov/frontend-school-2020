@@ -1,99 +1,189 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Lesson 12 homework</title>
+  <link href="https://fonts.googleapis.com/css?family=Arsenal&display=swap" rel="stylesheet">
   <style>
-    td select,
-    td input {
-      width: 150px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arsenal', sans-serif;
     }
 
-    #diagram td {
-      vertical-align: bottom;
+    body {
+      background: linear-gradient(180deg, #252424, #464545) fixed;
+    }
+
+    .contain {
+      width: 1170px;
+      margin: 0 auto;
+      padding-top: 50px;
+      text-align: left;
+    }
+
+    h1 {
+      display: inline-block;
+      color: #deb691;
+      border-color: hsla(0,0%,100%,.3);
+      font-size: 380%;
+      font-weight: normal;
       text-align: center;
-      padding: 10px;
+      border-bottom: 1px solid #7f7e7e;
+      margin-bottom: 50px;
     }
 
-    #diagram div {
-      margin: auto;
+    .form {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto;
+      margin-bottom: 100px;
     }
+
+    .descript {
+      color: #ff652c;
+      font-size: 1.5em;
+      margin-bottom: 15px;
+    }
+
+    .select input,
+    .select select {
+      width: 70%;
+      height: 35px;
+      border-radius: 5px;
+      background: none;
+      border: 1px solid #deb691;
+      padding-left: 10px;
+      color: #fafafa;
+      font-size: 1.5em;
+    }
+
+    select option {
+      background-color: #464545;
+    }
+
+    .diagramm {
+      display: grid;
+      grid-template-columns: 1fr 6fr;
+      grid-template-rows: 50px;
+      grid-row-gap: 20px;
+    }
+
+    .total {
+      color: #deb691;
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    /*.total p {*/
+    /*    width: 70%;*/
+    /*    text-align: right;*/
+    /*}*/
+
+    #before,
+    #after {
+      font-size: 1.5em;
+      color: #fafafa;
+      width: 100%;
+      font-weight: 700;
+
+    }
+    .beforeCash,
+    .afterCash {
+      height: 50px;
+      border-radius: 5px;
+      text-align: center;
+      width: 0;
+      align-items: center;
+      display: flex;
+      transition: .2s;
+    }
+
+    .beforeCash {
+      background-color: #deb691;
+    }
+
+    .afterCash {
+      background-color: #ff652c;
+    }
+
   </style>
 </head>
-
 <body>
+<div class="contain">
+  <h1>Депозитный калькулятор</h1>
+  <main class="form">
+    <div><p class="descript">Первоначальный депозит</p></div>
+    <div><p class="descript">Срок вклада (мес)</p></div>
+    <div><p class="descript">Годовая процентная ставка</p></div>
+    <div class="select"><input name="money" type="number" value="10000" required></div>
+    <div class="select">
+      <select name="months">
+        <option value="3">3 (минимум)</option>
+        <option value="6">6 (полгода)</option>
+        <option value="12" selected>12 (год)</option>
+        <option value="18">18 (1.5 года)</option>
+        <option value="24">24 (2 года)</option>
+        <option value="30">30 (2.5 года)</option>
+        <option value="36">36 (3 года)</option>
+        <option value="60">60 (5 лет)</option>
+      </select>
+    </div>
+    <div class="select">
+      <input name="interest" type="number" value="5" required>
+    </div>
+  </main>
+  <div class="diagramm">
+    <div class="total"><p>Было:</p></div>
+    <div class="beforeCash"><p id="before"></p></div>
+    <div class="total"><p>Стало:</p></div>
+    <div class="afterCash"><p id="after"></p></div>
+  </div>
+</div>
+<script>
+  document.addEventListener('blur', onCalc);
+  document.addEventListener('change', onCalc);
+  document.addEventListener('DOMContentLoaded', onCalc);
 
-  <!-- Создайте интерфейс, позволяющий ввести сумму банковского вклада и процент,
-  а затем рассчитать, какая это будет сумма через заданный промежуток времени. -->
+  function onCalc(event) {
+    switch (event.type) {
+      case 'DOMContentLoaded':
+      case 'change':
+      case 'blur':
+        let initial = document.querySelector('[name = money]').value;
+        let months = document.querySelector('[name = months').value;
+        let interest = document.querySelector('[name = interest]').value / 100;
 
-  Депозитный калькулятор.
+        let number = 100;
+        if(initial.length > 5) {
+          number = (Math.pow(10, (initial.length - 3)));
+        }
+        let years = months / 12;
+        let result = Math.round(initial * (1 + interest * years));
 
-  <form name="calculator">
-    <table>
-      <tr>
-        <td>Первоначальный депозит</td>
-        <td>
-          <input name="money" type="number" value="10000" required>
-        </td>
-      </tr>
-      <tr>
-        <td>Срок вклада?</td>
-        <td>
-          <select name="months">
-            <option value="3">3 (минимум)</option>
-            <option value="6">6 (полгода)</option>
-            <option value="12" selected>12 (год)</option>
-            <option value="18">18 (1.5 года)</option>
-            <option value="24">24 (2 года)</option>
-            <option value="30">30 (2.5 года)</option>
-            <option value="36">36 (3 года)</option>
-            <option value="60">60 (5 лет)</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td>Годовая процентная ставка?</td>
-        <td>
-          <input name="interest" type="number" value="5" required>
-        </td>
-      </tr>
-    </table>
+        const before = document.getElementById('before');
+        const after = document.getElementById('after');
+        const afterCash = document.querySelector('.afterCash');
+        const beforeDiv = document.querySelector('.beforeCash');
 
+        before.innerText = initial;
+        beforeDiv.style.width = `${initial / number}px`;
 
-  </form>
+        after.innerText = result;
+        afterCash.style.width = `${result / number}px`;
+        break;
+    }
+  }
 
-
-  <table id="diagram">
-    <tr>
-      <th>Было:</th>
-      <th>Станет:</th>
-    </tr>
-    <tr>
-      <th id="money-before"></th>
-      <th id="money-after"></th>
-    </tr>
-    <td>
-      <div style="background: red;width:40px;height:100px"></div>
-    </td>
-    <td>
-      <div style="background: green;width:40px;height:0" id="height-after"></div>
-    </td>
-  </table>
-
-  <script>
-
-    let form = document.forms.calculator;
-
-    // ваш код
-
-    // Формула
-    // initial: начальная сумма денег
-    // interest: проценты, например, 0.05 означает 5% в год
-    // years: сколько лет ждать
-    // let result = Math.round(initial * (1 + interest * years));
-  </script>
-
-
+  // Формула
+  // initial: начальная сумма денег
+  // interest: проценты, например, 0.05 означает 5% в год
+  // years: сколько лет ждать
+  // let result = Math.round(initial * (1 + interest * years));
+</script>
 </body>
 </html>
