@@ -46,6 +46,7 @@
     list-style: none;
     margin-left: 25px;
 }
+
 /* Конец задачи №1 список элементов */
 
 
@@ -100,3 +101,15 @@
 }
 
 /* Конец задачи №2 карусель */
+.tooltip {
+    position: absolute;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    text-align: center;
+    font:14px sans-serif;
+    color: #fff;
+    background: #076263;
+
+
+}
