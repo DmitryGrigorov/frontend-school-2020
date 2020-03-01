@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>task1</title>
+  <style>
+    .bgBlue {
+      background-color: blue;
+    }
+    .bgRed {
+      background-color: red;
+    }
+  </style>
 </head>
 <body>
   <input id="field" type="text">
@@ -25,4 +33,28 @@
     5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
    -->
 </body>
+<script>
+  let list = document.querySelector('#list');
+  list.addEventListener('click', (event) => {
+    let target = event.target;
+    if (target.tagName === 'LI') {
+      if (event.altKey && event.shiftKey) { // 3. При нажатой кнопке Alt+Shift удалять элемента независимо от того, есть ли у него background
+        list.removeChild(target);
+      } else if (event.altKey) { // 2. При зажатой кнопке Alt и клику делать background:blue;
+        target.classList.add('bgBlue')
+      } else if (target.classList.contains('bgRed')) { // 4. Если у item-a уже есть "background: red;", удалять его из списка;
+        list.removeChild(target);
+      } else //По клику по элементу списка (li) делать background:red
+        target.classList.add('bgRed');
+    }
+  });
+  let field = document.querySelector('#field');
+  field.onkeypress = (event) => { // 5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
+    if (event.key === 'Enter') {
+      let li = document.createElement('li');
+      li.textContent = field.value;
+      list.appendChild(li);
+    }
+  }
+</script>
 </html>
