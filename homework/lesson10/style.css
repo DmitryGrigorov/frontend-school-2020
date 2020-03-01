@@ -46,7 +46,10 @@
     list-style: none;
     margin-left: 25px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 244dd91630b979589f4aba91ccb8aa93ff03b3f7
 /* Конец задачи №1 список элементов */
 
 
@@ -72,7 +75,11 @@
     position: absolute;
     height: 100%;
     width: 30px;
+<<<<<<< HEAD
     transition: all 200ms ease-out; 
+=======
+    transition: all 200ms ease-out;
+>>>>>>> 244dd91630b979589f4aba91ccb8aa93ff03b3f7
     cursor: pointer;
 }
 
@@ -83,7 +90,10 @@
 .carousel_list_wrapper {
     width: 390px;
     overflow: hidden;
+<<<<<<< HEAD
     position: relative;
+=======
+>>>>>>> 244dd91630b979589f4aba91ccb8aa93ff03b3f7
 }
 
 .carousel_list {
@@ -101,6 +111,7 @@
     height: 130px;
 }
 
+<<<<<<< HEAD
 #box{
     position: relative;
     display: flex;
@@ -120,4 +131,6 @@
     background: white;
 }
 
+=======
+>>>>>>> 244dd91630b979589f4aba91ccb8aa93ff03b3f7
 /* Конец задачи №2 карусель */
