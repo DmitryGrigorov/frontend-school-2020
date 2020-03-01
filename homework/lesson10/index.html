@@ -214,7 +214,7 @@
           const targetRect = target.getBoundingClientRect();
 
           let top = targetRect.top - tooltip.offsetHeight - 5;
-          top = top > 0 ? top : targetRect.top + target.offsetHeight + 5;
+          top = top >= 0 ? top : targetRect.top + target.offsetHeight + 5;
 
           let left = targetRect.left + (target.offsetWidth - tooltip.offsetWidth) / 2;
           left = left > 0 ? left : 0;
@@ -229,16 +229,7 @@
         exercise3.onmouseover = function (e) {
           const target = e.target;
 
-          if (items.includes(target)) {
-
-            const childTooltip = Array.from(target.childNodes).find(item => item.className === 'tooltip');
-
-            if (childTooltip) {
-              childTooltip.style.visibility = 'visible';
-            } else {
-              createTooltip(target);
-            }
-          }
+          if (items.includes(target)) createTooltip(target);
 
         }
 
@@ -246,9 +237,7 @@
           const target = e.target;
 
           if (items.includes(target)) {
-            const childTooltip = Array.from(target.childNodes).find(item => item.className === 'tooltip');
-
-            if (childTooltip) childTooltip.style.visibility = 'hidden';
+            if (tooltip) target.removeChild(tooltip);
           }
         }
 
