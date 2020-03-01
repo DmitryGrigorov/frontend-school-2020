@@ -4,37 +4,27 @@
 <head>
   <meta charset="utf-8">
   <title>Lesson 12 homework</title>
-  <style>
-    td select,
-    td input {
-      width: 150px;
-    }
-
-    #diagram td {
-      vertical-align: bottom;
-      text-align: center;
-      padding: 10px;
-    }
-
-    #diagram div {
-      margin: auto;
-    }
-  </style>
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
+  <div class="container">
 
   <!-- Создайте интерфейс, позволяющий ввести сумму банковского вклада и процент,
   а затем рассчитать, какая это будет сумма через заданный промежуток времени. -->
 
-  Депозитный калькулятор.
+  <img class="image" src="./images/GPB.png" />
+  
+  <div class="form_title">
+    Депозитный калькулятор
+  </div>
 
-  <form name="calculator">
-    <table>
+  <form class="form" name="calculator">
+    <table class="table" id="deposit">
       <tr>
         <td>Первоначальный депозит</td>
         <td>
-          <input name="money" type="number" value="10000" required>
+          <input name="money" type="number" value="10000" min="1000" required>
         </td>
       </tr>
       <tr>
@@ -55,16 +45,13 @@
       <tr>
         <td>Годовая процентная ставка?</td>
         <td>
-          <input name="interest" type="number" value="5" required>
+          <input name="interest" type="number" value="5" min="1" max="13" step="0.1" required>
         </td>
       </tr>
     </table>
-
-
   </form>
 
-
-  <table id="diagram">
+  <table class="table" id="diagram">
     <tr>
       <th>Было:</th>
       <th>Станет:</th>
@@ -80,6 +67,7 @@
       <div style="background: green;width:40px;height:0" id="height-after"></div>
     </td>
   </table>
+  </div>
 
   <script>
 
@@ -92,6 +80,32 @@
     // interest: проценты, например, 0.05 означает 5% в год
     // years: сколько лет ждать
     // let result = Math.round(initial * (1 + interest * years));
+
+    form.money.oninput = calculate;
+    form.months.onchange = calculate;
+    form.interest.oninput = calculate;
+
+    function calculate() {
+      let initial = +form.money.value;
+      if (!initial) return;
+
+      let interest = form.interest.value * 0.01;
+
+      if (!interest) return;
+
+      let years = form.months.value / 12;
+      if (!years) return;
+
+      let result = Math.round(initial * (1 + interest * years));
+
+      let height = result / form.money.value * 100 + 'px';
+      document.getElementById('height-after').style.height = height;
+      document.getElementById('money-before').innerHTML = form.money.value;
+      document.getElementById('money-after').innerHTML = result;
+    }
+
+    calculate();
+
   </script>
 
 

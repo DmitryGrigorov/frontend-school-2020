@@ -1,0 +1,55 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+
+.container {
+    margin: 0 auto;
+    border: 1px solid black;
+    width: 450px;
+    padding: 20px;
+    background-color: rgba(115, 174, 241, 0.418);
+}
+
+.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form_title {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.form {
+    margin-bottom: 15px;
+}
+
+.table {
+    margin: auto;
+}
+
+#deposit {
+    border-spacing: 5px;
+}
+
+td select,
+td input {
+    width: 150px;
+}
+
+#diagram td {
+    vertical-align: bottom;
+    text-align: center;
+    padding: 10px;
+}
+
+#diagram div {
+    margin: auto;
+}
