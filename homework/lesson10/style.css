@@ -46,6 +46,10 @@
     list-style: none;
     margin-left: 25px;
 }
+
+.hidden li{
+    display: none;
+}
 /* Конец задачи №1 список элементов */
 
 

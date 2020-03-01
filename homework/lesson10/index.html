@@ -56,27 +56,23 @@
       </div>
       <script>
         const exercise1 = document.querySelector('#exercise_1');
-        const icon = document.getElementsByClassName('toggle-list_toggler_icon');
+        const list = document.getElementById('toggle-list');
 
-        for(let i = 0; i < icon.length; i++){
-          icon[i].addEventListener('click', function(event){
-            let sibling = event.target.parentNode.nextSibling;
-            if(event.target.textContent === '+'){
-              event.target.textContent = '-'
-              while(sibling){
-                sibling.hidden = true;
-                sibling = sibling.nextSibling;
-              }
-
-            } else {
-              event.target.textContent = '+'
-              while(sibling){
-                sibling.hidden = false;
-                sibling = sibling.nextSibling;
-              }
+        list.addEventListener('click', function(event){
+            if (event.target.tagName != 'DIV') {
+              return;
             }
-          })
-        }
+            
+            let target = event.target.closest('.toggle-list_list');
+
+            target.classList.toggle('hidden');
+
+            let icon = target.querySelector('.toggle-list_toggler_icon');
+
+            if (target.classList.contains('hidden')) {
+              icon.innerHTML = '-';
+            } else icon.innerHTML = '+';
+        });
       </script>
     </div>
   </div>
