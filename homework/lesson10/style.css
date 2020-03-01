@@ -99,4 +99,22 @@
     height: 130px;
 }
 
+#box{
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    width: 910px;
+    height: 130px; 
+ }
+
+.btn_tip {
+    position: fixed;
+    padding: 10px 20px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    text-align: center;
+    font: italic 12px sans-serif;
+    color: black;
+    background: white;
+}
 /* Конец задачи №2 карусель */
