@@ -60,21 +60,24 @@
         const exercise1 = document.querySelector('#exercise_1');
         // ...решение здесь
 
-        const listToggler = document.querySelectorAll('#exercise_1 .toggle-list_toggler');
+        exercise1.onclick = function (e) {
+          let target = null;
 
-        listToggler.forEach((elem) => {
-          let isHidden = true;
+          if (e.target.className === 'toggle-list_toggler') {
+            target = e.target;
 
-          elem.addEventListener('click', function () {
-            const siblings = elem.parentNode.querySelectorAll('li');
-            siblings.forEach(item => { item.hidden = isHidden; });
+          } else if (e.target.parentNode.className === 'toggle-list_toggler') {
+            target = e.target.parentNode;
 
-            const icon = elem.children[0];
-            icon.innerHTML = isHidden ? '–' : '+';
+          } else return;
 
-            isHidden = !isHidden;
-          })
-        });
+          const siblings = target.parentNode.querySelectorAll('li');
+          siblings.forEach(item => { item.hidden = !item.hidden; });
+
+          const icon = target.children[0];
+          icon.innerHTML = siblings[0].hidden ? '–' : '+';
+
+        }
 
       </script>
     </div>
@@ -138,14 +141,14 @@
         const exercise2 = document.querySelector('#exercise_2');
         // ...решение здесь
 
-        const imgWidth = document.querySelector('img').clientWidth;
+        const imgWidth = exercise2.querySelector('img').clientWidth;
         const n = 3;
 
-        const image = document.querySelectorAll('.carousel li');
-        const images = document.querySelector('.carousel ul');
+        const image = exercise2.querySelectorAll('.carousel li');
+        const images = exercise2.querySelector('.carousel ul');
 
-        const prevBtn = document.querySelector('.carousel_button_prev');
-        const nextBtn = document.querySelector('.carousel_button_next');
+        const prevBtn = exercise2.querySelector('.carousel_button_prev');
+        const nextBtn = exercise2.querySelector('.carousel_button_next');
 
         let position = 0;
 
@@ -224,7 +227,7 @@
 
         }
 
-        const items = Array.from(document.querySelectorAll('[data-tooltip]'));
+        const items = Array.from(exercise3.querySelectorAll('[data-tooltip]'));
 
         exercise3.onmouseover = function (e) {
           const target = e.target;
@@ -255,19 +258,19 @@
       <div class="menu_highlight">
         <ul class="menu_highlight_list">
           <li class="menu_highlight_item">
-            <a href="https://yandex.ru">
+            <a href="https://yandex.ru" class="right-click">
               Переход на yandex только при клике правой кнопкой мыши
             </a>
           </li>
           <li class="menu_highlight_item">
-            <a href="https://google.ru">
+            <a href="https://google.ru" class="double-click">
               <strong>
                 Переход на google только при двойном клике
               </strong>
             </a>
           </li>
           <li class="menu_highlight_item">
-            <a href="https://mail.ru">
+            <a href="https://mail.ru" class="shift-click">
               <em>
                 Переход на mail только при клике с нажатой кнопкой 'Shift'
               </em>
@@ -278,6 +281,31 @@
       <script>
         const exercise4 = document.querySelector('#exercise_4');
         // ...решение здесь
+
+        // добавлены классы right-click, double-click, shift-click
+
+        const list = exercise4.querySelector('.menu_highlight_list');
+        let preventClick = false;
+
+        list.onmousedown = function (e) {
+
+          const target = e.target.tagName === 'A' ? e.target : e.target.parentNode;
+
+          const rightDetected = target.className === 'right-click' && e.which == 3;
+          const doubleDetected = target.className === 'double-click' && e.detail == 2;
+          const shiftDetected = target.className === 'shift-click' && e.shiftKey;
+
+          preventClick = !(rightDetected || doubleDetected || shiftDetected);
+
+          // force click event
+          if (rightDetected) target.click();
+
+        }
+
+        list.onclick = function (e) {
+          if (preventClick) e.preventDefault();
+        }
+
       </script>
     </div>
   </div>
