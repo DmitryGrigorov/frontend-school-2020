@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Lesson 12 homework</title>
+  <style>
+    td select,
+    td input {
+      width: 150px;
+    }
+
+    #diagram td {
+      vertical-align: bottom;
+      text-align: center;
+      padding: 10px;
+    }
+
+    #diagram div {
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Создайте интерфейс, позволяющий ввести сумму банковского вклада и процент,
+  а затем рассчитать, какая это будет сумма через заданный промежуток времени. -->
+
+  Депозитный калькулятор.
+
+  <form name="calculator">
+    <table>
+      <tr>
+        <td>Первоначальный депозит</td>
+        <td>
+          <input name="money" type="number" value="10000" required data-input="deposit">
+        </td>
+      </tr>
+      <tr>
+        <td>Срок вклада?</td>
+        <td>
+          <select name="months" data-input="time">
+            <option value="3">3 (минимум)</option>
+            <option value="6">6 (полгода)</option>
+            <option value="12" selected>12 (год)</option>
+            <option value="18">18 (1.5 года)</option>
+            <option value="24">24 (2 года)</option>
+            <option value="30">30 (2.5 года)</option>
+            <option value="36">36 (3 года)</option>
+            <option value="60">60 (5 лет)</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Годовая процентная ставка?</td>
+        <td>
+          <input name="interest" type="number" value="5" required data-input="percent">
+        </td>
+      </tr>
+    </table>
+  </form>
+
+
+  <table id="diagram">
+    <tr>
+      <th>Было:</th>
+      <th>Станет:</th>
+    </tr>
+    <tr>
+      <th id="money-before"></th>
+      <th id="money-after"></th>
+    </tr>
+    <td>
+      <div style="background: red;width:40px;height:100px"></div>
+    </td>
+    <td>
+      <div class="diagramAfter" style="background: green;width:40px;height:0" id="height-after"></div>
+    </td>
+  </table>
+  <div class="form_row">
+    <div class="form_row_cell">
+      <button class="form_button form_button_submit" type="submit" data-submit="submit">Рассчитать</button>
+      <label class="result"></label>
+    </div>
+  </div>
+
+  <script>
+
+    let initial;
+    let countOfMonths;
+    let interest;
+    
+    let counts = document.querySelectorAll('[data-input]');
+    counts.forEach(function (element) {
+      let tag = element.dataset.input;
+      switch (tag) {
+          case 'deposit':
+            initial = element.value;
+            break;
+          case 'time':
+            countOfMonths = element.value;
+            break;
+          case 'percent':
+            interest = element.value;
+            break;
+        }
+      element.addEventListener('input', function(event) {
+        const target = event.target;
+       
+        let newTag = target.dataset.input;
+        switch (newTag) {
+          case 'deposit':
+            initial = target.value; 
+            break;
+          case 'time':
+            countOfMonths = target.value;
+            break;
+          case 'percent':
+            interest = target.value;
+            break;
+        }
+      });
+    });
+    
+    let result;
+
+    let button = document.querySelector('[data-submit]');
+    button.addEventListener('click', calculator);
+
+    function calculator() {
+      result = Math.round(initial * ((1 + (interest/100) * countOfMonths/12)));
+      let resultElement = document.querySelector('.result');
+      resultElement.textContent = `Ваша денежная сумма после ${countOfMonths} месяцев при ставке 
+                                    ${interest} процентов годовых составить ${result} рублей`;
+      let differentPercent = (result - initial)/initial;
+      console.log(result);
+      console.log(initial);
+      console.log(differentPercent);
+      let greenDiagram = document.querySelector('.diagramAfter');
+      greenDiagram.style.height = (100 + differentPercent*100) + "px";
+    }
+
+    // Формула
+    // initial: начальная сумма денег
+    // interest: проценты, например, 0.05 означает 5% в год
+    // years: сколько лет ждать
+    // let result = Math.round(initial * (1 + interest * years));
+  </script>
+
+
+</body>
+</html>
