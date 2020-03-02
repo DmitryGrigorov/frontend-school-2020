@@ -19,37 +19,133 @@
     cat.meow(); // выводит в консоль "murzik: meow"
  */
 
- /*
-    2)
+class Cat {
+    name;
+    state;
 
-    Создайте два класса Animal и Dog
-    У всех экземпляров класса Animal есть собственные (не наследуемые) свойства: { movingType, color }
-    Например: const someAnimal = new Animal('walking', 'black'); // { movingType: 'walking', color: 'black' };
-    А у экземпляров класса Dog есть собственные свойства: { name, age, weight }
-    Например: const someDog = new Dog('tuzik', 4, 10); // { name: 'tuzik', age: 4, weight: 10 };
-    Реализуйте наследование класса Animal классом Dog,
-    так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
-    Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
- */
+    constructor(name) {
+        this.name = name;
+        this.state = 'lying';
+    }
 
- /*
-    3)
+    up() {
+        this.state = 'standing';
+    }
 
-    Создайте два класса Transport и Car
-    Эклемпляры класса Transport имеют свойтсво status и методы run и stop,
-    которые меняют свойсто status на 'running' и 'stopped' соответсвтенно.
-    Унаследуйте эти методы и свойство классом Car
-    
-    Например:
-    const someTransport = new Transport();
-    console.log(someTransport.status); // 'stopped'
-    console.log(someTransport.run()); // 'running'
-    console.log(someTransport.stop()); // 'stopped'
-    const someCar = new Car();
-    console.log(someCar.status); // 'stopped'
-    console.log(someCar.run()); // 'running'
-    console.log(someCar.stop()); // 'stopped'
- */
+    down() {
+        this.state = 'lying';
+    }
+
+    meow() {
+        console.log(this.name + ': meow');
+    }
+}
+
+console.log('1)');
+const cat = new Cat('murzik');
+console.log(cat.name); // 'murzik'
+console.log(cat.state); // 'lying'
+cat.up();
+console.log(cat.state); // 'standing'
+cat.down();
+console.log(cat.state); // 'lying'
+cat.meow(); // выводит в консоль "murzik: meow"
+
+/*
+   2)
+
+   Создайте два класса Animal и Dog
+   У всех экземпляров класса Animal есть собственные (не наследуемые) свойства: { movingType, color }
+   Например: const someAnimal = new Animal('walking', 'black'); // { movingType: 'walking', color: 'black' };
+   А у экземпляров класса Dog есть собственные свойства: { name, age, weight }
+   Например: const someDog = new Dog('tuzik', 4, 10); // { name: 'tuzik', age: 4, weight: 10 };
+   Реализуйте наследование класса Animal классом Dog,
+   так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
+   Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
+*/
+
+class Animal {
+    movingType;
+    color;
+
+    constructor(movingType, color) {
+        this.movingType = movingType;
+        this.color = color;
+    }
+}
+
+class Dog extends Animal {
+    name;
+    age;
+    weight;
+
+    constructor(...args) {
+        if (args.length == 3) {
+            super('standing', 'white');
+            this.name = args[0]
+            this.age = args[1]
+            this.weight = args[2]
+        } else {
+            super(args[0], args[1]);
+            this.name = args[2]
+            this.age = args[3]
+            this.weight = args[4]
+        }
+
+    }
+}
+
+console.log('2)')
+const someAnimal = new Animal('walking', 'black'); // { movingType: 'walking', color: 'black' };
+console.log(someAnimal);
+const someDog = new Dog('tuzik', 4, 10); // { name: 'tuzik', age: 4, weight: 10 };
+console.log(someDog);
+const someDog2 = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
+console.log(someDog2);
+
+/*
+   3)
+   Создайте два класса Transport и Car
+   Эклемпляры класса Transport имеют свойтсво status и методы run и stop,
+   которые меняют свойсто status на 'running' и 'stopped' соответсвтенно.
+   Унаследуйте эти методы и свойство классом Car
+
+   Например:
+   const someTransport = new Transport();
+   console.log(someTransport.status); // 'stopped'
+   console.log(someTransport.run()); // 'running'
+   console.log(someTransport.stop()); // 'stopped'
+   const someCar = new Car();
+   console.log(someCar.status); // 'stopped'
+   console.log(someCar.run()); // 'running'
+   console.log(someCar.stop()); // 'stopped'
+*/
+
+class Transport {
+    status = 'stopped';
+
+    run() {
+        return this.status = 'running';
+    }
+
+    stop() {
+        return this.status = 'stopped';
+    }
+}
+
+class Car extends Transport {
+
+}
+
+console.log('3)');
+const someTransport = new Transport();
+console.log(someTransport.status); // 'stopped'
+console.log(someTransport.run()); // 'running'
+console.log(someTransport.stop()); // 'stopped'
+const someCar = new Car();
+console.log(someCar.status); // 'stopped'
+console.log(someCar.run()); // 'running'
+console.log(someCar.stop()); // 'stopped'
 
 /*
    4)
@@ -77,3 +173,66 @@
      которые смогут отсортировать массив по именам (в алфавитном порядке)
      или росту (по убыванию роста). Вызовите только функцию сортировки по росту.
 */
+
+class Human {
+    name;
+    age;
+    height;
+
+    constructor(name, age, height) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
+    }
+
+    getInfo() {
+        return this.name + ', ' + this.age + ', ' + this.height;
+    }
+
+    get firstname() {
+        return this.name;
+    }
+
+    set firstname(name) {
+        this.name = name;
+    }
+
+    static sortByName(arr) {
+        arr.sort(function (a, b) {
+            if (a.name > b.name) return 1;
+            if (a.name == b.name) return 0;
+            if (a.name < b.name) return -1;
+        });
+    }
+
+    static sortByHeight(arr) { //Сортировка по убыванию
+        arr.sort(function (a, b) {
+            if (a.height > b.height) return -1; //Поэтому меняется + на -
+            if (a.height == b.height) return 0;
+            if (a.height < b.height) return 1; //Поэтому меняется + на -
+        });
+    }
+}
+
+let humans = [];
+humans.push(new Human("Коля", 23, 180));
+humans.push(new Human("Коля", 23, 180));
+humans.push(new Human("Даша", 19, 170));
+humans.push(new Human("Петя", 45, 178));
+humans.push(new Human("Вася", 34, 197));
+humans.push(new Human("Джони", 40, 168));
+humans.push(new Human("Катя", 37, 160));
+humans.push(new Human("Петя", 29, 200));
+humans.push(new Human("Соня", 21, 172));
+humans.push(new Human("Женя", 25, 175));
+
+console.log('4) humans');
+console.log(humans);
+let humansSortedByName = humans.slice();
+Human.sortByName(humansSortedByName);
+console.log('humans sorted by name');
+console.log(humansSortedByName);
+let humansSortedByHeight = humans.slice();
+Human.sortByHeight(humansSortedByHeight);
+console.log('humans sorted by height');
+console.log(humansSortedByHeight);
