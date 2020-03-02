@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Lesson 10 homework</title>
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <title>Lesson 10 homework</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
   <!--Задача №1 "Создать скрывающееся/рвскрывающееся меню"-->
   <div id="exercise_1" class="exercise">
@@ -57,81 +59,124 @@
       <script>
         const exercise1 = document.querySelector('#exercise_1');
         // ...решение здесь
+        let toggleList = document.querySelector(`#toggle-list`);
+        toggleList.addEventListener(`click`, function (event) {
+          if (event.target.parentElement.classList.contains('toggle-list_toggler')) {
+            if (event.target.parentElement.firstElementChild.textContent === '+') {
+              event.target.parentElement.firstElementChild.textContent = '-';
+            } else event.target.parentElement.firstElementChild.textContent = '+';
+            for (let element of event.target.closest('.toggle-list_list').children) {
+              if (element.classList.contains('toggle-list_item')) {
+                element.hidden = !element.hidden;
+
+              }
+            }
+          }
+        });
       </script>
     </div>
   </div>
 
-    <!--Задача №2 "Оживить карусель"-->
-    <div id="exercise_2" class="exercise">
-      <div class="conditions">
-        <p>
-          При клике на синюю кнопку, карусель должна прокрутиться на 1 элемент вправо (если мы не достигли конца)
-        </p>
-        <p>
-          При клике на красную кнопку карусель должна прокрутиться на 1 элемент влево (если мы не достигли начала)
-        </p>
-        <p>
-          <em>
-            Постарайтесь написать свою разметку html, чтобы понять принцип работы карусели
-          </em>
-        </p>
-      </div>
-      <div class="solution">
-        <div class="carousel">
-          <div class="carousel_button carousel_button_prev"></div>
-          <div class="carousel_button carousel_button_next"></div>
-          <div class="carousel_list_wrapper">
-            <ul class="carousel_list">
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/1.png" alt="smile-1">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/2.png" alt="smile-2">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/3.png" alt="smile-3">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/4.png" alt="smile-4">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/5.png" alt="">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/6.png" alt="">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/7.png" alt="">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/8.png" alt="">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/9.png" alt="">
-              </li>
-              <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/10.png" alt="">
-              </li>
-            </ul>
-          </div>
-        </div>
-        <script>
-          const exercise2 = document.querySelector('#exercise_2');
-          // ...решение здесь
-        </script>
-      </div>
+  <!--Задача №2 "Оживить карусель"-->
+  <div id="exercise_2" class="exercise">
+    <div class="conditions">
+      <p>
+        При клике на синюю кнопку, карусель должна прокрутиться на 1 элемент вправо (если мы не достигли конца)
+      </p>
+      <p>
+        При клике на красную кнопку карусель должна прокрутиться на 1 элемент влево (если мы не достигли начала)
+      </p>
+      <p>
+        <em>
+          Постарайтесь написать свою разметку html, чтобы понять принцип работы карусели
+        </em>
+      </p>
     </div>
+    <div class="solution">
+      <div class="carousel">
+        <div class="carousel_button carousel_button_prev"></div>
+        <div class="carousel_button carousel_button_next"></div>
+        <div class="carousel_list_wrapper">
+          <ul class="carousel_list">
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/1.png" alt="smile-1">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/2.png" alt="smile-2">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/3.png" alt="smile-3">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/4.png" alt="smile-4">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/5.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/6.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/7.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/8.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/9.png" alt="">
+            </li>
+            <li class="carousel_list_item">
+              <img src="https://ru.js.cx/carousel/10.png" alt="">
+            </li>
+          </ul>
+        </div>
+      </div>
+      <script>
+        const exercise2 = document.querySelector('#exercise_2');
+        // ...решение здесь
+        
+        let carouselList = document.querySelector('.carousel_list');
+        let btnPrev = document.querySelector('.carousel_button_prev');
+        let btnNext = document.querySelector('.carousel_button_next');
+        btnNext.addEventListener('click', function(event) {
+          let carouselItem = carouselList.children;
+          
+          for (let i = 0; carouselItem.length > i; i++) {
+            if (!carouselItem[i].hasAttribute("hidden")) {
+              if (carouselItem[i] === carouselList.lastElementChild.previousElementSibling.previousElementSibling) return;
+              carouselItem[i].hidden = true;
+              return;
+            }
+          }
+        });
+
+        btnPrev.addEventListener('click', function(event) {
+          let carouselItem = carouselList.children;
+
+          for (let i = carouselItem.length; i > 0; i--) {
+            if (carouselItem[i-1].hasAttribute("hidden")) {
+              carouselItem[i-1].hidden = false;
+              return;
+            }
+          }
+        });
+      </script>
+    </div>
+  </div>
 
   <!--Задача №3 "Поведение подсказка"-->
   <div id="exercise_3" class="exercise">
     <div class="conditions">
-        При наведении мыши на элемент <em>(количество таких элементов на странице может быть любым)</em> с атрибутом data-tooltip,
-        над ним должна показываться подсказка и скрываться при переходе на другой элемент.
+      При наведении мыши на элемент <em>(количество таких элементов на странице может быть любым)</em> с атрибутом
+      data-tooltip,
+      над ним должна показываться подсказка и скрываться при переходе на другой элемент.
     </div>
     <div class="solution">
       <div class="article">
         <p>
-            Товарищи! сложившаяся структура организации представляет собой интересный эксперимент проверки направлений прогрессивного развития. С другой стороны рамки и место обучения кадров способствует подготовки и реализации модели развития.
+          Товарищи! сложившаяся структура организации представляет собой интересный эксперимент проверки направлений
+          прогрессивного развития. С другой стороны рамки и место обучения кадров способствует подготовки и реализации
+          модели развития.
         </p>
         <button data-tooltip="эта подсказка длиннее, чем элемент">Короткая кнопка</button>
         <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
@@ -139,11 +184,33 @@
       <script>
         const exercise3 = document.querySelector('#exercise_3');
         // ...решение здесь
+        let podskazkaDiv = document.createElement('div');
+        document.body.append(podskazkaDiv);
+        podskazkaDiv.style.cssText = `
+          position: fixed;
+          width: 150px;
+          background-color: red;
+        `
+        document.addEventListener('mouseover', function (event) {
+          if (event.target.hasAttribute('data-tooltip')) {
+            podskazkaDiv.innerHTML = `${event.target.dataset.tooltip}`;
+            let coordinats = event.target.getBoundingClientRect();
+            podskazkaDiv.style.top = `${coordinats.top - 60}px`;
+            podskazkaDiv.style.left = `${coordinats.left}px`;
+            podskazkaDiv.style.display = 'block';
+
+          }
+        });
+        document.addEventListener('mouseout', function (event) {
+          if (event.target.hasAttribute('data-tooltip')) {
+            podskazkaDiv.style.display = 'none';
+          }
+        });
       </script>
     </div>
-</div>
+  </div>
 
-<!--Задача №4 Самостоятельно: "Отмена действия по умолчанию"-->
+  <!--Задача №4 Самостоятельно: "Отмена действия по умолчанию"-->
   <div id="exercise_4" class="exercise">
     <div class="conditions">
       Решить при помощи делегирования
@@ -152,32 +219,56 @@
     <div class="solution">
       <div class="menu_highlight">
         <ul class="menu_highlight_list">
-            <li class="menu_highlight_item">
-              <a href="https://yandex.ru">
-                  Переход на yandex только при клике правой кнопкой мыши
-              </a>
-            </li>
-            <li class="menu_highlight_item">
-              <a href="https://google.ru">
-                <strong>
-                  Переход на google только при двойном клике
-                </strong>
-              </a>
-            </li>
-            <li class="menu_highlight_item">
-              <a href="https://mail.ru">
-                <em>
-                  Переход на mail только при клике с нажатой кнопкой 'Shift'
-                </em>
-              </a>
-            </li>
+          <li class="menu_highlight_item">
+            <a href="https://yandex.ru">
+              Переход на yandex только при клике правой кнопкой мыши
+            </a>
+          </li>
+          <li class="menu_highlight_item">
+            <a href="https://google.ru">
+              <strong>
+                Переход на google только при двойном клике
+              </strong>
+            </a>
+          </li>
+          <li class="menu_highlight_item">
+            <a href="https://mail.ru">
+              <em>
+                Переход на mail только при клике с нажатой кнопкой 'Shift'
+              </em>
+            </a>
+          </li>
         </ul>
       </div>
       <script>
         const exercise4 = document.querySelector('#exercise_4');
         // ...решение здесь
+        let menuHighlight = document.querySelector('.menu_highlight');
+        menuHighlight.addEventListener('click', function (event) {
+          event.preventDefault();
+        }, false);
+        menuHighlight.addEventListener('contextmenu', function (event) {
+          let link = event.target.closest('a');
+          if (link.getAttribute('href') === 'https://yandex.ru') {
+            event.preventDefault();
+            location.href = `${link.getAttribute('href')}`;
+          };
+        }, false);
+        menuHighlight.addEventListener('dblclick', function (event) {
+          let link = event.target.closest('a');
+          if (link.getAttribute('href') === 'https://google.ru') {
+            location.href = `${link.getAttribute('href')}`;
+          };
+        });
+        menuHighlight.addEventListener('click', function (event) {
+          let link = event.target.closest('a');
+          if (link.getAttribute('href') === 'https://mail.ru' && event.shiftKey) {
+            location.href = `${link.getAttribute('href')}`;
+          };
+        });
       </script>
     </div>
   </div>
 </body>
+
 </html>
