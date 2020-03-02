@@ -24,5 +24,46 @@
     4. Если у item-a уже есть "background: red;", удалять его из списка;
     5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
    -->
+
+   <script>
+     let ul = document.getElementById('list');
+     let inputField = document.getElementById('field');
+     let list = ul.querySelectorAll('.list-item');
+     inputField.addEventListener('keydown', (e) => {
+      if(e.which === 13) {
+        let newEl = document.createElement('li');
+        let value = inputField.value;
+        newEl.textContent = value;
+        inputField.value = ''
+        ul.append(newEl);
+      }
+    });
+    // list.forEach(elem=>{elem.addEventListener('click',function(event)
+    ul.addEventListener('click', listClicked);
+    function listClicked(event){
+      const target= event.target;
+      if (target.tagName === 'LI')
+      {
+          if(target.style.backgroundColor === 'red')
+          {
+            target.remove();
+          }
+          else if(event.altKey)
+          {
+            if(event.shiftKey)
+            {
+              target.remove();
+            }
+            else
+            {
+              target.style.backgroundColor = 'blue';
+            }
+          }
+          else 
+          {
+            target.style.backgroundColor = 'red';
+          }
+      }};
+   </script>
 </body>
 </html>

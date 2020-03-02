@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel ="stylesheet" href="styles.css">
   <title>Task 2</title>
+  <!-- <script src="./app.js"></script> -->
 </head>
 <body>
   <!-- 
@@ -20,5 +22,33 @@
 
     P. S. Желательно делать и использовать стили css
    -->
+   <div class="wrapper">
+     <div class="dolist">
+       <div class="dolist-header">
+        <div class="dolist-title">
+        <span>Список дел</span>        
+        </div>
+        <div class="dolist-info">
+          <div class="dolist-info-item">
+            <span class="dolist-info-text">Всего задач:</span>
+            <span class="dolist-info-number" id="js-all-tasks"></span>
+          </div>
+          <div class="dolist-info-item">
+            <span class="dolist-info-text">Выполнено задач:</span>
+            <span class="dolist-info-number" id="js-done-tasks"></span>
+          </div>
+        </div>
+       </div>
+       <div class="dolist-body">
+         <ul class="dolist-tasks" id="dolist-list"></ul>
+       </div>
+       <div class="dolist-footer">
+         <input class="dolist-new-task" id="dolist-task-new" placeholder="Добавить задачу...">
+         <button id="add-task">Добавить</button>
+       </div>
+     </div>
+   </div>
+   <script src="./app.js"></script>
 </body>
+
 </html>
