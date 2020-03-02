@@ -1,0 +1,132 @@
+html, body 
+{
+    height:100%;
+}
+body
+{
+    margin:0;
+    padding:0;
+}
+*
+{
+    box-sizing: border-box;
+}
+ul,li
+{
+    padding:0;
+    margin:0;
+    list-style-type:none;
+}
+.wrapper
+{
+    align-items:center;
+    background-color:lightgrey;
+    display:flex;
+    justify-content:center;
+    height:100%;
+}
+.dolist
+{
+    box-shadow: 0 0 1px 0 black;
+    display:flex;
+    flex-direction:column;
+    max-width:500px;
+    width:100%;
+}
+.dolist-header
+{
+    background-color: #8FC579;
+}
+.dolist-title
+{
+    font-size:20px;
+    font-weight:600;
+    padding:8px 16px;
+    text-align:center;
+}
+.dolist-info
+{
+    display:flex;
+    padding:8px 16px;
+}
+.dolist-info-item
+{
+    align-items:center;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+}
+.dolist-body
+{
+    background-color:#ddd;
+}
+.dolist-footer
+{
+    background-color:#8FC579;
+    padding:8px 16px;
+}
+.dolist-task
+{
+    align-items:center;
+    display:flex;
+    position: relative;
+}
+.dolist-task:hover
+{
+    background-color:#fff;
+}
+.dolist-task:hover .dolist-task-remove
+{
+    opacity:0.5;
+} 
+.dolist-task:hover .dolist-task-remove:hover
+{
+    opacity:1;
+} 
+.dolist-task--done
+{
+    background-color:#8FC579;
+}
+.dolist-task.dolist-task--done .dolist-text
+{
+    text-decoration: line-through;
+}
+.dolist-tasks
+{
+    cursor:pointer;
+    flex:1;
+    line-height:24px;
+    padding:8px 16px;    
+}
+.dolist-task-remove
+{
+    border:1px solid red;
+    border-radius: 50%;
+    cursor:pointer;
+    height:32px;
+    margin-left:auto;
+    margin-right:5px;
+    opacity:0;
+    padding:0 8px;
+    transition: all linear 0.3s;
+    width:32px;
+}
+/* .dolist-task-remove:before, .dolist-task-remove:after */
+.dolist-task-remove:before
+{
+    content:"X";
+    color: red;
+    display: block;
+    position: absolute;
+    margin:2px 2px;
+   
+} 
+
+.dolist-task-new
+{
+    border:0;
+    line-height:40px;
+    min-height:40px;
+    padding:0 8px;
+    width:100%;
+}
