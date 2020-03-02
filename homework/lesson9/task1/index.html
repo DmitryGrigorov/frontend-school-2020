@@ -7,7 +7,7 @@
   <title>Task 1</title>
 </head>
 <body>
-  <ul id="list">
+  <ul id="list" >  
     <li>Арбуз</li>
     <li>Апельсин</li>
     <li>Авокадо</li>
@@ -17,12 +17,29 @@
 
   <!--
     1. Получить элемент c id="list"
-    2. Добавить в конец списка массив фруктов ['Бананы', 'Черника', 'Малина'] и вывести на страницу
+    
+    2. Добавить в конец списка массив фруктов 
+    ['Бананы', 'Черника', 'Малина'] и вывести на страницу
+
     3. Окрасить каждый нечетный элемент в красный цвет (elem.style.background = 'red')
     
    -->
   <script>
 
+    let list = document.getElementById("list");
+
+    let arr = ['Бананы', 'Черника', 'Малина'];
+
+    arr.forEach(item => {
+      let li = document.createElement('li');
+      li.innerHTML = item;
+      list.append(li);
+    });
+
+    Array.from(list.children).map((elem,i) => {     //from разбивает коллекцию list на "детей" (li), которые являются элементами
+        if (i % 2 === 0)                             //map по индексу красит элементы
+          elem.style.background = 'red';
+    });
 
   </script>
 </body>
