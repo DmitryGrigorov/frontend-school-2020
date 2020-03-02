@@ -30,6 +30,38 @@
 -->
 
   <script>
+    let container = document.querySelector('.container');
+    container.style.position = 'relative';
+
+    let element = document.querySelector('.element');
+    element.style.position = 'absolute';
+    
+// Склонировать элемент (ноду) и расположить его по центру контейнера
+    let centerBlock = element.cloneNode();
+    centerBlock.style.left = (container.clientWidth / 2 - element.clientWidth / 2) + 'px';
+    centerBlock.style.top = (container.clientHeight / 2 - element.clientHeight / 2) +'px';
+    container.append(centerBlock);
+
+
+// Склонировать элемент (ноду) и расположить его в правый верхний угол контейнера
+    let topRightBlock = element.cloneNode();
+    topRightBlock.style.right = '0px';
+    topRightBlock.style.top = '0px';
+    container.append(topRightBlock);
+
+
+// Склонировать элемент (ноду) и расположить его в правый нижний угол контейнера
+    let bottomRightBlock = element.cloneNode();
+    bottomRightBlock.style.right = '0px';
+    bottomRightBlock.style.bottom = '0px';
+    container.append(bottomRightBlock);
+
+
+// Склонировать элемент (ноду) и расположить его в левый нижний угол контейнера
+    let bottomLeftBlock = element.cloneNode();
+    bottomLeftBlock.style.left = '0px';
+    bottomLeftBlock.style.bottom = '0px';
+    container.append(bottomLeftBlock);
 
   </script>
 </body>
