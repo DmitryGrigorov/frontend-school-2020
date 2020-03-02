@@ -19,6 +19,28 @@
     cat.meow(); // выводит в консоль "murzik: meow"
  */
 
+// class Cat {
+//
+//     constructor(name) {
+//         this.name = name;
+//         this.state;
+//     }
+//
+//     meow = () => console.log(this.name + ': meow')
+//     up = () => this.state = 'standing'
+//     down = () => this.state = 'lying'
+//
+// }
+//
+// let cat = new Cat("Barsik");
+// cat.meow();
+// console.log(cat.name);
+// cat.up();
+// console.log(cat.state);
+// cat.down();
+// console.log(cat.state);
+
+
  /*
     2)
 
@@ -31,6 +53,29 @@
     так чтобы все экземпляры класса Dog имели свойства { movingType, color, name, age, weight };
     Например: const someDog = new Dog('walking', 'black', 'tuzik', 4, 10); // { movingType: 'walking', color: 'black', name: 'tuzik', age: 4, weight: 10 };
  */
+// class Animal {
+//
+//     constructor(movingType, color) {
+//         this.movingType = movingType;
+//         this.color = color;
+//     }
+// }
+//
+// class Dog extends Animal {
+//
+//     constructor(movingType, color, name, age, weight) {
+//         super(movingType, color);
+//         this.name = name;
+//         this.age = age;
+//         this.weight = weight;
+//     }
+// }
+//
+// const animal = new Animal('walking', 'black');
+// const dog = new Dog('walking', 'red', 'tuzik', 4, 10);
+// console.log(animal);
+// console.log(dog);
+
 
  /*
     3)
@@ -50,6 +95,27 @@
     console.log(someCar.run()); // 'running'
     console.log(someCar.stop()); // 'stopped'
  */
+
+ // class Transport {
+ //
+ //     status;
+ //     run = () => this.status = 'running'
+ //     stop = () => this.status = 'stopped'
+ // }
+ //
+ // class Car extends Transport{
+ //
+ // }
+ //
+ // const transport = new Transport();
+ // const car = new Car();
+ //
+ // console.log(transport.status);
+ // console.log(transport.run());
+ // console.log(transport.status);
+ // console.log(car.status);
+ // console.log(car.stop());
+ // console.log(car.status);
 
 /*
    4)
@@ -77,3 +143,55 @@
      которые смогут отсортировать массив по именам (в алфавитном порядке)
      или росту (по убыванию роста). Вызовите только функцию сортировки по росту.
 */
+
+// class Human {
+//
+//     constructor (name, age,height) {
+//         this.name = name;
+//         this.age = age;
+//         this.height = height;
+//     }
+//
+//     getInfo = function () {
+//         return `${this.name}, ${this.age}, ${this.height}`;
+//     }
+//
+//     get firstname () {
+//         console.log('name: ' + this.name);
+//         return this.name;
+//     }
+//
+//     set firstname (name) {
+//         this.name = name;
+//     }
+//
+//     static sortByName = function (Obj1, Obj2) {
+//             let name1=Obj1.name.toLowerCase(), name2=Obj2.name.toLowerCase();
+//             if (name1 < name2) return -1;
+//             if (name1 > name2) return 1;
+//             return 0;
+//     }
+//
+//     static sortByHeight = function (Obj1, Obj2) {
+//         return Obj2.height - Obj1.height;
+//     }
+// }
+//
+// const humansTest = new Human("Коля", 27, 178);
+// const humans = [
+//     new Human ("Коля", 23, 180),
+//     new Human ("Даша", 19, 170),
+//     new Human ("Ваня", 18, 192),
+//     new Human ("Петя", 45, 178),
+//     new Human ("Вася", 34, 197),
+//     new Human ("Джони", 40, 168),
+//     new Human ("Катя", 37, 160),
+//     new Human ("Петя", 29, 200),
+//     new Human ("Соня", 21, 172),
+//     new Human ("Женя", 25, 175)
+// ];
+//
+// console.log(humans.sort(Human.sortByHeight));
+
+
+
