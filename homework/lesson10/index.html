@@ -55,8 +55,19 @@
         </ul>
       </div>
       <script>
-        const exercise1 = document.querySelector('#exercise_1');
-        // ...решение здесь
+        const exercise1 = document.querySelector('#exercise1, .toggle-list');
+        exercise1.addEventListener('click', (event) => {
+            let target = event.target;
+          if (target.classList.contains('toggle-list_toggler_icon') || target.classList.contains('toggle-list_toggler_label')) {
+            target = target.closest('.toggle-list_list');
+            let allLi = target.querySelectorAll('li');
+            let icon = target.querySelector('.toggle-list_toggler_icon');
+            (icon.textContent === '+') ? icon.textContent = '-' : icon.textContent = '+';
+            Array.from(allLi).forEach((item) => {
+              item.hidden = !item.hidden;
+            })
+          }
+        })
       </script>
     </div>
   </div>
@@ -117,7 +128,25 @@
         </div>
         <script>
           const exercise2 = document.querySelector('#exercise_2');
-          // ...решение здесь
+          const carousel = exercise2.querySelector('ul');
+          const list = exercise2.querySelectorAll('li');
+
+          const width = 130;
+          let position = 0;
+          let maxWidthItem = width * list.length;
+
+          document.querySelector('.carousel_button_prev').addEventListener('click', (event) => {
+            if (position < 0) {
+              position += width;
+              carousel.style.marginLeft = position + 'px';
+            }
+          })
+          document.querySelector('.carousel_button_next').addEventListener('click', (event) => {
+            if ( (width * 3 - maxWidthItem) < position) {
+              position -= width;
+              carousel.style.marginLeft = position + 'px';
+            }
+          })
         </script>
       </div>
     </div>
@@ -138,8 +167,38 @@
       </div>
       <script>
         const exercise3 = document.querySelector('#exercise_3');
-        // ...решение здесь
-      </script>
+      //   exercise3.addEventListener('mouseover', (event) => {
+      //     const target = event.target;
+      //     const tooltip = target.dataset.tooltip;
+      //     if (!tooltip) return;
+      //     if (tooltip) {
+      //       let hint = document.createElement('div');
+      //       hint.innerHTML = tooltip;
+      //       hint.className = 'hint';
+      //       document.body.append(hint);
+
+      //       let coords = target.getBoundingClientRect();
+      //       let left = coords.left + (target.offsetWidth - tooltip.offsetWidth) / 2;
+      //       if (left < 0) left = 0;
+
+      //       let top = coords.top - tooltip.offsetHeight - 5;
+      //       if (top < 0) {
+      //         top = coords.top + target.offsetHeight + 5;
+      //       }
+
+      //       hint.style.left = left + 'px';
+      //       hint.style.top = top + 'px';
+      //     }
+      // },
+      // exercise3.addEventListener('mouseout', (event) => {
+      //   const target = event.target;
+      //     const tooltip = target.dataset.tooltip;
+      //   if (!tooltip) {
+      //   tooltip.remove();
+      //   tooltip = null;
+      //   }
+      // })
+        </script>
     </div>
 </div>
 
@@ -175,7 +234,30 @@
       </div>
       <script>
         const exercise4 = document.querySelector('#exercise_4');
-        // ...решение здесь
+        let listExercise4 = exercise4.querySelector('.menu_highlight_list')
+
+        listExercise4.addEventListener('contextmenu', (event) => {
+          event.preventDefault();
+          let target = event.target.closest('a');
+          if (target.hostname === 'yandex.ru'){
+            window.open(target.href);
+          }
+        })
+        listExercise4.addEventListener('dblclick', (event) => {
+          event.preventDefault();
+          let target = event.target.closest('a');
+          if (target.hostname === 'google.ru'){
+            window.open(target.href);
+          }
+        })
+        listExercise4.addEventListener('click', (event) => {
+          event.preventDefault();
+          let target = event.target.closest('a');
+          if (event.shiftKey && target.hostname === 'mail.ru'){
+            window.open(target.href);
+          }
+        })
+        
       </script>
     </div>
   </div>
