@@ -31,6 +31,38 @@
 
   <script>
 
+    /*document.body.style.margin = 0;
+    document.body.style.padding = 0;
+    document.body.style.boxSizing = 'border-box';*/
+
+    const element = document.querySelector('.element');
+    const container = document.querySelector('.container');
+    element.style.position = 'absolute';
+    container.style.position = 'relative';
+
+    let centerElem = element.cloneNode();
+    centerElem.style.top = (container.clientHeight / 2 - element.clientHeight / 2) + 'px';
+    centerElem.style.left = (container.clientWidth / 2 - element.clientWidth / 2) + 'px';
+    /*centerElem.style.top = '50%';
+    centerElem.style.left = '50%';
+    centerElem.style.transform = 'translate(-50%, -50%)';*/
+    container.append(centerElem);
+
+    let topRightElem = element.cloneNode();
+    topRightElem.style.top = '0px';
+    topRightElem.style.right = '0px';
+    container.append(topRightElem);
+
+    let bottomRightElem = element.cloneNode();
+    bottomRightElem.style.right = '0px';
+    bottomRightElem.style.bottom = '0px';
+    container.append(bottomRightElem);
+
+    let bottomLeftElem = element.cloneNode();
+    bottomLeftElem.style.left = '0px';
+    bottomLeftElem.style.bottom = '0px';
+    container.append(bottomLeftElem);
+
   </script>
 </body>
 </html>

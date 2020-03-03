@@ -23,6 +23,18 @@
    -->
   <script>
 
+    const fruits = ['Бананы', 'Черника', 'Малина'];
+    const list = document.querySelector('#list');
+   
+    fruits.forEach(fruit => {
+      let li = document.createElement('li');
+      li.textContent = fruit;
+      list.append(li);
+    });
+
+    Array.from(list.children).forEach((elem, index) => {
+      if (index % 2 === 0) {elem.style.background = 'red'}
+    });
 
   </script>
 </body>
