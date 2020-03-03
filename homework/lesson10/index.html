@@ -55,8 +55,31 @@
         </ul>
       </div>
       <script>
+
         const exercise1 = document.querySelector('#exercise_1');
-        // ...решение здесь
+        const toggleAll = document.querySelectorAll('.toggle-list_toggler');
+
+        Array.from(toggleAll).forEach(toggler => {
+          let listOfLi = toggler.parentElement.children;
+          toggler.addEventListener('click', () => {
+            if (toggler.children[0].innerText === '+') {
+              Array.from(listOfLi).forEach(li => {
+                if (li.tagName === 'LI') {
+                  li.classList.add('hidden');
+                }  
+              })
+              toggler.children[0].innerText = '-';
+            } else {
+              toggler.children[0].innerText = '+'; 
+              Array.from(listOfLi).forEach(li => {
+                if (li.tagName === 'LI') {
+                  li.classList.remove('hidden');
+                }    
+              })
+            }
+          }) 
+        })
+
       </script>
     </div>
   </div>
@@ -116,8 +139,32 @@
           </div>
         </div>
         <script>
+
           const exercise2 = document.querySelector('#exercise_2');
-          // ...решение здесь
+
+          const carousel = document.querySelector('.carousel');
+          const buttonPrev = carousel.querySelector('.carousel_button_prev');
+          const buttonNext = carousel.querySelector('.carousel_button_next');
+
+          let width = 130;
+          let position = 0;
+
+          let list = carousel.querySelector('ul');
+          let listElems = carousel.querySelectorAll('li');
+
+          buttonPrev.addEventListener('click', () => {
+            position += width;
+            console.log(position);
+            position = Math.min(position, 0);
+            list.style.marginLeft = position + 'px';
+          });
+
+          buttonNext.addEventListener('click', () => {
+            position -= width;
+            position = Math.max(position, -width * (listElems.length - 3));
+            list.style.marginLeft = position + 'px';
+          });
+
         </script>
       </div>
     </div>
@@ -137,11 +184,47 @@
         <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
       </div>
       <script>
+
         const exercise3 = document.querySelector('#exercise_3');
-        // ...решение здесь
-      </script>
-    </div>
-</div>
+        
+        let tooltipElem;
+
+        document.onmouseover = function(event) {
+          let target = event.target;
+
+          let tooltipHtml = target.dataset.tooltip;
+          if (!tooltipHtml) return;
+
+          tooltipElem = document.createElement('div');
+          tooltipElem.className = 'tooltip';
+          tooltipElem.innerHTML = tooltipHtml;
+          document.body.append(tooltipElem);
+
+          let coords = target.getBoundingClientRect();
+          console.log(coords);
+
+          let left = coords.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2;
+          if (left < 0) left = 0;
+
+          let top = coords.top - tooltipElem.offsetHeight - 5;
+          if (top < 0) {
+            top = coords.top + target.offsetHeight + 5;
+          }
+
+          tooltipElem.style.left = left + 'px';
+          tooltipElem.style.top = top + 'px';
+        };
+
+        document.onmouseout = function(e) {
+          if (tooltipElem) {
+            tooltipElem.remove();
+            tooltipElem = null;
+          }
+        };
+
+        </script>
+      </div>
+  </div>
 
 <!--Задача №4 Самостоятельно: "Отмена действия по умолчанию"-->
   <div id="exercise_4" class="exercise">
@@ -153,19 +236,19 @@
       <div class="menu_highlight">
         <ul class="menu_highlight_list">
             <li class="menu_highlight_item">
-              <a href="https://yandex.ru">
+              <a href="https://yandex.ru" data-click="cntxtmenu">
                   Переход на yandex только при клике правой кнопкой мыши
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://google.ru">
+              <a href="https://google.ru" data-click="dclick">
                 <strong>
                   Переход на google только при двойном клике
                 </strong>
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://mail.ru">
+              <a href="https://mail.ru" data-click="shiftK">
                 <em>
                   Переход на mail только при клике с нажатой кнопкой 'Shift'
                 </em>
@@ -174,8 +257,33 @@
         </ul>
       </div>
       <script>
+
         const exercise4 = document.querySelector('#exercise_4');
-        // ...решение здесь
+        
+        exercise4.addEventListener('contextmenu', (event) => {
+          event.preventDefault();
+          let target = event.target.closest("a");
+          if (target.dataset.click === "cntxtmenu") {
+            document.location = target.href;
+          }
+        });
+
+        exercise4.addEventListener('dblclick', (event) => {
+          event.preventDefault();
+          let target = event.target.closest("a");
+          if (target.dataset.click === "dclick") {
+            document.location = target.href;
+          }
+        });
+
+        exercise4.addEventListener('click', (event) => {
+          event.preventDefault();
+          let target = event.target.closest("a");
+          if (event.shiftKey === true && target.dataset.click === "shiftK") {
+            document.location = target.href;
+          }
+        });
+
       </script>
     </div>
   </div>
