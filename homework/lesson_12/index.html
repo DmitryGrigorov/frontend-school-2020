@@ -19,6 +19,20 @@
     #diagram div {
       margin: auto;
     }
+
+    .form_row_cell {
+      display: flex;
+      flex-direction: column;
+    }
+    .form_button {
+      width: 100px;
+    }
+    .result {
+      margin-top: 20px;
+      margin-left: 10px;
+      color: green;
+      font-weight: bold;
+    }
   </style>
 </head>
 
@@ -87,45 +101,37 @@
 
   <script>
 
-    // Новая строчка важная!
-
     let initial;
     let countOfMonths;
     let interest;
+    let result;
+
+    function countData (elm) {
+      let tag = elm.dataset.input;
+      switch (tag) {
+          case 'deposit':
+            initial = elm.value;
+            break;
+          case 'time':
+            countOfMonths = elm.value;
+            break;
+          case 'percent':
+            interest = elm.value;
+            break;
+        };
+    };
     
     let counts = document.querySelectorAll('[data-input]');
     counts.forEach(function (element) {
-      let tag = element.dataset.input;
-      switch (tag) {
-          case 'deposit':
-            initial = element.value;
-            break;
-          case 'time':
-            countOfMonths = element.value;
-            break;
-          case 'percent':
-            interest = element.value;
-            break;
-        }
+      countData (element);
       element.addEventListener('input', function(event) {
-        const target = event.target;
-       
-        let newTag = target.dataset.input;
-        switch (newTag) {
-          case 'deposit':
-            initial = target.value; 
-            break;
-          case 'time':
-            countOfMonths = target.value;
-            break;
-          case 'percent':
-            interest = target.value;
-            break;
-        }
-      });
+        countData (element);
+        });
     });
     
-    let result;
+    let depositData = document.querySelector('#diagram tr');
+    let depositBefore = depositData.firstElementChild;
+    let depositAfter = depositData.lastElementChild;
 
     let button = document.querySelector('[data-submit]');
     button.addEventListener('click', calculator);
@@ -134,20 +140,14 @@
       result = Math.round(initial * ((1 + (interest/100) * countOfMonths/12)));
       let resultElement = document.querySelector('.result');
       resultElement.textContent = `Ваша денежная сумма после ${countOfMonths} месяцев при ставке 
-                                    ${interest} процентов годовых составить ${result} рублей`;
+                                    ${interest} процентов годовых составит ${result} рублей`;
       let differentPercent = (result - initial)/initial;
-      console.log(result);
-      console.log(initial);
-      console.log(differentPercent);
       let greenDiagram = document.querySelector('.diagramAfter');
       greenDiagram.style.height = (100 + differentPercent*100) + "px";
-    }
+      depositBefore.textContent = "Было: " + initial;
+      depositAfter.textContent = "Станет: " + result;
+    };
 
-    // Формула
-    // initial: начальная сумма денег
-    // interest: проценты, например, 0.05 означает 5% в год
-    // years: сколько лет ждать
-    // let result = Math.round(initial * (1 + interest * years));
   </script>
 
 
