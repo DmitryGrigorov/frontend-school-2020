@@ -1,1 +1,0 @@
-https://devhints.io/npm — ссылка с командами npm
