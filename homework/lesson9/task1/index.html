@@ -27,27 +27,7 @@
    -->
   <script>
   
-  function addNewTags (array) {
-      let list = document.getElementById('list');
-      array.forEach(element => {
-        let newLi = document.createElement('li');
-        newLi.textContent = element;
-        list.append(newLi);
-      });
-  }
-  let array = ['Бананы', 'Черника', 'Малина','Морошка','Княжевика','Выживика'];
-  addNewTags (array);
   
-  //console.log(list);
-  //console.log(list.childNodes[0]);
-
-  function paintLi(colour) {
-      let count = document.querySelectorAll('li');
-      for (let i = 0; i < count.length; i = i+2) {
-        count[i].style.background = colour;
-      }
-  }
-  paintLi('Red');
 
   </script>
 </body>
