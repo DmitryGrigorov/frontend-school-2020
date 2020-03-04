@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Task 2: Centered block</title>
+  <style>
+    .container {
+      width: 300px;
+      height: 300px;
+      border: 10px solid black;
+      background-color: #efd5ff;
+    }
+
+    .element {
+      width: 50px;
+      height: 50px;
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="element"></div>
+  </div>
+
+<!-- 
+  1. Склонировать элемент (ноду) и расположить его по центру контейнера
+  2. Склонировать элемент (ноду) и расположить его в правый верхний угол контейнера
+  3. Склонировать элемент (ноду) и расположить его в правый нижний угол контейнера
+  4. Склонировать элемент (ноду) и расположить его в левый нижний угол контейнера
+-->
+
+  <script>
+    let contain = document.querySelector('.container');
+    contain.style.position = 'relative';
+
+    let block = document.querySelector('.element');
+    let cloneBlockCenter = block.cloneNode();
+    cloneBlockCenter.style.position = 'absolute';
+    cloneBlockCenter.style.top = 'calc(50% - 25px)';
+    cloneBlockCenter.style.left = 'calc(50% - 25px)';
+    contain.append(cloneBlockCenter); // центральный. Rолхозненький метод, но можно было и так еще 4 раза сделать... или...
+
+    function cloneBlock(posX, posY) {
+      const cloneBlock = block.cloneNode();
+      cloneBlock.style.position = 'absolute';
+      switch (posX) {
+        case 'left':
+          cloneBlock.style.left = '0';
+          break;
+        case 'center':
+          cloneBlock.style.left = 'calc(50% - 25px)';
+          break;
+        case 'right':
+          cloneBlock.style.right = '0';
+          break;
+      }
+      switch (posY) {
+        case 'top':
+          cloneBlock.style.top = '0';
+          break;
+        case 'center':
+          cloneBlock.style.top = 'calc(50% - 25px)';
+          break;
+        case 'bottom':
+          cloneBlock.style.bottom = '0';
+          break;
+      }
+      contain.append(cloneBlock);
+    }
+
+    cloneBlock('right', 'top');
+    cloneBlock('left', 'bottom');
+    cloneBlock('right', 'bottom');
+// ... написать функцию, чтобы не писать одно и тоже 100500 раз :D
+// Можно было еще проверки аргументов написать, но я не стал сильно заморачиваться
+
+  </script>
+</body>
+</html>
