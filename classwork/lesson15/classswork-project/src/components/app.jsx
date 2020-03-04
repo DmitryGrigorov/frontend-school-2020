@@ -1,38 +1,107 @@
 import React, { Component } from 'react';
 
-import Counter from './counter';
+import InputTodo from './input-todo';
+import ItemTodo from './item-todo';
+import './style.css';
 
 class App extends Component {
   state = {
-    counter: 0,
-    isHide: false
+    todos: [
+      {
+        id: "1",
+        value: "Create Todo 1",
+        isChecked: false,
+      },
+      {
+        id: "2",
+        value: "Create Todo 1",
+        isChecked: true,
+      },
+      {
+        id: "3",
+        value: "Create Todo 1",
+        isChecked: false,
+      }
+    ],
+    currentTodo: ''
   };
 
-  incrementHandler = () => {
-    this.setState({
-      counter: this.state.counter + 1,
-    })
-  };
 
-  decrementHandler = () => {
-    this.setState({
-      counter: this.state.counter - 1
-    })
-  };
 
-  toggleHandler = () => {
+  toggleHandler = (evt) => {
+    const { todos } = this.state;
+    const elementId = evt.target.dataset.elementid;
+    const foundElement = todos.findIndex(el => el.id === elementId);
+    const newTodo = {
+      ...todos[foundElement],
+      isChecked: !todos[foundElement].isChecked
+    };
+
     this.setState({
-      isHide: !this.state.isHide
+      todos: [
+        ...todos.slice(0, foundElement),
+        newTodo,
+        ...todos.slice(foundElement + 1),
+      ]
     });
   };
 
+  submitHandler = (evt) => {
+    evt.preventDefault();
+    const { currentTodo, todos } = this.state;
+    const newTodo = {
+      id: Math.floor(Math.random() * 1000000).toString(),
+      value: currentTodo,
+      isChecked: false,
+    };
+
+    this.setState({
+      todos: [...todos, newTodo],
+      currentTodo: ''
+    });
+  };
+
+  onChangeInput = (evt) => {
+    this.setState({
+      currentTodo: evt.target.value
+    })
+  };
+
+  removeHandler = (evt) => {
+    const { todos } = this.state;
+    const elementId = evt.target.dataset.elementid;
+    const foundElement = todos.findIndex(el => el.id === elementId);
+    this.setState({
+      todos: [
+        ...todos.slice(0, foundElement),
+        ...todos.slice(foundElement + 1),
+      ]
+    })
+  };
+
   render() {
+    const { todos, currentTodo } = this.state;
     return (
       <div>
-        <button onClick={this.incrementHandler}>Increment</button>
-        <button onClick={this.decrementHandler}>Decrement</button>
-        <button onClick={this.toggleHandler}>Toggle</button>
-        { this.state.isHide && <Counter counter={this.state.counter} /> }
+        <h1>Todo List</h1>
+        <InputTodo
+          submitHandler={this.submitHandler}
+          onChangeInput={this.onChangeInput}
+          currentTodo={currentTodo}
+        />
+        <ul className="list">
+          {
+            todos.map(el => (
+              <ItemTodo
+                elementId={el.id}
+                removeHandler={this.removeHandler}
+                toggleHandler={this.toggleHandler}
+                elementValue={el.value}
+                isChecked={el.isChecked}
+              />
+            ))
+          }
+        </ul>
       </div>
     );
   }
