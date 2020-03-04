@@ -56,7 +56,20 @@
       </div>
       <script>
         const exercise1 = document.querySelector('#exercise_1');
-        // ...решение здесь
+        exercise1.addEventListener('click', openOrClose);
+
+        function openOrClose (evt) {
+          let target = event.target.closest('.toggle-list_list');
+          let list = target.querySelectorAll('li');
+
+          list.forEach(function(item) {
+            item.hidden = !item.hidden;
+          });
+
+          let icon = target.querySelector('.toggle-list_toggler_icon');
+            icon.textContent === '+' ? icon.textContent = '-' : icon.textContent = '+';
+          };
+
       </script>
     </div>
   </div>
@@ -95,29 +108,47 @@
                 <img src="https://ru.js.cx/carousel/4.png" alt="smile-4">
               </li>
               <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/5.png" alt="">
+                <img src="https://ru.js.cx/carousel/5.png" alt="smile-5">
               </li>
               <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/6.png" alt="">
+                <img src="https://ru.js.cx/carousel/6.png" alt="smile-6">
               </li>
               <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/7.png" alt="">
+                <img src="https://ru.js.cx/carousel/7.png" alt="smile-7">
               </li>
               <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/8.png" alt="">
+                <img src="https://ru.js.cx/carousel/8.png" alt="smile-8">
               </li>
               <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/9.png" alt="">
+                <img src="https://ru.js.cx/carousel/9.png" alt="smile-9">
               </li>
               <li class="carousel_list_item">
-                <img src="https://ru.js.cx/carousel/10.png" alt="">
+                <img src="https://ru.js.cx/carousel/10.png" alt="smile-10">
               </li>
             </ul>
           </div>
         </div>
         <script>
           const exercise2 = document.querySelector('#exercise_2');
-          // ...решение здесь
+          let prev = exercise2.querySelector('.carousel_button_prev');
+          let next = exercise2.querySelector('.carousel_button_next');
+          let list = exercise2.querySelector('.carousel_list');
+          let item = exercise2.querySelectorAll('.carousel_list_item');
+          let position = 0;
+          let width = 130;
+          let count = 3;
+
+          next.addEventListener('click', function() {
+            position -= width * count;
+            position = Math.max(position, -width * (item.length - count));
+            list.style.marginLeft = position + 'px';
+          });
+
+          prev.addEventListener('click', function() {
+            position += width * count;
+            position = Math.min(position, 0)
+            list.style.marginLeft = position + 'px';
+          });
         </script>
       </div>
     </div>
@@ -138,7 +169,38 @@
       </div>
       <script>
         const exercise3 = document.querySelector('#exercise_3');
-        // ...решение здесь
+        let tooltip;
+        exercise3.addEventListener('mouseover', createTooltip);
+        exercise3.addEventListener('mouseout', removeTooltip);
+
+        function createTooltip (event) {
+          let target = event.target;
+          let tooltipTarget = target.dataset.tooltip;
+          
+          if (tooltipTarget) {
+            tooltip = document.createElement('div');
+            tooltip.className = 'tooltip';
+            tooltip.innerHTML = tooltipTarget;
+            document.body.append(tooltip);
+
+            let coords = target.getBoundingClientRect();
+            let left = coords.left + (target.offsetWidth - tooltip.offsetWidth) / 2;
+            if (left < 0) left = 0;
+            let top = coords.top - tooltip.offsetHeight - 5;
+            if (top < 0) {
+              top = coords.top + target.offsetHeight + 5;
+            }
+
+            tooltip.style.left = left + 'px';
+            tooltip.style.top = top + 'px';
+          }
+        };
+
+        function removeTooltip () {
+          if (tooltip) {
+            tooltip.remove();
+          }
+        };
       </script>
     </div>
 </div>
@@ -153,19 +215,19 @@
       <div class="menu_highlight">
         <ul class="menu_highlight_list">
             <li class="menu_highlight_item">
-              <a href="https://yandex.ru">
-                  Переход на yandex только при клике правой кнопкой мыши
+              <a href="https://yandex.ru" id="yandex">
+                Переход на yandex только при клике правой кнопкой мыши
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://google.ru">
+              <a href="https://google.ru" id="google">
                 <strong>
                   Переход на google только при двойном клике
                 </strong>
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://mail.ru">
+              <a href="https://mail.ru" id="mail">
                 <em>
                   Переход на mail только при клике с нажатой кнопкой 'Shift'
                 </em>
@@ -175,7 +237,36 @@
       </div>
       <script>
         const exercise4 = document.querySelector('#exercise_4');
-        // ...решение здесь
+
+        exercise4.addEventListener('contextmenu', function(evt) {
+          evt.preventDefault();
+          let target = evt.target.closest('a');
+          let link = target.href;
+          if (target && target.id == "yandex") {
+            document.location = link;
+          }
+        });
+
+        exercise4.addEventListener('dblclick', function(evt) {
+          evt.preventDefault();
+          let target = evt.target.closest('a');
+          let link = target.href;
+          if (target && target.id == "google") {
+            document.location = link;
+          }
+        });
+        
+        exercise4.addEventListener('click', function(evt) {
+          evt.preventDefault();
+          if (evt.shiftKey) {
+            evt.preventDefault();
+            let target = evt.target.closest('a');
+            let link = target.href;
+            if (target && target.id == "mail") {
+              document.location = link;
+            }
+          }
+        });
       </script>
     </div>
   </div>
