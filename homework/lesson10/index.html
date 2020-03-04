@@ -58,7 +58,46 @@
 
         //Решение задачи № 1============================================
 
-      
+        const exercise1 = document.querySelector('#exercise_1 .toggle-list_list');
+        
+        exercise1.addEventListener('click', closeBlock);
+          
+          function closeBlock(event) {
+            
+            let target = event.target;
+
+            if (target.parentElement.parentElement.children[1].hidden == true) {
+              
+              target.parentElement.firstElementChild.textContent = "+";
+              Array.from(target.parentElement.parentElement.children).forEach(function(child) {
+                
+                console.log(child);
+                console.log(child.tagName);
+                if (child.tagName == 'LI') {
+                  child.hidden = false;
+                }
+              });
+            } else {
+            //console.log( target.parentElement.parentElement);
+            //console.log(target.parentElement.parentElement.children[1].hidden);
+            target.parentElement.firstElementChild.textContent = "-";
+          
+            if(target.classList.contains('toggle-list_toggler_label')) {
+              
+              let newTarget = target.parentElement.parentElement;
+              
+              Array.from(newTarget.children).forEach(function(child) {
+                
+                //console.log(child);
+                //console.log(child.tagName);
+                if (child.tagName == 'LI') {
+                  child.hidden = true;
+                }
+              });
+            }
+            //console.log(target.parentElement.parentElement.children[1].hidden);
+        };
+      }
       </script>
     </div>
   </div>
@@ -121,8 +160,37 @@
 
           //Решение задачи № 2============================================
 
-          
+          const exercise2 = document.querySelector('#exercise_2 .carousel');
+          let counter = 0;
+          exercise2.addEventListener('click', move);
 
+          function move(event) {
+            let target = event.target;
+    
+            let polosa = document.querySelector('#exercise_2 .carousel_list_wrapper');
+            
+            if (target.classList[1] == "carousel_button_prev") {
+              if (counter === 0){
+              alert("Слева смайликов уже нет");
+              } else {
+              //alert("Влево");
+              //console.log(polosa.firstElementChild.children[counter]);
+              counter--;
+              polosa.firstElementChild.children[counter].hidden = false;
+              //console.log(counter);
+              }
+            } else if (target.classList[1] == "carousel_button_next") {
+              
+              if (counter !== polosa.firstElementChild.children.length-3) {
+              console.log(polosa.firstElementChild.children.length-3);
+              polosa.firstElementChild.children[counter].hidden = true;
+              counter++;
+              //console.log(counter);
+              } else {
+                alert("Справа смайликов уже нет");
+              }
+            };
+          }
         </script>
       </div>
     </div>
@@ -145,7 +213,49 @@
 
         //Решение задачи № 3 ============================================
 
+        const exercise3 = document.querySelectorAll('#exercise_3 button');
         
+        const point = document.querySelector('#exercise_3');
+        //console.log(point);
+        let newDiv = document.createElement('div');
+        newDiv.className = 'hint';
+        point.appendChild(newDiv);
+        var div = document.querySelector('.hint');
+        let divCoordinations = point.getBoundingClientRect();
+
+
+        exercise3.forEach(function(element) {
+          element.onmouseover = function(event) {
+          if (newDiv.hidden = true) {
+            newDiv.hidden = false;
+          }
+          let target = event.target;
+          //console.log(target);
+
+          let buttonCoordinations = target.getBoundingClientRect();
+          
+          // console.log(buttonCoordinations.height);
+          // console.log(divCoordinations.height);
+
+          // console.log(buttonCoordinations.width);
+          // console.log(divCoordinations.width);
+
+          // console.log(parseFloat(buttonCoordinations.left));
+          // console.log(parseFloat(buttonCoordinations.top));
+
+          div.style.top = (divCoordinations.height - buttonCoordinations.height*4) +"px";
+          div.style.left = buttonCoordinations.left + "px";
+          //console.log(div.style.top);
+          let tooltip = target.dataset.tooltip;
+          //console.log(tooltip);
+          newDiv.innerHTML = tooltip;
+          //newDiv.style.top = tooltip;
+          
+          }
+          element.onmouseout = function(event) {
+          newDiv.hidden = true;
+          }
+        });
         
       </script>
     </div>
@@ -173,7 +283,7 @@
               </a>
             </li>
             <li class="menu_highlight_item">
-              <a href="https://mail.ru" data-action = "pressShift">
+              <a href="https://www.mail.ru" data-action = "pressShift">
                 <em>
                   Переход на mail только при клике с нажатой кнопкой 'Shift'
                 </em>
@@ -185,7 +295,37 @@
 
         //Решение задачи № 4 ============================================
 
-        
+        const exercise4 = document.querySelector('#exercise_4 .menu_highlight');
+        //let list = exercise4.querySelector('.menu_highlight_list');
+        //console.log(list);
+
+        exercise4.addEventListener('click', function(event) {
+          event.preventDefault();
+        });
+
+        exercise4.addEventListener('contextmenu', pressRight);
+        function pressRight(event) {
+          event.preventDefault();
+          if (event.target.dataset.action === 'pressRight') {
+            window.location.href = event.target.href;
+          }
+        }
+
+        exercise4.addEventListener('dblclick', doubleClick);
+        function doubleClick(event) {
+          let item = event.target.closest('A');
+          if (item.dataset.action === 'doubleClick') {
+            window.location.href = item.href;
+          }
+        }
+    
+        exercise4.addEventListener('click', pressShift);
+        function pressShift(event) {
+          let item = event.target.closest('A');
+          if (item.dataset.action === 'pressShift' && event.shiftKey) {
+            window.location.href = item.href;
+          }
+        }
       
       </script>
     </div>
