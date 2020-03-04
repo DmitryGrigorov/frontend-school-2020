@@ -16,6 +16,7 @@
 // someCar.__proto__.run
 // someCar
 
+
 // способы задания прототипов
 // let someObj = {};
 // someObj.__proto__ = new Object({ a: 1 });
@@ -29,11 +30,13 @@
 // someObj.hello = 'привет';
 // console.log(someObj);
 
+
 // встроенные объекты, полифилы
 // const arr = ['a', 'b', 'c']; // new Array();
 // console.log(arr.join('-'));
 // Array.prototype.join = undefined;
 //  смотри join-polyfill.js
+
 
 // защищенные свойства
 // function User(name) {

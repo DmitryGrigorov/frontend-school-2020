@@ -14,6 +14,10 @@
 // console.log(user.asdfasd);
 
 
+
+
+
+
 // имя свойства из нескольких слов, квадратные скобки
 
 // let car = {
@@ -24,6 +28,10 @@
 // let key2 = 'speed';
 
 // console.log(car[key1 + key2]);
+
+
+
+
 
 // вычисляемые свойства[], свойства из переменных
 
@@ -36,6 +44,11 @@
 // car2['some' + 'Prop'] = 'hello world';
 
 // console.log(car2);
+
+
+
+
+
 
 // проверка существования свойств
 
@@ -50,16 +63,25 @@
 // console.log(item.age === undefined);
 // console.log('some' + 'Prop' in item);
 
+
+
+
+
+
 // цикл for..in
 
-// let someObject = {
-//     '2345': 'werty',
-//     someProp2: 500
-// };
+let someObject = {
+    '2345': 'werty',
+    someProp2: 500
+};
 
-// for(let key in someObject) {
-//     console.log(key, ': ', someObject[key]);
-// }
+for(let key in someObject) {
+    console.log(key, ': ', someObject[key]);
+}
+
+
+
+
 
 // копирование по ссылке
 
@@ -82,6 +104,10 @@
 
 // console.log(car2);
 
+
+
+
+
 // сравнение объектов
 
 // let obj1 = {};
@@ -89,6 +115,12 @@
 // let obj3 = obj1;
 
 // console.log(obj1 == obj1);
+
+
+
+
+
+
 
 // клонирование и объединение объектов
 
@@ -114,6 +146,10 @@
 // console.log(car1);
 // console.log(cloneCar1);
 
+
+
+
+
 // const metrics = {
 //     height: 120,
 //     weight: 140
@@ -129,6 +165,19 @@
 // console.log(user);
 // console.log(cloneUser);
 
+
+
+
+
+
+
+// написать функцию filter которая принимает в качестве аргумента любой объект
+ // и удаляет в нем свойства, значение которых = undefined
+
+// Например: filter({ color: 'black', model: 'mercedes', speed: undefined }); // { color: 'black', model: 'mercedes' }
+// как сделать так, чтобы функция возвращала новый объект?
+// как сделать глубокую фильтрацию свойств объекта?
+
 // function filter(obj) {
 //     for (let key in obj) {
 //         if(obj[key] === undefined) {
@@ -137,13 +186,14 @@
 //     }
 // }
 
+
 // function filterWithClone(obj) {
 //     let clone = {};
 
 //     for (let key in obj) {
 //         const value = obj[key];
 
-//         if (typeof(value) === 'object' && value !== null) {
+//         if (typeof(value) === 'object' && value !== null) {         //  глубокая фильтрация
 //             clone[key] = filterWithClone(value);
 //         } else if (value !== undefined) {
 //             clone[key] = value;
@@ -152,6 +202,8 @@
 
 //     return clone;
 // }
+
+
 
 // let car = {
 //     color: undefined,
@@ -166,11 +218,17 @@
 
 // console.log(filterWithClone(car));
 
+
+
+
 // filter(car);
 // console.log(car);
 // let key = 'color';
 // car[key]; // car['color']
 // car['color']; // car.color;
+
+
+
 
 // function someFunction(...rest) {
 //     someFunction2(...rest);
@@ -184,32 +242,15 @@
 
 // someFunction(1, 2, 3, 4, 5, 6);
 
-function clonePart(obj, ...keys) {
-    const clone = {};
 
-    for (let key in obj) {
-        if (keys.includes(key)) {
-            clone[key] = obj[key];
-        }
-    }
 
-    return clone;
-}
 
-let comment = {
-    type: 'success',
-    message: 'text-text',
-    authorId: 'qwerty'
-};
-let cl = clonePart(comment, 'message', 'authorId'); 
+
+
 
 /**
- * написать функцию filter которая принимает в качестве аргумента любой объект
- * и удаляет в нем свойства, значение которых = undefined
- * 
- * Например: filter({ color: 'black', model: 'mercedes', speed: undefined }); // { color: 'black', model: 'mercedes' }
- * как сделать так, чтобы функция возвращала новый объект?
- * как сделать глубокую фильтрацию свойств объекта?
+ 
+ 
  * 
  * написать функцию clone, которая принимает в качестве аргумента объект и возвращает новый объект с такой же структурой
  * Например:
@@ -217,11 +258,46 @@ let cl = clonePart(comment, 'message', 'authorId');
  * const notNick = clone(nick);
  * console.log(nick === notNick); // false
  * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
  * написать функцию clonePart которая принимает первым аргументом объект, а последующими - строки (колличество аргументов не ограничено)
  * clonePart должна вернуть новый объект со свойствами которые совпадают со значениями аргументов функции
  * Например:
  * clonePart({ type: 'success', message: 'text-text', authorId: 'qwerty' }, 'message', 'authorId'); // вернет новый объект => { message: 'text-text', authorId: 'qwerty' }
  */
+
+// function clonePart(obj, ...keys) {
+//     const clone = {};
+
+//     for (let key in obj) {
+//         if (keys.includes(key)) {
+//             clone[key] = obj[key];
+//         }
+//     }
+
+//     return clone;
+// }
+
+// let comment = {
+//     type: 'success',
+//     message: 'text-text',
+//     authorId: 'qwerty'
+// };
+// let cl = clonePart(comment, 'message', 'authorId'); 
+
+
+
+
+
+
+
+
 
 // методы объекта, cокращённая запись метода *
 
@@ -245,6 +321,12 @@ let cl = clonePart(comment, 'message', 'authorId');
 // Ключевое слово «this» в методах *
 
 // потеря this - ссылочный тип
+
+
+
+
+
+
 
 
 
@@ -278,6 +360,14 @@ let cl = clonePart(comment, 'message', 'authorId');
 // console.log(Number(simeObj2));
 // console.log('!!!'+ simeObj2);
 // console.log(simeObj2.toString());
+
+
+
+
+
+
+
+
 
 // Конструкторы, создание объектов через "new" *
 
@@ -314,7 +404,20 @@ let cl = clonePart(comment, 'message', 'authorId');
 
 // console.log('car: ', car);
 
-// let car = {
+
+
+
+
+
+
+/**
+ * есть объект car = { state: 'stopped', model: 'ГАЗ' }
+ * добавьте метод run(); при вызове которого state должно меняться на running
+ * добавьте метод stop(); при вызове которого state должно меняться на stopped
+ * 
+ * 
+ * 
+ * // let car = {
 //     state: 'stopped',
 //     model: 'ГАЗ'
 // };
@@ -333,56 +436,38 @@ let cl = clonePart(comment, 'message', 'authorId');
 // car.stop();
 // console.log(car);
 
-
-// let item = {
-//     label: 'kettle',
-//     power: 1300,
-//     [Symbol.toPrimitive](type) {
-//         return type === 'string'
-//          ? `${this.label} - ${this.power} watt`
-//          : this.power;
-//     }
-// };
-
-// console.log(String(item));
-// console.log(+item);
-// console.log('' + item);
-
-// function Cat(name) {
-//     this.name = name;
-//     this.state = 'lying';
-//     this.color = 'red';
-
-//     this.meow = function() {
-//         console.log(this.name + ': meow');
-//     };
-
-//     this.up = function() {
-//         this.state = 'standing';
-//     }
-
-//     this.down = function() {
-//         this.state = 'lying';
-//     };
-// }
-
-// let cat = new Cat('tuzik');
-
-// console.log(cat);
-// cat.meow();
-// cat.up();
-// console.log(cat);
-// cat.down();
-// console.log(cat);
-
-/**
- * есть объект car = { state: 'stopped', model: 'ГАЗ' }
- * добавьте метод run(); при вызове которого state должно меняться на running
- * добавьте метод stop(); при вызове которого state должно меняться на stopped
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
  * 
  * есть объект item = { label: 'kettle', power: 1300 }
  * cделать так чтобы при преобразовании объекта к числу возвращалось поле power
  * а при преобразовании к строке - строка вида "kettle - 1300 watt"
+ * 
+  let item = {
+    label: 'kettle',
+    power: 1300,
+    [Symbol.toPrimitive](type) {
+        return type === 'string'
+         ? `${this.label} - ${this.power} watt`
+         : this.power;
+    }
+};
+
+console.log(String(item));
+console.log(+item);
+console.log('' + item);
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
  * 
  * написать конструктор Cat которой создает объекты со свойствами name, state, color
  * и методами
@@ -391,3 +476,29 @@ let cl = clonePart(comment, 'message', 'authorId');
  * cat.down(); // меняет свойство state на строку 'lying'
  * cat.up(); // меняет свойство state на строку 'standing'
  */
+function Cat(name) {
+    this.name = name;
+    this.state = 'lying';
+    this.color = 'red';
+
+    this.meow = function() {
+        console.log(this.name + ': meow');
+    };
+
+    this.up = function() {
+        this.state = 'standing';
+    };
+
+    this.down = function() {
+        this.state = 'lying';
+    };
+}
+
+let cat = new Cat('tuzik');
+
+console.log(cat);
+cat.meow();
+cat.up();
+console.log(cat);
+cat.down();
+console.log(cat);
