@@ -1,0 +1,76 @@
+body {
+  background: dodgerblue;
+  margin: 0;
+  padding: 0;
+}
+
+.like-container {
+  height: 100vh;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+}
+
+.heart {
+  position: relative;
+  -webkit-transition: color 0.25s ease;
+  transition: color 0.25s ease;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 100px;
+}
+.heart[data-showing='true'] {
+  color: crimson;
+}
+.heart .counter {
+  position: absolute;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  line-height: 28px;
+  border-radius: 50%;
+  top: -5px;
+  right: -5px;
+  width: 30px;
+  height: 30px;
+  background: white;
+  color: crimson;
+  opacity: 0;
+  -webkit-transition: all 0.35s cubic-bezier(0, 0.54, 0, 1.85) 0.15s;
+  transition: all 0.35s cubic-bezier(0, 0.54, 0, 1.85) 0.15s;
+  -webkit-transform: translateY(25px) scale(0.5);
+  transform: translateY(25px) scale(0.5);
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "helvetica";
+}
+.heart .counter[data-showing='true'] {
+  -webkit-transform: translate(0px, 0px) scale(1);
+  transform: translate(0px, 0px) scale(1);
+  opacity: 1;
+}
+
+.button-container {
+  padding: 30px 0;
+}
+
+button {
+  border: 0px;
+  border-radius: 5px;
+  background: white;
+  margin: 10px 15px;
+  padding: 8px;
+  width: 60px;
+  font-weight: bold;
+}
+button:active {
+  background: #f16581;
+  color: white;
+}
+
