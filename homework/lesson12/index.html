@@ -84,9 +84,36 @@
   <script>
 
     let form = document.forms.calculator;
+    const formElems = form.elements;
+    const resultBar = document.getElementById("height-after");
+    const moneyBefore = document.getElementById("money-before");
+    const moneyAfter = document.getElementById("money-after");
 
-    // ваш код
+    Array.from(formElems).forEach(elem =>
+      elem.addEventListener("input", onInput)
+    );
 
+    function onInput() {
+      const [initial, years, interest] = Array.from(formElems).map(elem => {
+        switch (elem.name) {
+          case "money":
+            return +elem.value;
+          case "months":
+            return elem.value / 12;
+          case "interest":
+            return elem.value * 0.01;
+        }
+      });
+
+      const result = Math.round(initial * (1 + interest * years));
+
+      resultBar.style.height = `${(result / initial) * 100}px`;
+      moneyBefore.innerHTML = initial;
+      moneyAfter.innerHTML = result;
+    }
+
+    onInput();
+      
     // Формула
     // initial: начальная сумма денег
     // interest: проценты, например, 0.05 означает 5% в год
