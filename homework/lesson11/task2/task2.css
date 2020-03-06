@@ -1,0 +1,111 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: linear-gradient(to right, #3a7bd5, #00d2ff);
+}
+
+.container {
+  box-shadow: 0 0 3px rgb(0, 0, 0);
+  width: 360px;
+  margin: 200px auto;
+  background: #f7f7f7;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+h1 {
+  background: #2980bd;
+  color: white;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+input#inputField {
+  color: #2980bd;
+  background: #f7f7f7;
+  width: 100%;
+  padding: 13px 13px 13px 20px;
+  box-sizing: border-box;
+  outline: none;
+  border: 3px solid rgba(0, 0, 0, 0);
+  transition: all 0.3s ease-in-out;
+}
+
+input#inputField:focus,
+input#inputField:hover {
+  border: 3px solid #2980bd;
+}
+
+div.inputWrapper {
+  position: relative;
+}
+
+div.inputWrapper > span {
+  color: #2980bd;
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  font-weight: 700;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+ul#toDoList {
+  list-style: none;
+  cursor: pointer;
+}
+
+li {
+  background: #fff;
+  padding: 10px 20px;
+  color: #3a7bd5;
+  position: relative;
+}
+
+li:nth-child(2n) {
+  background: #f7f7f7;
+}
+
+li:hover {
+  background: #ddd;
+}
+
+li > div {
+  box-sizing: border-box;
+  color: white;
+  position: absolute;
+  background: red;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  overflow: hidden;
+  text-align: center;
+  padding-top: 10px;
+  transition: 0.2s linear;
+}
+
+li:hover > div {
+  width: 40px;
+}
+
+.done {
+  color: gray;
+  text-decoration: line-through;
+}
+
+.error {
+  border: 3px solid red !important;
+}
