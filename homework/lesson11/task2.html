@@ -4,6 +4,154 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task 2</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0px;
+    }
+
+    .wrapper {
+      height: 180px;
+      padding: 30px 40px;
+      background-color: rgb(155, 146, 146);
+      border: 2px solid black;
+      text-align: center;
+    }
+
+    .wrapper:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    h2 {
+      margin: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 40px;
+      text-align: center;
+    }
+
+    /* Стиль поля ввода */
+    input {
+      margin: 0px;
+      width: 75%;
+      padding: 10px;
+      font-family: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Sans-Serif;
+      font-size: 16px;
+      border-radius: 0px;
+      border: none;
+      float: left;
+    }
+
+    /* Стиль кнопки 'Добавить' */
+    .button-add-item {
+      background-color: rgb(226, 219, 219);
+      width: 25%;
+      float: left;
+      font-family: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Sans-Serif;
+      text-align: center;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 0px;
+      padding: 10px;
+    } 
+
+    /* Изменение цвета кнопки при наведение курсора */
+    .button-add-item:hover {
+      background-color: grey;
+    }
+
+    /* Стиль списка */
+    .list {
+      margin: 0px;
+      padding: 0px;
+      top: 100px;
+      width: 100%;
+      height: 100%;
+      border: 3px  black;
+      list-style-type: none;
+    }
+    
+    /* Стиль кнопок 'Удалить' (крестик) */
+    .delete-list-item {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      height: 38px;
+      width: 40px;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    /* При наведении курсора на кнопку удаления - меняется цвет */
+    .delete-list-item:hover {
+      color: white;
+      background-color: red;
+      transition: 0.3s;
+    }
+
+    /* Стиль элементов списка */
+    .list-item {
+      position: relative;
+      padding-top: 8px;
+      padding-left: 40px;
+      font-family: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Sans-Serif;
+      height: 40px;
+      border: 1px solid black;
+      font-size: 16px;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+    
+    /* Эл-ты списка меняют цвет при наведении курсора */
+    .list-item:hover {
+      background-color: grey;
+      color: white;
+    }
+    
+    /* Эл-ты списка меняют цвет при наведении курсора */
+    .list-item:nth-child(odd).list-item:hover {
+      background-color: grey;
+      color: white;
+    }
+
+    /* При нажатии на эл-т - смена цвета и перечеркивание текста */
+    .list-item-done {
+      text-decoration: line-through red;
+      background-color: grey;
+      color: white;
+      transition: 0.3s;
+    }
+
+    /* При нажатии на эл-т - смена цвета и перечеркивание текста */
+    .list-item:nth-child(odd).list-item-done {
+      text-decoration: line-through red;
+      background-color: grey;
+      color: white;
+      transition: 0.3s;
+    }
+
+    /* При нажатии на эл-т - добавление "галочки" проверено */
+    .list-item.list-item-done:before {
+      content: '';
+      position: absolute;
+      border-color: #fff;
+      border-style: solid;
+      border-width: 0 2px 2px 0;
+      top: 10px;
+      left: 16px;
+      transform: rotate(45deg);
+      height: 15px;
+      width: 7px;
+      transition: 0.3s; 
+    }
+
+    /* Установка другого цвета для нечетных эл-тов (зебра) */
+    .list-item:nth-child(odd) {
+      background-color: rgba(223, 215, 215, 0.445);
+    }
+  </style>
 </head>
 <body>
   <!-- 
@@ -20,5 +168,92 @@
 
     P. S. Желательно делать и использовать стили css
    -->
+  <div class='wrapper'>
+    <h2> My To Do List</h2>
+    <input class='input' type="text" placeholder="Добавить заметку">
+    <span class='button-add-item'>Добавить</span>
+  </div>
+  <ul class='list'>
+    <li class='list-item'> HTML
+    <span class='delete-list-item'>×</span>
+    </li>
+    <li class='list-item'>CSS
+    <span class='delete-list-item'>×</span>
+    </li>
+    <li class='list-item'>JavaScript
+    <span class='delete-list-item'>×</span>
+    </li>
+    <li class='list-item'>Webpack
+    <span class='delete-list-item'>×</span>
+    </li>
+    <li class='list-item'>React
+    <span class='delete-list-item'>×</span>
+    </li>
+  </ul>
+
+  <script>
+    const input = document.querySelector('.input');
+    const list = document.querySelector('.list');
+    const button = document.querySelector('.button-add-item');
+
+// добавить эл-т списка при нажатии кнопки Enter
+    input.addEventListener('keydown', pressEnter);
+
+    function pressEnter(event) {
+      if (event.code === 'Enter') {
+        let li = document.createElement('li');
+        if (input.value === '') {
+          alert('Вы должны написать что-нибудь');
+        } else {
+          list.append(li);
+          li.classList.add('list-item');
+          let text = input.value;
+          li.innerHTML = text[0].toUpperCase() + text.slice(1).toLowerCase();
+          let span = document.createElement('span');
+          li.append(span);
+          span.classList.add('delete-list-item');
+          span.innerHTML = 'x';
+          input.value = '';
+        }
+      }   
+    };
+
+//  добавить эл-т при клике на кнопку "Добавить"
+    button.addEventListener('click', addElem);
+
+    function addElem(event) {
+      let li = document.createElement('li');
+      if (input.value === '') {
+        alert('Вы должны написать что-нибудь');
+      } else {
+        list.append(li);
+        li.classList.add('list-item');
+        let text = input.value;
+        li.innerHTML = text[0].toUpperCase() + text.slice(1).toLowerCase();
+        let span = document.createElement('span');
+        li.append(span);
+        span.classList.add('delete-list-item');
+        span.innerHTML = 'x';
+        input.value = '';
+      }
+    };
+
+//  удалить элемент списка при клике на "крестик"
+    document.addEventListener('click', removeElem);
+    function removeElem(event) {
+      let target = event.target;
+      if (target.tagName === 'SPAN') {
+        target.closest('LI').remove();
+      }
+    };
+
+//  перечеркнуть элемент списка при клике на него
+    document.addEventListener('click', (event) => {
+      let target = event.target;
+      if (target.tagName === 'LI') {
+        target.classList.toggle('list-item-done');
+      }
+    });
+  </script>
 </body>
 </html>
