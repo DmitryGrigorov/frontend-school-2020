@@ -84,6 +84,31 @@
   <script>
 
     let form = document.forms.calculator;
+    let before = document.getElementById('money-before');
+    let after = document.getElementById('money-after');
+    let diagram = document.getElementById('height-after');
+    form.money.addEventListener('input', calculate);
+    form.months.addEventListener('change', calculate);
+    form.interest.addEventListener('input', calculate);
+
+    function calculate() {
+      let initial = +form.money.value;
+      if (!initial) return;
+
+      let years = form.months.value / 12;
+
+      let interest = form.interest.value * 0.01;
+      if (!interest) return;
+
+      
+
+      let result = Math.round(initial * (1 + interest * years));
+
+      let height = result / initial * 100 + 'px';
+      before.innerHTML = initial;
+      after.innerHTML = result;
+      diagram.style.height = height;
+  }
 
     // ваш код
 
