@@ -10,12 +10,7 @@ export const Heart = props => (
     >
       <path
         className={props.changed ? "clicked" : ""}
-        d="
-						 M 50 0,
-						 A 1 1 0 1 0 0 50, 
-						 L50,100, 
-						 L100,50,
-						 A 1 1 0 1 0 50 0"
+        d="M 50 0, A 1 1 0 1 0 0 50, L50, 100, L100, 50, A 1 1 0 1 0 50 0"
       />
     </svg>
     <span
