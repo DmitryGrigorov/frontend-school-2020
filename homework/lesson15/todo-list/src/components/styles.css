@@ -1,0 +1,181 @@
+/* App */
+.background {
+  background: linear-gradient(
+    90deg,
+    rgba(86, 119, 252, 1) 0%,
+    rgba(219, 219, 219, 1) 100%
+  );
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.content {
+  box-shadow: 0 0 3px rgb(0, 0, 0);
+  width: 360px;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.title {
+  background-color: rgba(86, 119, 252, 1);
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  padding: 16px;
+}
+
+/* Task */
+
+li {
+  list-style: none;
+  padding: 8px 24px;
+  border-bottom: 1px solid #d3d3d3;
+  position: relative;
+}
+
+li > input[type="checkbox"] {
+  margin-right: 8px;
+  display: none;
+  cursor: pointer;
+  outline: none;
+}
+
+li > input[type="checkbox"]:focus {
+  outline: none;
+}
+
+li > label {
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  padding-left: 25px;
+  transition: all 0.3s ease-in-out;
+}
+
+li > label::before,
+li > label::after {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  left: 0;
+  bottom: 1px;
+  text-align: center;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+}
+
+li > label::before {
+  background-color: #fafafa;
+  border: 0.2px solid rgba(86, 119, 252, 1);
+}
+
+li > label::after {
+  content: "✓";
+  color: #fafafa;
+  bottom: 4px;
+}
+
+li > label:hover::after {
+  color: #d3d3d3;
+}
+
+li > input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: #d3d3d3;
+}
+
+li > input[type="checkbox"]:checked + label::after {
+  color: rgba(86, 119, 252, 1);
+}
+
+li > span {
+  font-weight: 700;
+  color: red;
+  cursor: pointer;
+  position: absolute;
+  right: 16px;
+}
+
+/* TabPanel */
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.tabs > div {
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #d3d3d3;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.tabs > div:hover {
+  color: grey;
+}
+
+.active-tab {
+  color: rgba(86, 119, 252, 1) !important;
+  text-decoration: underline rgba(86, 119, 252, 1);
+}
+
+/* AddTaskField */
+
+.inputField {
+  width: 100%;
+  position: relative;
+}
+
+input[type="text"] {
+  color: rgba(86, 119, 252, 1);
+  font-weight: 700;
+  background: #f7f7f7;
+  width: 100%;
+  padding: 8px 20px;
+  box-sizing: border-box;
+  outline: none;
+  border: 3px solid rgba(0, 0, 0, 0);
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]::placeholder {
+  color: #d3d3d3;
+  font-size: 400;
+}
+
+input[type="text"]:focus,
+input[type="text"]:hover {
+  border: 3px solid rgba(86, 119, 252, 1);
+}
+
+.addBtn {
+  position: absolute;
+  cursor: pointer;
+  right: 16px;
+  top: 4px;
+  font-size: 24px;
+  font-weight: 700;
+  color: rgba(86, 119, 252, 1);
+}
+
+input[type="text"].error {
+  border: 3px solid red !important;
+}
+
+input[type="text"].error::placeholder {
+  color: red !important;
+}
