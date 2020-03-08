@@ -1,0 +1,10 @@
+.list {
+  padding: 0;
+  margin: 0;
+  max-width: 500px;
+  list-style: none;
+}
+.cross {
+  cursor: pointer;
+  color: red;
+}
