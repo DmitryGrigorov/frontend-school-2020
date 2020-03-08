@@ -13,26 +13,26 @@ const modeConfig = env => require(`./configs/webpack.${env}`)(env);
 // mode говорит какую сборку запустить
 // string = 'production': 'none' | 'development' | 'production'
 module.exports = (env) => {
-    const { mode } = env;
+  const { mode } = env;
 
-    return webpackMerge(
-        {
-            mode,
-            resolve:{
-                extensions: ['.js', '.jsx'],
-                alias: {
-                    src: path.resolve(__dirname, 'src')
-                }
-            },
-            plugins: [
-                new HtmlWebpackPlugin({
-                    template: 'public/template.html'
-                })
-            ],
-            output: {
-                filename: "bundle.js"
-            },
-        },
-        modeConfig(mode)
-    );
+  return webpackMerge(
+    {
+      mode,
+      resolve:{
+        extensions: ['.js', '.jsx'],
+        alias: {
+          src: path.resolve(__dirname, 'src')
+        }
+      },
+      plugins: [
+        new HtmlWebpackPlugin({
+          template: 'public/template.html'
+        })
+      ],
+      output: {
+        filename: "bundle.js"
+      },
+    },
+    modeConfig(mode)
+  );
 };

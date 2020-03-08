@@ -14,16 +14,16 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // Вам потребуется создать несколько экземпляров плагина с помощью инструкции new [НазваниеПлагина]().
 
 module.exports = (env) => ({
-    output: {
-        filename: "bundle.js"
-    },
-    module: {
-        rules: [
-            {
-                test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader"]
-            }
-        ]
-    },
-    plugins: [new MiniCssExtractPlugin()]
+  output: {
+    filename: "bundle.js"
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
+      }
+    ]
+  },
+  plugins: [new MiniCssExtractPlugin()]
 });

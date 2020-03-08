@@ -1,7 +1,7 @@
 {
-  "name": "task2",
+  "name": "task2likes",
   "version": "1.0.0",
-  "description": "Lesson 15% task 2",
+  "description": "Learning project",
   "main": "index.js",
   "scripts": {
     "webpack": "webpack",

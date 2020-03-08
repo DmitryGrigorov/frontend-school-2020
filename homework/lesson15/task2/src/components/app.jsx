@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import Likes from './likes';
+
 import './style.css';
 
 class App extends Component {
-    state = {
-        likes: 0
-    }
+  render() {
+    return (
+      <Likes />
+    )
+  }
 }
+
+export default App;
