@@ -1,10 +1,37 @@
+.app {
+    font-family: sans-serif;
+    text-align: center;
+}
+
 .list {
-    padding: 0;
-    margin: 0;
+    padding: 20px;
+    margin: 0 auto;
     max-width: 500px;
     list-style: none;
+    text-align: left;
+    display: inline-block;
 }
 .cross {
     cursor: pointer;
+    color: red;
+}
+
+.item{
+    text-decoration: none;
+}
+
+.item-select{
+    text-decoration: line-through;
+}
+
+a{
+    padding: 0 3px;
+}
+
+.link {
+    color: black;
+}
+
+.active-link {
     color: red;
 }
