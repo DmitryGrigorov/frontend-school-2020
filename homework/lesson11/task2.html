@@ -4,6 +4,105 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task 2</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .wrapper {
+      background: white;
+      margin: 0 auto;
+    }
+
+    .header {
+      background: #f44336;
+      color: white;
+      text-align: center;
+      padding: 30px 40px 60px 40px;
+    }
+
+    h1 {
+      display: block;
+      margin: 5px;
+      font-family: serif;
+    }
+
+    input {
+      border: none;
+      padding: 10px;
+      float: left;
+      font-size: 16px;
+      width: 70%;
+    }
+
+    .addButtonEl{
+      padding: 10px;
+      background: #D9D9D9;
+      text-align: center;
+      font-size: 16px;
+      color: #484848;
+      float: left;
+      cursor: pointer;
+      width: 30%;
+      transition: 0,3s;
+    }
+
+    .addButtonEl:hover {
+      background: #BBBBBB;
+    }
+
+    ul li {
+      position: relative;
+      display: block;
+      text-align: left;
+      padding: 12px 10px 12px 40px;
+      list-style: none;
+      cursor: pointer;
+      font-size: 18px;
+      background: #F9F9F9;
+      transition: 200ms;
+    }
+
+    ul li:nth-child(even) {
+      background: #EEEEEE;
+    }
+
+    ul li:hover {
+      background: #DDDDDD;
+    }
+
+    .close-button {
+      position: absolute;
+      padding: 12px 16px 12px 16px;
+      right: 0;
+      top: 0;
+      transition: 200ms;
+
+    }
+
+    .close-button:hover {
+      background: #f44336;
+      color: whitesmoke;
+    }
+
+    ul li.select{
+      background: #666666;
+      text-decoration: line-through;
+      color: #FFFFFF;
+    }
+
+    ul li.select::before {
+      content: "✓";
+      color: #FFFFFF;
+      position: absolute;
+      top: 10px;
+      left: 16px;
+    }
+
+  
+  </style>
 </head>
 <body>
   <!-- 
@@ -20,5 +119,107 @@
 
     P. S. Желательно делать и использовать стили css
    -->
+
+   <div class='wrapper'>
+     <div class='header'>
+       <h1>Список дел</h1>
+       <input id="enterNewEl" placeholder="Введите новое дело..." type="text">
+       <span id="addButtonEl" class="addButtonEl">Добавить</span>
+     </div>
+     <ul id="list">
+       <li>
+         Сделать домашку
+         <span class="close-button">×</span>
+       </li>
+       <li>
+        Сходить в спортзал
+        <span class="close-button">×</span>
+      </li>
+      <li>
+        Приготовить ужин
+        <span class="close-button">×</span>
+      </li>
+      <li>
+        Купить продукты
+        <span class="close-button">×</span>
+      </li>
+     </ul>
+   </div>
+
+   <script>
+      const list = document.getElementById('list');
+      const input = document.getElementById('enterNewEl');
+      const addButtonEl = document.getElementById('addButtonEl');
+
+      list.addEventListener('click', elemRemove);
+
+      function elemRemove(event) {
+        target = event.target;
+        if (target.tagName === 'LI') {
+          target.classList.toggle('select');
+        } else if (target.classList.contains('close-button')) {
+          target.parentNode.remove();
+        }
+      };
+
+      input.addEventListener('keydown', function() {
+        if (event.keyCode === 13) addNewElem();
+      });
+     
+      addButtonEl.addEventListener('click', addNewElem);
+
+      function addNewElem() {
+        const newLi = document.createElement('li');
+        if (input.value === '') {
+            alert("Введите ваше дело!");
+        } else {
+          const newTextNode = document.createTextNode(input.value);
+          newLi.append(newTextNode);
+          input.value = '';
+        }
+
+        const closeX = document.createElement('span');
+        closeX.className = 'close-button'
+        closeX.textContent = '×';
+        newLi.append(closeX);
+
+        list.append(newLi);
+      };
+
+
+      // input.addEventListener('keydown', function(event) {
+      //   if (event.keyCode === 13) {
+      //     if (input.value === '') {
+      //       alert("Введите ваше дело!");
+      //     } else {
+      //       addNewElem(input.value);
+      //       input.value = '';
+      //     };
+      //   }
+      // });
+     
+      // addButtonEl.addEventListener('click', function(event){
+      //   if (input.value === '') {
+      //       alert("Введите ваше дело!");
+      //     } else {
+      //       addNewElem(input.value);
+      //       input.value = '';
+      //     };
+      // });
+
+      // function addNewElem(value) {
+      //   const newLi = document.createElement('li');
+      //   const newTextNode = document.createTextNode(value);
+      //   newLi.append(newTextNode);
+
+      //   const closeX = document.createElement('span');
+      //   closeX.className = 'close-button'
+      //   closeX.textContent = '×';
+      //   newLi.append(closeX);
+
+      //   list.append(newLi);
+      //};
+
+   </script>
 </body>
 </html>
