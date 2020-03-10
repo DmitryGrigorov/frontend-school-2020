@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>task1</title>
+  <style>
+    .red {
+      background: red;
+    }
+  </style>
 </head>
 <body>
   <input id="field" type="text">
@@ -25,4 +30,38 @@
     5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
    -->
 </body>
+<script>
+  const list = document.getElementById('list');
+
+  list.onclick = function(event) {
+    const target = event.target;
+    if (target.tagName !== 'LI') return;
+
+    if ((event.altKey && event.shiftKey) || target.style.background === 'red') {
+      target.remove();
+    } else if (event.altKey) {
+      target.style.background = 'blue';
+    } else {
+      target.style.background = 'red';
+    }
+  }
+
+  const field = document.getElementById('field');
+
+  field.onkeydown = function(event) {
+    const target = event.target;
+    if (event.keyCode === 13) {
+      let newLi = document.createElement('li');
+      if (field.value === '') {
+        alert("Введите текст.");
+      } else {
+        newLi.textContent = field.value;
+        list.append(newLi);
+      }
+      field.value = '';
+    }
+  }
+
+</script>
+
 </html>
