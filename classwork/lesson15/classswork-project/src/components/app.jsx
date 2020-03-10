@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import InputTodo from './input-todo';
 import ItemTodo from './item-todo';
 import './style.css';
+import {FooterTodo} from "./footer";
 
 class App extends Component {
   state = {
@@ -23,7 +24,8 @@ class App extends Component {
         isChecked: false,
       }
     ],
-    currentTodo: ''
+    currentTodo: '',
+    typeView: 'all',
   };
 
 
@@ -79,10 +81,29 @@ class App extends Component {
     })
   };
 
+  linkClickHandler = (filterType) => {
+    this.setState({
+      typeView: filterType
+    });
+  };
+
+  filterHandler = (todo) => {
+    const { todos, typeView } = this.state;
+    switch (typeView) {
+      case 'active':
+        return !todo.isChecked;
+      case 'complete':
+        return todo.isChecked;
+      default:
+        return todos;
+    }
+  };
+
+
   render() {
-    const { todos, currentTodo } = this.state;
+    const { todos, currentTodo, typeView } = this.state;
     return (
-      <div>
+      <div className={'app'}>
         <h1>Todo List</h1>
         <InputTodo
           submitHandler={this.submitHandler}
@@ -91,8 +112,9 @@ class App extends Component {
         />
         <ul className="list">
           {
-            todos.map(el => (
+            todos.filter(this.filterHandler).map(el => (
               <ItemTodo
+                key={el.id}
                 elementId={el.id}
                 removeHandler={this.removeHandler}
                 toggleHandler={this.toggleHandler}
@@ -102,6 +124,7 @@ class App extends Component {
             ))
           }
         </ul>
+        <FooterTodo typeView={typeView} linkClickHandler={this.linkClickHandler} />
       </div>
     );
   }
