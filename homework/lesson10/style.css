@@ -46,6 +46,11 @@
     list-style: none;
     margin-left: 25px;
 }
+
+.hidden li{
+    display: none;
+}
+
 /* Конец задачи №1 список элементов */
 
 
@@ -88,6 +93,7 @@
     display: flex;
     flex-direction: row;
     margin-left: 0px;
+    transition: all 200ms ease-out;
 }
 
 .carousel_list_item {
@@ -100,3 +106,17 @@
 }
 
 /* Конец задачи №2 карусель */
+
+/* Начало задача №3 подсказка */
+
+.tooltip {
+    position: fixed;
+    z-index: 100;
+    padding: 10px 20px;
+    border: 1px solid #249ab4;
+    border-radius: 5px;
+    text-align: center;
+    font: Verdana 14px sans-serif;
+    color: #0E2043;
+    background: #ffffff;
+  }

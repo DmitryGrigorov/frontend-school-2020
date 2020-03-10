@@ -83,15 +83,38 @@
 
   <script>
 
-    let form = document.forms.calculator;
-
-    // ваш код
-
     // Формула
     // initial: начальная сумма денег
     // interest: проценты, например, 0.05 означает 5% в год
     // years: сколько лет ждать
     // let result = Math.round(initial * (1 + interest * years));
+
+    let form = document.forms.calculator;
+    form.money.oninput = calculator;
+    form.months.onchange = calculator;
+    form.interest.oninput = calculator;
+    calculator();
+
+    function calculator() {
+      let initial = parseInt(form.money.value);
+      if (!initial) return;
+
+      let interest = form.interest.value * 0.01;
+      if (!interest) return;
+
+      let years = form.months.value / 12;
+      if (!years) return;
+
+      let result = Math.round(initial * (1 + interest * years));
+
+      let height = result / form.money.value * 100 + 'px';
+
+      document.getElementById('money-before').innerHTML = form.money.value;
+      document.getElementById('money-after').innerHTML = result;
+      document.getElementById('height-after').style.height = height;
+    }
+
+
   </script>
 
 
