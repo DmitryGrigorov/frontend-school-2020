@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>alt shift ctrl</title>
+</head>
+<body>
+  <button id="button">Нажми Alt+Shift+Click на мне!</button>
+
+  <script>
+    const button = document.getElementById('button');
+
+    button.onclick = function(event) {
+      // попробуем проверить нажаты ли event.altKey && event.shiftKey
+
+      if(event.altKey) {
+        alert('Alt & shift pressed succesfully')
+      }
+    };
+  </script>
+</body>
+</html>
