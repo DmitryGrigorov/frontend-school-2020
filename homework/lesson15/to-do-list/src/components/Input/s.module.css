@@ -1,0 +1,5 @@
+Div.input{ display: flex }
+
+Div.input > *{
+  padding: 0.6rem
+}

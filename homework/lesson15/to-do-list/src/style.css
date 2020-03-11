@@ -1,0 +1,99 @@
+@charset "utf-8";
+
+/* < Main */
+*{
+  border: none;
+  line-height: inherit;
+  margin: 0; padding: 0;
+  outline: none
+}
+*[onClick], Button:not(:disabled){ cursor: pointer }
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+  /*user-select: none; -khtml-user-select: none; -moz-user-select: none*/
+}
+
+
+Body{
+  line-height: 1;
+  min-height: 100vh
+}
+Body > Main{ flex-grow: 1 }
+
+
+A,
+*[onClick]{
+  color: inherit;
+  cursor: pointer;
+  /*text-decoration: none;*/
+  transition: var(--transition)
+}
+A:hover{ text-decoration: none }
+
+
+A,
+Button,
+*[onClick]{
+ color: inherit;
+ cursor: pointer;
+ /*text-decoration: none;*/
+ transition: var(--transition)
+}
+A:hover{ text-decoration: none }
+
+
+Input,
+Textarea{
+ border: 1px solid grey;
+ padding: 1rem;
+ transition: var(--transition);
+ width: 100%
+}
+Textarea{ resize: vertical }
+Input:focus,
+Textarea:focus{ border-color: black }
+
+Button{
+ background-color: lightGrey;
+ border: 1px solid grey;
+ display: inline-block;
+ padding: 1rem 2rem
+}
+Button:hover{ background-color: transparent }
+
+
+Embed,
+Img,
+Object,
+Video{ max-width: 100% }
+Img{
+ line-height: 0;
+ vertical-align: bottom
+}
+
+Table{ border-collapse: collapse }
+
+Ul,
+Ol{ list-style-position: inside }
+Ul Ul,
+Ul Ol,
+Ol Ul,
+Ol Ol{ margin-left: 2rem }
+Ul Ul Ul{ list-style-type: disc }
+Ul Ul{ list-style-type: circle }
+Ul{ list-style-type: square }
+
+H1, H2, H3, H4, H5, H6{
+ letter-spacing: 0;
+ margin: 0
+}
+/* > Main */
+
+/* < Project */
+Body{
+  display: flex; justify-content: center; align-items: flex-start;
+  font-family: monospace; font-size: 18px
+ }
+/* > Project */

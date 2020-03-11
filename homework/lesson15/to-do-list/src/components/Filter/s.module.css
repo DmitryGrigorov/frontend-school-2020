@@ -1,0 +1,15 @@
+Div.filter{
+  display: flex; justify-content: space-between;
+  margin: 1px 0;
+  width: 100%
+}
+
+Div.filter Button{
+  background-color: transparent;
+  padding: 2px;
+  width: calc((100% - (1px * 2)) / 3)
+}
+Div.filter Button.active{
+  background-color: rgba(0, 0, 0, 0.96);
+  color: white
+}
