@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import InputTodo from './input-todo';
 import ItemTodo from './item-todo';
+import ItemFilter from "./filter";
 import './style.css';
 
 class App extends Component {
@@ -23,7 +24,8 @@ class App extends Component {
         isChecked: false,
       }
     ],
-    currentTodo: ''
+    currentTodo: '',
+    displayType: 'all',
   };
 
 
@@ -79,19 +81,43 @@ class App extends Component {
     })
   };
 
+  changeDisplayType = (evt) => {
+    const displayType = evt.target.dataset.value;
+    this.setState(
+      {
+        displayType
+      }
+    )
+  };
+
+  filterTodos = (todo) => {
+    const { todos, displayType } = this.state;
+    switch (displayType) {
+      case 'undone':
+        return !todo.isChecked;
+      case 'done':
+        return todo.isChecked;
+      default:
+        return todos;
+    }
+  };
+
   render() {
-    const { todos, currentTodo } = this.state;
+    const { todos, currentTodo, displayMode } = this.state;
     return (
-      <div>
-        <h1>Todo List</h1>
-        <InputTodo
-          submitHandler={this.submitHandler}
-          onChangeInput={this.onChangeInput}
-          currentTodo={currentTodo}
-        />
+      <div className="todo-list">
+        <h1>Список дел:</h1>
+        <div className="input-field">
+          <InputTodo
+            submitHandler={this.submitHandler}
+            onChangeInput={this.onChangeInput}
+            currentTodo={currentTodo}
+          />
+        </div>
+        <ItemFilter changeDisplayType={this.changeDisplayType} />
         <ul className="list">
           {
-            todos.map(el => (
+            todos.filter(this.filterTodos).map(el => (
               <ItemTodo
                 elementId={el.id}
                 removeHandler={this.removeHandler}

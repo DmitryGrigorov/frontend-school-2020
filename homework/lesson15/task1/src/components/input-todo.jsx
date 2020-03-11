@@ -5,7 +5,7 @@ class InputTodo extends Component {
     const { submitHandler, onChangeInput, currentTodo } = this.props;
     return (
       <form onSubmit={submitHandler}>
-        <input onChange={onChangeInput} type="text" value={currentTodo}/>
+        <input placeholder="Введите задачу" onChange={onChangeInput} type="text" value={currentTodo}/>
       </form>
     );
   }

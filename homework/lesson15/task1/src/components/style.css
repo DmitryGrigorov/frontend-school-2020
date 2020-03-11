@@ -1,10 +1,56 @@
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+.todo-list {
+  width: 250px;
+  border-radius: 6px;
+  border: 1px solid #e1e1e1;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  padding: 16px;
+  margin-top: 24px;
+}
+
+.todo-list h1 {
+  font-family: Arial;
+}
+
+.input-field input {
+  width: 240px;
+  height: 24px;
+  margin-bottom: 32px;
+  font-size: 14px;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-family: Arial;
+}
+
+.list-item span[data-checked='true'] {
+  color: #cccccc;
+  text-decoration: line-through;
+}
+
 .list {
   padding: 0;
   margin: 0;
   max-width: 500px;
   list-style: none;
 }
-.cross {
+.delete-icon {
   cursor: pointer;
   color: red;
+}
+
+.items-filter {
+  margin-bottom: 24px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
 }
