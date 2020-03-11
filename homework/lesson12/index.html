@@ -34,13 +34,13 @@
       <tr>
         <td>Первоначальный депозит</td>
         <td>
-          <input name="money" type="number" value="10000" required>
+          <input name="money" type="number" value="10000" min="1" required>
         </td>
       </tr>
       <tr>
         <td>Срок вклада?</td>
         <td>
-          <select name="months">
+          <select name="months" required>
             <option value="3">3 (минимум)</option>
             <option value="6">6 (полгода)</option>
             <option value="12" selected>12 (год)</option>
@@ -55,15 +55,13 @@
       <tr>
         <td>Годовая процентная ставка?</td>
         <td>
-          <input name="interest" type="number" value="5" required>
+          <input name="interest" type="number" value="5" min ="1" max="100" required>
         </td>
       </tr>
     </table>
 
 
   </form>
-
-
   <table id="diagram">
     <tr>
       <th>Было:</th>
@@ -77,21 +75,54 @@
       <div style="background: red;width:40px;height:100px"></div>
     </td>
     <td>
-      <div style="background: green;width:40px;height:0" id="height-after"></div>
+      <div style="background: green;width:40px;height:0px" id="height-after"></div>
     </td>
   </table>
 
   <script>
 
     let form = document.forms.calculator;
-
     // ваш код
-
+    //let money_initial = document.getElementsByName('money')[0];
+    
+    const elems = form.elements;
+    let money_input = elems.money;
+    let year_select = elems.months;
+    let interest_input = elems.interest;
+    let money_before = document.getElementById('money-before');
+    let money_after = document.getElementById('money-after');
+    let height_after = document.getElementById('height-after'); 
+    money_input.addEventListener('input', calculateResult);  
+    interest_input.addEventListener('input', calculateResult);;
+    year_select.addEventListener('change', calculateResult);
     // Формула
     // initial: начальная сумма денег
     // interest: проценты, например, 0.05 означает 5% в год
     // years: сколько лет ждать
-    // let result = Math.round(initial * (1 + interest * years));
+    calculateResult();
+   function calculateResult()
+   {
+     
+      let initial = money_input.value;
+      if (!initial) return;
+      else initial = checkInput(initial);
+      money_before.innerHTML = initial;
+      let interest = interest_input.value;
+      if(!interest) return;
+        else interest = checkInput(interest)*0.01;
+      let years = year_select.value/12;
+      if(!years) return;
+      let result = Math.round(initial * (1 + interest * years));
+      money_after.innerHTML = result;
+      let height = result/money_input.value*100+'px';
+      height_after.style.height = height;
+   }
+
+   function checkInput(val)
+   {
+      const value = parseFloat(val);
+      return value>0?val:val.slice(2,-1); 
+   }
   </script>
 
 
