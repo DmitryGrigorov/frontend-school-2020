@@ -13,12 +13,12 @@ class App extends React.Component{
 
    this.state = {
     tasks: [
-     {id: 0, title: 'task #1', done: false},
-     {id: 1, title: 'task #2', done: true},
-     {id: 2, title: 'task #3', done: false},
-     {id: 3, title: 'task #4', done: true},
-     {id: 4, title: 'task #5', done: false},
-     {id: 5, title: 'task #6', done: true}
+     {id: 0, title: 'task #1', done: false, likes: 0},
+     {id: 1, title: 'task #2', done: true, likes: 10},
+     {id: 2, title: 'task #3', done: false, likes: 100},
+     {id: 3, title: 'task #4', done: true, likes: -10},
+     {id: 4, title: 'task #5', done: false, likes: -1},
+     {id: 5, title: 'task #6', done: true, likes: 1}
     ],
 
     typesOfFilter: ['all', 'active', 'done'],
@@ -67,6 +67,14 @@ class App extends React.Component{
   else if(flag === 2){ this.setState({indexOfCurrentFilter: flag}) }
   else{ this.setState({indexOfCurrentFilter: flag}) }
  }
+ disLike = (id) => {
+  const index = this.state.tasks.map(v => v.id).indexOf(id)
+  this.setState((state) => state.tasks[index].likes--)
+ }
+ addLike = (id) => {
+  const index = this.state.tasks.map(v => v.id).indexOf(id)
+  this.setState((state) => state.tasks[index].likes++)
+ }
 
  render(){
   const tasks = []
@@ -87,6 +95,10 @@ class App extends React.Component{
   task={v}
   doneTask={() => this.doneTask(v.id)}
   deleteTask={(e) => {e.stopPropagation(); this.deleteTask(v.id)} }
+
+  disLike={this.disLike}
+  addLike={this.addLike}
+
   key={v.id}
 />
  ))}

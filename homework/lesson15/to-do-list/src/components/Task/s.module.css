@@ -7,4 +7,8 @@
 .task:not(:last-of-type){ border-bottom: 1px solid rgba(0, 0, 0, 0.08) }
 .task:hover{ border-bottom-color: rgba(0, 0, 0, 0.2) }
 
-.task.done{ background: linear-gradient(to bottom right, rgba(0, 160, 0, 0.16), rgba(0, 160, 0, 0.02)) }
+.task > Div:first-child{ flex-grow: 1 }
+.task.done > Div:first-child{
+  color: rgb(160, 160, 160);
+  text-decoration: line-through
+}

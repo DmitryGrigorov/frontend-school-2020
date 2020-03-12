@@ -1,0 +1,37 @@
+@keyframes heartbeat{
+  0%, 100%{ transform: scale(0.8) }
+  50%{ transform: scale(1) }
+}
+Div.like:hover Div{
+  animation-name: heartbeat; 
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-direction: alternate
+}
+
+
+Div.like{
+  border-right: 1px solid lightGrey; border-left: 1px solid lightGrey;   
+  display: flex; justify-content: space-between;
+  margin-right: 20px;
+  width: 80px
+}
+
+Div.like Button{
+  background-color: transparent;
+  border: none;
+  line-height: 0;
+  padding: 4px 6px
+}
+
+Div.like Div{
+  background: transparent url(./l.svg) no-repeat center center; background-size: 160% 160%;
+  color: white;
+  flex-grow: 1;
+  font-size: 12px;
+  padding-top: 5px;
+  text-align: center; text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+  width: 28px; height: 28px
+}
+Div.like Div.dislike{ background-image: url(./d.svg); background-size: 180% 180% }
