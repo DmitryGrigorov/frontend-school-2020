@@ -1,0 +1,77 @@
+body, ul, li, h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+ul, li {
+    display: block;
+}
+h1, h2, h3, h4, h5, h6, ul, li, div, section, form, input, button, span, p, img, a {
+    box-sizing: border-box;
+}
+a, a:hover, a:active, a:focus {
+    text-decoration:none;
+}
+input:hover, input:focus {
+    outline: none;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: #ff8448;
+    text-align: center;
+    padding: 50px;
+}
+.todo-list {
+    text-align: center;
+    padding: 50px;
+    width: 500px;
+    margin: 0 auto;
+}
+.todo-input {
+    width: 100%;
+    margin: 5px 0 2px;
+    padding: 5px;
+
+}
+.list {
+    list-style: none;
+    text-align: left;
+}
+.list-close {
+    position: absolute;
+    left: 2px;
+    top: 5px;
+    cursor: pointer;
+    color: #ee3d1b;
+    font-weight: 600;
+    font-size: 12px;
+}
+.list li {
+    position: relative;
+    margin: 2px 0;
+    padding: 3px;
+    padding-left: 30px;
+
+}
+.list input {
+    position: absolute;
+    left: 10px;
+    top: 3px;
+}
+.done {
+    text-decoration: line-through;
+}
+.buttons {
+    text-align: left;
+    margin-top: 10px;
+}
+.buttons button {
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 3px;
+    background: tomato;
+    border: none;
+    padding: 5px;
+}
+.active {
+    font-weight: 600;
+}
