@@ -15,6 +15,13 @@
 //     });
 //   });
 // });
+function delay(time) {
+    const promise=new Promise((resolve, reject)=>{
+        setTimeout(()=> resolve(),time);
+    });
+    return promise;
+
+}
 //
 // перепишите её с помощью промисов, чтобы мы могли код выше заменить на:
 // delay(1000)
@@ -23,7 +30,7 @@
 //   .then(() => console.log('delay callback 2'))
 //   .then(() => delay(3000))
 //   .then(() => console.log('delay callback 3'));
-//
+
 //
 //
 //
