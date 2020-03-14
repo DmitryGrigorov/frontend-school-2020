@@ -23,7 +23,7 @@
  -->
 <div id="container">
     <header>
-        <h2>My To Do List</h2>
+        <h2>TODO лист по JavaScript</h2>
         <p>
             <input type="text" id="inputText" placeholder="Введите текст и нажмите Enter">
             <input type="button" id="inputButton" value="Enter">
@@ -48,10 +48,14 @@
         x.append(close);
     });
 
-    //Событие смены зачёркивания
+    //Событие смены зачёркивания и удаления элемента через делеирование события
     document.querySelector('ul').addEventListener('click', function (event) {
         if (event.target.tagName === 'LI')
             event.target.classList.toggle('done');
+        if (event.target.tagName === 'DIV') {
+            let target = event.target;
+            target.parentElement.remove();
+        }
     });
 
     //Нажата клавиша Enter и добавление нового пункта в меню
@@ -62,6 +66,10 @@
             if (txt.value != '') {
                 let li = document.createElement('li');
                 li.textContent = txt.value;
+                let close = document.createElement('div');
+                close.className = 'close';
+                close.textContent = 'X';
+                li.append(close);
                 ul.appendChild(li);
                 txt.className = '';
                 txt.value = '';
@@ -79,6 +87,10 @@
         if (txt.value != '') {
             let li = document.createElement('li');
             li.textContent = txt.value;
+            let close = document.createElement('div');
+            close.className = 'close';
+            close.textContent = 'X';
+            li.append(close);
             ul.appendChild(li);
             txt.className = '';
             txt.value = '';
