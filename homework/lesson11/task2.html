@@ -1,24 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task 2</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <link rel="stylesheet" href="./task2.css">
 </head>
 <body>
-  <!-- 
-    По ссылке пример реализации TODO листа со стилями и прочим.
 
-    Задача: Реализовать что-то похожее.
+<div class="header">
+    <h1>TO-DO LIST</h1>
+    <div class="table">
+        <input id="field" type="text" placeholder="Напишите что-нибудь...">
+        <input id="butt" type="button" value="Добавить" onclick="add()">
+    </div>
 
-    Требования:
-    1. Должен быть инпут с кнопкой "добавить", где в инпут мы вводим значения, а по кнопке "добавить" добавляем, то что ввели.
-    2. Добавленный элементы мы можем перечеркнуть по клику (или как);
-    3. У элементов списка есть кнопка крестика, которая удаляет элемент.
+</div>
 
-    Пример функционала есть по ссылке https://codepen.io/Grigorov/full/qBdZgwb
+<ul id="list">
 
-    P. S. Желательно делать и использовать стили css
-   -->
+</ul>
+<script>
+    document.addEventListener('keyup', enter);
+    const listElems = document.getElementById('list');
+    listElems.addEventListener('click', underline);
+    let flag = true;
+
+    function recolor() {
+        Array.from(listElems.children).forEach(function (item, idx) {
+            if (idx % 2 === 0) {
+                item.setAttribute('color', 'light');
+            } else
+                item.setAttribute('color', 'dark');
+
+
+        })
+
+    }
+
+    function enter(event) {
+        if (event.key === 'Enter' && document.getElementById('field').value) {
+            add()
+        }
+
+    }
+
+    function add() {
+        if (!document.getElementById('field').value) {
+            alert('Неужели нет никаких дел?');
+            return;
+        }
+
+        let text = document.getElementById('field').value;
+        let newElem = document.createElement('li');
+        let close = document.createElement('span');
+        let check = document.createElement('input');
+        check.classList.add('check');
+        check.setAttribute('type', "checkbox");
+        close.innerHTML = 'X';
+        close.addEventListener('click', closeIt);
+        close.classList.add('close_button');
+
+        if (flag) {
+
+            newElem.setAttribute('color', 'light');
+
+
+        } else {
+            newElem.setAttribute('color', 'dark');
+
+        }
+        newElem.innerHTML = text;
+        newElem.appendChild(check);
+        newElem.appendChild(close);
+        listElems.appendChild(newElem);
+        flag = !flag;
+        document.getElementById('field').value='';
+        recolor();
+
+    }
+
+    function closeIt(event) {
+        let target = event.target.closest('li');
+        target.remove();
+        recolor();
+    }
+
+    function underline(event) {
+        let target = event.target.closest('li');
+        let checkbox = target.firstElementChild;
+
+        if (target.hasAttribute('visited')) {
+            target.style.textDecoration = null;
+            target.style.background = null;
+            target.removeAttribute('visited');
+            checkbox.checked=false;
+
+
+        } else {
+            target.style.textDecoration = 'line-through';
+            target.style.background = '#967563';
+            target.setAttribute('visited', 'true');
+            checkbox.checked=true;
+
+        }
+    }
+</script>
+<!--
+  По ссылке пример реализации TO DO листа со стилями и прочим.
+
+  Задача: Реализовать что-то похожее.
+
+  Требования:
+  1. Должен быть инпут с кнопкой "добавить", где в инпут мы вводим значения, а по кнопке "добавить" добавляем, то что ввели.
+  2. Добавленный элементы мы можем перечеркнуть по клику (или как);
+  3. У элементов списка есть кнопка крестика, которая удаляет элемент.
+
+  Пример функционала есть по ссылке https://codepen.io/Grigorov/full/qBdZgwb
+
+  P. S. Желательно делать и использовать стили css
+ -->
 </body>
 </html>
