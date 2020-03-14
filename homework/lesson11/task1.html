@@ -1,28 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>task1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task1</title>
 </head>
 <body>
-  <input id="field" type="text">
-  <ul id="list">
+<input id="field" type="text">
+<ul id="list">
     <li class="list-item">item 1</li>
     <li class="list-item">item 2</li>
     <li class="list-item">item 3</li>
     <li class="list-item">item 4</li>
     <li class="list-item">item 5</li>
     <li class="list-item">item 6</li>
-  </ul>
+</ul>
 
-  <!-- 
-    Задания для списка:
-    1. По клику по элементу списка (li) делать background:red
-    2. При зажатой кнопке Alt и клику делать background:blue;
-    3. При нажатой кнопке Alt+Shift удалять элемента независимо от того, есть ли у него background
-    4. Если у item-a уже есть "background: red;", удалять его из списка;
-    5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
-   -->
+<!--
+  Задания для списка:
+  1. По клику по элементу списка (li) делать background:red
+  2. При зажатой кнопке Alt и клику делать background:blue;
+  3. При нажатой кнопке Alt+Shift удалять элемента независимо от того, есть ли у него background
+  4. Если у item-a уже есть "background: red;", удалять его из списка;
+  5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
+ -->
+<script>
+    let list = document.querySelector('#list');
+    list.addEventListener('click', function (event) {
+        let target = event.target;
+        if (target.tagName === 'LI') {
+            if (event.altKey && event.shiftKey) { // Задание 3
+                list.removeChild(target);
+            } else if (event.altKey && !event.shiftKey) { // Задание 2
+                target.classList.add('blue');
+            } else if (target.classList.contains('red')) // Задание 4
+                list.removeChild(target);
+            else
+                target.classList.add('red'); // Задание 1
+        }
+    });
+    let field = document.querySelector('#field');
+    field.onkeypress = function (event) {
+        if (event.key === 'Enter') {
+            let li = document.createElement('li');
+            li.textContent = field.value;
+            li.className = 'list-item';
+            list.appendChild(li);
+        }
+    }
+</script>
+
 </body>
+<style>
+    .list-item:hover {
+        border: 1px solid black;
+        border-radius: 2px;
+        box-shadow: 0 0 5px black;
+    }
+
+    .list-item {
+        width: 400px;
+        padding-left: 5px;
+    }
+
+    li.red {
+        background-color: lightcoral;
+    }
+
+    li.blue {
+        background-color: cornflowerblue;
+    }
+</style>
 </html>
