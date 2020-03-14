@@ -3,7 +3,186 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
   <title>Task 2</title>
+  <style>
+
+    *,
+    *:after,
+    *:before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      background-color: #d7ccc8;
+    }
+
+    .container {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .wrapper {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .title {
+      display: inline-block;
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      transition: all .2s linear;
+    }
+
+    .title:hover {
+      color: #757575;
+    }
+
+    .input {
+      font-family: 'Lato', sans-serif;
+      font-size: 20px;
+      width: 100%;
+      color: #000;
+      outline: none;
+      border: 0;
+      padding: 15px 80px 15px 15px;
+      border-radius: 10px;
+      box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+    }
+
+    ::placeholder {
+      color: lightgray;
+    }
+
+    .todo {
+      padding-top: 50px;
+      height: 100%;
+    }
+
+    .todo__header {
+      position: relative;
+    }
+
+    .todo__add {
+      display: inline-block;
+      width: 50px;
+      height: 100%;
+      background:
+              linear-gradient(lightgray, lightgray),
+              linear-gradient(lightgray, lightgray);
+      background-position: center;
+      background-size: 50% 3px, 3px 50%;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      z-index: 10;
+      border-radius: 0 10px 10px 0;
+      font-size: 20px;
+      transform: translateY(-50%);
+      /*transition: all .2s linear;*/
+    }
+
+    .todo__add:hover {
+      background:
+              linear-gradient(#757575, #757575),
+              linear-gradient(#757575, #757575);
+      background-position: center;
+      background-size: 50% 3px, 3px 50%;
+      background-repeat: no-repeat;
+      background-color: #66bb6a;
+    }
+
+    li span {
+      padding-left: 10px;
+      padding-right: 10px;
+      flex: 1;
+    }
+
+    .remove {
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      margin-right: 10px;
+    }
+
+    ul {
+      margin: auto;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    ul li {
+      list-style: none;
+      background: #fafafa;
+      font-size: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      word-break: break-all;
+      align-items: center;
+      display: flex;
+      margin-bottom: 1px;
+      transition: all .2s linear;
+    }
+
+    ul li:hover {
+      opacity: .8;
+      background: #e0e0e0;
+    }
+
+    li input[type="checkbox"] {
+      margin-left: 10px;
+    }
+
+    .remove:hover {
+      cursor: pointer;
+      color: #808080;
+    }
+
+    .checked {
+      border-left: 10px solid #66bb6a;
+      opacity: .8;
+    }
+
+    .checked span {
+      text-decoration: line-through;
+      color: #757575;
+    }
+
+    .btn {
+      display: none;
+      border: 0;
+      width: 100%;
+      outline: none;
+      color: inherit;
+      font: inherit;
+      font-family: 'Lato', sans-serif;
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #ef9a9a;
+      padding: 10px 0;
+      box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+      transition: all .2s linear;
+    }
+
+    .btn:hover {
+      background-color: #e57373;
+      color: #fff;
+    }
+
+  </style>
 </head>
 <body>
   <!-- 
@@ -20,5 +199,95 @@
 
     P. S. Желательно делать и использовать стили css
    -->
+
+  <div class="wrapper">
+    <div class="container">
+      <div class="todo">
+        <div class="title">My To-do List:</div>
+        <div class="todo__header">
+          <input class="input" id="input" type="text" placeholder="Type your task here...">
+          <div class="todo__add" id="add"></div>
+        </div>
+
+        <ul class="list" id="list"></ul>
+
+        <div class="clear-btn">
+          <button class="btn" id="btn">Clear all</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <script>
+
+    const list = document.querySelector('.list');
+    const todoAdd = document.querySelector('.todo__add');
+    const input = document.querySelector('#input');
+    const btn = document.querySelector('#btn');
+
+    function addItem (event) {
+      event.preventDefault();
+      if (input.value === '') {
+        return null
+      } else {
+        let li = document.createElement('li');
+        let span = document.createElement('span');
+        let checkbox = document.createElement('input');
+        let removeButton = document.createElement('button');
+
+        li.className = 'list-item';
+        list.append(li);
+        checkbox.type = 'checkbox';
+        li.append(checkbox);
+        span.textContent = input.value;
+        li.append(span);
+        removeButton.className = 'remove';
+        removeButton.textContent = "\u00D7";
+        li.append(removeButton);
+
+        btn.style.display = 'block';
+        input.value = '';
+      }
+    }
+
+    todoAdd.addEventListener('click', addItem);
+    input.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        addItem(event);
+      }
+    });
+
+    list.addEventListener('change', (e) => {
+      const li = e.target.parentNode;
+      if (e.target.checked) {
+        li.className = 'checked';
+      } else {
+        li.className = '';
+      }
+    });
+    
+    list.addEventListener('click', (e) => {
+      if (e.target.className === 'remove') {
+        const li = e.target.parentNode;
+        li.remove();
+      }
+    });
+
+    btn.addEventListener('click', (e) => {
+      list.innerHTML = '';
+      input.value = '';
+      btn.style.display = 'none';
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Delete') {
+        list.innerHTML = '';
+        input.value = '';
+        btn.style.display = 'none';
+      }
+    });
+
+  </script>
 </body>
 </html>
