@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 2: Centered block</title>
+  <style>
+    .container {
+      width: 300px;
+      height: 300px;
+      border: 10px solid black;
+      background-color: #efd5ff;
+    }
+
+    .element {
+      width: 50px;
+      height: 50px;
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="element"></div>
+  </div>
+
+<!-- 
+  1. Склонировать элемент (ноду) и расположить его по центру контейнера
+  2. Склонировать элемент (ноду) и расположить его в правый верхний угол контейнера
+  3. Склонировать элемент (ноду) и расположить его в правый нижний угол контейнера
+  4. Склонировать элемент (ноду) и расположить его в левый нижний угол контейнера
+-->
+    <button id="center">В центр!</button>
+    <button id="top_right">Наверх в правый угол!</button>
+    <button id="bottom_right">Вниз в правый угол!</button>
+    <button id="bottom_left">Вниз в левый угол!</button>
+    <button id="clean">Очистить!</button>
+
+  <script>
+
+    let container = document.querySelector('.container');
+    container.style.position = 'relative';
+    let element = document.querySelector('.element');
+    element.style.position = 'absolute';
+
+    let center = document.getElementById('center');
+    center.addEventListener ('click', () => {
+      let place_c = element.cloneNode();
+      place_c.style.left = (container.clientWidth / 2 - element.clientWidth / 2) + 'px';
+      place_c.style.top = (container.clientHeight / 2 - element.clientHeight / 2) +'px';
+      container.append(place_c);
+    });
+    
+    let top_right = document.getElementById('top_right');
+    top_right.addEventListener ('click', () => {
+      let place_tr = element.cloneNode();
+      place_tr.style.right = '0px';
+      place_tr.style.top = '0px';
+      container.append(place_tr);
+    });
+
+    let bottom_right = document.getElementById('bottom_right');
+    bottom_right.addEventListener ('click', () => {
+      let place_br = element.cloneNode();
+      place_br.style.right = '0px';
+      place_br.style.bottom = '0px';
+      container.append(place_br);
+    });
+
+    let bottom_left = document.getElementById('bottom_left');
+    bottom_left.addEventListener ('click', () => {
+      let place_bl = element.cloneNode();
+      place_bl.style.left = '0px';
+      place_bl.style.bottom = '0px';
+      container.append(place_bl);
+    });  
+
+    // кнопка удаления себе для закрепления 
+    let clean = document.getElementById('clean');
+    clean.addEventListener ('click', () => {
+      let clean_all = container.lastElementChild.remove();   //удаление последнего действия
+    }); 
+    
+
+    
+
+
+
+
+  </script>
+</body>
+</html>
