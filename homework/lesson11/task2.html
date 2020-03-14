@@ -26,7 +26,7 @@
         <h2>My To Do List</h2>
         <p>
             <input type="text" id="inputText" placeholder="Введите текст и нажмите Enter">
-            <input type="button" value="Enter">
+            <input type="button" id="inputButton" value="Enter">
         </p>
     </header>
 
@@ -39,61 +39,53 @@
     </ul>
 </div>
 <script>
-    // Create a "close" button and append it to each list item
-    var myNodelist = document.getElementsByTagName("LI");
-    var i;
-    for (i = 0; i < myNodelist.length; i++) {
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        myNodelist[i].appendChild(span);
-    }
+    //Добавить Крестики закрытия
+    let listElements = document.querySelectorAll('li');
+    listElements.forEach((x) => {
+        let close = document.createElement('div');
+        close.className = 'close';
+        close.textContent = 'X';
+        x.append(close);
+    });
 
-    // Click on a close button to hide the current list item
-    var close = document.getElementsByClassName("close");
-    var i;
-    for (i = 0; i < close.length; i++) {
-        close[i].onclick = function () {
-            var div = this.parentElement;
-            div.style.display = "none";
-        }
-    }
+    //Событие смены зачёркивания
+    document.querySelector('ul').addEventListener('click', function (event) {
+        if (event.target.tagName === 'LI')
+            event.target.classList.toggle('done');
+    });
 
-    // Add a "checked" symbol when clicking on a list item
-    var list = document.querySelector('ul');
-    list.addEventListener('click', function (ev) {
-        if (ev.target.tagName === 'LI') {
-            ev.target.classList.toggle('done');
-        }
-    }, false);
-
-    // Create a new list item when clicking on the "Add" button
-    function newElement() {
-        var li = document.createElement("li");
-        var inputValue = document.getElementById("myInput").value;
-        var t = document.createTextNode(inputValue);
-        li.appendChild(t);
-        if (inputValue === '') {
-            alert("You must write something!");
-        } else {
-            document.getElementById("myUL").appendChild(li);
-        }
-        document.getElementById("myInput").value = "";
-
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        li.appendChild(span);
-
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function () {
-                var div = this.parentElement;
-                div.style.display = "none";
+    //Нажата клавиша Enter и добавление нового пункта в меню
+    let ul = document.querySelector('#list');
+    let txt = document.querySelector('input');
+    txt.onkeypress = function (event) {
+        if (event.key === 'Enter') {
+            if (txt.value != '') {
+                let li = document.createElement('li');
+                li.textContent = txt.value;
+                ul.appendChild(li);
+                txt.className = '';
+                txt.value = '';
+            } else {
+                txt.className = 'error';
             }
+        } else {
+            txt.className = '';
         }
-    }
+    };
+
+    //Нажата Button кнопка и добавление нового пункта в меню
+    let button = document.querySelector("#inputButton");
+    button.onclick = function () {
+        if (txt.value != '') {
+            let li = document.createElement('li');
+            li.textContent = txt.value;
+            ul.appendChild(li);
+            txt.className = '';
+            txt.value = '';
+        } else {
+            txt.className = 'error';
+        }
+    };
 </script>
 
 </body>

@@ -44,6 +44,10 @@ header input {
   width: 80%;
 }
 
+#inputText.error {
+  box-shadow: 0 0 10px red;
+}
+
 /* Style the list items */
 ul li {
   cursor: pointer;
@@ -72,14 +76,14 @@ ul li:hover {
 }
 
 /* When clicked on, add a background color and strike out text */
-ul li.checked {
+ul li.done {
   background: #888;
   color: #fff;
   text-decoration: line-through;
 }
 
 /* Add a "checked" mark when clicked on */
-ul li.checked::before {
+ul li.done::before {
   content: '';
   position: absolute;
   border-color: #fff;
@@ -98,6 +102,11 @@ ul li.checked::before {
   right: 0;
   top: 0;
   padding: 12px 16px 12px 16px;
+  display: none;
+}
+
+ul li:hover .close {
+  display: block;
 }
 
 .close:hover {
