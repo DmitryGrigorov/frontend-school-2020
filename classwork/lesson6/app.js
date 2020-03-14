@@ -53,48 +53,50 @@
 // наследование свойств не из прототипа
 
 function Animal(powCount) {
-  // *
-  this.powCount = powCount;
+
+    this.powCount = powCount;
 }
 
-Animal.prototype.run = function() {
-  console.log('rUUUUn');
+Animal.prototype.run = function () {
+    console.log('rUUUUn');
 }
 
 function Cat(name, ...args) {
-  // this = {}
-  Animal.apply(this, args);
-  this.name = name;
+    // this = {}
+    Animal.apply(this, args);
+    this.name = name;
 }
 
-const prototypeConnector = Object.create(Animal.prototype);
-
-Cat.prototype = prototypeConnector;
+// const prototypeConnector = Object.create(Animal.prototype);
+//
+// Cat.prototype = prototypeConnector;
+Cat.prototype = Object.create(Animal.prototype);
 Cat.prototype.constructor = Cat;
-Cat.prototype.run = function() {
-  console.log('cat run');
+Cat.prototype.run = function () {
+    console.log('cat run');
 }
 
 const someAnimal = new Animal(4);
 const someCat = new Cat('barsik', 4);
 
 // console.log(someAnimal);
-// console.log(someCat.run());
+someCat.run();
+
+
 console.log(someCat);
-console.log(someCat.run());
-
-let someObj = {
-  a: 1,
-
-  __proto__: {
-    b: 2
-  }
-}
-
-console.log(someObj);
-console.log(someObj.a);
-console.log(someObj.b);
-someObj.a = 3;
-console.log(someObj.a);
-someObj.b = 4;
-console.log(someObj);
+someAnimal.run();
+// let someObj = {
+//   a: 1,
+//
+//   __proto__: {
+//     b: 2
+//   }
+// }
+//
+// console.log(someObj);
+// console.log(someObj.a);
+// console.log(someObj.b);
+// someObj.a = 3;
+// console.log(someObj.a);
+// someObj.b = 4;
+// console.log(someObj);
