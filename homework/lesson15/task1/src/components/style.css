@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url("http://www.wallpaperfrom.com/wallpapers/floor-3d-view-minimalistic-wall-room-1440x1080.jpg") bottom fixed no-repeat;
+    background-size: cover;
+    font-family: 'Permanent Marker', sans-serif;
+}
+.search {
+    width: 100%;
+    background-color: rgba(20, 24, 27, 0.5);
+    text-align: center;
+    padding: 20px 0;
+    color: #e4d9c7;
+}
+
+.search h1 {
+    width: 100%;
+}
+
+.addButton {
+    display: inline-block;
+    width: 20%;
+    height: 30px;
+    background-color: #e4d9c7;
+    color: #14181b;
+    border: none;
+    font-weight: bold;
+    font-family: 'Permanent Marker', sans-serif;
+    vertical-align: bottom;
+    cursor: pointer;
+}
+
+.list {
+    width: 100%;
+    list-style: none;
+}
+.cross {
+    cursor: pointer;
+    color: red;
+}

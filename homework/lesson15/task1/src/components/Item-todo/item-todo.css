@@ -1,0 +1,65 @@
+.target {
+    width: 15%;
+    text-align: center;
+}
+
+.item-list {
+    width: 100%;
+    display: flex;
+    position: relative;
+    height: 30px;
+    align-items: center;
+}
+
+.item-list p {
+    width: 70%;
+}
+
+.item-list:nth-child(odd) {
+    background: #e4d9c7;
+    opacity: 0.7;
+    color: #14181b;
+}
+
+.item-list:nth-child(even) {
+    background: #14181b;
+    opacity: 0.7;
+    color: #e4d9c7;
+}
+
+.item-list:hover {
+    opacity: 0.8 !important;
+    transition: .2s;
+}
+
+.item-list.active > .close,
+.item-list:hover > .close {
+    background: red;
+    color: #14181b;
+    transition: .2s;
+}
+
+.item-list.active {
+    opacity: 1 !important;
+}
+
+.item-list.active > .target {
+    visibility: visible;
+}
+
+.item-list.active > p {
+    text-decoration: underline;
+}
+
+.close {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 15%;
+    color: red;
+    text-align: center;
+    height: 100%;
+    transition: .2s;
+    cursor: pointer;
+}
+

@@ -1,0 +1,11 @@
+.addTitle {
+    display: inline-block;
+    width: 50%;
+    height: 30px;
+    background: none;
+    border: 1px solid #e4d9c7;
+    text-align: center;
+    color: #e4d9c7;
+    font-family: 'Permanent Marker', sans-serif;
+    font-size: 1em;
+}
