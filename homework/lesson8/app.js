@@ -6,45 +6,30 @@
 //
 // delay(1000, function() {
 //   console.log('delay callback 1');
-//
+
 //   delay(2000, function() {
 //     console.log('delay callback 2');
-//
+
 //     delay(3000, function() {
 //       console.log('delay callback 3');
 //     });
 //   });
 // });
+
 //
 // перепишите её с помощью промисов, чтобы мы могли код выше заменить на:
+
+function delay(time) {
+    return new Promise((resolve)=>{
+        setTimeout(()=> resolve(), time);      
+    });
+}
 // delay(1000)
 //   .then(() => console.log('delay callback 1'))
 //   .then(() => delay(2000))
 //   .then(() => console.log('delay callback 2'))
 //   .then(() => delay(3000))
 //   .then(() => console.log('delay callback 3'));
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -82,31 +67,26 @@
 //
 //
 //
+const someUrl = 'http://echo.jsontest.com/id/qwerty/name/petya';
 //
+function request(url) {
+    let promiseResponse = fetch(url)
+                            .then((response) => response.json());
+
+    return promiseResponse;
+}
+
+// request(someUrl)
+//   .then(data => console.log(data)); // выведет в консоль { id: 'qwerty', name: 'petya' }
 //
+// старый запрос на сервер:
+// request(someUrl, function (response) {
+//   console.log(response); // выведет в консоль { id: 'qwerty', name: 'petya' }
+// });
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+// запрос на сервер после доработки функции request:
+// request(url)
+//   .then(data => console.log(data)); // выведет в консоль { id: 'qwerty', name: 'petya' }
 //
 //
 //
@@ -126,48 +106,17 @@
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+let urls = [
+    'http://echo.jsontest.com/id/qwerty1/name/petya',
+    'http://echo.jsontest.com/id/qwerty2/name/vasya',
+    'http://echo.jsontest.com/id/qwerty3/name/kolya'
+];
+
+urls = urls.map((url) => fetch(url));
+
+Promise.all(urls)
+        .then((response) => console.log(response)); 
+
 //
 // ** ПОДСКАЗКА для задачи №3 с помощью метода массива .map() -> переделайте массив строк в массив промисов
 // во второй задаче есть подстказка как url превращяется в промис
