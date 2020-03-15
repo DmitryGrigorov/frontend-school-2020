@@ -38,7 +38,17 @@ body {
     width: 100%;
     list-style: none;
 }
-.cross {
-    cursor: pointer;
-    color: red;
+
+.buttonItems {
+    position: fixed;
+    bottom: 65px;
+    width: 100%;
+    background-color: rgba(20, 24, 27, 0.5);
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(227, 217, 200, 0.5);
+}
+
+.buttonItems button:nth-child(2) {
+    margin: 0 5%;
 }

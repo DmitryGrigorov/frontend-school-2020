@@ -1,0 +1,23 @@
+.buttonItem {
+    display: inline-block;
+    width: 20%;
+    height: 30px;
+    background-color: #e4d9c7;
+    color: #14181b;
+    border: none;
+    font-weight: bold;
+    font-family: 'Permanent Marker', sans-serif;
+    vertical-align: bottom;
+    cursor: pointer;
+}
+
+.buttonItem:hover {
+    box-shadow: 0 0 10px 0 #14181b;
+    transition: .2s;
+}
+
+.buttonItem:active {
+    transform: scale(0.95);
+    box-shadow: none;
+    transition: .2s;
+}

@@ -6,7 +6,6 @@ class ItemTodo extends Component {
     const { elementId, removeHandler, toggleHandler, elementValue, isChecked } = this.props;
     return (
       <li key={elementId} className='item-list'>
-        {/*<span onClick={removeHandler} className="cross" data-elementid={elementId}>X</span>*/}
         <div className="target">
             <input
                 type="checkbox"

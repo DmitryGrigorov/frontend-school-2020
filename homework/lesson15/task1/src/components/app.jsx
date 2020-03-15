@@ -4,6 +4,7 @@ import InputTodo from './Input-todo/input-todo';
 import ItemTodo from './Item-todo/item-todo';
 import './style.css';
 import Footer from "./footer/footer";
+import ButtonSort from "./button-sort/button-sort";
 
 class App extends Component {
     state = {
@@ -15,13 +16,23 @@ class App extends Component {
             },
             {
                 id: "2",
-                value: "Create Todo 1",
+                value: "Create Todo 2",
                 isChecked: true,
             },
             {
                 id: "3",
-                value: "Create Todo 1",
+                value: "Create Todo 3",
                 isChecked: false,
+            },
+            {
+                id: "4",
+                value: "Create Todo 4",
+                isChecked: true,
+            },
+            {
+                id: "5",
+                value: "Create Todo 5",
+                isChecked: true,
             }
         ],
         currentTodo: ''
@@ -69,7 +80,8 @@ class App extends Component {
 
     removeHandler = (evt) => {
         const {todos} = this.state;
-        const elementId = evt.target.dataset.elementid;
+        const target = evt.currentTarget;
+        const elementId = target.dataset.elementid;
         const foundElement = todos.findIndex(el => el.id === elementId);
         this.setState({
             todos: [
@@ -104,6 +116,11 @@ class App extends Component {
                         ))
                     }
                 </ul>
+                <div className="buttonItems">
+                    <ButtonSort name='All'/>
+                    <ButtonSort name='Active'/>
+                    <ButtonSort name='Complete'/>
+                </div>
                 <Footer/>
             </div>
         );
