@@ -3,8 +3,8 @@ import style from './button-sort.css';
 
 class ButtonSort extends Component {
     render() {
-        const name = this.props.name;
-        return <button className='buttonItem'>{name}</button>
+        const {name, sort} = this.props;
+        return <button className='buttonItem' onClick={sort}>{name}</button>
     }
 }
 

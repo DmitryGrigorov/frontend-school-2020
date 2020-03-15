@@ -35,7 +35,8 @@ class App extends Component {
                 isChecked: true,
             }
         ],
-        currentTodo: ''
+        currentTodo: '',
+        sort: []
     };
 
 
@@ -91,8 +92,22 @@ class App extends Component {
         })
     };
 
+    filter = (arg) => {
+        this.setState({
+            sort: arg
+        });
+
+    };
+
     render() {
-        const {todos, currentTodo} = this.state;
+        let {currentTodo, todos, sort} = this.state;
+        switch (sort) {
+            case "active":
+                todos = todos.filter(obj => obj.isChecked === false);
+                break;
+            case "complete":
+                todos = todos.filter(obj => obj.isChecked === true)
+        }
         return (
             <div>
                 <div className="search">
@@ -107,6 +122,7 @@ class App extends Component {
                     {
                         todos.map(el => (
                             <ItemTodo
+                                key={el.id}
                                 elementId={el.id}
                                 removeHandler={this.removeHandler}
                                 toggleHandler={this.toggleHandler}
@@ -117,9 +133,9 @@ class App extends Component {
                     }
                 </ul>
                 <div className="buttonItems">
-                    <ButtonSort name='All'/>
-                    <ButtonSort name='Active'/>
-                    <ButtonSort name='Complete'/>
+                    <ButtonSort name='All' sort={() => this.filter('all')}/>
+                    <ButtonSort name='Active' sort={() => this.filter('active')}/>
+                    <ButtonSort name='Complete' sort={() => this.filter('complete')}/>
                 </div>
                 <Footer/>
             </div>
