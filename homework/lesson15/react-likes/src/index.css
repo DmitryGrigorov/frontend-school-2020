@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  padding: 0;
+
+}
+.likes {
+  width: 200px;
+}
+.block {
+  width: 200px;
+  margin-left: 50px;
+  position: relative;
+  display: block;
+}
+#circle {
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: red;
+  color: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  position: absolute;
+  margin-left: 185px;
+  margin-top: -170px;
+}
