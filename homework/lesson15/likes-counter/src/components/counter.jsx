@@ -8,22 +8,20 @@ class Counter extends Component {
 
     };
 
-    increaseLikes = (event) => {
-        const {likesCounter} = this.state;
-
-        this.setState(state => {
+    increaseLikes = () => {
+        this.setState(() => {
             return {likesCounter: this.state.likesCounter + 1}
         });
     };
 
-    decreaseLikes = (event) => {
+    decreaseLikes = () => {
         const {likesCounter} = this.state;
 
 
         if (likesCounter === 0){
             return;
         }
-        this.setState(state => {
+        this.setState(() => {
             return {likesCounter: this.state.likesCounter - 1}
         });
 
