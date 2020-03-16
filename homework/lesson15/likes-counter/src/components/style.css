@@ -1,6 +1,6 @@
 
 .wrapper {
-    margin-top: 10%;
+    margin-top: 5%;
     align-items: center;
 }
 
@@ -37,11 +37,11 @@ body {
     margin-left: auto;
     margin-right: auto;
 
-    opacity:0; /*Элемент полностью прозрачный (невидимый)*/
-    transition: 1s; /*Скорость перехода состояния элемента*/
-    /*animation: show 1s 1; */
-    animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
-    animation-delay: 500ms; /* Задержка перед началом */
+    /*opacity:0; !*Элемент полностью прозрачный (невидимый)*!*/
+    /*transition: 1s; !*Скорость перехода состояния элемента*!*/
+    /*!*animation: show 1s 1; *!*/
+    /*animation-fill-mode: forwards; !* Чтобы элемент оставался в конечном состоянии анимации *!*/
+    /*animation-delay: 500ms; !* Задержка перед началом *!*/
 
 
 }

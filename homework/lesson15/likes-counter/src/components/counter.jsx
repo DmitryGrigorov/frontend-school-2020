@@ -4,8 +4,7 @@ import Likes from "./likes";
 class Counter extends Component {
 
     state = {
-        likesCounter: 0,
-        isShown: false
+        likesCounter: 0
 
     };
 
@@ -15,41 +14,32 @@ class Counter extends Component {
         this.setState(state => {
             return {likesCounter: this.state.likesCounter + 1}
         });
-        if (likesCounter > 0) {
-            this.setState(state => {
-                return {isShown: true}
-            })
-        }
-        console.log(this.state);
     };
 
     decreaseLikes = (event) => {
         const {likesCounter} = this.state;
+
+
+        if (likesCounter === 0){
+            return;
+        }
         this.setState(state => {
             return {likesCounter: this.state.likesCounter - 1}
         });
-        if (likesCounter < 1) {
-            this.setState(state => {
-                    return {
-                        isShown: false
-                    }
-                }
-            )
-        }
-        console.log(this.state);
+
 
     };
 
     render() {
 
-        const {likesCounter, isShown} = this.state;
+        const {likesCounter} = this.state;
         return (
             <div className='wrapper'>
                 <Likes
-                    anyLikes = {isShown ? {animation: "show 1s 1"} : {}}
+                    anyLikes = {likesCounter>0 ?  {opacity: '1'} : {opacity: '0'}}
                     likesCount = {likesCounter}
                 />
-                <div className='class'/>
+                <div className='class' style={likesCounter>0  ? {opacity: '1'} : {opacity: '0.5'} }/>
                 <div className='buttons'>
                     <button className='like' onClick={this.increaseLikes}> Класс</button>
                     <button className='dislike' onClick={this.decreaseLikes}>Не класс</button>

@@ -2,10 +2,6 @@ import React, {Component} from 'react';
 
 class Likes extends Component {
 
-
-
-
-
     render() {
         const {anyLikes, likesCount} = this.props;
 
