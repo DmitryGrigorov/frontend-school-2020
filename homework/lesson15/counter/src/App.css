@@ -1,0 +1,73 @@
+html {
+  background: hotpink no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.donutVisible{
+  background-image: url(./donut.svg) no-repeat center;
+  height: 250px;
+  margin-top: 150px;
+  position: relative;
+}
+
+.donut{
+  background-image: url(./donut.svg) no-repeat center;
+  height: 250px;
+  margin-top: 150px;
+  position: relative;
+  opacity: 20%;
+}
+
+.counterVisible{
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; 
+  height: 30px;
+  background: whitesmoke;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-top: 350px;
+  z-index: 100;
+  position: absolute;
+  margin-left: 180px;
+}
+
+.counter{
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; 
+  height: 30px;
+  background: whitesmoke;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-top: 350px;
+  z-index: 100;
+  position: absolute;
+  margin-left: 180px;
+  opacity: 0;
+}
+
+.button{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 20px;
+  height: 50px;
+}
+
+button{
+  outline: none;
+  background: whitesmoke;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}

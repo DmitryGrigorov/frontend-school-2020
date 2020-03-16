@@ -1,0 +1,60 @@
+.App {
+  text-align: center;
+  margin: 0;
+}
+
+#root{
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #FFDDD6 20%, #FFF9ED 20%, #FFF9ED 80%, #DBDBDB 80%);
+  padding-top: 20px;
+  position: absolute;
+  background-repeat: no-repeat;
+
+}
+
+.note{
+  outline: none;
+  margin: auto;
+  padding: auto;
+  display: flex;
+  margin-top: 15px;
+  width: 300px;
+  justify-content: flex-start;
+}
+  
+.input{
+  outline: none;
+  margin: auto;
+  display: block;
+  padding: 10px 10px;
+  margin-bottom: 20px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.button{
+  outline: none;
+  color: black;
+  padding: 4px 13px;
+  border-radius: 6px;
+  border: 1px solid ghostwhite;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-image: #DBDBDB;
+  box-shadow: 0 0 15px rgba(0,0,0,.1);
+  cursor: pointer;
+}
+
+.button:hover{
+  font-weight: bold;
+}
+
+span{
+  height: 10px;
+  padding-right: 5px;
+  font-size: 12px;
+  padding-top: 2px;
+  cursor: pointer;
+}
