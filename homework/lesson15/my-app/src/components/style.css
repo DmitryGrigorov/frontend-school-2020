@@ -1,11 +1,129 @@
 .list {
-    padding: 0;
+    padding: 10px;
     margin: 0;
     max-width: 500px;
     list-style: none;
     box-sizing: border-box;
+    justify-content: center;
+    text-align: left;
+    font-size: 30px;
 }
+
 .cross {
+    background-image: url("../assets/images/can.png");
+    background-repeat: no-repeat;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top:5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+
     cursor: pointer;
-    color: red;
+}
+
+.cross:hover {
+    background-image: url("../assets/images/red.png");
+}
+
+body {
+
+    background: url("../assets/images/bg4.png");
+
+
+}
+
+.block {
+
+    padding: 10px;
+    width: 500px;
+    background: #69833a;
+    border-radius: 5px;
+    color: #FFFFFF;
+    text-align: center;
+    align-items: center;
+
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center
+
+}
+
+.inputItem {
+
+    padding-left: 5px;
+    width: 400px;
+    height: 30px;
+}
+
+.inputItem:focus {
+    box-shadow: none;
+    outline: none;
+    border-color: #788a3a;
+}
+
+.checkboxItem {
+
+    margin: 5px;
+    transform: scale(2);
+    cursor: pointer;
+}
+
+.todoItem {
+    position: relative;
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #788a3a;
+}
+
+.todoItem:hover {
+    background: #788a3a;
+    cursor: pointer;
+}
+
+.checked {
+    text-decoration: line-through;
+}
+
+.variants {
+
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+
+}
+
+.item {
+    font-weight: bold;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #788a3a;
+}
+
+.item:hover {
+    background: #788a3a;
+    cursor: pointer;
+}
+
+.buttonItem {
+    background: #414e27;
+    color: #FFFFFF;
+    outline:0 none;
+    border: none;
+    height: 36px;
+    width: 70px;
+
+}
+.buttonItem:hover{
+    background: #384522;
 }

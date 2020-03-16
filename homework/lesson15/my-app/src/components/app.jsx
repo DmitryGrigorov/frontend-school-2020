@@ -1,85 +1,226 @@
 import React, {Component} from 'react';
-import TodoItem from './todo-item'
+import TodoItem from './todo-item';
+
+import TodoInput from "./todoInput";
 
 
 class App extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = { items: [], text: '' };
-    //     this.handleChange = this.handleChange.bind(this);
-    //     this.handleSubmit = this.handleSubmit.bind(this);
-    // }
-
 
     state = {
         items: [
             {
-                id: 1,
-                text: 'do this'
+                id: '1',
+                text: 'do this',
+                isChecked: false
 
             },
             {
-                id: 2,
-                text: 'do that'
+                id: '2',
+                text: 'do that',
+                isChecked: false
             }],
-        text: ''
+        text: '',
+        hidden: [],
+        locality: {
+            all: true,
+            active: false,
+            completed: false
+        }
     };
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
 
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
-        if (this.state.text === '') {
+        const {items, text} = this.state;
+        if (text === '') {
             return;
         }
         const newItem = {
-            id: Date.now(),
-            text: this.state.text
+            id: String(Date.now()),
+            text: text,
+            isChecked: false
         };
         this.setState({
             items: [...items, newItem],
             text: ''
 
         });
-        console.log(state);
 
-    }
 
-    handleChange(event) {
-       // this.state.setState({text: event.target.value});
+    };
 
-    }
+    handleChange = (event) => {
+        this.setState({text: event.target.value});
+
+
+    };
+    toggleHandler = (event) => {
+
+        let target = event.target;
+
+        if (target.tagName !== 'INPUT') {
+            const liEl = Array.from(target.children).findIndex(el => el.tagName === 'INPUT');
+            if (liEl === -1) {
+                return;
+            } else {
+                target = Array.from(target.children)[liEl];
+            }
+        }
+
+
+        const {items} = this.state;
+        const elementId = target.dataset.elementid;
+        // const foundElement = items.findIndex(el => el.id === elementId);
+        const foundElement = items.findIndex(function (el) {
+
+            return (el.id === elementId)
+
+        });
+
+        const newTodo = {
+            ...items[foundElement],
+            isChecked: !items[foundElement].isChecked
+        };
+        if (newTodo.isChecked === true) {
+            target.parentElement.classList.add('checked');
+            //  target.parentElement.style.textDecoration='line-through';
+        } else {
+            // target.parentElement.style.textDecoration='none';
+            target.parentElement.classList.remove('checked')
+        }
+
+
+        this.setState({
+            items: [...items.slice(0, foundElement),
+                newTodo,
+                ...items.slice(foundElement + 1)]
+        });
+        // target.parentElement.classList.toggle('checked');
+
+
+    };
+    removeHandler = (event) => {
+        const {items} = this.state;
+        const elementId = event.target.dataset.elementid;
+        const foundElement = items.findIndex(el => el.id === elementId);
+        this.setState({
+            items: [
+                ...items.slice(0, foundElement),
+                ...items.slice(foundElement + 1),
+            ]
+        })
+    };
+    all = () => {
+
+        const {items, text, hidden, locality} = this.state;
+        this.setState(state => {
+            return {
+                items: [...hidden, ...items],
+                hidden: [],
+                locality: {
+                    all: true,
+                    active: false,
+                    completed: false
+                }
+            }
+        });
+
+    };
+    active = () => {
+
+        const {items, text, hidden, locality} = this.state;
+        const allItems = [...items, ...hidden];
+        const notChecked = allItems.filter(el => el.isChecked === false);
+        const checked = allItems.filter(el => el.isChecked === true);
+
+        this.setState(state => {
+            return {
+                items: notChecked,
+                hidden: checked,
+                locality: {
+                    all: false,
+                    active: true,
+                    completed: false
+
+                }
+
+
+            }
+        });
+
+
+
+
+    };
+    completed = () => {
+
+        const {items, text, hidden, locality} = this.state;
+        const allItems = [...items, ...hidden];
+        const notChecked = allItems.filter(el => el.isChecked === false);
+        const checked = allItems.filter(el => el.isChecked === true);
+
+        this.setState(state => {
+            return {
+                items: checked,
+                hidden: notChecked,
+                locality: {
+                    all: false,
+                    active: false,
+                    completed: true
+                }
+            }
+        });
+
+
+
+    };
+
 
     render() {
-        const {items, text} = this.state;
+        const {items, text, hidden, locality} = this.state;
+
         return (
-            <div>
-                <h1>TO-DO list</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="new-todo">
-                        Что нужно сделать?
-                    </label>
-                    <input
-                        id="new-todo"
-                        onChange={this.handleChange}
-                        value={text}
+            <div className='wrapper'>
+                <div className='block'>
+                    <h1>TO-DO LIST</h1>
+                    <TodoInput
+                        handleSubmit={this.handleSubmit}
+                        handleChange={this.handleChange}
+                        text={text}
                     />
-                    <button>
-                        Добавить
-                    </button>
                     <ul className="list">
+
                         {
+
                             items.map(el => (
-                                <TodoItem
-                                    elementId={el.id}
-                                    elementValue={el.text}
+                                <TodoItem key={el.id}
+                                          checked={el.isChecked ? 'checked' : ''}
+                                          elementValue={el.text}
+                                          isChecked={el.isChecked}
+                                          toggleHandler={this.toggleHandler}
+                                          elementId={el.id}
+                                          removeHandler={this.removeHandler}
                                 />
                             ))
                         }
                     </ul>
-                </form>
-                {/*<TodoItem items={this.state.items}/>*/}
+                    <div className='variants'>
+
+                        <div className='item' onClick={this.all}
+                             style={this.state.locality.all ? {textDecoration: 'underline'} : {}}> ALL
+                        </div>
+                        <div className='item' onClick={this.active}
+                             style={this.state.locality.active ? {textDecoration: 'underline'} : {}}> ACTIVE
+                        </div>
+                        <div className='item' onClick={this.completed}
+                             style={this.state.locality.completed ? {textDecoration: 'underline'} : {}}> COMPLETED
+                        </div>
+
+
+                    </div>
+
+                </div>
+
             </div>
         );
     }

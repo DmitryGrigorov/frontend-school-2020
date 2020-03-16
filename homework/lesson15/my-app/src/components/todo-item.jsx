@@ -1,30 +1,26 @@
 import React, {Component} from 'react';
 
-// class TodoItem extends Component{
-//     render() {
-//         return (
-//             <ul>
-//                 {this.props.items.map(item => (
-//                     <li key={item.id}>{item.text}</li>
-//                 ))}
-//             </ul>
-//         );
-//     }
-// }
-//
-// export default TodoItem;
 
 class TodoItem extends Component {
     render() {
-        const {elementId, removeHandler, toggleHandler, elementValue, isChecked} = this.props;
+        const {elementId, removeHandler, toggleHandler, elementValue, isChecked, checked} = this.props;
         return (
-            <li key={elementId}>
-                {/*<input*/}
-                {/*    type="text"*/}
-                {/*    data-elementid={elementId}*/}
-                {/*/>*/}
-                {elementValue}
-            </li>
+            <div className='todoItem'>
+                <li key={elementId} onClick={toggleHandler} className={checked}>
+
+                    <input className='checkboxItem'
+                           type="checkbox"
+                           checked={isChecked}
+                        // onChange={toggleHandler}
+                           data-elementid={elementId}
+
+                    />
+
+                    {elementValue}
+                    <div onClick={removeHandler} className="cross" data-elementid={elementId}/>
+
+                </li>
+            </div>
         );
     }
 }
