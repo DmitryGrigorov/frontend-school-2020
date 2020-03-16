@@ -1,0 +1,24 @@
+.heartDiv {
+    width: 320px;
+    color: lightcoral;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20em;
+    position: relative;
+}
+
+.count {
+    position: absolute;
+    left: 85%;
+    top: 10%;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 1.5rem;
+    background: #eee8df;
+    z-index: -1;
+    font-size: 3rem;
+    display: grid;
+    align-items: center;
+    color: #14181b;
+    font-weight: bold;
+}

@@ -1,0 +1,16 @@
+.buttonLike {
+    font-size: 5em;
+    color: #e4d9c7;
+    background: none;
+    border: none;
+    transition: .2s;
+}
+
+.buttonLike:active {
+    transform: scale(0.95);
+    transition: .2s;
+}
+
+.buttonLike:active {
+    color: lightcoral;
+}
