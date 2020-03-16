@@ -20,7 +20,6 @@ class App extends Component {
                 isChecked: false
             }],
         text: '',
-        hidden: [],
         locality: {
             all: true,
             active: false,
@@ -112,11 +111,8 @@ class App extends Component {
     };
     all = () => {
 
-        const {items, text, hidden, locality} = this.state;
         this.setState(state => {
             return {
-                items: [...hidden, ...items],
-                hidden: [],
                 locality: {
                     all: true,
                     active: false,
@@ -128,15 +124,9 @@ class App extends Component {
     };
     active = () => {
 
-        const {items, text, hidden, locality} = this.state;
-        const allItems = [...items, ...hidden];
-        const notChecked = allItems.filter(el => el.isChecked === false);
-        const checked = allItems.filter(el => el.isChecked === true);
-
         this.setState(state => {
             return {
-                items: notChecked,
-                hidden: checked,
+
                 locality: {
                     all: false,
                     active: true,
@@ -154,15 +144,9 @@ class App extends Component {
     };
     completed = () => {
 
-        const {items, text, hidden, locality} = this.state;
-        const allItems = [...items, ...hidden];
-        const notChecked = allItems.filter(el => el.isChecked === false);
-        const checked = allItems.filter(el => el.isChecked === true);
-
         this.setState(state => {
             return {
-                items: checked,
-                hidden: notChecked,
+
                 locality: {
                     all: false,
                     active: false,
@@ -177,7 +161,20 @@ class App extends Component {
 
 
     render() {
-        const {items, text, hidden, locality} = this.state;
+        const {items, text, locality} = this.state;
+        let objects = [];
+
+        if (locality.all){
+            objects= items;
+
+        }
+        else if (locality.completed){
+            objects= items.filter(el => el.isChecked)
+        }
+        else {
+            objects= items.filter(el => !el.isChecked);
+
+        }
 
         return (
             <div className='wrapper'>
@@ -189,10 +186,8 @@ class App extends Component {
                         text={text}
                     />
                     <ul className="list">
-
                         {
-
-                            items.map(el => (
+                            objects.map(el => (
                                 <TodoItem key={el.id}
                                           checked={el.isChecked ? 'checked' : ''}
                                           elementValue={el.text}
