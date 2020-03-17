@@ -8,7 +8,7 @@ function Counter(props) {
     classes.push('active-heart');
   } else if (props.counter < 0) {
     classes.push('disactive-heart');
-  } else if (props.counter == 0) {
+  } else if (props.counter === 0) {
     classes.push('neutral-heart');
   }
 
