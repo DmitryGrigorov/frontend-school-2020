@@ -13,11 +13,28 @@
     content: '❤️';    
     font-size: 128px;
     opacity: 1;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+}
+.heart:after {
+    content: '';
+    opacity: 0.5;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    margin-left: -35px;
+    margin-top: 55px;
 }
 .red.heart:after {
     content: attr(count);
+    opacity: 1;
     color: red;
-    text-align: center;    
+    font-weight: bold;
+    text-align: center;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -33,4 +50,9 @@
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;    
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    -o-transition: all .4s ease;
 }
