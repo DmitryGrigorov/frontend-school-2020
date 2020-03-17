@@ -1,0 +1,22 @@
+body {
+    background-color: blueviolet;
+}
+.button-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.button-panel > button {
+    border: none;
+    background-color: white;
+    height: 30px;
+    min-width: 80px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 25px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}

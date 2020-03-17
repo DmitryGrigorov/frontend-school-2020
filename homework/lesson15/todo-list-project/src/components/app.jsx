@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import InputTodo from './input-todo';
 import ItemTodo from './item-todo';
+import Button from './button';
 import './style.css';
 
 class App extends Component {
@@ -14,16 +15,17 @@ class App extends Component {
       },
       {
         id: "2",
-        value: "Create Todo 1",
+        value: "Create Todo 2",
         isChecked: true,
       },
       {
         id: "3",
-        value: "Create Todo 1",
+        value: "Create Todo 3",
         isChecked: false,
       }
     ],
-    currentTodo: ''
+    currentTodo: '',    
+    viewType: 'all'
   };
 
 
@@ -31,7 +33,7 @@ class App extends Component {
   toggleHandler = (evt) => {
     const { todos } = this.state;
     const elementId = evt.target.dataset.elementid;
-    const foundElement = todos.findIndex(el => el.id === elementId);
+    const foundElement = todos.findIndex(el => el.id === elementId);    
     const newTodo = {
       ...todos[foundElement],
       isChecked: !todos[foundElement].isChecked
@@ -79,8 +81,34 @@ class App extends Component {
     })
   };
 
+  toggleFilter = (type) => {    
+    this.setState({
+      viewType: type
+    });
+  }
+
+  getFilteredTodoItems(todItems, filterType) {
+    switch (filterType) {
+      case 'all':
+        return todItems;
+        break;
+      case 'active':
+        return todItems.filter((todoItem) => {
+          return !todoItem.isChecked;
+        });
+        break;
+      case 'completed':
+        return todItems.filter((todoItem) => {
+          return todoItem.isChecked;
+        });
+        break;
+    }
+  }
+  
   render() {
-    const { todos, currentTodo } = this.state;
+    const { todos, currentTodo, viewType } = this.state;
+    const renderTodos = this.getFilteredTodoItems(todos, viewType);
+    
     return (
       <div>
         <h1>Todo List</h1>
@@ -89,11 +117,27 @@ class App extends Component {
           onChangeInput={this.onChangeInput}
           currentTodo={currentTodo}
         />
+        <Button
+          id="btnAll"
+          caption="All"
+          onClick={() => this.toggleFilter('all')}
+        />
+        <Button
+          id="btnActive"
+          caption="Active"
+          onClick={() => this.toggleFilter('active')}
+        />
+        <Button
+          id="btnCompleted"
+          caption="Completed"
+          onClick={() => this.toggleFilter('completed')}
+        />
         <ul className="list">
           {
-            todos.map(el => (
+            renderTodos.map(el => (
               <ItemTodo
                 elementId={el.id}
+                key={el.id}
                 removeHandler={this.removeHandler}
                 toggleHandler={this.toggleHandler}
                 elementValue={el.value}

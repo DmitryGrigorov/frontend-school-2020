@@ -12,7 +12,9 @@ class ItemTodo extends Component {
           data-elementid={elementId}
           onChange={toggleHandler}
         />
-        {elementValue}
+        <div style={{display: 'inline', textDecoration: isChecked ? 'line-through': null}}>
+          {elementValue}
+        </div>
       </li>
     );
   }
