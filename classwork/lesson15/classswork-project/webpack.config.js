@@ -2,6 +2,7 @@
 
 // html-webpack-plugin — генирирует страницу html и по умолчанию подключает туда bundle.js
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path')
 
 // для слияния конфигов
 const webpackMerge = require("webpack-merge");
@@ -17,7 +18,17 @@ module.exports = (env) => {
   return webpackMerge(
     {
       mode,
-      plugins: [new HtmlWebpackPlugin()],
+      resolve:{
+        extensions: ['.js', '.jsx'],
+        alias: {
+          src: path.resolve(__dirname, 'src')
+        }
+      },
+      plugins: [
+        new HtmlWebpackPlugin({
+          template: 'public/template.html'
+        })
+      ],
       output: {
         filename: "bundle.js"
       },
