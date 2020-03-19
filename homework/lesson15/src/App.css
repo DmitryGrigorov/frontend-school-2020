@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-text {
+    margin: 30px;
+}
+
+.todo {
+    display: flex;
+    flex-direction: row;
+    font-size: 10px;
+    /*transform: scale(2);*/
+}
+
+td {
+    padding: 0 2px;
+}
+
+.deleteIcon {
+    cursor: pointer;
+}
+
+.filter > button {
+    margin: 5px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    text-decoration: underline;
+    outline: 0;
+}
