@@ -1,0 +1,153 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;     
+}
+
+body {
+  background: linear-gradient(100deg,
+  rgba(255, 118, 55, 0.336),
+  rgba(144, 170, 159, 0.205)),
+  url(./image/gory.jpg) fixed no-repeat;
+  background-size: cover;
+}
+
+.contain {
+  padding-top: 4%;
+  margin: 0 auto;
+} 
+
+h1 {
+  margin:15px;
+  background: none;
+  font-size: 60px;
+  font-style: normal;
+  padding-bottom: 30px;
+
+} 
+
+  /* Style the header */
+.header {
+  background: none;
+  padding: 30px 40px;
+  color: rgba(14, 14, 14, 0.877);                          
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+  /* Clear floats after the header */
+.header:after {
+  content: '';
+  display: table;
+  clear: both;
+  padding-top: 9px;
+}
+
+  /* Style the input */
+input {
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  width: 30%;                     
+  height: 35px;
+  padding: 15px;
+  display: inline-block;
+  font-size: 17px;
+  border : 2px solid rgba(0, 0, 0, 0.644);
+}
+
+#myInput {
+  background: rgba(255, 255, 255, 0.541);
+}
+
+  /* Style the "Add" button */
+#addBtn {
+  width: 10%;
+  height: 35px;
+  background: #1a1a1aa8;
+  color: rgb(8, 8, 8);
+  display: inline-block;
+  text-align: center;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+  border: none;
+}
+  
+#addBtn:hover {
+  background-color: #000000c2;
+  color: rgba(223, 223, 223, 0.473);
+}
+
+  /* Style the list items */
+ul li {
+  cursor: pointer;
+  background: #1e69694d;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+  font-size: 18px;
+  transition: 0.2s;
+  width: 40%;
+  height: 3%;
+  margin-left: 30%;
+  margin-right: 25%;
+  border-radius: 30px;
+  border:  2px solid rgba(0, 0, 0, 0.452);
+  margin-top:3px;
+}
+  
+  /* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+  background: #55b9b94d;
+  border :  2px solid rgba(0, 0, 0, 0.452);
+}
+  
+  /* Color background-color on hover курсор по списку подсветка */
+ul li:hover {
+  background: #42f9ff4d;  
+  border : 2px solid rgba(230, 230, 230, 0.356);
+}
+  
+  /* When clicked on, add a background color and strike out text */
+ul li.checked {
+  background: #2222226c;
+  color:rgba(226, 226, 226, 0.801);
+  text-decoration: line-through;
+}
+  
+  /* Add a "checked" mark when clicked on */
+ ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: rgba(255, 255, 255, 0.603);
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+ 
+  /* Style the close button */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 9px 15px 11px 15px;       
+  background: #222222b2;
+  text-align: center; 
+  border-radius: 30px;
+}
+  
+.close:hover {
+  background-color: #000000c9;
+  color: rgba(212, 212, 212, 0.473);
+}
+
+
+
+  

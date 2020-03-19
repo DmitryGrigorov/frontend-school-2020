@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>task1</title>
+</head>
+<body>
+  <input id="field" type="text">
+  <ul id="list">
+    <li class="list-item">item 1</li>
+    <li class="list-item">item 2</li>
+    <li class="list-item">item 3</li>
+    <li class="list-item">item 4</li>
+    <li class="list-item">item 5</li>
+    <li class="list-item">item 6</li>
+  </ul>
+
+  <!-- 
+    Задания для списка:
+    1. По клику по элементу списка (li) делать background:red
+    2. При зажатой кнопке Alt и клику делать background:blue;
+    3. При нажатой кнопке Alt+Shift удалять элемента независимо от того, есть ли у него background
+    4. Если у item-a уже есть "background: red;", удалять его из списка;
+    5. При нажатии кнопки enter, добавлять в список новый элемент li c текстом из инпута
+   -->
+
+   <script>
+    let list = document.getElementById('list');
+
+
+    list.addEventListener('click', e => {
+      let target = e.target;
+      if (target.className === 'LI') {
+        return;
+      }
+      if (e.altKey) {
+        target.style.background = 'blue';
+      } else {
+        target.style.background = 'red';
+      }
+      if (e.altKey && e.shiftKey) {
+        target.remove();
+      }
+
+      //Задание 4. Способ 1.//удаляет по клику элементы с красным background:red.
+      //элементы удаляются невидимо для пользователя (без видимого окрашивания в red).
+      // if (target.style.background === 'red') {
+      //   target.remove();
+      // }
+
+    });
+
+    //_____________________________________
+      //Задание 4. Способ 2. //удаление элементов с красным background:red по двойному клику
+      // для визуального контроля удаляемых элементов 
+
+    list.addEventListener('dblclick', e => {
+      let target = e.target;
+      if (target.style.background = 'red' && target.tagName === 'LI') {
+        target.remove();
+      }
+    });
+    //____________________________________
+
+
+    let field = document.getElementById('field');
+
+    field.addEventListener('keydown', e => {
+      let target = e.target;
+      if (event.keyCode === 13) {
+        let li = document.createElement('li');
+        li.textContent = field.value;
+        field.value = '';
+        list.prepend(li);
+      }
+    });
+
+  </script>
+</body>
+</html>
