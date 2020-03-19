@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <!--Задача №1 "Создать скрывающееся/рвскрывающееся меню"-->
+  <!--Задача №1 "Создать скрывающееся/раскрывающееся меню"-->
   <div id="exercise_1" class="exercise">
     <div class="conditions">
       При помощи 1 обработчика сделайте (скрытие/раскрытие) пунктов списка
@@ -55,8 +55,26 @@
         </ul>
       </div>
       <script>
-        const exercise1 = document.querySelector('#exercise_1');
         // ...решение здесь
+        const exercise1 = document.querySelector('#exercise_1');
+        exercise1.addEventListener('click', e => {
+          let target = e.target.closest('ul');
+          if (target.tagName !== 'UL') {
+            return;
+          }
+
+          Array.from(target.children).forEach(child => {
+            child.hidden = !child.hidden;
+          });
+          
+          let icon = document.getElementsByClassName('toggle-list_toggler_icon');
+          icon = target.parentNode.querySelector('.toggle-list_toggler_icon');
+          
+          target.classList.toggle('hidden');
+          if (target.classList.contains('hidden')) {
+            icon.innerHTML = '-';
+          } else icon.innerHTML = '+';
+        });
       </script>
     </div>
   </div>
@@ -116,8 +134,25 @@
           </div>
         </div>
         <script>
-          const exercise2 = document.querySelector('#exercise_2');
           // ...решение здесь
+          const exercise2 = document.querySelector('#exercise_2');
+          const ullist = exercise2.querySelector('.carousel_list');       // тоже самое что -> const ullist = document.querySelector('#exercise_2 .carousel_list');
+
+          const next = exercise2.querySelector('.carousel_button_next');
+          let i = 0;
+          next.addEventListener('click', () => {                       
+            i -= 130;                                                     // style.css -> carousel_list_item img -> width: 130px; 130px - ширина одной картинки.
+            i = Math.max(i, -130 * (ullist.children.length - 3));         // (ullist.children.length - 3) огранич-е после последних 3 смайлов (детей), чтобы не показывалась пустая область. Умножение на -130 сдвид 1 смайла влево.    
+            ullist.style.marginLeft = i + 'px';
+          });
+
+          const prev = exercise2.querySelector('.carousel_button_prev');
+          prev.addEventListener('click', () => {
+            i += 130;                                                     // style.css -> carousel_list_item img -> width: 130px; 130px - ширина одной картинки.
+            i = Math.min(i, 0)
+            ullist.style.marginLeft = i + 'px';
+          });
+       
         </script>
       </div>
     </div>
@@ -137,8 +172,33 @@
         <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
       </div>
       <script>
-        const exercise3 = document.querySelector('#exercise_3');
         // ...решение здесь
+        const exercise3 = document.querySelector('#exercise_3');
+
+        let tooltipData;
+
+        exercise3.addEventListener('mouseover', e => {
+          const target = e.target;
+
+          let hintText = target.dataset.tooltip;
+          if (!hintText) return;
+
+          tooltipData = document.createElement('div');
+          tooltipData.classList.add('tooltip');   
+          tooltipData.innerHTML = hintText;
+          exercise3.append(tooltipData);
+
+          let coords = target.getBoundingClientRect();
+          tooltipData.style.left =  coords.left + 'px';
+          tooltipData.style.top = coords.top - tooltipData.offsetHeight - 2 + 'px';
+        });
+
+        exercise3.addEventListener('mouseout', e => {
+          if (tooltipData) {
+            tooltipData.remove();
+          }
+        });
+
       </script>
     </div>
 </div>
@@ -174,8 +234,33 @@
         </ul>
       </div>
       <script>
-        const exercise4 = document.querySelector('#exercise_4');
         // ...решение здесь
+        const exercise4 = document.querySelector('#exercise_4');
+        const listMenu = exercise4.querySelector('ul');
+
+        listMenu.addEventListener('contextmenu', e => {
+          let target = e.target; 
+          e.preventDefault();
+          if (target.tagName === 'A' && target.childNodes.length) {  
+            window.open(target.href);
+          }
+        });
+
+        listMenu.addEventListener('dblclick', e => {
+          let target = e.target;     
+          if (target.parentNode.querySelector('strong')) { 
+            window.open(target.parentNode.href);
+          }
+        }); 
+
+        listMenu.addEventListener('click', e => {
+          let target = e.target;
+          e.preventDefault();         
+          if (e.shiftKey && target.parentNode.querySelector('em')) {
+            window.open(target.parentNode.href);
+          }
+        });
+
       </script>
     </div>
   </div>

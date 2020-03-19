@@ -22,8 +22,8 @@
 
 /* Начало задачи №1 список элементов */
 .toggle-list {
-    background: #fff9c9;
-    width: 300px;
+    background: #d5c3ff;
+    width: 100%;
 }
 
 .toggle-list_toggler {
@@ -100,3 +100,14 @@
 }
 
 /* Конец задачи №2 карусель */
+
+/* Начало задачи №3 подсказка */
+.tooltip {
+    position: fixed;
+    text-align: center;
+    background: rgb(150, 253, 150);
+    padding: 5px 5px;
+    border-radius: 20px;
+  } 
+
+/* Конец задачи №3 подсказка */

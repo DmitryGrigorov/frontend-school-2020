@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task 2</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <title>Праздник</title>
 </head>
 <body>
   <!-- 
@@ -20,5 +22,71 @@
 
     P. S. Желательно делать и использовать стили css
    -->
+  <div id='contain' class='contain'>
+    <div id='myDIV' class='header'>
+      <h1> Список гостей </h1>
+      <input type='text' id='myInput' placeholder='Введите имя...' ><button id='addBtn'> Добавить </button>
+    </div>
+
+    <ul id='myUL'>
+      <li>Николай Николаевич
+        <span class='close'>✖</span> 
+      </li>
+
+      <li class='checked'>Иван Иванович
+        <span class='close'>✖</span>
+      </li>
+
+      <li>Петр Петрович
+        <span class='close'>✖</span>
+      </li>
+
+      <li>Александра Александровна
+        <span class='close'>✖</span>
+      </li>
+
+      <li>Дмитрий Дмитриевич
+       <span class='close'>✖</span>
+      </li>
+
+      <li>Евгения Евгеньевна
+        <span class='close'>✖</span>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+
+    let input = document.getElementById('myInput');
+   
+    let myUL = document.getElementById('myUL');
+
+    myUL.addEventListener('click', e => {
+        let target = e.target;
+        if (target.classList.contains('close')) {
+            target.parentNode.remove();
+        } else {
+          target.classList.toggle('checked')
+        }
+    });
+
+    let buttonAdd = document.querySelector('#addBtn');
+    buttonAdd.addEventListener('click', () => {
+        let li = document.createElement('li');
+        if (input.value === '') {
+            alert('Поле для ввода пусто!');
+        } else {
+            li.innerText = input.value; 
+            myUL.append(li); 
+            input.value = '';
+        }
+
+        let close = document.createElement('span');
+        close.className = 'close';
+        close.textContent = '✖';
+        li.append(close);
+    });
+
+  </script>
 </body>
 </html>
