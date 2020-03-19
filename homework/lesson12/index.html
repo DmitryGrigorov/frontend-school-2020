@@ -5,20 +5,73 @@
   <meta charset="utf-8">
   <title>Lesson 12 homework</title>
   <style>
+    body {
+      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
     td select,
     td input {
       width: 150px;
+      border: 2px solid rgba(87, 37, 204, 0.534);
     }
 
     #diagram td {
       vertical-align: bottom;
       text-align: center;
-      padding: 10px;
+      padding: 10px;      
     }
 
     #diagram div {
       margin: auto;
     }
+
+    input, select {
+      border-radius: 5px;
+      height: 30px;
+      padding: 0 10px 0 10px;
+    }
+
+    form[name=calculator] {
+      background: lightsteelblue;      
+      height: auto;
+      width: 400px;
+      padding: 20px;
+      border-radius: 5px;
+      margin: 15px 0;
+      border: 2px solid rgba(87, 37, 204, 0.534);
+    }
+    
+    #diagram {
+      border: 1px solid black;
+      width: 444px;
+      padding: 25px 0;
+      border-radius: 5px;
+      border: 2px solid rgba(87, 37, 204, 0.534);      
+    }
+
+    #height-before {
+      position: relative;      
+    }
+
+    #height-before::before {
+      content:"";
+      position: absolute;      
+      top: 0;
+      left: 0;
+      right: 0;
+      transform: translateX(300%) scalex(6);
+      border-top: 1px solid red;
+      z-index: 100;
+    }
+
+    #btn-calc {
+      border: 2px solid rgba(87, 37, 204, 0.534);
+    }
+
+    #btn-calc:hover {
+      cursor: pointer;
+      background-color: rgba(87, 37, 204, 0.534);
+      color: white;
+    } 
   </style>
 </head>
 
@@ -59,6 +112,7 @@
         </td>
       </tr>
     </table>
+    <input id="btn-calc" type="submit" value="Рассчитать" />
 
 
   </form>
@@ -74,11 +128,11 @@
       <th id="money-after"></th>
     </tr>
     <td>
-      <div style="background: red;width:40px;height:100px"></div>
+      <div style="background: red;width:40px;height:100px" id="height-before"></div>
     </td>
     <td>
       <div style="background: green;width:40px;height:0" id="height-after"></div>
-    </td>
+    </td>    
   </table>
 
   <script>
@@ -92,6 +146,27 @@
     // interest: проценты, например, 0.05 означает 5% в год
     // years: сколько лет ждать
     // let result = Math.round(initial * (1 + interest * years));
+    
+    const diagramAfter = document.querySelector('#height-after');
+    const moneyBeforeAmount = document.querySelector('#money-before');
+    const moneyAfterAmount = document.querySelector('#money-after');
+
+    form.addEventListener('submit', onSubmitCalcForm);
+
+    function onSubmitCalcForm(event) {
+      event.preventDefault();
+      const initial = parseFloat(document.querySelector('input[name=money]').value);
+      const interest = parseFloat(document.querySelector('input[name=interest]').value);
+      const years = parseFloat(document.querySelector('select[name=months]').value);
+
+      let result = Math.round(initial * (1 + interest * 0.01 * years / 12));      
+      const pixelesPerMoney = 100 / initial;
+      const heightAfter = pixelesPerMoney * result;
+      diagramAfter.style.height = `${heightAfter}px`;
+      moneyBeforeAmount.textContent = initial;          
+      moneyAfterAmount.textContent = result;
+    }
+
   </script>
 
 
