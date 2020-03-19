@@ -5,20 +5,71 @@
   <meta charset="utf-8">
   <title>Lesson 12 homework</title>
   <style>
+
+    *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;     
+    }
+
+    body{
+      background: linear-gradient(100deg,
+    rgba(214, 214, 214, 0.616),
+    rgba(219, 233, 255, 0.473)),
+      url(./image/linii.jpg) fixed no-repeat;
+      background-size: cover;
+    }
+    h1 {
+      padding-top: 7%;
+      padding-bottom: 3%;
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+      color: rgba(7, 7, 7, 0.877) ;
+    }
+    #calculator {
+      padding-top: 30px;
+      background: rgba(83, 109, 133, 0.37);
+      text-align: center;
+      border: 5px solid rgba(83, 83, 83, 0.877);
+      border-radius: 10px;
+      position: relative;
+      font-size: 20px;
+      width: 40%;
+      margin-left: 30%;
+      margin-right: 30%;
+    }
+    table {
+      margin: 0 auto;
+      padding-bottom: 30px;
+    }
+
+    td {
+      font-weight: bold;
+      padding: 12px 20px 10px 20px;
+    }
+
     td select,
     td input {
-      width: 150px;
+      width: 120px;
+      background: rgba(255, 255, 255, 0.795);
+      border: 2px solid rgba(0, 0, 0, 0.623);
+      height: 25px;
+      border-radius: 8px;
+      text-align: center;
+      padding-left: 15px;
     }
 
     #diagram td {
       vertical-align: bottom;
-      text-align: center;
-      padding: 10px;
+      padding: 30px 30px 20px 30px;
     }
 
     #diagram div {
       margin: auto;
+      border-radius: 4px;
     }
+
   </style>
 </head>
 
@@ -27,8 +78,8 @@
   <!-- Создайте интерфейс, позволяющий ввести сумму банковского вклада и процент,
   а затем рассчитать, какая это будет сумма через заданный промежуток времени. -->
 
-  Депозитный калькулятор.
-
+ <h1> Депозитный калькулятор </h1>
+<div id = 'calculator'>
   <form name="calculator">
     <table>
       <tr>
@@ -59,31 +110,60 @@
         </td>
       </tr>
     </table>
-
-
   </form>
-
 
   <table id="diagram">
     <tr>
       <th>Было:</th>
       <th>Станет:</th>
     </tr>
+    <td>
+      <div style="background: rgba(0, 155, 108, 0.911);width:40px;height:100px"></div>
+    </td>
+    <td>
+      <div style="background: rgba(0, 119, 167, 0.918);width:40px;height:0" id="height-after"></div>
+    </td>
     <tr>
       <th id="money-before"></th>
       <th id="money-after"></th>
     </tr>
-    <td>
-      <div style="background: red;width:40px;height:100px"></div>
-    </td>
-    <td>
-      <div style="background: green;width:40px;height:0" id="height-after"></div>
-    </td>
+
   </table>
+</div>
 
   <script>
 
     let form = document.forms.calculator;
+    let money = form.money;
+    let months = form.months;
+    let interest = form.interest;
+
+    money.addEventListener('click', calculator);
+    months.addEventListener('click', calculator);
+    interest.addEventListener('click', calculator);
+
+    calculator();
+
+    function calculator() {
+      let initial = parseInt(form.money.value);
+      if (!initial) return;
+
+      let interest = form.interest.value / 100;
+      if (!interest) return;
+
+      let years = form.months.value / 12;
+      if (!years) return;
+
+      let result = Math.round(initial * (1 + interest * years));
+
+      document.getElementById('money-before').innerHTML = form.money.value;
+      document.getElementById('money-after').innerHTML = result;
+
+      let height = document.getElementById('height-after');
+
+      let resultChart = (result * 100) / initial; 
+      height.style.height = resultChart + 'px';
+    }
 
     // ваш код
 
