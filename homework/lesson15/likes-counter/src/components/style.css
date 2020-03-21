@@ -1,0 +1,58 @@
+
+.wrapper {
+    margin-top: 5%;
+    align-items: center;
+}
+
+.class {
+    width: 300px;
+    height: 270px;
+    /*background: #01ff70;*/
+    background: url("../assets/images/class.png");
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    background: #ff7c26;
+}
+
+.buttons {
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.show {
+    background: url("../assets/images/dialog.png");
+    width: 180px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 70px;
+    color: #ff7c26;
+    margin-left: auto;
+    margin-right: auto;
+
+    /*opacity:0; !*Элемент полностью прозрачный (невидимый)*!*/
+    /*transition: 1s; !*Скорость перехода состояния элемента*!*/
+    /*!*animation: show 1s 1; *!*/
+    /*animation-fill-mode: forwards; !* Чтобы элемент оставался в конечном состоянии анимации *!*/
+    /*animation-delay: 500ms; !* Задержка перед началом *!*/
+
+
+}
+/*&[data-showing='true']*/
+/* transform: translate(0px,0px) scale(1)*/
+/*opacity: 1*/
+@keyframes show {
+    0%{
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
