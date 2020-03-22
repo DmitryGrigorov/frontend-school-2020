@@ -1,0 +1,85 @@
+.cross {
+    cursor: pointer;
+    color: red;
+}
+
+.todo {
+    padding-top: 5rem;
+    margin: 0 auto;
+    width: 600px;
+}
+  
+.rm {
+    background: red;
+    border-radius: 50%;
+    color: #fff;
+    border: none;
+}
+  
+.done {
+    text-decoration: line-through;
+}
+  
+.todo-check {
+   margin: 1rem;
+   margin-right: 20px;
+}
+  
+.todo-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+}
+.todo-li {
+    display: flex;
+    align-items: center;
+    padding: .5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 auto 5px;
+    width: 500px;
+    height: 40px;
+}
+  
+.todo-li:hover {
+    background-color: rgb(216, 240, 229);
+}
+  
+.todo-form {
+    text-align: center;
+    margin: 0 auto 1rem;
+}
+  
+h1 {
+    text-align: center;
+}
+  
+.todo-add {
+    width: 500px;
+    height: 30px;
+    font-size: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid rgb(126, 126, 126);
+}
+  
+.todo-btn {
+    height: 36px;
+    background-color: rgb(195, 236, 217);
+    border: none;
+    border-radius: 20px;
+    width: 100px;
+}
+  
+.filter {
+    display: flex;
+    justify-content: space-around;
+    width: 400px;
+    margin: 0 auto 20px;
+}
+  
+button {
+  outline: none;
+}
