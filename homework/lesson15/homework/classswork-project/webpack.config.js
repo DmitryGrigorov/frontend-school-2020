@@ -32,7 +32,10 @@ module.exports = (env) => {
       output: {
         filename: "bundle.js"
       },
+      
+
     },
     modeConfig(mode)
   );
 };
+

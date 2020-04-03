@@ -1,5 +1,7 @@
 import { createStore } from 'redux';
 
+
+
 function reducer(state = { counter: 0 }, action) {
   switch (action.type) {
     case 'INCREASE':
@@ -18,8 +20,12 @@ function reducer(state = { counter: 0 }, action) {
 }
 
 const store = createStore(reducer);
-// store.getState();
-// store.dispatch();
+// store.getState(); 
+// store.dispatch(); //чтобы сказать что произошло событие
+//store.subscribe
+
+store.dispatch({type: 'INCREASE'});
+store.subscribe(()=>console.log(store.getState()));
 
 function changeStoreHandler() {
   console.log(store.getState());
