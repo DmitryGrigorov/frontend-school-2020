@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import '../../App.css';
 export default class Counter extends Component{
     constructor(props){
         super(props);
@@ -20,12 +20,26 @@ dislike=()=>{
 }
     render(){
         return(
-            <div>
-                counter
+            <div className='wrapper'>
+               
                 <br />
-                {this.state.counter}
-                <button onClick={this.like}>Like</button>
-                <button onClick={this.dislike}>Dislike</button>
+                
+                <div className='heart-container'>
+                    <div className='heart'></div>
+                    {
+                        this.state.counter > 0?
+                            <div className='counter'> {this.state.counter}</div>:'' 
+                        
+                    }
+                    
+                </div>
+              
+                
+                <div className='buttonContainer'>
+
+                    <button onClick={this.like}>Like</button>
+                    <button onClick={this.dislike}>Dislike</button>
+                </div>
             </div>
             
         )
