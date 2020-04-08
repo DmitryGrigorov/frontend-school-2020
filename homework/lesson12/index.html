@@ -19,6 +19,9 @@
     #diagram div {
       margin: auto;
     }
+    .invalid { 
+      border-color: red; 
+    }
   </style>
 </head>
 
@@ -82,16 +85,53 @@
   </table>
 
   <script>
-
-    let form = document.forms.calculator;
-
-    // ваш код
-
     // Формула
     // initial: начальная сумма денег
     // interest: проценты, например, 0.05 означает 5% в год
     // years: сколько лет ждать
     // let result = Math.round(initial * (1 + interest * years));
+
+
+    let form = document.forms.calculator;
+    form.money.oninput = calcDeposit;
+    form.months.onchange = calcDeposit;
+    form.interest.oninput = calcDeposit;
+      
+    function calcDeposit() {
+      let initial = form.money.value;
+      let years = form.months.value / 12;
+      let interest = form.interest.value / 100;
+
+      if (initial <= 0 || interest <= 0) {
+        if (initial <=0 ) {   // делает рамку инпута красным, если он не заполнен или число меньше нуля
+        form.money.classList.add('invalid');
+        } else {
+          form.money.classList.remove('invalid');
+        }
+
+        if (interest <=0 ) {   // делает рамку инпута красным, если он не заполнен или число меньше нуля
+          form.interest.classList.add('invalid');
+        } else {
+          form.interest.classList.remove('invalid');
+        }
+        return;
+      }
+
+      let result = Math.round(initial * (1 + interest * years));
+
+      let diagram = document.getElementById('diagram');
+      let moneyBefore = diagram.querySelector('#money-before');
+      let moneyAfter = diagram.querySelector('#money-after');
+      let diagramAfter = diagram.querySelector('#height-after');
+
+      diagramAfter.style.height = result / form.money.value * 100 + 'px';
+
+      moneyBefore.textContent = initial;   // вставка в диаграмму значения начальной суммы денег
+      moneyAfter.textContent = result;     // вставка в диаграмму значения полученной суммы денег
+
+    }
+
+    calcDeposit();
   </script>
 
 

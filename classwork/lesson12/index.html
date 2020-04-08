@@ -65,9 +65,9 @@
         const constraint = field.dataset.constraint;
         const constraintArray = constraint.split('&');
         const value = field.value;
-
+        
         const errorArray = constraintArray.map(item => {
-          return validateSubmit(item, value);
+          return validateSubmit(constraintArray, value);
         });
         const error = errorArray.find(error => error);
 
@@ -88,7 +88,7 @@
     }
 
     function validateSubmit(constraint, value) {
-      let [key, constraintValue] = constraintArray;
+      let [key, constraintValue] = constraint;
 
       switch (key) {
         case 'required':
