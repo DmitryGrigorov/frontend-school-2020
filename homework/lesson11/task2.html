@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2</title>
+  <link rel="stylesheet" href="task2.css">
+</head>
+<body>
+  <!-- 
+    По ссылке пример реализации TODO листа со стилями и прочим.
+
+    Задача: Реализовать что-то похожее.
+
+    Требования:
+    1. Должен быть инпут с кнопкой "добавить", где в инпут мы вводим значения, а по кнопке "добавить" добавляем, то что ввели.
+    2. Добавленный элементы мы можем перечеркнуть по клику (или как);
+    3. У элементов списка есть кнопка крестика, которая удаляет элемент.
+
+    Пример функционала есть по ссылке https://codepen.io/Grigorov/full/qBdZgwb
+
+    P. S. Желательно делать и использовать стили css
+   -->
+
+    <section class="todo">
+      <div class="todo-header">
+        <h1 class="todo-title">Мой TODO лист!</h1>
+        <div class="todo-input">
+          <input id="field" type="text" placeholder="Текст">
+          <button id="btn-add"><b>Добавить</b></button>
+        </div>
+      </div>
+
+      <ul class="list">
+        <li class="list-item">
+          <!-- <span class="list-item__done">&#10004;</span> -->
+          Выпить кофе
+          <span class="list-item__delete">&#10006;</span>
+        </li>
+        <li class="list-item">
+          Погулять
+          <span class="list-item__delete">&#10006;</span>
+        </li>
+        <li class="list-item">
+          Сделать задание
+          <span class="list-item__delete">&#10006;</span>
+        </li>
+        <li class="list-item">
+          Проверить задание
+          <span class="list-item__delete">&#10006;</span>
+        </li>
+        <li class="list-item">
+          Прочитать статью
+          <span class="list-item__delete">&#10006;</span>
+        </li>
+        <li class="list-item">
+          Купить продукты
+          <span class="list-item__delete">&#10006;</span>
+        </li>
+      </ul>
+    </section>
+    <script>
+      const list = document.querySelector('.list');
+      const item = document.querySelector('.list-item');
+      const addBtn = document.querySelector('#btn-add');
+      const field = document.querySelector('#field');
+      const deletElem = document.querySelectorAll('.list-item__delete');
+
+      // добавление пунктов дел в список
+      addBtn.addEventListener('click', addElem);
+
+      function addElem() {
+        if (field.value != '') {
+          let newElement = document.createElement('li');
+          newElement.classList.add('list-item');
+          newElement.innerHTML = field.value + '<span class="list-item__delete">&#10006;</span>';
+          list.append(newElement);
+          field.value = '';
+        } else {
+          alert('Заполните поле ввода');
+        }
+      }
+
+      // удаление элемента из списка
+      list.addEventListener('click', removeElem);
+
+      function removeElem(e) {
+        target = e.target;
+        if (target.className === 'list-item__delete') {
+          target.parentElement.remove();
+        }
+      }
+
+      // изменение стилей элемента списка при клике нанего
+      list.addEventListener('click', styleElem);
+
+      function styleElem(e) {
+        target = e.target;
+        if (target.tagName === 'LI') {
+          if (target.style.textDecoration !== 'line-through') {
+            target.style.textDecoration = 'line-through'; // перечеркнуть строку
+            target.style.color = '#fff';
+            target.classList.add('color');
+            target.classList.add('list-item__done');
+          } else {
+            target.style.textDecoration = 'none';
+            target.style.color = '#000';
+            target.classList.remove('color');
+            target.classList.remove('list-item__done');
+          }
+        }
+      }
+     
+    </script>
+</body>
+</html>
