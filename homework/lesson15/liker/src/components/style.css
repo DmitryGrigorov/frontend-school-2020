@@ -1,0 +1,108 @@
+/* @import '~@fortawesome/fontawesome-free/css/all.min.css'; */
+* {
+    box-sizing: border-box;
+}
+
+
+
+body {
+    background: dodgerblue;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block {
+    position: relative;
+}
+
+.block-heart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+    height: 140px;
+    width: 150px;
+}
+
+.heart {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    width: 70px;
+    height: 125px;
+    box-shadow: -1px 0px 2px #444;   
+    border-radius: 50px 50px 0 0;
+    transform: rotate(315deg);
+}
+
+.heart:before {
+    position: absolute;
+    width: 125px;
+    height: 70px;
+    left: 0;
+    bottom: 0;
+    content: "";
+    box-shadow: 0px 3px 3px #444444; 
+    border-radius: 0 50px 50px 0;
+}
+
+.buttons {
+    margin: 20px 30px;
+    
+}
+
+button {
+    border: 0px;
+    border-radius: 5px;
+    background: white;
+    margin: 10px 15px;
+    padding: 8px;
+    width: 60px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+}
+
+button:active {
+    background: #f16581;
+    color: white;
+}
+
+
+.counter {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 28px;
+    border-radius: 50%;
+    top: -25px;
+    right: -10px;
+    width: 40px;
+    height: 40px;
+    background: white;
+    color: crimson;
+    opacity: 1;
+    transition: all 0.35s cubic-bezier(0, 0.54, 0, 1.85) 0.15s;
+    transform: translateY(25px) scale(0.8);
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "helvetica";
+}
+
+.blue, .blue:before {
+    background-color: rgb(158, 206, 255);
+}
+
+.red, .red:before {
+    background-color: crimson;
+}
+
