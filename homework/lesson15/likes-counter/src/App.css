@@ -1,0 +1,91 @@
+body{
+  background: rgb(87, 101, 116);
+  margin: 0;
+  padding: 0;
+}
+
+.heart-container {
+  margin: 100px 50px 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heart {
+  position: relative;
+  width: 100px;
+  height: 175px;
+  background-color: rgb(209, 29, 29);
+  box-shadow: -1px 0px 2px #444;  
+  -webkit-border-radius: 50px 50px 0 0;
+  -moz-border-radius: 50px 50px 0 0;
+  border-radius: 50px 50px 0 0;
+  transform: rotate(315deg);
+  transition: color .25s ease
+}
+
+.heart.red:before, .heart.red{
+  background-color: rgb(209, 29, 29);
+  transition: color .25s ease;
+}
+
+.heart.none:before, .heart.none {
+  background-color:rgb(144, 193, 241);
+  transition: color .25s ease;
+}
+
+.heart:before {
+  position: absolute;
+  width: 175px;
+  height: 100px;
+  left: 0;
+  bottom: 0;
+  content: "";
+  background-color: rgb(209, 29, 29);
+  box-shadow: 0px 3px 3px #444444; 
+  border-radius: 0 50px 50px 0;
+  transition: color .25s ease;
+}
+
+.heart:hover:before, .heart:hover{
+  box-shadow:none;
+}
+
+.counter {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  line-height: 28px;
+  border-radius: 50%;
+  top: -5px;
+  right: -5px;
+  width: 30px;
+  height: 30px;
+  background: white;
+  color: rgb(209, 29, 29);
+  opacity: 0;
+  transition: all .35s cubic-bezier(0, 0.54, 0, 1.85) .15s;
+}
+
+.counter-view {
+  transform: translate(0px,0px) scale(1);
+  opacity: 1;
+  transform: rotate(45deg);
+}
+
+.button-container {
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  border: 0px;
+  border-radius: 5px;
+  background: white;
+  margin: 10px 15px;
+  padding: 8px;
+  width: 60px;
+  font: bold;
+}
