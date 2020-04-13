@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    padding-top: 50px;
+}
+
+.todoWrapper{
+    flex-direction: column;
+    width: 500px;
+    margin: 0 auto;
+    font-size: 22px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: rgb(221, 239, 250);
+}
+
+h1{
+    color: rgb(36, 33, 33);
+    margin-bottom: 10px;
+}
+
+.todoFormElement{
+    display: flex;
+    justify-content: center;
+}
+
+input[type='text']{
+    width: 300px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.list {
+    margin: 20px;
+    max-width: 500px;
+    list-style: none;
+    flex-direction: column;
+}
+
+.list li{
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    padding: 5px;
+    display: flex;
+    justify-content: start;
+}
+
+.list li *{
+    margin: 0 5px;
+}
+
+.list input{  
+    width: 18px;
+    height: 18px;
+    margin-top: 5px;
+}
+
+.cross {
+    cursor: pointer;
+    color: black;
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    border: transparent;
+    background-color: rgb(209, 29, 29);
+    color: white;
+    justify-self: flex-end;
+
+}
+
+.listLinksFilter{
+    justify-content: space-around;
+}
+
+.linkFilter{
+    cursor: pointer;
+}
+
+.linkFilter[data-active="true"]{
+    font-weight:bold;
+    color: rgb(209, 29, 29);
+}
+
+.itemChecked{
+    color: gray;
+    text-decoration: line-through;
+    background: #9dd692;
+}
+
+.flexGrow{
+    flex-grow: 1;
+}
+
+.hidden{
+    display: none !important;
+} 
