@@ -53,7 +53,7 @@ class App extends Component {
     if(currentTodo.trim()) {
       
       const newTodo = {
-        id: Math.floor(Math.random() * 1000000).toString(),
+        id: Date.now().toString(),
         value: currentTodo,
         isChecked: false,
       };
@@ -125,6 +125,7 @@ class App extends Component {
                 toggleHandler={this.toggleHandler}
                 elementValue={el.value}
                 isChecked={el.isChecked}
+                key={el.id}
               />
             ))
           }
