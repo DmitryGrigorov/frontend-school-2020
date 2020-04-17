@@ -1,3 +1,6 @@
+* {
+    font-family: sans-serif;
+}
 .cross {
     cursor: pointer;
     color: red;
@@ -39,6 +42,7 @@
     margin: 0 auto 5px;
     width: 500px;
     height: 40px;
+    font-size: 18px;
 }
   
 .todo-li:hover {
@@ -71,6 +75,7 @@ h1 {
     border: none;
     border-radius: 20px;
     width: 100px;
+    font-size: 16px;
 }
   
 .filter {
