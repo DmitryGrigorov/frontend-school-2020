@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+  }
+#root
+{
+    position: relative;
+    width:500px;
+    margin:0 auto;
+    padding:5px;
+    border-radius:5px;
+    background-color: turquoise;
+}
+h1{
+  text-align:center;
+  font-weight:200;
+  text-transform:uppercase;
+  font-family: Sans-Serif;
+  letter-spacing:5px;
+}
+.list 
+{
+    padding-left: 100px;
+    max-width: 900px;
+    list-style: none;
+}
+.cross
+{
+    cursor: pointer;
+    color: red;
+}
+a
+{
+    padding: 0 5px;
+    margin:0 3px;
+    border:0.1px solid black;
+    cursor: pointer;
+  }
+  .active{
+    background-color:aquamarine;
+  }
+  .in-active{
+    background-color:white;
+  }
+
+  /* .remove-btn>img
+  {
+      width:24px;
+      height:24px;
+/
+  } */
+  .removeButton
+  {
+    width:24px;
+    height: 24px;
+    background-size: cover;
+    padding-top: 5px;
+    cursor: pointer;
+    margin-top:2.5px;
+    border-radius: 20px;
+  }
+  .plusButton
+  {
+    width:24px;
+    height: 24px;
+    background-size: cover;
+    padding-top: 5px;
+    margin-left: 15px;
+    cursor: pointer;
+    margin-top:2.5px;
+    border-radius: 20px;
+  }
+  .minusButton
+  {
+    width:24px;
+    height: 24px;
+    background-size: cover;
+    padding-top: 5px;
+    margin-left: 15px;
+    cursor: pointer;
+    margin-top:2.5px;
+    border-radius: 20px;
+  }
+  span
+  {
+    padding-top: 5px;
+    padding-left: 5px;
+  }
+  .removeButton:hover
+  {
+    background-color: red;
+  }
+  .list-item
+  {
+    display: flex;
+
+    /* margin:0 auto;
+    align-items:flex-end;
+    justify-content:center; */
+    list-style-type: none;
+  }
+  .list-item > li 
+  {
+    min-width:100px;
+    padding: 5px;
+  }
+  .addTask
+  {
+    display: flex;
+    align-items:flex-end;
+    width:450px; 
+    /* margin:auto; */
+    padding-left: 100px;
+    padding-top: 10px;
+  }
+  .doneTask
+  {
+    background-color: rgb(61, 255, 239);
+    text-decoration: line-through;
+  }
+  .notDoneTask
+  {
+    background-color: rgb(159, 46, 252);
+  }
+ .navigateForm
+ {
+   position: absolute;
+   width: 100%;
+   padding-left: 95px;
+   top: 70px;
+
+ }
