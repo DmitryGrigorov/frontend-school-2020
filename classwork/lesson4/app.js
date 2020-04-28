@@ -114,44 +114,44 @@
 // console.log(car1);
 // console.log(cloneCar1);
 
-// const metrics = {
-//     height: 120,
-//     weight: 140
-// };
+const metrics = {
+    height: 120,
+    weight: 140
+};
 
-// let user = {
-//     name: 'Vova',
-//     metrics
-// }
+let user = {
+    name: 'Vova',
+    metrics
+}
 
-// let cloneUser = clone(user);
+let cloneUser = clone(user);
 
-// console.log(user);
-// console.log(cloneUser);
+console.log(user);
+console.log(cloneUser);
 
-// function filter(obj) {
-//     for (let key in obj) {
-//         if(obj[key] === undefined) {
-//             delete obj[key];
-//         }
-//     }
-// }
+function filter(obj) {
+    for (let key in obj) {
+        if(obj[key] === undefined) {
+            delete obj[key];
+        }
+    }
+}
 
-// function filterWithClone(obj) {
-//     let clone = {};
+function filterWithClone(obj) {
+    let clone = {};
 
-//     for (let key in obj) {
-//         const value = obj[key];
+    for (let key in obj) {
+        const value = obj[key];
 
-//         if (typeof(value) === 'object' && value !== null) {
-//             clone[key] = filterWithClone(value);
-//         } else if (value !== undefined) {
-//             clone[key] = value;
-//         }
-//     }
+        if (typeof(value) === 'object' && value !== null) {
+            clone[key] = filterWithClone(value);
+        } else if (value !== undefined) {
+            clone[key] = value;
+        }
+    }
 
-//     return clone;
-// }
+    return clone;
+}
 
 // let car = {
 //     color: undefined,
@@ -184,24 +184,24 @@
 
 // someFunction(1, 2, 3, 4, 5, 6);
 
-function clonePart(obj, ...keys) {
-    const clone = {};
+// function clonePart(obj, ...keys) {
+//     const clone = {};
 
-    for (let key in obj) {
-        if (keys.includes(key)) {
-            clone[key] = obj[key];
-        }
-    }
+//     for (let key in obj) {
+//         if (keys.includes(key)) {
+//             clone[key] = obj[key];
+//         }
+//     }
 
-    return clone;
-}
+//     return clone;
+// }
 
-let comment = {
-    type: 'success',
-    message: 'text-text',
-    authorId: 'qwerty'
-};
-let cl = clonePart(comment, 'message', 'authorId'); 
+// let comment = {
+//     type: 'success',
+//     message: 'text-text',
+//     authorId: 'qwerty'
+// };
+// let cl = clonePart(comment, 'message', 'authorId'); 
 
 /**
  * написать функцию filter которая принимает в качестве аргумента любой объект

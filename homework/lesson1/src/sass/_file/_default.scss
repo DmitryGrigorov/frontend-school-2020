@@ -1,0 +1,16 @@
+body, ul, li, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+ul, li {
+  display: block;
+}
+h1, h2, h3, h4, h5, h6, ul, li, div, section, form, input, button, span, p, img, a {
+  box-sizing: border-box;
+}
+a, a:hover, a:active, a:focus {
+  text-decoration:none;
+}
+input:hover, input:focus {
+  outline: none;
+}
