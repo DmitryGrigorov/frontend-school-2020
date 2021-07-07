@@ -5,6 +5,10 @@
     lwTail("ВАСЯ") == "Вася";
 */
 
+function lwTail(str) {
+  return str[0].toUpperCase() + str.substr(1).toLowerCase();
+}
+
 /*
     2)
     Дана строка; нужно написать функцию, которая позволяет вернуть значение true,
@@ -16,6 +20,17 @@
     palindrome('table') === false
     palindrome('John') === false
 */
+
+function palindromeCheck(str) {
+  return str.toLowerCase() ===
+    str
+      .toLowerCase()
+      .split("")
+      .reverse()
+      .join("")
+    ? true
+    : false;
+}
 
 /*
     3)
@@ -35,8 +50,8 @@
 
     // что в fruits?
     console.log( fruits.length ); // ?
-*/
 
+    Выведет 4. Массив это частный случай объекта. Объект это ссылочный тип данных. Следовательно, обе переменные указывают на одну область памяти. 
 
 /*
     4)
@@ -53,6 +68,15 @@
     потом переделайте всё как нужно и методом join соедините обратно.
 */
 
+function camelize(str) {
+  let stringArray = str.split("-");
+  let newString = stringArray.map(element => {
+    return lwTail(element);
+  });
+  return newString.join("");
+}
+
+console.log(camelize("background-color"));
 
 /*
     5)
@@ -68,6 +92,10 @@
     alert( arr ); // HTML, JavaScript, CSS (без изменений)
 */
 
+function copySorted(arr) {
+  return [...arr].sort();
+}
+
 /*
     6)
     Написать функцию, которая считает сумму элементов массива кратных числу 2.
@@ -77,3 +105,12 @@
     sum(1, 2, 3, 4, 5) // 6
     sum(3, 8, 1, 40, 6) // 54
 */
+
+function divTwoArraySumm(arr) {
+  let summ = 0;
+  arr.forEach(element => {
+    element % 2 == 0 ? (summ += element) : false;
+  });
+  return summ;
+}
+

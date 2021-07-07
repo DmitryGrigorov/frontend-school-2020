@@ -11,6 +11,16 @@
 // calculate('lemon', 2, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // Извините, товар закончился!
 // calculate('pear', 4, { apple: 100, pear: 500, melon: 400, lemon: undefined }); // 2000
 
+function calculate(name, quantity, prices) {
+  for (const key in prices) {
+    if (key == name) {
+      if (prices[key] === undefined) return "Извините, товар закончился!";
+      else return prices[key] * quantity;
+    }
+  }
+  return "Такого товара у нас еще нет!";
+}
+
 // 2)
 // напишите функцию deepClone глубокого клонирования объекта, которая создаёт глубокую копию объекта
 // * - глубокая копия - это значит, что если внутри объекта есть свойства объекты - их нужно тоже склонировать
@@ -21,13 +31,34 @@
 // cloneSomeObj === someObj // false при сравнении копия и первоначальный объект не равны
 // cloneSomeObj.metrics === someObj.metrics // false при сравнении вложенного объекта они тоже не равны
 
+function deepClone(obj) {
+  let cloneObj = new Object();
+  for (const key in obj) {
+    if (typeof obj[key] === "object") cloneObj[key] = deepClone(obj[key]);
+    else cloneObj[key] = obj[key];
+  }
+  return cloneObj;
+}
+
 // 3)
 // напишите функцию merge для объединения объектов НЕ используя встроеный метод Object.assign
 // колличество передаваемых аргументов в функцию НЕ ограничено (вложенные объекты копируются по ссылке)
-// 
+//
 // Например:
 // let unionObject = merge({}, { name: 'Vasya' }, { age: 45 }, { isAdmin: true });
 // unionObject -> { name: 'Vasya', age: 45, isAdmin: true }
+
+function merge(...args) {
+  if (args.length > 0) {
+    let unionObject = {};
+    args.forEach(element => {
+      for (const key in element) {
+        unionObject[key] = element[key];
+      }
+    });
+    return unionObject;
+  }
+}
 
 // 4)
 // Есть объект dog = { name: 'Bobik' };
@@ -40,12 +71,37 @@
 // dog.bark(4); // => "Bobik: bark bark bark bark"
 // dog.bark(); // => "Bobik: bark" если аргумент не передать - метод все равно сработает
 
+const dog = {
+  name: "Bobik",
+  bark: function(num = 1) {
+    let barking = "";
+    for (i = 0; i < num; i++) {
+      barking += " bark";
+    }
+    console.log(`${this.name}: ${barking}`);
+  }
+};
+
 // 5)
 // Есть объект товара item = { label: 'phone', price: 500, currency: '$' };
 // сделайте так, чтобы при преобразовании данного объекта
 // к строке возвращалась строка => "500$",
 // а при преобразовании к числе возвращалось просто 500
 // обратите внимание, что 500 и $ это значения полей самого объекта (если их поменять то это будет учитываться при последующих преобразованиях)
+
+const item = {
+  label: "phone",
+  price: 500,
+  currency: "$",
+  [Symbol.toPrimitive](type) {
+    switch (type) {
+      case "string":
+        return `${this.price}${this.currency}`;
+      case "number":
+        return this.price;
+    }
+  }
+};
 
 // 6)
 // напишите конструктор Dog который создает объект со свойствами name, age, breed, weight, height, position, status
@@ -59,3 +115,83 @@
 // dog.down() => Меняет свойство status на строку 'lying';
 //
 // создайте массив с 25 объектами Dog
+
+function Dog(name, age, breed, weight, height) {
+  this.name = name;
+  this.age = age;
+  this.breed = breed;
+  this.weight = weight;
+  this.height = height;
+  this.position = "here";
+  this.status = "sitting";
+
+  this.bark = function() {
+    console.log(`${this.name}: bark`);
+  };
+
+  this.place = function() {
+    this.position = "place";
+  };
+
+  this.come = function() {
+    this.position = "here";
+  };
+
+  this.goOut = function() {
+    this.position = "go out";
+  };
+
+  this.sit = function() {
+    this.status = "sitting";
+  };
+
+  this.stand = function() {
+    this.status = "standing";
+  };
+
+  this.down = function() {
+    this.position = "lying";
+  };
+}
+
+function randomOfThree() {
+  return Math.floor(Math.random() * Math.floor(3) + 1);
+}
+
+function dogGenerator(amount) {
+  let dogs = [];
+  for (i = 0; i < amount; i++) {
+    let dog = new Dog(`Dog${i + 1}`, randomOfThree(), `Breed${i + 1}`, randomOfThree() * 10, randomOfThree() * 15);
+    switch (randomOfThree()) {
+      case 1:
+        dog.place();
+        break;
+      case 2:
+        dog.come();
+        break;
+      case 3:
+        dog.goOut();
+        break;
+      default:
+        return false;
+    }
+    switch (randomOfThree()) {
+      case 1:
+        dog.sit();
+        break;
+      case 2:
+        dog.stand();
+        break;
+      case 3:
+        dog.down();
+        break;
+      default:
+        return false;
+    }
+    dogs.push(dog);
+  }
+  return dogs;
+}
+
+let dogs = dogGenerator(25);
+
