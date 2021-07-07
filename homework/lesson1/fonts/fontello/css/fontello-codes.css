@@ -1,0 +1,12 @@
+
+.icon-cloud:before { content: '\e800'; } /* '' */
+.icon-storage:before { content: '\e801'; } /* '' */
+.icon-pdf:before { content: '\e802'; } /* '' */
+.icon-secure:before { content: '\e803'; } /* '' */
+.icon-csv:before { content: '\e804'; } /* '' */
+.icon-ion-logo-apple-appstore:before { content: '\e805'; } /* '' */
+.icon-ion-logo-google-playstore:before { content: '\e806'; } /* '' */
+.icon-twitter:before { content: '\f099'; } /* '' */
+.icon-facebook:before { content: '\f09a'; } /* '' */
+.icon-linkedin:before { content: '\f0e1'; } /* '' */
+.icon-windows:before { content: '\f17a'; } /* '' */

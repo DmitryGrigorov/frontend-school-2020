@@ -26,6 +26,17 @@
 //
 //
 //
+
+function delay(time) {
+  const promise = new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      resolve();
+    }, time);
+  });
+
+  return promise;
+}
+
 //
 //
 //
@@ -53,8 +64,6 @@
 //
 //  ** ПОДСКАЗКА для задачи №1 обратите внимание, что после вызова delay мы сразу пишем .then, (delay должна вернуть promise)
 
-
-
 // 2
 // Переделайте запрос на сервер при помощи метода fetch
 //
@@ -80,6 +89,15 @@
 //   .then(data => console.log(data)); // выведет в консоль { id: 'qwerty', name: 'petya' }
 //
 //
+
+function request(url) {
+  try {
+    return fetch(url).then(urlData => urlData.json());
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 //
 //
 //
@@ -113,7 +131,6 @@
 //
 // ** ПОДСКАЗКА для задачи №2 метод fetch возвращает промис
 // обратите внимание, что после вызова новой функции request в первый же "then" нам попадает уже тело ответа от сервера, а не заголовки ответа
-
 
 // 3*
 // Есть массив (колличество элементов может быть любым):
@@ -172,3 +189,11 @@
 // ** ПОДСКАЗКА для задачи №3 с помощью метода массива .map() -> переделайте массив строк в массив промисов
 // во второй задаче есть подстказка как url превращяется в промис
 
+function arrayRequest(urlArr) {
+  try {
+    const promiseArr = urlArr.map(el => fetch(el));
+    return Promise.all(promiseArr);
+  } catch (error) {
+    console.log(error);
+  }
+}
