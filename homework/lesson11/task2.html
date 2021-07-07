@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task 2</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!-- 
@@ -20,5 +21,45 @@
 
     P. S. Желательно делать и использовать стили css
    -->
+
+   <div class="input-block">
+     <h1>My ToDo List</h1>
+     <div class="input-wrapper">
+       <input type="text" class="input-field">
+       <input type="button" class="add-btn" value="Add task">
+     </div>
+   </div>
+   <div class="list-block"></div>
+
+   <script>
+     const addBtn = document.querySelector('.add-btn');
+     const input = document.querySelector('.input-field');
+     const list = document.querySelector('.list-block');
+
+     function addtask(text) {
+      let taskWrapper = document.createElement('div');
+      taskWrapper.classList.add('task-wrapper');
+      taskWrapper.addEventListener('click', (event) => {
+        event.target.children[0].classList.toggle('line-through');
+      })
+      let task = document.createElement('div');
+      task.classList.add('task-item');
+      task.textContent = text;
+      taskWrapper.appendChild(task);
+      let delBtn = document.createElement('input');
+      delBtn.type = "button";
+      delBtn.classList.add('del-btn');
+      delBtn.value = 'x';
+      delBtn.addEventListener('click', (event) => {
+        event.target.parentElement.remove();
+      })
+      taskWrapper.appendChild(delBtn);
+      list.appendChild(taskWrapper);
+     }
+
+     addBtn.addEventListener('click', (event) => {
+       addtask(input.value);
+     })
+   </script>
 </body>
 </html>

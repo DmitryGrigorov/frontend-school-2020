@@ -1,0 +1,35 @@
+.input-block {
+    background-color: darkcyan;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.input-wrapper {
+    display: flex;
+}
+
+.input-field {
+    width: 80%;
+}
+
+.add-btn {
+    width: 20%;
+}
+
+.task-wrapper {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+
+    background-color: violet;
+    border: 1px solid black;
+}
+
+.task-wrapper:hover {
+    background-color: darkviolet;
+
+}
+
+.line-through {
+    text-decoration: line-through;
+}
