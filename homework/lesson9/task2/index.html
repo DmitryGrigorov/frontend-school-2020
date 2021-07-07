@@ -1,36 +1,58 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Task 2: Centered block</title>
-  <style>
-    .container {
-      width: 300px;
-      height: 300px;
-      border: 10px solid black;
-      background-color: #efd5ff;
-    }
+  <head>
+    <title>Task 2: Centered block</title>
+    <style>
+      .container {
+        width: 300px;
+        height: 300px;
+        border: 10px solid black;
+        background-color: #efd5ff;
+      }
 
-    .element {
-      width: 50px;
-      height: 50px;
-      background-color: yellowgreen;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="element"></div>
-  </div>
+      .element {
+        width: 50px;
+        height: 50px;
+        background-color: yellowgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="element"></div>
+    </div>
 
-<!-- 
+    <!-- 
   1. Склонировать элемент (ноду) и расположить его по центру контейнера
   2. Склонировать элемент (ноду) и расположить его в правый верхний угол контейнера
   3. Склонировать элемент (ноду) и расположить его в правый нижний угол контейнера
   4. Склонировать элемент (ноду) и расположить его в левый нижний угол контейнера
 -->
 
-  <script>
-
-  </script>
-</body>
+    <script>
+      const container = document.querySelector(".container");
+      container.style.position = "relative";
+      const elem = document.querySelector(".element");
+      const newElemOne = elem.cloneNode();
+      newElemOne.style.position = "absolute";
+      newElemOne.style.left = `calc(50% - ${elem.offsetWidth / 2}px)`;
+      newElemOne.style.top = `calc(50% - ${elem.offsetHeight / 2}px)`;
+      container.append(newElemOne);
+      const newElemTwo = elem.cloneNode();
+      newElemTwo.style.position = "absolute";
+      newElemTwo.style.right = 0;
+      newElemTwo.style.top = 0;
+      container.append(newElemTwo);
+      const newElemThree = elem.cloneNode();
+      newElemThree.style.position = "absolute";
+      newElemThree.style.right = 0;
+      newElemThree.style.bottom = 0;
+      container.append(newElemThree);
+      const newElemFour = elem.cloneNode();
+      newElemFour.style.position = "absolute";
+      newElemFour.style.left = 0;
+      newElemFour.style.bottom = 0;
+      container.append(newElemFour);
+    </script>
+  </body>
 </html>
