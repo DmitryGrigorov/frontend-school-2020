@@ -12,8 +12,15 @@ if ("0") {
 // перепешите if в тернарный оператор "?:"
 let result;
 
-if (a + b < 4) {
-  result = 'Мало';
-} else {
-  result = 'Много';
-}
+
+let question = prompt('Введите число');
+    if(question == 12) {
+      alert('Пора обедать');
+    } else if (question < 12) {
+      alert('Доброе утро!');
+    } else if (question > 12) {
+      alert('Добрый день!');
+    } else {
+      alert('Что-то пошло не так');
+  }
+
