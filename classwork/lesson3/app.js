@@ -24,17 +24,17 @@
 //     return word.toLowerCase() === word.toLowerCase().split('').reverse().join('')
 // }
 
-let a = [1, 2, 3, '4', 5];
+// let a = [1, 2, 3, '4', 5];
 
-let isNumber = a.every(function(value, index, array) {
-   if(typeof value === 'number') {
-    return true
-   }
-   return false
-});
+// let isNumber = a.every(function(value, index, array) {
+//    if(typeof value === 'number') {
+//     return true
+//    }
+//    return false
+// });
 
 
 
-console.log(isNumber)
+// console.log(isNumber)
 
 

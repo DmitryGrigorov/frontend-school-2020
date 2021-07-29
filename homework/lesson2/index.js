@@ -9,6 +9,39 @@
     Иначе – «Неверный пароль»
     При отмене – «Отменено»
 */
+// let login = prompt('Логин');
+// if (login === 'Админ') {
+// } else if (login == '' || login == null) { 
+//     alert('Отменено');
+//      i++;
+// } else {
+//     alert('Я вас не знаю')
+//     i++;
+// }
+// let password = prompt('Пароль');
+// if (password === 'Я главный') {
+//     alert('Здравствуйте!')
+// } else if (password == '' || password == null) {
+//     alert('Отменено')
+// } else {
+//     alert('Неверный пароль')
+// }
+
+// let login = prompt('Логин');
+// if (login === 'Админ') {
+//     let password = prompt('Пароль');
+//     if (password === 'Я главный') {
+//         alert('Здравствуйте!')
+//     } else if (password == '' || password == null) {
+//         alert('Отменено')
+//     } else {
+//         alert('Неверный пароль')
+//     }
+// } else if (login == '' || login == null) {
+//     alert('Отменено');
+// } else {
+//     alert('Я вас не знаю')
+// }
 
 
 /*
@@ -20,11 +53,11 @@
 
     префиксный вариант ++i
     let i = 0;
-    while (++i < 5) alert( i );
+    while (++i < 5) alert( i );  от 1 до 4
 
     постфиксный вариант i++
     let i = 0;
-    while (i++ < 5) alert( i );
+    while (i++ < 5) alert( i ); от 1 до 5
 */
 
 /*
@@ -33,6 +66,12 @@
 
     for (let i = 0; i < 3; i++) {
         alert( `number ${i}!` );
+    }
+//____________ решение
+    let i = 0;
+    while (i < 3) {
+        alert( 'number ${i}!');
+        i++;
     }
 */
 
@@ -54,18 +93,39 @@
     }
 */
 
+// const number = +prompt('Введите число между 0 и 3', '');
+// switch(number) {
+//     case 0: 
+//     alert('Вы ввели число 0');
+//     break;
+
+//     case 1:
+//     alert('Вы ввели число 1');
+//     break;
+    
+//     case 2:
+//     case 3:
+//     alert('Вы ввели число 2, а может и 3'); 
+//     break;   
+
+// }
+
+
 /*
     5)
     Перепишите функцию, чтобы она делала то же самое, но без if, в одну строку.
 
-    function getBackgroundColor(theme) {
-        if (theme === 'light') {
-            return '#FFF';
-        } else {
-            return '#000';
+    // function getBackgroundColor(theme) {
+    //     if (theme === 'light') {
+    //         return '#FFF';
+    //     } else {
+    //         return '#000';
         }
     }
 */
+// function getBachgroundColor(theme) {
+//     return(theme === 'light') ? '#FFF' : '#000';
+// }
 
 /**
  * 6) Напишите функцию pow(x,n), которая возвращает x в степени n

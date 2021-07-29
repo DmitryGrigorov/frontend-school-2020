@@ -2,9 +2,8 @@
 let numberA = 0;
 let numberB = 1;
 
-let c = ++numberA; // ??
-let d = numberB++; // ??
-
+let c = ++numberA; // 1
+let d = numberB++; // 1
 // сокращенные арифметические операции с присваиванием +, -, *, /
 
 // оператор запятая
