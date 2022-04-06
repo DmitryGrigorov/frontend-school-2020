@@ -78,10 +78,13 @@ switch (number)
 {
     case 0:
         alert("Вы ввели 0");
+        break;
     case 1:
         alert("Вы ввели 1");
+        break;
     case 2||3:
         alert("Вы ввели 2 или 3 хрен вас знает");
+        break;
 }
 /*
     5)
@@ -98,8 +101,12 @@ switch (number)
 function getBackgroundColor(theme) {
    return theme ==='light'? '#FFF' : '#000';
 }
+alert("Цвет:" + getBackgroundColor('light'));
 /**
  * 6) Напишите функцию pow(x,n), которая возвращает x в степени n
  */
+function pow(x,n){
+    return Math.pow(x,n);
+}
 
- 
+alert("X в этой степени: " + pow(+prompt("Введите X:"),+prompt("Введите степень: ")));
