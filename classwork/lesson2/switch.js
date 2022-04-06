@@ -1,5 +1,7 @@
 // Напишите if..else, соответствующий следующему switch:
 
+let browser = ''
+
 switch (browser) {
     case 'Edge':
       alert( "You've got the Edge!" );
