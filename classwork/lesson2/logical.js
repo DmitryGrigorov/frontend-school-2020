@@ -1,6 +1,6 @@
 // что выведет код
 alert( null || 2 || undefined );
-alert( 1 && null && 2 );
+alert( undefined && null && 2 );
 alert( null || 2 && 3 || 4 );
 
 
