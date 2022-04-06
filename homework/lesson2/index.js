@@ -37,20 +37,25 @@ if(login == "Admin")
 */
 // префиксный вариант ++i
 let i = 0;
-while (++i < 5) alert(i); //1 2 3 4 5
+while (++i < 5) alert(i); //1 2 3 4 
 
 // постфиксный вариант i++
 let j = 0;
-while (j++ < 5) alert(j); //0 1 2 3 4
+while (j++ < 5) alert(j); //1 2 3 4 5
 /*
     3)
     Перепишите код, заменив цикл for на while, без изменения поведения цикла.
 
-    for (let i = 0; i < 3; i++) {
-        alert( `number ${i}!` );
-    }
-*/
+   
 
+    
+*/
+for (let i = 0; i < 3; i++) {
+    alert( `FOR number ${i}!` );
+}
+
+let inc = -1;
+while(++inc < 3) alert(`WHILE number ${inc}`);
 /*
     4) Перепишите код с использованием одной конструкции switch:
 
